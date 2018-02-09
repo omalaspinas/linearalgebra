@@ -36,7 +36,7 @@ Les applications linéaires
 
 ### Inverse d'une application linéaire
 
-#### Inverisbilité
+#### Inversibilité
 
 #### Injectivité, surjectivité et inversibilité
 
