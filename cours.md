@@ -80,6 +80,24 @@ Cette définition de la somme se généralise très facilement à $n$ dimensions
 $$
 \begin{pmatrix}w_1 \\ \vdots \\ w_n \end{pmatrix}=\begin{pmatrix}u_1 \\ \vdots <\\ u_n \end{pmatrix}+\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ \vdots \\ u_n+v_n \end{pmatrix}.$$
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> u = [1.0, 2.0, 3.0]
+>>> v = [2.0, 3.0, 4.0]
+>>> w = [0.0, 0.0, 0.0]
+>>> for i in range(3): # loop based syntax for vector addition
+...     w[i]=a[i] + b[i]
+... 
+>>> w
+[3.0, 5.0, 7.0]
+>>> import numpy as np
+>>> u_np = np.array([1.0, 2.0, 3.0])
+>>> v_np = np.array([2.0, 3.0, 4.0])
+>>> w_np = u_np + v_np # numpy syntax for vector addition
+>>> w_np
+array([3., 5., 7.])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
 Remarque # 
 
 Il est important de noter que les dimensions de $\vec{u}$ et $\vec{v}$ doivent être les mêmes. Sinon la somme n'est pas définie. L'opération somme en $n$ dimension prend donc deux vecteurs de dimension $n$ et rend un vecteur de dimension $n$ également.
@@ -113,4 +131,24 @@ On voit donc que la longueur de $\vec{v}$ est modifiée d'un facteur $\lambda$: 
 
 Comme pour la somme la généralisation de la multiplication par un scalaire est triviale. En dimension $n$, pour $\lambda\in\real$ et $\vec{v}\in\real^n$ on a
 $$\vec{u}=\lambda\cdot\vec{v}=\begin{pmatrix}\lambda\cdot v_1 \\ \vdots \\ \lambda\cdot v_n \end{pmatrix}.$$
+
+En python, cette opération peut s'écrire à l'air d'une boucle, ou de façon beaucoup plus simple en utilisant la librairie NumPy.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> u = [1.0, 2.0, 3.0]
+>>> v = [0.0, 0.0, 0.0]
+>>> alpha = 1.5
+>>>  for i in range(3): # loop based syntax for scalar multiplication
+...     v[i] = u[i] * alpha
+... 
+>>> v
+[1.5, 3.0, 4.5]
+>>> import numpy as np
+>>> v_np = np.array([1, 2, 3])
+>>> alpha = 1.5
+>>> alpha * v_np  # numpy syntax for scalar multiplication
+array([1.5, 3. , 4.5])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
 
