@@ -224,6 +224,7 @@ $else$
 $endif$
 
 \newcommand{\real}{\mathbb{R}}
+\newcommand{\rational}{\mathbb{Q}}
 \newcommand{\integer}{\mathbb{Z}}
 \renewcommand{\natural}{\mathbb{N}}
 \newcommand{\complex}{\mathbb{C}}

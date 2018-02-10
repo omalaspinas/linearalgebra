@@ -151,3 +151,36 @@ array([1.5, 3. , 4.5])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
+## Les espaces vectoriels
+
+Soit un ensemble $K$ muni d'une "addition" et d'une "multiplication"[^1] (par exemple les nombre réel, $\real$, les rationnels, $\rational$, ...). Les éléments de $K$ sont appelés *scalaires*. Un espace vectoriel sur $K$ est un ensemble $E$, dont les éléments sont appelés vecteurs, qui est muni de deux lois:
+
+1. Une somme, notée $+$, qui est dite interne. C'est-à-dire que la somme de deux vecteurs de $E$ est aussi un vecteur de $E$
+$$+: E\times E\rightarrow E.$$
+2. La multiplication par un scalaire *à gauche*, qui est dite *externe*. C'est-à-dire que la multiplication à gauche associe à un scalaire dans $K$ et un vecteur dans $E$ un vecteur qui se trouve toujours dans $E$
+$$\cdot: K\times E\rightarrow E.$$
+
+Soit $\vec{u},\vec{v},\vec{w}\in E$, la somme possède les propriétés suivantes:
+
+1. Elle est *associative*
+$$(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w}).$$
+2. Elle est *commutative*
+$$\vec{u}+\vec{v}=\vec{v}+\vec{u}.$$
+3. Elle admet un *élément neutre*, noté $0$ (ou vecteur nul), tel que
+$$\vec{u}+0=\vec{u}.$$
+4. Tout vecteur $\vec{v}$ admet un *opposé*, noté $-\vec{v}$, tel que
+$$\vec{v}+(-\vec{v})=0.$$
+
+Soit $\lambda,\mu\in K$ et $\vec{u},\vec{v}\in E$, le produit satisfait les propriétés suivantes:
+
+1. Elle est *distributive à gauche* par rapport à la somme de $E$
+$$\lambda\cdot (\vec{u}+\vec{v}) = \lambda\vec{u}+\lambda\vec{v}.$$
+2. Elle est *distributive à droite* par rapport à la somme de $K$
+$$(\lambda+\mu)\cdot \vec{u} = \lambda\vec{u}+\mu\vec{u}.$$
+3. Elle vérifie *l'associativité mixte* par rapport à la multiplication de $K$
+$$(\lambda\cdot\mu)\cdot\vec{u}=\lambda\cdot(\mu\cdot\vec{u}).$$
+4. L'élément neutre de la multiplication de $K$, noté $1$, est neutre à gauche pour "$\cdot$"
+$$1\cdot \vec{u}=\vec{u}.$$
+
+
+[^1]: On dit que $K$ est un corps commutatif.
