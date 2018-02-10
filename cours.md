@@ -138,8 +138,8 @@ En python, cette opération peut s'écrire à l'air d'une boucle, ou de façon b
 >>> u = [1.0, 2.0, 3.0]
 >>> v = [0.0, 0.0, 0.0]
 >>> alpha = 1.5
->>>  for i in range(3): # loop based syntax for scalar multiplication
-...     v[i] = u[i] * alpha
+>>>  for i in range(3): # loop syntax for scalar multiplication
+...     v[i] = alpha * u[i]
 ... 
 >>> v
 [1.5, 3.0, 4.5]
@@ -149,6 +149,5 @@ En python, cette opération peut s'écrire à l'air d'une boucle, ou de façon b
 >>> alpha * v_np  # numpy syntax for scalar multiplication
 array([1.5, 3. , 4.5])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-
 
 
