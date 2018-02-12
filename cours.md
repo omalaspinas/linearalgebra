@@ -379,6 +379,76 @@ $$f:X\rightarrow Y.$$
 Ici $X$ est le *domaine de définition* de $f$ et $Y$ est le *domaine d'arrivée*. 
 Cette notation nous donne juste le domaine de définition et le domaine d'arrivée de $f$ mais ne nous dit pas quelle est la règle d'association entre les éléments de $X$ et les éléments de $Y$.
 
+Pour un exemple concret, on peut prendre 
+$$f:\real\rightarrow\real$$,
+où $f$ est définie par
+$$f:x\rightarrow x^2,\quad \mbox{ou}\quad f(x)=x^2.$$
 
+On a donc ici que $\real$ est le domaine de définition et d'arrivée de $f$. En revanche tout $\real$ n'est pas "couvert" par les éléments de $f(x)$. On appelle l'image de $f$ le sous-ensemble du domaine d'arrivée qui est effectivement atteint par $f(x)$. Dans le cas ci-dessus le carré d'un nombre ne peut être négatif, donc tous les réels ne peuvent pas être associés à la fonction $x^2$ et donc l'image de $f$ est un sous-ensemble de $f$. Ici, l'image de $f$ est $\real^+$ (les nombres réels $x\in\real$ tels que $x\geq 0$). 
+
+On a vu ici une fonction unidimensionnelle, mais le concept de fonction s'étend à n'importe quel ensemble. Dans ce qui va nous intéresser pour la suite, on va avoir des fonctions de $n$-uplets ou de vecteurs à $n$ dimensions. En fait de façon aussi générale que possible, on va associer un $n$-uplet à un $m$-uplet (ou un vecteur de dimension $n$ à un vecteur de dimension $m$)
+$$f:\real^n\rightarrow\real^m.$$
+
+Exemple #
+
+Une telle fonction peut être une translation horizontale en deux dimensions 
+$$
+\begin{aligned}
+&f:\real^2\rightarrow \real^2,\\
+&f:\vec x\rightarrow \vec x+\vectwo{2}{0}.
+\end{aligned}
+$$
+
+## Les fonctions linéaires
+
+On dit qu'une fonction, $f$, (ou application) est linéaire si pour $E$, $V$ des espaces vectoriels sur $V$ avec 
+$$
+f:E\rightarrow V.
+$$
+Et soient $\vec x, \vec y\in E$, et $\lambda\in K$, on a
+
+1. La fonction appliquées à $\vec x+\vec y$ est égal à la somme de $f$ appliqué à $\vec x$ avec  $f$ appliqué à $y$
+$$
+f(\vec x+\vec y)=f(\vec x)+f(\vec y).
+$$
+2. Le produit de $\lambda$ avec $f$ appliqué à $\vec x$ est égal à $f$ appliqué à $\lambda\cdot \vec x$
+$$
+\lambda\cdot f(\vec x)=f(\lambda\cdot \vec x).
+$$
+
+Exemple #
+
+Déterminer si la fonction 
+$$
+\begin{aligned}
+&f:\real^2\rightarrow \real^2,\\
+&f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1+x_2}{2\cdot x_1}.
+\end{aligned}
+$$
+est linéaire?
+
+Il faut vérifier les conditions 1 et 2 ci-dessus. Commençons par (1)
+$$
+f(\vec x+\vec y)=f\vectwo{x_1+y_1}{x_2+y_2}=\vectwo{x_1+y_1+x_2+y_2}{2\cdot(x_1+y_1)},
+$${#eq:tmp1}
+et 
+$$
+f(\vec x)+f(\vec y)=\vectwo{x_1+x_2}{2\cdot x_1}+\vectwo{y_1+y_2}{2\cdot y_1}=\vectwo{x_1+y_1+x_2+y_2}{2\cdot(x_1+y_1)}.
+$${#eq:tmp2}
+On voit que l'@eq:tmp1 et l'@eq:tmp2 sont égales et donc la fonction $f$ est linéaire.
+
+Exercice #
+
+Est-ce que la translation horizontale de $\vectwo{2}{0}$ est linéaire?
+$$
+\begin{aligned}
+&f:\real^2\rightarrow \real^2,\\
+&f:\vec{x_1}{x_2}\rightarrow \vectwo{x_1}{x_2}+\vectwo{2}{0}.
+\end{aligned}
+$$
+
+### Exemple de transformation linéaire sur un triangle
+
+En informatique, toutes
 
 [^1]: On dit que $K$ est un corps commutatif.
