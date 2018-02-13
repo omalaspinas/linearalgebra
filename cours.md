@@ -47,17 +47,29 @@ Le concept de vecteur peut donc se généraliser pour plus de dimensions. Une ve
 $$\vec{v}=\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix},$$
 avec $v_i\in\real,\ \forall i$. 
 
+---
+
 Remarque # 
 
 Ici un vecteur se représenter comme une liste de taille finie de nombres et la dimension du monde dans lequel vit se vecteur est la taille de la liste. Un vecteur de façon plus générale peut vivre dans un monde de dimension quelconque, y compris infinie.
+
+---
+
+---
 
 Remarque #
 
 Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en fait considérer n'importe quel ensemble $D\subseteq \real$ et construire des vecteur de dimension $n$ vivant dans $D^n$.
 
+---
+
+---
+
 Exemple #
 
 Un octet (une séquence de huit bits, comme son nom l'indique) constitue un vecteur qui vit dans $\{0,1\}^8$.
+
+---
 
 ## L'addition de vecteurs {#sec:addition_vec}
 
@@ -98,9 +110,14 @@ $$
 array([3., 5., 7.])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
+---
+
 Remarque # 
 
 Il est important de noter que les dimensions de $\vec{u}$ et $\vec{v}$ doivent être les mêmes. Sinon la somme n'est pas définie. L'opération somme en $n$ dimension prend donc deux vecteurs de dimension $n$ et rend un vecteur de dimension $n$ également.
+
+---
+---
 
 Exemple #
 
@@ -108,6 +125,8 @@ Pour en revenir à l'exemple des octets, il est un peu plus compliqué de défin
 
 Pour "sommer" deux octets, $\vec{u},\ \vec{v}\in\{0,1\}^8$ on peut donc définir la somme comme 
 $$\vec{u}\oplus\vec{v}=\begin{pmatrix}u_1\oplus v_1 \\ \vdots \\ u_8\oplus v_8 \end{pmatrix}.$$
+
+---
 
 ## Multiplication entre un vecteur et un scalaire {#sec:multiplication_vec}
 
@@ -304,9 +323,13 @@ $$
 $$
 6. L'espace des polynômes sur les réels.
 
+---
+
 Exercice #
 
 Montrer que les points 4, 5 et 6 ci-dessus sont bien des espaces vectoriels.
+
+---
 
 ### Combinaisons linéaires
 
@@ -317,6 +340,8 @@ Soient $\vec v_1, \vec v_2, ..., \vec v_n\in E$ et $\lambda_1,...,\lambda_n\in K
 $$\sum_{i=1}^n\lambda_i\cdot \vec v_i=\lambda_1\cdot \vec v_1+...+\lambda_n\cdot \vec v_n.$$
 
 A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?
+
+---
 
 Exercice #
 
@@ -332,6 +357,8 @@ Quel est l'espace généré par les combinaisons linéaires de $\vec v$?
 4. Considérons trois vecteurs $\vec v_1$, $\vec v_2$, et $\vec v_3$ donnés par
 $$\vec v_1=\vectwo{1}{2},\quad \vec v_2=\vectwo{2}{1},\quad \vec v_3=\vectwo{3}{4}.$$
 Quel est l'espace généré par les combinaisons linéaires de ces trois vecteurs?
+
+---
 
 ### Familles libres et liées
 
@@ -349,19 +376,28 @@ Inversement s'il n'existe pas de $\lambda_i$ non nul tel que
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
 alors les vecteurs sont indépendants.
 
+---
+
 Exercice #
 
 Déterminer si les vecteurs des familles de l'exercice précédent sont linéairement dépendants ou indépendants.
 
+---
+
 ### Base d'espace vectoriel
 
-Soit à présent un ensemble de vecteur $V=\{\vec v_i\}_{i=1}^n$ qui sont linéairement indépendants (c'est une famille libre) et l'ensemble $E$, un espace vectoriel, généré par toutes les combinaisons linéaires de $V$. Alors on dit que l'ensemble $V$ est une *base* de $E$. 
+Soit à présent un ensemble de vecteur $B=\{\vec b_i\}_{i=1}^n$ qui sont linéairement indépendants (c'est une famille libre) et l'ensemble $E$, un espace vectoriel, généré par toutes les combinaisons linéaires de $B$. Alors on dit que l'ensemble $B$ est une *base* de $E$. N'importe quel vecteur de $E$ peut être obtenu comme une combinaison linéaire des vecteurs de la base 
+$B$.
 
-En revanche, si $V$ est une famille liée (ses vecteurs sont linéairement dépendant) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
+En revanche, si $V=\{\vec v_i\}_{i=1}^n$$ est une famille liée (ses vecteurs sont linéairement dépendant) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
+
+---
 
 Exercice #
 
 Quelles familles de l'exercice 2 forment un base de l'espace généré par les familles?
+
+---
 
 De façon générale il n'existe pas une base unique d'un espace vectoriel. Dans l'espace $\real^2$, n'importe quelle paire de vecteurs linéairement indépendants forment une base. A contrario, on sait que n'importe quelle famille contenant au moins 3 vecteurs ne formeront pas une base de $\real^2$.
 
@@ -389,6 +425,8 @@ On a donc ici que $\real$ est le domaine de définition et d'arrivée de $f$. En
 On a vu ici une fonction unidimensionnelle, mais le concept de fonction s'étend à n'importe quel ensemble. Dans ce qui va nous intéresser pour la suite, on va avoir des fonctions de $n$-uplets ou de vecteurs à $n$ dimensions. En fait de façon aussi générale que possible, on va associer un $n$-uplet à un $m$-uplet (ou un vecteur de dimension $n$ à un vecteur de dimension $m$)
 $$f:\real^n\rightarrow\real^m.$$
 
+---
+
 Exemple #
 
 Une telle fonction peut être une translation horizontale en deux dimensions 
@@ -398,6 +436,8 @@ $$
 &f:\vec x\rightarrow \vec x+\vectwo{2}{0}.
 \end{aligned}
 $$
+
+---
 
 ## Les fonctions linéaires
 
@@ -415,6 +455,8 @@ $$
 $$
 \lambda\cdot f(\vec x)=f(\lambda\cdot \vec x).
 $$
+
+---
 
 Exemple #
 
@@ -437,18 +479,55 @@ f(\vec x)+f(\vec y)=\vectwo{x_1+x_2}{2\cdot x_1}+\vectwo{y_1+y_2}{2\cdot y_1}=\v
 $${#eq:tmp2}
 On voit que l'@eq:tmp1 et l'@eq:tmp2 sont égales et donc la fonction $f$ est linéaire.
 
+---
+
+---
+
 Exercice #
 
 Est-ce que la translation horizontale de $\vectwo{2}{0}$ est linéaire?
 $$
 \begin{aligned}
 &f:\real^2\rightarrow \real^2,\\
-&f:\vec{x_1}{x_2}\rightarrow \vectwo{x_1}{x_2}+\vectwo{2}{0}.
+&f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1}{x_2}+\vectwo{2}{0}.
 \end{aligned}
 $$
 
+---
+
 ### Exemple de transformation linéaire sur un triangle
 
-En informatique, toutes
+En informatique, une grande partie des applications 3D sont basées sur la manipulation de triangles (pour représenter des surfaces). 
+Définissons un triangle relie les trois points
+$$P_0=(0,0),\quad P_1=(1,0),\quad P_2=(0,1).$$
+Les positions $P_0$, $P_1$ et $P_2$ suffisent pour décrire le triangle. 
+Cependant afin de les dessiner, il peut être utile de connaître également
+les équations des segments reliant les points. Cela peut se faire via les vecteurs, $\vec x_0$, $\vec x_1$ et $\vec x_2$, reliant l'origine aux points $(voir la @fig:triangle)
+$$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}$$.
+
+![Les points $P_0$, $P_1$, et $P_2$. Les vecteurs $\vec x_1$ et $\vec x_2$.](figs/triangle.pdf){#fig:triangle width=30%}
+
+Les équations paramétriques des segments reliant les points peuvent s'écrire en 
+$$\begin{aligned}
+\vec s_0&=\lambda\cdot \vec x_1,\quad \lambda\in[0,1],\\
+\vec s_1&=\lambda\cdot \vec x_2,\quad \lambda\in[0,1],\\
+\vec s_2&=\lambda\cdot \vec x_1+(1-\lambda)\cdot \vec x_2+,\quad \lambda\in[0,1].
+\end{aligned}$$
+Le triangle peut donc s'écrire comme l'ensemble des trois segments
+$$t=\{s_0, s_1, s_2\}.$$
+
+![Les segments $s_0$, $s_1$, et $s_2$ relient les sommets des triangles. On peut exprimer leur équations paramétriques à l'aide des vecteurs $\vec x_1$, $\vec x_2$.](figs/triangle_seg.pdf){#fig:triangle_seg width=30%}
+
+Définissons à présent l'application suivante
+$$f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
+
+---
+
+Question # 
+
+Cette application est-elle linéaire?
+
+---
+
 
 [^1]: On dit que $K$ est un corps commutatif.
