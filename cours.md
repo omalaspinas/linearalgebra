@@ -577,7 +577,7 @@ Si nous reprenons l'exemple de notre triangle qui relie les points $P_0$, $P_1$,
 $$
 D:\vectwo{x_1}{x_2}\rightarrow  \vectwo{2\cdot x_1}{3\cdot x_2}.
 $$
-On va obtenir que les vecteurs $\vec x_i$ ($i=0,\dots,2$) seront transformés comme (voir la @fig:dilatation)
+On va obtenir que les vecteurs $\vec x_i$ ($i=0,\dots,2$) seront transformés comme (voir la @fig:triangle_dil)
 $$\begin{aligned}
 \vec x_0'&=D(\vec x_0)=\vec x_0,\\
 \vec x_1'&=D(\vec x_1)=\vectwo{2}{0},\\
@@ -591,7 +591,7 @@ $$\begin{aligned}
 \end{aligned}$$
 Un première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments bien que l'effet l'application linéaire soit très différentes.
 
-![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_rot width=30%}
+![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_dil width=30%}
 
 
 [^1]: On dit que $K$ est un corps commutatif.
