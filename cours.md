@@ -535,6 +535,17 @@ R(\vec x_0)&=\vec x_0'=\vectwo{0}{0},\\
 R(\vec x_1)&=\vec x_1'=\vectwo{0}{-1},\\
 R(\vec x_2)&=\vec x_2'=\vectwo{1}{0}.
 \end{aligned}$$
-On voit que 
+Comme on peut le voir sur la @fig:triangle_rot notre application linéaire $R$, effectue une rotation de $\pi/2$ dans le sens des aiguilles d'une montre. 
+
+Les équations du triangle peuvent être obtenu de deux façons différentes. Soit on refait le même raisonnement que précédemment
+et on a les trois segments, $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ qui sont donnés par
+$$\begin{aligned}
+\vec s_0'&=\lambda\cdot \vec x_1',\quad \lambda\in[0,1],\\
+\vec s_1'&=\lambda\cdot \vec x_2',\quad \lambda\in[0,1],\\
+\vec s_2'&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2'+,\quad \lambda\in[0,1].
+\end{aligned}$$
+Soit on peut appliquer $R$ à $\vec s_0$, $\vec s_1$, et $\vec s_2$. Commençons par le calcul de $R(\vec s_0)$
+$$\begin{aligned}$
+\vec s_0'&=R(\vec s_0)=R(\lambda\cdot \vec x_1)=\lambda\cdot R(\vec x_1)=\lambda \vec x_1'.
 
 [^1]: On dit que $K$ est un corps commutatif.
