@@ -495,7 +495,7 @@ $$
 
 ---
 
-### Exemple de transformation linéaire sur un triangle
+### Exemple de transformation linéaire sur un triangle: la rotation
 
 En informatique, une grande partie des applications 3D sont basées sur la manipulation de triangles (pour représenter des surfaces). 
 Définissons un triangle relie les trois points
@@ -503,20 +503,20 @@ $$P_0=(0,0),\quad P_1=(1,0),\quad P_2=(0,1).$$
 Les positions $P_0$, $P_1$ et $P_2$ suffisent pour décrire le triangle. 
 Cependant afin de les dessiner, il peut être utile de connaître également
 les équations des segments reliant les points. Cela peut se faire via les vecteurs, $\vec x_0$, $\vec x_1$ et $\vec x_2$, reliant l'origine aux points $(voir la @fig:triangle)
-$$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}$$.
+$$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}.$$
 
 ![Les points $P_0$, $P_1$, et $P_2$. Les vecteurs $\vec x_1$ et $\vec x_2$.](figs/triangle.pdf){#fig:triangle width=30%}
 
 Les équations paramétriques des segments reliant les points peuvent s'écrire en 
 $$\begin{aligned}
-\vec s_0&=\lambda\cdot \vec x_1,\quad \lambda\in[0,1],\\
-\vec s_1&=\lambda\cdot \vec x_2,\quad \lambda\in[0,1],\\
-\vec s_2&=\lambda\cdot \vec x_1+(1-\lambda)\cdot \vec x_2+,\quad \lambda\in[0,1].
+\vec s_0&=\lambda\cdot \vec x_1,\quad &\lambda\in[0,1],\\
+\vec s_1&=\lambda\cdot \vec x_2,\quad &\lambda\in[0,1],\\
+\vec s_2&=\lambda\cdot \vec x_1+(1-\lambda)\cdot \vec x_2,\quad &\lambda\in[0,1].
 \end{aligned}$$
-Le triangle peut donc s'écrire comme l'ensemble des trois segments
-$$t=\{s_0, s_1, s_2\}.$$
+Ces trois vecteurs sont des *combinaisons linéaires* des vecteurs $\vec x_1$ et $\vec x_2$. Finalement, le triangle peut donc s'écrire comme l'ensemble des trois segments
+$$\triangle=\{\vec s_0, \vec s_1, \vec s_2\}.$$
 
-![Les segments $s_0$, $s_1$, et $s_2$ relient les sommets des triangles. On peut exprimer leur équations paramétriques à l'aide des vecteurs $\vec x_1$, $\vec x_2$.](figs/triangle_seg.pdf){#fig:triangle_seg width=30%}
+![Les segments $\vec s_0$, $\vec s_1$, et $\vec s_2$ relient les sommets des triangles. On peut exprimer leur équations paramétriques à l'aide des vecteurs $\vec x_1$, $\vec x_2$.](figs/triangle_seg.pdf){#fig:triangle_seg width=30%}
 
 Définissons à présent l'application suivante
 $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
@@ -534,18 +534,64 @@ $$\begin{aligned}
 R(\vec x_0)&=\vec x_0'=\vectwo{0}{0},\\
 R(\vec x_1)&=\vec x_1'=\vectwo{0}{-1},\\
 R(\vec x_2)&=\vec x_2'=\vectwo{1}{0}.
-\end{aligned}$$
+\end{aligned}$${#eq:segments}
 Comme on peut le voir sur la @fig:triangle_rot notre application linéaire $R$, effectue une rotation de $\pi/2$ dans le sens des aiguilles d'une montre. 
 
-Les équations du triangle peuvent être obtenu de deux façons différentes. Soit on refait le même raisonnement que précédemment
-et on a les trois segments, $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ qui sont donnés par
+![Après application de la fonction linéaire $R$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_rot.pdf){#fig:triangle_rot width=30%}
+
+Les équations du triangle peuvent être obtenu de deux façons différentes. On veut calculer
+$$\triangle'=\{\vec s_0',\vec s_1',\vec s_2'\}.$$
+Soit on part des $\vec x_i'$ et on refait le même raisonnement que précédemment
+pour relier les sommets des vecteurs et on obtient, $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ qui sont donnés par
 $$\begin{aligned}
-\vec s_0'&=\lambda\cdot \vec x_1',\quad \lambda\in[0,1],\\
-\vec s_1'&=\lambda\cdot \vec x_2',\quad \lambda\in[0,1],\\
-\vec s_2'&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2'+,\quad \lambda\in[0,1].
+\vec s_0'&=\lambda\cdot \vec x_1',\quad &\lambda\in[0,1],\\
+\vec s_1'&=\lambda\cdot \vec x_2',\quad &\lambda\in[0,1],\\
+\vec s_2'&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2',\quad &\lambda\in[0,1].
 \end{aligned}$$
 Soit on peut appliquer $R$ à $\vec s_0$, $\vec s_1$, et $\vec s_2$. Commençons par le calcul de $R(\vec s_0)$
-$$\begin{aligned}$
-\vec s_0'&=R(\vec s_0)=R(\lambda\cdot \vec x_1)=\lambda\cdot R(\vec x_1)=\lambda \vec x_1'.
+$$
+\vec s_0=R(\vec s_0)=R(\lambda\cdot \vec x_1)=\lambda\cdot R(\vec x_1)=\lambda \vec x_1',
+$$
+où à la deuxième égalité on a utilisé la propriété (2) de l'application linéaire. De même on peut écrire $\vec s_1'$
+$$
+\vec s_1'=R(\vec s_1)=R(\lambda\cdot \vec x_2)=\lambda\cdot R(\vec x_2)=\lambda \vec x_2'.
+$$
+Pour le cas de $\vec s_2'$, les choses sont un tout petit peu plus compliquées
+$$\begin{aligned}
+\vec s_2'&=R(\vec s_2)=R(\lambda\cdot \vec x_1+(1-\lambda)\cdot \vec x_2)
+=\lambda\cdot R(\vec x_1)+(1-\lambda)\cdot R(\vec x_2)\\
+&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2',
+\end{aligned}$$
+où cette fois nous avons utilisé les propriétés (1) et (2) de l'application linéaire.
+
+On voit qu'on a donc deux méthodes équivalentes pour calculer les segments constituant un traingle. Soit on calcule la rotation des segments en leur appliquant 
+la rotation $R$, soit on effectue la rotation des vecteurs $\vec x_i$ et on calcule les segments à partir des $\vec x_i$ tournés. 
+
+On constate également que cette application linéaire garde intacte la structure de notre triangle: les droites restent des droites et elles restent conectées entre elles. Cette propriété est générale pour toutes les applications linéaires. Les droites restent des droites, et la structure des objet reste la même. 
+
+Ici nous avons considéré une rotation qui est une application linéaire spéciale. Sous rotation les longueur et les angles d'un objet restent les mêmes. 
+
+### Exemple de transformation linéaire sur un triangle: la dilatation
+
+Si nous reprenons l'exemple de notre triangle qui relie les points $P_0$, $P_1$, et $P_2$ et que nous appliquons cette fois l'application linéaire $D$ définie par
+$$
+D:\vectwo{x_1}{x_2}\rightarrow  \vectwo{2\cdot x_1}{3\cdot x_2}.
+$$
+On va obtenir que les vecteurs $\vec x_i$ ($i=0,\dots,2$) seront transformés comme (voir la @fig:dilatation)
+$$\begin{aligned}
+\vec x_0'&=D(\vec x_0)=\vec x_0,\\
+\vec x_1'&=D(\vec x_1)=\vectwo{2}{0},\\
+\vec x_2'&=D(\vec x_2)=\vectwo{0}{3}.
+\end{aligned}$$
+Les segments seront donc simplement obtenus par $\triangle'=D(\triangle)$
+$$\begin{aligned}
+\vec s_0'&=\lambda\cdot \vec x_1',\quad &\lambda\in[0,1],\\
+\vec s_1'&=\lambda\cdot \vec x_2',\quad &\lambda\in[0,1],\\
+\vec s_2'&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2',\quad &\lambda\in[0,1].
+\end{aligned}$$
+Un première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments bien que l'effet l'application linéaire soit très différentes.
+
+![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_rot width=30%}
+
 
 [^1]: On dit que $K$ est un corps commutatif.
