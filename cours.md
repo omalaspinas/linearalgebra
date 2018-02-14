@@ -519,7 +519,7 @@ $$t=\{s_0, s_1, s_2\}.$$
 ![Les segments $s_0$, $s_1$, et $s_2$ relient les sommets des triangles. On peut exprimer leur équations paramétriques à l'aide des vecteurs $\vec x_1$, $\vec x_2$.](figs/triangle_seg.pdf){#fig:triangle_seg width=30%}
 
 Définissons à présent l'application suivante
-$$f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
+$$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
 
 ---
 
@@ -529,5 +529,12 @@ Cette application est-elle linéaire?
 
 ---
 
+L'effet de notre notre application $R$ sur les trois vecteurs $\vec x_i$ est la suivante
+$$\begin{aligned}
+R(\vec x_0)&=\vec x_0'=\vectwo{0}{0},\\
+R(\vec x_1)&=\vec x_1'=\vectwo{0}{-1},\\
+R(\vec x_2)&=\vec x_2'=\vectwo{1}{0}.
+\end{aligned}$$
+On voit que 
 
 [^1]: On dit que $K$ est un corps commutatif.
