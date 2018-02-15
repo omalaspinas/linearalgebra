@@ -5,6 +5,7 @@ matrix:
           language: r
           pandoc_version: 2.1
           install:
+              - apt-get install cabal
               - pip install --user pandocfilters pandoc-numbering
               - cabal update
               - cabal install pandoc-crossref
