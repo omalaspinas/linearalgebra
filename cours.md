@@ -780,7 +780,9 @@ $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
 En fait cette application peut s'écrire comme un produit de matrice avec un vecteur
 $$R:\vectwo{x_1}{x_2}\rightarrow \mat{R}\vec x,$$
 où
-$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix},$$
+$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$$
+On peut donc écrire
+$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
 
 
 
