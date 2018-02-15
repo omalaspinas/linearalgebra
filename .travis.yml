@@ -4,19 +4,13 @@ matrix:
           sudo: false
           language: r
           pandoc_version: 2.1
-          before_install:
+          addons:
             apt:
               packages:
-                - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french cabal  
+                - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french cabal
           install:
               - pip install --user pandocfilters pandoc-numbering
-              - cabal update
-              - cabal install pandoc-crossref
-          addons:
-          
-          cache:apt:
-            packages:
-              - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french cabal
+          cache:
           - packages
           - pip
 script:
