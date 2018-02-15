@@ -631,6 +631,8 @@ Contrairement aux applications linéaires, on voit que les applications non-lin�
 
 ## Les applications linéaires comme un produit matrice-vecteur
 
+Dans cette section, nous allons montrer qu'une application linéaire peut s'écrire sous la forme du produit entre une matrice et un vecteur.
+
 ### Introduction aux matrices
 
 Une matrice est un tableau de nombres à double entrée qui de façon générale a un nombre $m$ de lignes et $n$ de colonnes.
@@ -677,7 +679,7 @@ ou encore
 $$\{\mat{A}\}_{12}=a_{12}=2.$$ 
 
 En fait il se trouve que l'espace des matrices, de taille $m\times n$, à coefficients réels est un espace vectoriel[^3] dans $\real$, muni de la somme et de la multiplication 
-par un scalaire qui est "la même" que pour les vecteurs.
+par un scalaire qui est "la même" que pour les vecteurs. Cette propriété a pour effet que la somme de deux matrices sera toujours une matrice et que la multiplication par un scalaire d'une matrice sera toujours une matrice. Voyons à présent comment on définit ces deux opérations.
 
 ### La somme de matrices
 
@@ -768,6 +770,17 @@ En Python ce produit peut se faire en parcourant les indices dans deux boucles o
 matrix([[2, 4, 6],
         [4, 6, 8]])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+### Le produit matrice-vecteur
+
+### Le produit matrice-vecteur dans le cas de la rotation
+
+L'application linéaire pour la rotation bidimensionnelle de $\pi/2$ dans le sens des aiguilles d'une montre est définie comme
+$$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
+En fait cette application 
+
+
+
 
 
 [^1]: On dit que $K$ est un corps commutatif.
