@@ -9,6 +9,8 @@ matrix:
               packages:
                 - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french cabal-install
           install:
+              - cabal update
+              - cabal install pandoc-crossref
               - pip install --user pandocfilters pandoc-numbering
           cache:
           - packages
