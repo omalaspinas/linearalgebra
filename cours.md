@@ -686,6 +686,8 @@ avec l'élément correspondant de la matrice $\mat{B}$
 $$
 \{\mat{A}+\mat{B}\}_{ij}=a_{ij}+b_{ij}.
 $$
+Remarque +.#
+
 Il faut noter que pour que cette opération soit bien définie la taille de la matrice $\mat{A}$ et de la matrice $\mat{B}$ doivent être la même.
 
 ---
@@ -722,6 +724,49 @@ En Python la somme peut se faire en parcourant les indices dans deux boucles ou 
 >>> A+B
 matrix([[0, 4, 4],
         [1, 4, 1]])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+### La multiplication avec un scalaire d'une matrice
+
+Soit $\mat{A}$ une matrices à coefficients réels et $\lambda\real$. On a que l'opération "$\cdot$" avec un scalaire est simplement le produit de chaque élément de la matrice $\mat{A}$
+avec $\lambda$
+$$
+\{\lambda\cdot\mat{A}\}_{ij}=\lambda\cdot a_{ij}.
+$$
+
+---
+
+Exemple (Produit de matrice avec un scalaire) +.#
+
+Le produit de la matrice $\mat{A}$ donnée par
+$$
+\begin{aligned}
+\mat{A}&=\begin{pmatrix}  1 & 2 & 3 \\  2 & 3 & 4 \end{pmatrix},
+\end{aligned}
+$$ 
+et $\lambda=2$ est donné par 
+$$\lambda\cdot\mat{A}=\begin{pmatrix} 2 & 4 & 6 \\ 2 & 6 & 8 \end{pmatrix}.$$
+
+---
+
+En Python ce produit peut se faire en parcourant les indices dans deux boucles ou à l'aide de la librairie NumPy
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> A=[[ 1, 2, 3], [ 2, 3,  4]]
+>>> C=[[0,0,0],[0,0,0]]
+>>> alpha = 2;
+>>> for i in range(2):
+...     for j in range(3):
+...             C[i][j]=alpha*A[i][j]
+... 
+>>> C
+[[2, 4, 6], [4, 6, 8]]
+>>> import numpy as np
+>>> A=np.matrix([[ 1, 2, 3], [ 2, 3,  4]])
+>>> alpha = 2
+>>> alpha * A
+matrix([[2, 4, 6],
+        [4, 6, 8]])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
