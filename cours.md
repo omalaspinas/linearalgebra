@@ -49,7 +49,7 @@ avec $v_i\in\real,\ \forall i$.
 
 ---
 
-Remarque # 
+Remarque +.# 
 
 Ici un vecteur se représenter comme une liste de taille finie de nombres et la dimension du monde dans lequel vit se vecteur est la taille de la liste. Un vecteur de façon plus générale peut vivre dans un monde de dimension quelconque, y compris infinie.
 
@@ -57,7 +57,7 @@ Ici un vecteur se représenter comme une liste de taille finie de nombres et la 
 
 ---
 
-Remarque #
+Remarque +.#
 
 Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en fait considérer n'importe quel ensemble $D\subseteq \real$ et construire des vecteur de dimension $n$ vivant dans $D^n$.
 
@@ -65,7 +65,7 @@ Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en 
 
 ---
 
-Exemple #
+Exemple +.#
 
 Un octet (une séquence de huit bits, comme son nom l'indique) constitue un vecteur qui vit dans $\{0,1\}^8$.
 
@@ -112,14 +112,14 @@ array([3., 5., 7.])
 
 ---
 
-Remarque # 
+Remarque +.# 
 
 Il est important de noter que les dimensions de $\vec{u}$ et $\vec{v}$ doivent être les mêmes. Sinon la somme n'est pas définie. L'opération somme en $n$ dimension prend donc deux vecteurs de dimension $n$ et rend un vecteur de dimension $n$ également.
 
 ---
 ---
 
-Exemple #
+Exemple +.#
 
 Pour en revenir à l'exemple des octets, il est un peu plus compliqué de définir la somme. En effet, la somme entre des bits peut avoir différentes définitions. Une possibilité est de définir la somme comme le XOR, $\oplus$. 
 
@@ -325,7 +325,7 @@ $$
 
 ---
 
-Exercice #
+Exercice +.#
 
 Montrer que les points 4, 5 et 6 ci-dessus sont bien des espaces vectoriels.
 
@@ -343,7 +343,7 @@ A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur ré
 
 ---
 
-Exercice #
+Exercice +.#
 
 1. Considérons deux vecteurs $\vec v_1$, $\vec v_2$ donnés par
 $$\vec v_1=\vectwo{1}{2},\quad \vec v_2=\vectwo{2}{1}.$$
@@ -378,7 +378,7 @@ alors les vecteurs sont indépendants.
 
 ---
 
-Exercice #
+Exercice +.#
 
 Déterminer si les vecteurs des familles de l'exercice précédent sont linéairement dépendants ou indépendants.
 
@@ -393,7 +393,7 @@ En revanche, si $V=\{\vec v_i\}_{i=1}^n$$ est une famille liée (ses vecteurs so
 
 ---
 
-Exercice #
+Exercice +.#
 
 Quelles familles de l'exercice 2 forment un base de l'espace généré par les familles?
 
@@ -427,7 +427,7 @@ $$f:\real^n\rightarrow\real^m.$$
 
 ---
 
-Exemple #
+Exemple (Translation) +.#
 
 Une telle fonction peut être une translation horizontale en deux dimensions 
 $$
@@ -458,7 +458,7 @@ $$
 
 ---
 
-Exemple #
+Exemple +.#
 
 Déterminer si la fonction 
 $$
@@ -483,7 +483,7 @@ On voit que l'@eq:tmp1 et l'@eq:tmp2 sont égales et donc la fonction $f$ est li
 
 ---
 
-Exercice #
+Exercice (Translation) +.#exercise:translation
 
 Est-ce que la translation horizontale de $\vectwo{2}{0}$ est linéaire?
 $$
@@ -523,7 +523,7 @@ $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
 
 ---
 
-Question # 
+Question +.# 
 
 Cette application est-elle linéaire?
 
@@ -593,5 +593,137 @@ Un première chose à réaliser est que ces équations ont la même structure qu
 
 ![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_dil width=30%}
 
+Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ d'un facteur deux et d'un facteur trois respectivement. En revanche, 
+la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segment de droite
+en une autre figure géométrique: ils sont restés des segments de droites.
+
+### Exemple de transformation non-linéaire
+
+Nous avons déjà vu (voir @exercise:translation) que la translation n'est pas une application linéaire. 
+Considérons à présent une autre application non-linéaire, $g$, définie comme
+$$g:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1^2}{x_2^2}.$$
+L'effet de $g$ sur les vecteurs $\vec x_i$ est le suivant
+$$\begin{aligned}
+\vec x_0'=g(\vec x_0)=\vec x_0,\\
+\vec x_1'=g(\vec x_1)=\vec x_1,\\
+\vec x_2'=g(\vec x_2)=\vec x_2.
+\end{aligned}$$
+L'effet sur les segment en revanche est très différent
+$$\begin{aligned}
+\vec s_0'=g(\vec s_0)=\lambda^2\vec x_1,\\
+\vec s_1'=g(\vec s_1)=\lambda^2\vec x_2,\\
+\vec s_2'=g(\vec s_2)=\lambda^2\vec x_1+(1-\lambda)^2\vec x_2.
+\end{aligned}$$
+On voit donc que comme prévu on a que 
+$$\begin{aligned}
+\vec s_0'\neq \lambda\vec x_1,\\
+\vec s_1'\neq \lambda\vec x_2,\\
+\vec s_2'\neq \lambda\vec x_1+(1-\lambda)\vec x_2,
+\end{aligned}$$
+comme cela serait le cas pour une application linéaire.
+
+L'effet de cette application non-linéaire peut se voir sur la @fig:triangle_non_lin. On voit que les deux segments
+alignés avec les axes principaux restent des droites. En revanche l'hypoténuse du triangle n'est plus une droite mais un bout de parabole.
+Contrairement aux applications linéaires, on voit que les applications non-linéaires peuvent transformer les droites en d'autres figures géométriques.
+
+![L'effet de l'application non-linéaire $g$ sur le triangle constitué des points $P_0,P_1,P_2$.](figs/triangle_non_lin.pdf){#fig:triangle_non_lin width=30%}
+
+
+## Les applications linéaires comme un produit matrice-vecteur
+
+### Introduction aux matrices
+
+Une matrice est un tableau de nombres à double entrée qui de façon générale a un nombre $m$ de lignes et $n$ de colonnes.
+Par exemple la matrice $\mat{A}$[^2] suivante est de taille $2\times 3$
+$$\mat{A}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \end{pmatrix},$${#eq:mat_23}
+elle possède deux lignes et trois colonnes.
+Une matrice, $\mat{A}$ de taille $\m\times n$, se note
+$$\mat{A}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & a_{1n} \\ 
+                          a_{21} & a_{22}  & \cdots & a_{2n} \\ 
+                          \vdots & \vdots  & \ddots & \vdots \\ 
+                          a_{m1} & a_{m2}  & \cdots & a_{mn} \end{pmatrix},$$
+où les $a_{ij}$ sont les indice de la matrices $\mat{A}$, avec $i=1..m$ et $j=1..n$.
+
+Si $m=1$, alors la matrice n'est rien d'autre qu'un vecteur *ligne*
+$$\mat{A}=\begin{pmatrix} a_{1} & a_{2}  & \cdots & a_{n} \end{pmatrix}.$$
+Alors que si $n=1$, alors la matrice est un vecteur *colonne*
+$$\mat{A}=\begin{pmatrix} a_{1}  \\
+                          a_{2}  \\
+                          \vdots \\ 
+                          a_m      \end{pmatrix}.$$
+
+
+On peut aussi voir une matrice $m\times n$ comme un vecteur "ligne" à $n$ composantes de vecteurs "colonne"
+$$\mat{A}=\begin{pmatrix} \vec a_{1} & \vec a_{2}  & \cdots & \vec a_{n} \end{pmatrix},$$
+où tous les $\vec a_i$ ont une longueur $m$. C'est souvent la structure de donnée utilisée en informatique.
+En python on écrirait une matrice $2\times 3$ comme ci-dessous.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> [[1, 2, 3], [2, 3, 4]] # a list of list
+[[1, 2, 3], [2, 3, 4]]
+>>> import numpy as np
+>>> np.matrix([[1, 2, 3], [2, 3, 4]]) # the matrix structure un numpy
+matrix([[1, 2, 3],
+        [2, 3, 4]])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+On constate que la convention utilisée par NumPy est que nous construisons une matrice
+comme un vecteur "colonne" de taille $n$, composé de $m$ vecteurs "ligne".
+
+Afin d'accéder à l'élément $i,j$ de la matrice, on peut utiliser la notation $\{\mat{A}\}_{ij}=a_{ij}$.
+Dans le cas de la matrice de l'@eq:mat_23, l'élément $A_{12}$ est en rouge ci-dessous 
+$$\mat{A}=\begin{pmatrix} 1 & \textcolor{red}{2} & 3 \\ 2 & 3 & 4 \end{pmatrix},$$ 
+ou encore
+$$\{A\}_{12}=a_{12}=2.$$ 
+
+En fait il se trouve que l'espace des matrices, de taille $m\times n$, à coefficients réels est un espace vectoriel[^3] dans $\real$, muni de la somme et de la multiplication 
+par un scalaire qui est "la même" que pour les vecteurs.
+
+### La somme de matrices
+
+Soient $\mat{A}$ et $\mat{B}$ deux matrices à coefficients réels. On a que l'opération "+" est simplement la somme de chaque élément de la matrice $\mat{A}$
+avec l'élément correspondant de la matrice $\mat{B}$
+$$
+\{\mat{A}+\mat{B}\}_{ij}=a_{ij}+b_{ij}.
+$$
+Il faut noter que pour que cette opération soit bien définie la taille de la matrice $\mat{A}$ et de la matrice $\mat{B}$ doivent être la même.
+
+---
+
+Exemple (Somme de matrices) +.#
+
+La somme des matrices $\mat{A}$ et $\mat{B}$ données par
+$$
+\begin{aligned}
+\mat{A}&=\begin{pmatrix}  1 & 2 & 3 \\  2 & 3 & 4 \end{pmatrix},
+\mat{B}&=\begin{pmatrix} -1 & 2 & 1 \\ -1 & 1 & -3 \end{pmatrix},
+\end{aligned}
+$$ 
+est donnée par
+$$\mat{A}+\mat{B}=\begin{pmatrix} 0 & 4 & 4 \\ 1 & 4 & 1 \end{pmatrix}.$$
+
+---
+
+En Python la somme peut se faire en parcourant les indices dans deux boucles ou à l'aide de la librairie NumPy
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> A=[[ 1, 2, 3], [ 2, 3,  4]]
+>>> B=[[-1, 2, 1], [-1, 1, -3]]
+>>> C=[[0,0,0],[0,0,0]]
+>>> for i in range(2):
+...     for j in range(3):
+...             C[i][j]=A[i][j]+B[i][j]
+... 
+>>> C
+[[0, 4, 4], [1, 4, 1]]
+>>> import numpy as np
+>>> A=np.matrix([[ 1, 2, 3], [ 2, 3,  4]])
+>>> b=np.matrix([[-1, 2, 1], [-1, 1, -3]])
+>>> A+B
+matrix([[0, 4, 4],
+        [1, 4, 1]])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
 
 [^1]: On dit que $K$ est un corps commutatif.
+[^2]: Une autre notation est $\bm{A}$.

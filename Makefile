@@ -1,12 +1,14 @@
+NAME=cours
+
 default:
-	pandoc -s -o cours.pdf cours.md --highlight-style kate --filter=pandoc-numbering --number-sections --filter=$(PANDOC_CROSSREF)pandoc-crossref --template=./default.latex --pdf-engine pdflatex
+	pandoc -s -o $(NAME).pdf $(NAME).md --highlight-style kate --filter=pandoc-numbering --number-sections --filter=$(PANDOC_CROSSREF)pandoc-crossref --template=./default.latex --pdf-engine pdflatex
 
 latex:
-	pandoc -s -smart -o cours.tex cours.md --filter=pandoc-numbering --filter=$(PANDOC_CROSSREF)pandoc-crossref  --template=./default.latex
+	pandoc -s -smart -o $(NAME).tex $(NAME).md --filter=pandoc-numbering --filter=$(PANDOC_CROSSREF)pandoc-crossref  --template=./default.latex
 
 epub:
-	pandoc -s -smart -o cours.epub cours.md --filter=pandoc-numbering  --filter=$(PANDOC_CROSSREF)pandoc-crossref  --template=./default.latex -t epub3
+	pandoc -s -smart -o $(NAME).epub $(NAME).md --filter=pandoc-numbering  --filter=$(PANDOC_CROSSREF)pandoc-crossref  --template=./default.latex -t epub3
 
 html:
-	pandoc -s -o cours.html cours.md --filter=pandoc-numbering --filter=$(PANDOC_CROSSREF)pandoc-crossref --pdf-engine pdflatex --mathml
+	pandoc -s -o $(NAME).html $(NAME).md --filter=pandoc-numbering --filter=$(PANDOC_CROSSREF)pandoc-crossref --pdf-engine pdflatex --mathml
 
