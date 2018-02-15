@@ -674,7 +674,7 @@ Afin d'accéder à l'élément $i,j$ de la matrice, on peut utiliser la notation
 Dans le cas de la matrice de l'@eq:mat_23, l'élément $A_{12}$ est en rouge ci-dessous 
 $$\mat{A}=\begin{pmatrix} 1 & \textcolor{red}{2} & 3 \\ 2 & 3 & 4 \end{pmatrix},$$ 
 ou encore
-$$\{A\}_{12}=a_{12}=2.$$ 
+$$\{\mat{A}\}_{12}=a_{12}=2.$$ 
 
 En fait il se trouve que l'espace des matrices, de taille $m\times n$, à coefficients réels est un espace vectoriel[^3] dans $\real$, muni de la somme et de la multiplication 
 par un scalaire qui est "la même" que pour les vecteurs.
