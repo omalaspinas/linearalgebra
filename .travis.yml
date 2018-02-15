@@ -1,0 +1,26 @@
+matrix:
+    include:
+        - os: linux
+          sudo: false
+          language: r
+          pandoc_version: 2.0
+          install:
+              - pip install --user pandocfilters pandoc-numbering
+              - tlmgr install latexmk physics cancel fourier utopia
+          addons:
+          apt:
+            packages:
+              - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
+          cache:
+          - packages
+          - pip
+script:
+    - make 
+# deploy:
+#   provider: releases
+#   api_key: "$GH_TOKEN"
+#   file:
+#     - "cours.pdf"
+#   skip_cleanup: true
+#   on:
+#     tags: true
