@@ -6,6 +6,8 @@ matrix:
           pandoc_version: 2.1
           install:
               - pip install --user pandocfilters pandoc-numbering
+              - cabal update
+              - cabal install pandoc-crossref
           addons:
           apt:
             packages:
