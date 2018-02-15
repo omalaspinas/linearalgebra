@@ -7,7 +7,7 @@ matrix:
           addons:
             apt:
               packages:
-                - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french cabal
+                - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
           install:
               - pip install --user pandocfilters pandoc-numbering
           cache:
