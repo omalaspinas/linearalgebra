@@ -3,10 +3,9 @@ matrix:
         - os: linux
           sudo: false
           language: r
-          pandoc_version: 2.0
+          pandoc_version: 2.1
           install:
               - pip install --user pandocfilters pandoc-numbering
-              - tlmgr install latexmk physics cancel fourier utopia
           addons:
           apt:
             packages:
