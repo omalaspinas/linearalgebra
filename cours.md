@@ -777,7 +777,10 @@ matrix([[2, 4, 6],
 
 L'application linéaire pour la rotation bidimensionnelle de $\pi/2$ dans le sens des aiguilles d'une montre est définie comme
 $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
-En fait cette application 
+En fait cette application peut s'écrire comme un produit de matrice avec un vecteur
+$$R:\vectwo{x_1}{x_2}\rightarrow \mat{R}\vec x,$$
+où
+$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix},$$
 
 
 
