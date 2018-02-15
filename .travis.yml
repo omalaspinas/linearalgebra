@@ -7,7 +7,7 @@ matrix:
           addons:
             apt:
               packages:
-                - texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french cabal-install ghc
+                - texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french cabal-install ghc haskell-platform
           install:
               - cabal update
               - cabal install pandoc-crossref
