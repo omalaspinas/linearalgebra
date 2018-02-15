@@ -1,21 +1,13 @@
-matrix:
-    include:
-        - os: linux
-          sudo: required
-          dist: trusty
-          language: python
-          before_install:
-              - sudo apt-get -qq update
-          addons:
-            apt:
-              packages:
-              - texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french cabal-install ghc haskell-platform
-          install:
-              - cabal update
-              - cabal install pandoc pandoc-crossref
-              - pip install -U pip pandocfilters
-          cache:
-          - pip
+sudo: required
+dist: trusty
+before_install:
+    - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
+install:
+    - cabal update
+    - cabal install pandoc pandoc-crossref
+    - pip install -U pip pandocfilters
+cache:
+    - pip
 
         # - os: linux
         #   sudo: false
