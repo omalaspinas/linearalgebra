@@ -16,7 +16,7 @@ install:
     # - export PANDOC_CROSSREF=$CABALDIR/bin/
     # - export PATH=$PATH:$CABALDIR/bin
     # - ls $CABALDIR/bin
-    - sudo pip install -U pip pandocfilters  pandoc-numbering
+    - sudo pip install -U pip panflute pandocfilters  pandoc-numbering
 cache:
     - pip
 script:
