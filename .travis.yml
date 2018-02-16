@@ -1,29 +1,13 @@
-sudo: false
+sudo: required
 dist: trusty
 before_install:
-    - apt-get -qq update && apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
+    - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
 install:
     - cabal update
     - cabal install pandoc pandoc-crossref
     - pip install -U pip pandocfilters  pandoc-numbering
 cache:
     - pip
-
-        # - os: linux
-        #   sudo: false
-        #   language: r
-        #   pandoc_version: 2.1
-        #   addons:
-        #     apt:
-        #       packages:
-        #         - texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french cabal-install ghc haskell-platform
-        #   install:
-        #       - cabal update
-        #       - cabal install pandoc-crossref
-        #       - pip install --user pandocfilters pandoc-numbering
-        #   cache:
-        #   - packages
-        #   - pip
 script:
     - make 
 # deploy:
