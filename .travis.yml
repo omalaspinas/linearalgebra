@@ -12,6 +12,9 @@ addons:
 install:
     - cabal update
     - cabal install pandoc pandoc-crossref
+    - export CABALDIR=.cabal
+    - export PANDOC_CROSSREF=$CABALDIR/bin/
+    - export PATH=$PATH:$CABALDIR/bin
     - sudo pip install -U pip pandocfilters  pandoc-numbering
 cache:
     - pip
