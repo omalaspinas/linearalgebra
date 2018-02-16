@@ -10,6 +10,7 @@ addons:
     # - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
 install:
     - cabal update
+    - cabal install cabal cabal-install
     - cabal install pandoc pandoc-crossref
     - pip install -U pip pandocfilters  pandoc-numbering
 cache:
