@@ -2,11 +2,11 @@ sudo: false
 os: linux
 language: haskell
 before_install:
-  - sudo apt-get -qq update
+  - sudo apt-get -qq update && sudo apt-get dist-upgrade
 addons:
   apt:
     packages:
-      - texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french
+      - texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french pandoc
 # before_install:
     # - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
 install:
