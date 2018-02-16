@@ -12,7 +12,7 @@ addons:
 install:
     - cabal update
     - cabal install pandoc pandoc-crossref
-    - pip install -U pip pandocfilters  pandoc-numbering
+    - sudo pip install -U pip pandocfilters  pandoc-numbering
 cache:
     - pip
 script:
