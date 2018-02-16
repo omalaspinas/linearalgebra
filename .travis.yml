@@ -11,15 +11,12 @@ addons:
     # - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
 install:
     - cabal update
-    - cabal install pandoc pandoc-crossref
-    - export CABALDIR=.cabal
-    - export PANDOC_CROSSREF=$CABALDIR/bin/
-    - export PATH=$PATH:$CABALDIR/bin
+    - cabal install pandoc-crossref
     - sudo pip install -U pip pandocfilters  pandoc-numbering
 cache:
     - pip
 script:
-    - make 
+    - make travis
 # deploy:
 #   provider: releases
 #   api_key: "$GH_TOKEN"
