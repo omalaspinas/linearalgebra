@@ -2,33 +2,31 @@ sudo: false
 os: linux
 language: haskell
 before_install:
-  - sudo apt-get -qq update && sudo apt-get install
+- sudo apt-get -qq update && sudo apt-get install
 addons:
   apt:
     packages:
-      -  texlive-latex-recommended lmodern texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
-# before_install:
-    # - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
+    - texlive-latex-recommended lmodern texlive-fonts-recommended texlive-latex-extra
+      texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
 install:
-    - wget https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb
-    - sudo dpkg -i pandoc-2.0.6-1-amd64.deb
-    - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.1/linux-ghc80-pandoc20.tar.gz
-    - mkdir pandoc-crossref
-    - cd pandoc-crossref
-    - mv ../linux-ghc80-pandoc20.tar.gz .
-    - tar xzvf linux-ghc80-pandoc20.tar.gz
-    - cd ..
-    - export PATH=`pwd`/pandoc-crossref:$PATH
-    - sudo pip install -U pip panflute pandocfilters  pandoc-numbering
+- wget https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb
+- sudo dpkg -i pandoc-2.0.6-1-amd64.deb
+- wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.1/linux-ghc80-pandoc20.tar.gz
+- mkdir pandoc-crossref
+- cd pandoc-crossref
+- mv ../linux-ghc80-pandoc20.tar.gz .
+- tar xzvf linux-ghc80-pandoc20.tar.gz
+- cd ..
+- export PATH=`pwd`/pandoc-crossref:$PATH
+- sudo pip install -U pip panflute pandocfilters  pandoc-numbering
 cache:
-    - pip
+- pip
 script:
-    - make travis
-# deploy:
-#   provider: releases
-#   api_key: "$GH_TOKEN"
-#   file:
-#     - "cours.pdf"
-#   skip_cleanup: true
-#   on:
-#     tags: true
+- make
+deploy:
+  provider: releases
+  api_key:
+    secure: jYv4XUgC9UqXdK0kdAoRy5dt6FBHb/627kAGITO0e/4brOHXc+Tfb1zf6NZlcIATM1HXhXo9/l+LSq4Lo0p5lVel6HNjCcCFqmhMe599akamZSUgXbbaFjtzVIMYNSi1C8t4oAD3i6IOqFYd0NQeIKmC2Phhl/nIYvEZzK+wpYeHG5R1BtmuN6ZD8eHLHc/55YfRtG5ANav6HM3YsejifFgUNbqN1zbL3N3zDxcYIVkGZMK3s52pgAmFycGr7JrE4IirqrxfTu34xZpaPEL9gwqY68n+atUZfmIs9H+7n1DpsH+qxgP0cyboFktkGaddoKwSlZzrcGX8FQRUOWNWip3QdCUdmSUR7KZ12ZbQu+fAJut25HuKgKGRmW1Q8r2Eu0vD2ZQJ8EAcWv25XW37+DSyNekP1RYZ9edtju8hoxoOUrc+Ne6QSnBHQHzRJOo3cbAH2wcwLrzU4DRBf69fvHbtZIvMmmUkHbrB5HLt1yjeqgO/gGUDprBfRDkduWBASpHUVTN4jE9usxK43lnwjELN9A/DsDvo52lGoQBcX0qPByNktz9plqoquel4Yp/4+nayQxHtHBgw2hHQCdwCvRJfsd+8axGpA/s0W6yGyqF+2i9bvBRJv3D4IidLsjNWmsrlrQS/9zsst9ZC8MeAfsumYaZs+v4Lh4fizv6rI+w=
+  file: cours.pdf
+  on:
+    repo: mathintro/linearalgebra
