@@ -2,7 +2,7 @@ sudo: false
 os: linux
 language: haskell
 before_install:
-  - sudo apt-get -qq update
+  - sudo apt-get -qq update && sudo apt-get install pandoc
 addons:
   apt:
     packages:
