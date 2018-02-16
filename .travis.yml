@@ -6,7 +6,7 @@ before_install:
 addons:
   apt:
     packages:
-      - texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french
+      -  texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
 # before_install:
     # - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-french ghc haskell-platform
 install:
