@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mathintro/linearalgebra.svg?branch=master)](https://travis-ci.org/mathintro/linearalgebra)
+
 # Cours d'algèbre linéaire ITI (1ère année)
 
 Ce projet contient la tentative de polycopié du cours de Mathématiques pour la filière ITI de hepia.
