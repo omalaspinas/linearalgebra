@@ -747,7 +747,7 @@ $$
 \end{aligned}
 $$ 
 et $\lambda=2$ est donné par 
-$$\lambda\cdot\mat{A}=\begin{pmatrix} 2 & 4 & 6 \\ 2 & 6 & 8 \end{pmatrix}.$$
+$$\lambda\cdot\mat{A}=\begin{pmatrix} 2 & 4 & 6 \\ 4 & 6 & 8 \end{pmatrix}.$$
 
 ---
 
