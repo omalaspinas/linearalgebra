@@ -784,7 +784,7 @@ $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$$
 On peut donc écrire
 $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
 
-#Remerciements
+# Remerciements
 
 Je voudrais remercier (par ordre alphabétique) l'étudiants du cours qui ont contribué à améliorer ce polycopié. Merci à M. Chételat.
 
