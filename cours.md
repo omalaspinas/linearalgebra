@@ -773,6 +773,39 @@ matrix([[2, 4, 6],
 
 ### Le produit matrice-vecteur
 
+Après avoir défini le produit d'une matrice avec un scalaire et l'addition de matrice. Il peut être très pratique de disposer d'un produit entre une matrice et un vecteur.
+
+Soient une matrice, $\mat{A}$, de taille $m\times n$ et un vecteur, $\vec v$, de taille $n$. Le produit de la matrice et du vecteur, qui aura comme résultat un vecteur de taille $m$, et sera noté $\vec u = \mat{A}\cdot \vec v$, se définit comme
+$$
+\{\mat{A}\cdot \vec v\}_i=u_i=\sum_{k=1}^n a_ij\cdot v_j=a_{i1}\cdot a_1+\dots+a_{in}\cdot a_n,\mbox{ avec } i=1,...,m.
+$${#eq:mat_vec}
+On constate d'après cette définition qu'il est très important que le nombre de colonnes du vecteur soit le même que le nombre de lignes du vecteur, sinon ce produit est mal défini.
+
+Exemple (Matrice identité) +.#
+
+Soit la matrice $\mat{I}$, qui est une matrice $2\times 2$, qui est définie par
+$$
+\mat{I}=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
+$$
+On définit également un vecteur $\vec v\in\real^2$ 
+$$\vec v=\vectwo{v_1}{v_2}.$$
+Calculer le produit $\mat{I}\cdot \vec v$.
+
+Solution (Matrice identité) +.#
+
+En utilisant la définition de l'@eq:mat_vec, on a que
+$$
+\{\mat{I}\cdot \vec v}_i=\sum_{i=1}^2 i_{ij}\cdot v_j,
+$$
+ou réécrit par composante
+$$
+\begin{aligned}
+&i=1:\quad \{\mat{I}\cdot \vec v}_1=\sum_{i=1}^2 i_{1j}\cdot v_j=i_{11}\cdot v_1+i_{12}\cdot v_2=v_1,\\
+&i=2:\quad \{\mat{I}\cdot \vec v}_2=\sum_{i=1}^2 i_{2j}\cdot v_j=i_{21}\cdot v_1+i_{22}\cdot v_2=v_2.
+\end{aligned}
+$$
+
+
 ### Le produit matrice-vecteur dans le cas de la rotation
 
 L'application linéaire pour la rotation bidimensionnelle de $\pi/2$ dans le sens des aiguilles d'une montre est définie comme
@@ -784,9 +817,11 @@ $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$$
 On peut donc écrire
 $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
 
+
+
 # Remerciements
 
-Je voudrais remercier (par ordre alphabétique) l'étudiants du cours qui ont contribué à améliorer ce polycopié. Merci à M. Chételat.
+Je voudrais remercier l’étudiant du cours qui a contribué à améliorer ce polycopié. Merci à M. Chételat.
 
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\bm{A}$.
