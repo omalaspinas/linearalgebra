@@ -51,7 +51,7 @@ avec $v_i\in\real,\ \forall i$.
 
 Remarque +.# 
 
-Ici un vecteur se représenter comme une liste de taille finie de nombres et la dimension du monde dans lequel vit se vecteur est la taille de la liste. Un vecteur de façon plus générale peut vivre dans un monde de dimension quelconque, y compris infinie.
+Ici un vecteur se représente comme une liste de taille finie de nombres et la dimension du monde dans lequel vit se vecteur est la taille de la liste. Un vecteur de façon plus générale peut vivre dans un monde de dimension quelconque, y compris infinie.
 
 ---
 
@@ -59,7 +59,7 @@ Ici un vecteur se représenter comme une liste de taille finie de nombres et la 
 
 Remarque +.#
 
-Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en fait considérer n'importe quel ensemble $D\subseteq \real$ et construire des vecteur de dimension $n$ vivant dans $D^n$.
+Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en fait considérer n'importe quel ensemble $D\subseteq \real$ et construire des vecteurs de dimension $n$ vivant dans $D^n$.
 
 ---
 
