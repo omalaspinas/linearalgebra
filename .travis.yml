@@ -21,6 +21,7 @@ cache:
 - pip
 script:
 - make
+- make -C exercices
 deploy:
   provider: releases
   api_key:
