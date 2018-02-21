@@ -503,7 +503,7 @@ $$P_0=(0,0),\quad P_1=(1,0),\quad P_2=(0,1).$$
 Les positions $P_0$, $P_1$ et $P_2$ suffisent pour décrire le triangle. 
 Cependant afin de les dessiner, il peut être utile de connaître également
 les équations des segments reliant les points. Cela peut se faire via les vecteurs, $\vec x_0$, $\vec x_1$ et $\vec x_2$, reliant l'origine aux points $(voir la @fig:triangle)
-$$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}.$$
+$$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}.$${#eq:vec_rot}
 
 ![Les points $P_0$, $P_1$, et $P_2$. Les vecteurs $\vec x_1$ et $\vec x_2$.](figs/triangle.pdf){#fig:triangle width=30%}
 
@@ -636,6 +636,10 @@ Dans cette section, nous allons montrer qu'une application linéaire peut s'écr
 ### Introduction aux matrices
 
 Une matrice est un tableau de nombres à double entrée qui de façon générale a un nombre $m$ de lignes et $n$ de colonnes.
+On note l'espace des matrices de taille $m\times n$ à coefficient réels
+$$
+M_{m,n}(\real)[^3].
+$$
 Par exemple la matrice $\mat{A}$[^2] suivante est de taille $2\times 3$
 $$\mat{A}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \end{pmatrix},$${#eq:mat_23}
 elle possède deux lignes et trois colonnes.
@@ -756,7 +760,7 @@ En Python ce produit peut se faire en parcourant les indices dans deux boucles o
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
 >>> A=[[ 1, 2, 3], [ 2, 3,  4]]
 >>> C=[[0,0,0],[0,0,0]]
->>> alpha = 2;
+>>> alpha = 2
 >>> for i in range(2):
 ...     for j in range(3):
 ...             C[i][j]=alpha*A[i][j]
@@ -808,6 +812,25 @@ $$
 Grâce à cet exemple on se rend compte que la matrice identité est l'élément neutre pour le produit matrice-vecteur: elle laisse 
 le vecteur inchangé.
 
+Le produit matrice-vecteur s'écrit en Python
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> A=[[ 1, 2, 3], [ 2, 3,  4]]
+>>> x=[-1,1,-1]
+>>> b=[0,0]
+>>> for i in range(2):
+...     for j in range(3):
+...             b[i] += A[i][j]*x[j]
+... 
+>>> b
+[-2, -3]
+>>> import numpy as np
+>>> A=np.matrix(A)
+>>> x=np.array(x)
+>>> A.dot(x)
+matrix([[-2, -3]])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
 ---
 
 Remarque  +.#
@@ -816,19 +839,43 @@ Le produit d'une matrice avec un vecteur n'est pas commutatif.
 
 ---
 
+Le produit d'une matrice avec un vecteur est une application linéaire. On peut montrer que si $\mat{A}\in M_{m,n}(\real)$ est une matrice à coefficients réels de dimension $m\times n$, $\lambda\in\real$ un scalaire, et $\vec u\vec v\in \real^n$ deux vecteurs colonnes de taille $n$, alors 
+$$
+\begin{aligned}
+&\mat{M}\cdot(\vec u + \vec v)= \mat{M}\cdot \vec u+\mat{M}\vec v,\\
+\lambda\cdot \mat{M}\vec u= \mat{M}\cdot (\lambda\cdot \vec u).
+\end{aligned}
+$$
+
+---
+
+Exerice +.#
+
+Démontrer que le produit matrice vecteur est une application linéaire.
+
+---
 
 ### Le produit matrice-vecteur dans le cas de la rotation
 
 L'application linéaire pour la rotation bidimensionnelle de $\pi/2$ dans le sens des aiguilles d'une montre est définie comme
 $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
 En fait cette application peut s'écrire comme un produit de matrice avec un vecteur
-$$R:\vectwo{x_1}{x_2}\rightarrow \mat{R}\vec x,$$
+$$R:\vectwo{x_1}{x_2}\rightarrow \mat{R}\cdot \vec x,$$
 où
 $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$$
 On peut donc écrire
-$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
+$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\cdot \vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
 
-
+Nous pouvons à présent calculer la rotation des trois vecteurs 
+que nous avions défini à l'@eq:vec_rot
+$$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}.\nonumber$$
+On a donc 
+$$\begin{aligned}
+\vec x_0'=\mat{R}\cdot\vec x_0=\vectwo{0}{0},\\
+\vec x_1'=\mat{R}\cdot\vec x_1=\vectwo{0}{-1},\\
+\vec x_2'=\mat{R}\cdot\vec x_2=\vectwo{1}{0}.
+\end{aligned}\nonumber$$
+Qui est exactement le même résultat que ce qu'on avait obtenu dans l'@eq:segments.
 
 # Remerciements
 
@@ -836,3 +883,4 @@ Je voudrais remercier l’étudiant du cours qui a contribué à améliorer ce p
 
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\bm{A}$.
+[^3]: On peut remplacer $\real$ par un autre ensemble, comme $\natural$, $\rational$, ou encore $\complex$.
