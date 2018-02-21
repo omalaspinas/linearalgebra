@@ -692,6 +692,7 @@ avec l'élément correspondant de la matrice $\mat{B}$
 $$
 \{\mat{A}+\mat{B}\}_{ij}=a_{ij}+b_{ij}.
 $$
+
 Remarque +.#
 
 Il faut noter que pour que cette opération soit bien définie la taille de la matrice $\mat{A}$ et de la matrice $\mat{B}$ doivent être la même.
