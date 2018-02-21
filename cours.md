@@ -51,7 +51,7 @@ avec $v_i\in\real,\ \forall i$.
 
 Remarque +.# 
 
-Ici un vecteur se représenter comme une liste de taille finie de nombres et la dimension du monde dans lequel vit se vecteur est la taille de la liste. Un vecteur de façon plus générale peut vivre dans un monde de dimension quelconque, y compris infinie.
+Ici un vecteur se représente comme une liste de taille finie de nombres et la dimension du monde dans lequel vit se vecteur est la taille de la liste. Un vecteur de façon plus générale peut vivre dans un monde de dimension quelconque, y compris infinie.
 
 ---
 
@@ -59,7 +59,7 @@ Ici un vecteur se représenter comme une liste de taille finie de nombres et la 
 
 Remarque +.#
 
-Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en fait considérer n'importe quel ensemble $D\subseteq \real$ et construire des vecteur de dimension $n$ vivant dans $D^n$.
+Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en fait considérer n'importe quel ensemble $D\subseteq \real$ et construire des vecteurs de dimension $n$ vivant dans $D^n$.
 
 ---
 
@@ -747,7 +747,7 @@ $$
 \end{aligned}
 $$ 
 et $\lambda=2$ est donné par 
-$$\lambda\cdot\mat{A}=\begin{pmatrix} 2 & 4 & 6 \\ 2 & 6 & 8 \end{pmatrix}.$$
+$$\lambda\cdot\mat{A}=\begin{pmatrix} 2 & 4 & 6 \\ 4 & 6 & 8 \end{pmatrix}.$$
 
 ---
 
@@ -784,9 +784,9 @@ $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$$
 On peut donc écrire
 $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
 
+# Remerciements
 
-
-
+Je voudrais remercier (par ordre alphabétique) l'étudiants du cours qui ont contribué à améliorer ce polycopié. Merci à M. Chételat.
 
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\bm{A}$.
