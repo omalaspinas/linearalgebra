@@ -808,6 +808,14 @@ $$
 Grâce à cet exemple on se rend compte que la matrice identité est l'élément neutre pour le produit matrice-vecteur: elle laisse 
 le vecteur inchangé.
 
+---
+
+Remarque  +.#
+
+Le produit d'une matrice avec un vecteur n'est pas commutatif.
+
+---
+
 
 ### Le produit matrice-vecteur dans le cas de la rotation
 
