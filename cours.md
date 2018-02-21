@@ -795,15 +795,18 @@ Solution (Matrice identité) +.#
 
 En utilisant la définition de l'@eq:mat_vec, on a que
 $$
-\{\mat{I}\cdot \vec v}_i=\sum_{i=1}^2 i_{ij}\cdot v_j,
+\{\mat{I}\cdot \vec v\}_i=\sum_{i=1}^2 i_{ij}\cdot v_j,
 $$
 ou réécrit par composante
 $$
 \begin{aligned}
-&i=1:\quad \{\mat{I}\cdot \vec v}_1=\sum_{i=1}^2 i_{1j}\cdot v_j=i_{11}\cdot v_1+i_{12}\cdot v_2=v_1,\\
-&i=2:\quad \{\mat{I}\cdot \vec v}_2=\sum_{i=1}^2 i_{2j}\cdot v_j=i_{21}\cdot v_1+i_{22}\cdot v_2=v_2.
+&i=1:\quad \{\mat{I}\cdot \vec v\}_1=\sum_{i=1}^2 i_{1j}\cdot v_j=i_{11}\cdot v_1+i_{12}\cdot v_2=v_1,\\
+&i=2:\quad \{\mat{I}\cdot \vec v\}_2=\sum_{i=1}^2 i_{2j}\cdot v_j=i_{21}\cdot v_1+i_{22}\cdot v_2=v_2.
 \end{aligned}
 $$
+
+Grâce à cet exemple on se rend compte que la matrice identité est l'élément neutre pour le produit matrice-vecteur: elle laisse 
+le vecteur inchangé.
 
 
 ### Le produit matrice-vecteur dans le cas de la rotation
