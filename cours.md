@@ -185,7 +185,7 @@ $$
 2. La somme est *commutative*
 $$\vec{v}+\vec{u}=\vec{u}+\vec{v},$$
 soit en composantes
-$$\begin{pmatrix}v_1+u_1 \\ v_2+u_2 \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ v_2+v_2 \end{pmatrix}.
+$$\begin{pmatrix}v_1+u_1 \\ v_2+u_2 \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ u_2+v_2 \end{pmatrix}.
 $$
 3. La somme possède un *élément neutre*, noté $\vec{0}$ et définit par
 $$\vec{0}=\begin{pmatrix}0 \\ 0 \end{pmatrix}.$$
