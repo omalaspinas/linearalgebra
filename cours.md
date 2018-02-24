@@ -880,7 +880,7 @@ Qui est exactement le même résultat que ce qu'on avait obtenu dans l'@eq:segme
 
 # Remerciements
 
-Je voudrais remercier l’étudiant du cours qui a contribué à améliorer ce polycopié. Merci à M. Chételat.
+Je voudrais remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach et J. Chételat.
 
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\bm{A}$.
