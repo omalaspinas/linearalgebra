@@ -594,8 +594,8 @@ Un première chose à réaliser est que ces équations ont la même structure qu
 
 ![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_dil width=30%}
 
-Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ d'un facteur deux et d'un facteur trois respectivement. En revanche, 
-la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segment de droite
+Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ sont d'un facteur deux et d'un facteur trois respectivement. En revanche,
+la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segments de droites
 en une autre figure géométrique: ils sont restés des segments de droites.
 
 ### Exemple de transformation non-linéaire
