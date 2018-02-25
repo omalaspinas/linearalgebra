@@ -565,7 +565,7 @@ $$\begin{aligned}
 \end{aligned}$$
 où cette fois nous avons utilisé les propriétés (1) et (2) de l'application linéaire.
 
-On voit qu'on a donc deux méthodes équivalentes pour calculer les segments constituant un traingle. Soit on calcule la rotation des segments en leur appliquant 
+On voit qu'on a donc deux méthodes équivalentes pour calculer les segments constituant un triangle. Soit on calcule la rotation des segments en leur appliquant 
 la rotation $R$, soit on effectue la rotation des vecteurs $\vec x_i$ et on calcule les segments à partir des $\vec x_i$ tournés. 
 
 On constate également que cette application linéaire garde intacte la structure de notre triangle: les droites restent des droites et elles restent conectées entre elles. Cette propriété est générale pour toutes les applications linéaires. Les droites restent des droites, et la structure des objet reste la même. 
