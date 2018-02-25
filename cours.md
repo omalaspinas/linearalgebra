@@ -590,7 +590,7 @@ $$\begin{aligned}
 \vec s_1'&=\lambda\cdot \vec x_2',\quad &\lambda\in[0,1],\\
 \vec s_2'&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2',\quad &\lambda\in[0,1].
 \end{aligned}$$
-Un première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments bien que l'effet l'application linéaire soit très différentes.
+Un première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments bien que l'effet l'application linéaire soit très différente.
 
 ![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_dil width=30%}
 
