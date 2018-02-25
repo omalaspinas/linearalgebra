@@ -468,7 +468,7 @@ $$
 &f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1+x_2}{2\cdot x_1}.
 \end{aligned}
 $$
-est linéaire?
+est linéaire.
 
 Il faut vérifier les conditions 1 et 2 ci-dessus. Commençons par (1)
 $$
