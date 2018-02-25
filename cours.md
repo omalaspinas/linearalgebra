@@ -172,7 +172,7 @@ array([1.5, 3. , 4.5])
 
 ## Les espaces vectoriels
 
-Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et les scalaires réels, $\lambda\in\real$, dotés de la somme de la @sec:addition_vec et la multiplication @sec:multiplication_vec forme un espace qui a un certain nombre de propriétés.
+Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et les scalaires réels, $\lambda\in\real$, dotés de la somme (@sec:addition_vec) et la multiplication (@sec:multiplication_vec) forme un espace qui a un certain nombre de propriétés.
 
 ### Propriétés de la somme 
 
