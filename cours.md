@@ -339,7 +339,7 @@ Soit un espace vectoriel $E$ sur $K$, muni des opérations "$+$"" et "$\cdot$".
 Soient $\vec v_1, \vec v_2, ..., \vec v_n\in E$ et $\lambda_1,...,\lambda_n\in K$, une combinaison linéaire de $\vec v_1,...,\vec v_n$
 $$\sum_{i=1}^n\lambda_i\cdot \vec v_i=\lambda_1\cdot \vec v_1+...+\lambda_n\cdot \vec v_n.$$
 
-A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?
+A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?).
 
 ---
 
