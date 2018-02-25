@@ -542,7 +542,7 @@ Comme on peut le voir sur la @fig:triangle_rot notre application linéaire $R$, 
 
 Les équations du triangle peuvent être obtenu de deux façons différentes. On veut calculer
 $$\triangle'=\{\vec s_0',\vec s_1',\vec s_2'\}.$$
-Soit on part des $\vec x_i'$ et on refait le même raisonnement que précédemmen§t
+Soit on part des $\vec x_i'$ et on refait le même raisonnement que précédemment
 pour relier les sommets des vecteurs et on obtient, $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ qui sont donnés par
 $$\begin{aligned}
 \vec s_0'&=\lambda\cdot \vec x_1',\quad &\lambda\in[0,1],\\
