@@ -736,7 +736,7 @@ matrix([[0, 4, 4],
 
 ### La multiplication avec un scalaire d'une matrice
 
-Soit $\mat{A}$ une matrices à coefficients réels et $\lambda\real$. On a que l'opération "$\cdot$" avec un scalaire est simplement le produit de chaque élément de la matrice $\mat{A}$
+Soit $\mat{A}$ une matrice à coefficients réels et $\lambda\real$. On a que l'opération "$\cdot$" avec un scalaire est simplement le produit de chaque élément de la matrice $\mat{A}$
 avec $\lambda$
 $$
 \{\lambda\cdot\mat{A}\}_{ij}=\lambda\cdot a_{ij}.
