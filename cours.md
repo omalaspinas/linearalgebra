@@ -570,7 +570,7 @@ la rotation $R$, soit on effectue la rotation des vecteurs $\vec x_i$ et on calc
 
 On constate également que cette application linéaire garde intacte la structure de notre triangle: les droites restent des droites et elles restent conectées entre elles. Cette propriété est générale pour toutes les applications linéaires. Les droites restent des droites, et la structure des objet reste la même. 
 
-Ici nous avons considéré une rotation qui est une application linéaire spéciale. Sous rotation les longueur et les angles d'un objet restent les mêmes. 
+Ici nous avons considéré une rotation qui est une application linéaire spéciale. Sous rotation les longueurs et les angles d'un objet restent les mêmes. 
 
 ### Exemple de transformation linéaire sur un triangle: la dilatation
 
