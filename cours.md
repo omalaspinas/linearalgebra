@@ -366,7 +366,7 @@ Dans les cas 1 et 3, on dit que la famille de vecteurs est *libre*. En d'autres 
 
 A l'inverse 2 et 4, sont des familles liées: on peut obtenir au moins un des vecteurs de la famille par combinaison linéaire des vecteurs de la famille. Ils sont *linéairement dépendants*.
 
-En notation mathématique, si on considère un ensemble $\{\vec v_i\}_{i=1}^n\in E$ et $\{\lambda_i\}_{i=1}^n\in K$ ($E$ est un espace vectoriel sur $K$). Alors on dit que les vecteurs $\vec v_i$ sont *linéairement dépendants* si et seulement si
+En notation mathématique, si on considère un ensemble $\{\vec v_i\}_{i=1}^n\in E$ et $\{\lambda_i\}_{i=1}^n\in K$ ($E$ est un espace vectoriel sur $K$), alors on dit que les vecteurs $\vec v_i$ sont *linéairement dépendants* si et seulement si
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
 avec au moins un $\lambda_i\neq 0$. On peut réécrire cette condition comme
 $$\vec v_n=\sum_{i=1}^{n-1}\mu_i \vec v_i,$$
