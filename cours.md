@@ -333,7 +333,7 @@ Montrer que les points 4, 5 et 6 ci-dessus sont bien des espaces vectoriels.
 
 ### Combinaisons linéaires
 
-Une des raisons pour laquelle, nous définissons les espaces vectoriels est la possibilité d'effectuer des combinaisons linéaires dans ces espaces. 
+Une des raisons pour laquelle nous définissons les espaces vectoriels est la possibilité d'effectuer des combinaisons linéaires dans ces espaces.
 
 Soit un espace vectoriel $E$ sur $K$, muni des opérations "$+$"" et "$\cdot$". 
 Soient $\vec v_1, \vec v_2, ..., \vec v_n\in E$ et $\lambda_1,...,\lambda_n\in K$, une combinaison linéaire de $\vec v_1,...,\vec v_n$
