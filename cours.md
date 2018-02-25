@@ -307,7 +307,7 @@ Avec cette définition, on voit que les $n$-uplets dotés des opérations d'addi
 
 ### Exemples d'espace vectoriel
 
-Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidiennement sans savoir que s'en est un. Nous allons en voir un certain nombre.
+Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidiennement sans savoir que c'en est un. Nous allons en voir un certain nombre.
 
 1. L'espace des réels est un espace vectoriel sur les réels.
 2. L'espace des entiers est un espace vectoriel sur les entiers.
