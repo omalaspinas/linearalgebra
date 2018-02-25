@@ -649,7 +649,7 @@ $$\mat{A}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & a_{1n} \\
                           a_{21} & a_{22}  & \cdots & a_{2n} \\ 
                           \vdots & \vdots  & \ddots & \vdots \\ 
                           a_{m1} & a_{m2}  & \cdots & a_{mn} \end{pmatrix},$$
-où les $a_{ij}$ sont les indice de la matrices $\mat{A}$, avec $i=1..m$ et $j=1..n$.
+où les $a_{ij}$ sont les indices de la matrice $\mat{A}$, avec $i=1..m$ et $j=1..n$.
 
 Si $m=1$, alors la matrice n'est rien d'autre qu'un vecteur *ligne*
 $$\mat{A}=\begin{pmatrix} a_{1} & a_{2}  & \cdots & a_{n} \end{pmatrix}.$$
