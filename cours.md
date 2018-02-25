@@ -374,7 +374,8 @@ où au moins un des $\mu_i\neq 0$.
 
 Inversement s'il n'existe pas de $\lambda_i$ non nul tel que 
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
-alors les vecteurs sont indépendants.
+alors les vecteurs sont indépendants (*linéairement indépendants*).
+
 
 ---
 
