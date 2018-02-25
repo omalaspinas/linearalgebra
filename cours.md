@@ -4,7 +4,7 @@ author:
 title: MATH1 pour Technologies de l'Information
 autoSectionLabels: false
 autoEqnLabels: true
-eqnPrefix: 
+eqnPrefix:
   - "éq."
   - "éqs."
 chapters: true
@@ -18,11 +18,11 @@ cref: false
 urlcolor: blue
 ---
 
-# Rappel sur les espaces vectoriels 
+# Rappel sur les espaces vectoriels
 
 ## Les vecteurs
 
-Si nous nous plaçons sur une carte à un endroit donné (appelé l'origine) et que nous prenons notre notre voiture pour nous déplacer, notre destination ne peut être uniquement décrite si nous ne connaissons que la distance parcourue (voir par exemple la carte @fig:depl_vec). En d'autres termes pour notre carte, nous savons que nous irons à la campagne, mais pas si nous allons à Lausanne ou dans le Jura). Un déplacement n'est donc pas uniquement déterminé par le point d'origine et un scalaire. Il est nécessaire d'avoir une information supplémentaire. Dans le cas de la @fig:depl_vec le déplacement est décrit uniquement par la flèche, ou *vecteur*, qui a une longueur (la distance parcourue) et une direction (la direction de la flèche). 
+Si nous nous plaçons sur une carte à un endroit donné (appelé l'origine) et que nous prenons notre voiture pour nous déplacer, notre destination ne peut être uniquement décrite si nous ne connaissons que la distance parcourue (voir par exemple la carte @fig:depl_vec). En d'autres termes pour notre carte, nous savons que nous irons à la campagne, mais pas si nous allons à Lausanne ou dans le Jura). Un déplacement n'est donc pas uniquement déterminé par le point d'origine et un scalaire. Il est nécessaire d'avoir une information supplémentaire. Dans le cas de la @fig:depl_vec le déplacement est décrit uniquement par la flèche, ou *vecteur*, qui a une longueur (la distance parcourue) et une direction (la direction de la flèche).
 
 ![L'ensemble des destinations possibles si nous n'avions que le point de départ et la distance parcourue comme information (cercle noir), la position finale avec la distance et la direction de déplacement (Lausanne).](figs/deplacement_vecteur.pdf){#fig:depl_vec width=30%}
 
@@ -45,11 +45,11 @@ Peu importe la base que nous utilisons, un vecteur dans le plan à deux dimensio
 
 Le concept de vecteur peut donc se généraliser pour plus de dimensions. Une vecteur dans un espace qui a $n$ dimensions, $\vec{v}\in\real^n$, s'écrira
 $$\vec{v}=\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix},$$
-avec $v_i\in\real,\ \forall i$. 
+avec $v_i\in\real,\ \forall i$.
 
 ---
 
-Remarque +.# 
+Remarque +.#
 
 Ici un vecteur se représente comme une liste de taille finie de nombres et la dimension du monde dans lequel vit se vecteur est la taille de la liste. Un vecteur de façon plus générale peut vivre dans un monde de dimension quelconque, y compris infinie.
 
@@ -73,7 +73,7 @@ Un octet (une séquence de huit bits, comme son nom l'indique) constitue un vect
 
 ## L'addition de vecteurs {#sec:addition_vec}
 
-Comme pour les scalaires, nous voulons pouvoir additionner les vecteurs. Revenons donc aux vecteurs à deux dimensions. Une façon raisonnable de définir l'addition de deux vecteurs est de les mettre "bout à bout" (voir la @fig:addition). 
+Comme pour les scalaires, nous voulons pouvoir additionner les vecteurs. Revenons donc aux vecteurs à deux dimensions. Une façon raisonnable de définir l'addition de deux vecteurs est de les mettre "bout à bout" (voir la @fig:addition).
 
 ![La somme de deux vecteurs $\vec{u}$ et $\vec{v}$ donne le vecteur $\vec{w}$. Elle est obtenue en mettant bout à bout le vecteur $\vec{u}$ et $\vec{v}$.](figs/somme_composantes.pdf){#fig:addition width=30%}
 
@@ -83,12 +83,12 @@ $$\begin{aligned}
 \begin{pmatrix}w_1 \\ w_2 \end{pmatrix}&=\begin{pmatrix}u_1 \\ u_2 \end{pmatrix}+\begin{pmatrix}v_1 \\ v_2 \end{pmatrix},\\
 \begin{pmatrix}w_1 \\ w_2 \end{pmatrix}&=\begin{pmatrix}u_1+v_1 \\ u_2+v_2 \end{pmatrix}.
 \end{aligned}$$
-En fait il suffit de sommer chacune des composantes du vecteur et on aura donc 
+En fait il suffit de sommer chacune des composantes du vecteur et on aura donc
 $$\begin{aligned}
 w_1&=u_1+v_1,\\
 w_2&=u_2+v_2.
 \end{aligned}$$
-Cette définition de la somme se généralise très facilement à $n$ dimensions. On a que 
+Cette définition de la somme se généralise très facilement à $n$ dimensions. On a que
 $$
 \begin{pmatrix}w_1 \\ \vdots \\ w_n \end{pmatrix}=\begin{pmatrix}u_1 \\ \vdots <\\ u_n \end{pmatrix}+\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ \vdots \\ u_n+v_n \end{pmatrix}.$$
 
@@ -99,7 +99,7 @@ $$
 >>> w = [0.0, 0.0, 0.0]
 >>> for i in range(3): # loop based syntax for vector addition
 ...     w[i]=a[i] + b[i]
-... 
+...
 >>> w
 [3.0, 5.0, 7.0]
 >>> import numpy as np
@@ -108,11 +108,11 @@ $$
 >>> w_np = u_np + v_np # numpy syntax for vector addition
 >>> w_np
 array([3., 5., 7.])
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ---
 
-Remarque +.# 
+Remarque +.#
 
 Il est important de noter que les dimensions de $\vec{u}$ et $\vec{v}$ doivent être les mêmes. Sinon la somme n'est pas définie. L'opération somme en $n$ dimension prend donc deux vecteurs de dimension $n$ et rend un vecteur de dimension $n$ également.
 
@@ -121,16 +121,16 @@ Il est important de noter que les dimensions de $\vec{u}$ et $\vec{v}$ doivent �
 
 Exemple +.#
 
-Pour en revenir à l'exemple des octets, il est un peu plus compliqué de définir la somme. En effet, la somme entre des bits peut avoir différentes définitions. Une possibilité est de définir la somme comme le XOR, $\oplus$. 
+Pour en revenir à l'exemple des octets, il est un peu plus compliqué de définir la somme. En effet, la somme entre des bits peut avoir différentes définitions. Une possibilité est de définir la somme comme le XOR, $\oplus$.
 
-Pour "sommer" deux octets, $\vec{u},\ \vec{v}\in\{0,1\}^8$ on peut donc définir la somme comme 
+Pour "sommer" deux octets, $\vec{u},\ \vec{v}\in\{0,1\}^8$ on peut donc définir la somme comme
 $$\vec{u}\oplus\vec{v}=\begin{pmatrix}u_1\oplus v_1 \\ \vdots \\ u_8\oplus v_8 \end{pmatrix}.$$
 
 ---
 
 ## Multiplication entre un vecteur et un scalaire {#sec:multiplication_vec}
 
-Soit un scalaire $\lambda\in\real$, nous voulons à présent définir l'opération "multiplier par un scalaire" sur un vecteur. L'interprétation que nous voulons faire de cette opération est une "dilatation": le vecteur multiplié verra sa longueur changer mais pas sa direction générale (voir la @fig:multiplication). 
+Soit un scalaire $\lambda\in\real$, nous voulons à présent définir l'opération "multiplier par un scalaire" sur un vecteur. L'interprétation que nous voulons faire de cette opération est une "dilatation": le vecteur multiplié verra sa longueur changer mais pas sa direction générale (voir la @fig:multiplication).
 
 ![Le produit entre un scalaire $\lambda$ et un vecteur $\vec{v}$ est une dilatation du vecteur $\vec{v}$. Le cas où $\lambda$ est négatif change également l'orientation du vecteur.](figs/produit_vecteur.pdf){#fig:multiplication width=30%}
 
@@ -159,7 +159,7 @@ En python, cette opération peut s'écrire à l'air d'une boucle, ou de façon b
 >>> alpha = 1.5
 >>>  for i in range(3): # loop syntax for scalar multiplication
 ...     v[i] = alpha * u[i]
-... 
+...
 >>> v
 [1.5, 3.0, 4.5]
 >>> import numpy as np
@@ -167,14 +167,14 @@ En python, cette opération peut s'écrire à l'air d'une boucle, ou de façon b
 >>> alpha = 1.5
 >>> alpha * v_np  # numpy syntax for scalar multiplication
 array([1.5, 3. , 4.5])
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ## Les espaces vectoriels
 
 Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et les scalaires réels, $\lambda\in\real$, dotés de la somme de la @sec:addition_vec et la multiplication @sec:multiplication_vec forme un espace qui a un certain nombre de propriétés.
 
-### Propriétés de la somme 
+### Propriétés de la somme
 
 Soient $\vec{u},\vec{v},\vec{w}\in\real^2$ deux vecteurs de $\real^2$.
 
@@ -223,16 +223,16 @@ $$
 
 Soient $\vec{u},\vec{v}\in\real^2$ deux vecteurs de $\real^2$ et $\mu,\lambda\in\real$.
 
-1. La multiplication par un scalaire d'un vecteur est dite *externe*: le produit entre un scalaire et d'un vecteur de $\real^2$ reste un vecteur de $\real^2$. 
+1. La multiplication par un scalaire d'un vecteur est dite *externe*: le produit entre un scalaire et d'un vecteur de $\real^2$ reste un vecteur de $\real^2$.
 $$
 \cdot:\real\times\real^2\rightarrow\real^2.
 $$
-2. La multiplcation est *distributive* par rapport à la somme 
+2. La multiplcation est *distributive* par rapport à la somme
 $$\lambda\cdot (\vec{u}+\vec{v}) = \lambda\vec{u}+\lambda\vec{v},$$
 soit en composantes
 $$
 \begin{aligned}
-&\lambda\cdot \left(\begin{pmatrix}v_1 \\ v_2 \end{pmatrix}+\begin{pmatrix}u_1 \\ u_2 \end{pmatrix}\right) 
+&\lambda\cdot \left(\begin{pmatrix}v_1 \\ v_2 \end{pmatrix}+\begin{pmatrix}u_1 \\ u_2 \end{pmatrix}\right)
 = \lambda\cdot \begin{pmatrix}v_1+u_1 \\ v_2+u_2\end{pmatrix}
 = \begin{pmatrix}\lambda\cdot(v_1+u_1) \\\lambda\cdot(v_2+u_2)\end{pmatrix},\\
 &= \begin{pmatrix}\lambda\cdot v_1+\lambda\cdot u_1 \\ \lambda\cdot v_2+\lambda\cdot u_2)\end{pmatrix}
@@ -242,7 +242,7 @@ $$
 $$
 3. Elle est *distributive* par rapport à la somme de $\real$
 $$(\lambda+\mu)\cdot \vec{u} = \lambda\vec{u}+\mu\vec{u},$$
-soit en composantes 
+soit en composantes
 $$
 \begin{aligned}
 &(\lambda+\mu)\cdot \begin{pmatrix}u_1 \\ u_2 \end{pmatrix}
@@ -307,13 +307,13 @@ Avec cette définition, on voit que les $n$-uplets dotés des opérations d'addi
 
 ### Exemples d'espace vectoriel
 
-Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidiennement sans savoir que s'en est un. Nous allons en voir un certain nombre.
+Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidiennement sans savoir que c'en est un. Nous allons en voir un certain nombre.
 
 1. L'espace des réels est un espace vectoriel sur les réels.
 2. L'espace des entiers est un espace vectoriel sur les entiers.
 3. L'espace des réels est un espace vectoriel sur les réels.
 4. L'espace $\{0\}$ sur $\real$.
-5. L'espace des fonctions définies telles que si 
+5. L'espace des fonctions définies telles que si
 $$f:\real\rightarrow \real,\quad g:\real\rightarrow \real,$$ et $\lambda\in\real$, on a
 $$
 \begin{aligned}
@@ -333,13 +333,13 @@ Montrer que les points 4, 5 et 6 ci-dessus sont bien des espaces vectoriels.
 
 ### Combinaisons linéaires
 
-Une des raisons pour laquelle, nous définissons les espaces vectoriels est la possibilité d'effectuer des combinaisons linéaires dans ces espaces. 
+Une des raisons pour laquelle nous définissons les espaces vectoriels est la possibilité d'effectuer des combinaisons linéaires dans ces espaces.
 
-Soit un espace vectoriel $E$ sur $K$, muni des opérations "$+$"" et "$\cdot$". 
+Soit un espace vectoriel $E$ sur $K$, muni des opérations "$+$"" et "$\cdot$".
 Soient $\vec v_1, \vec v_2, ..., \vec v_n\in E$ et $\lambda_1,...,\lambda_n\in K$, une combinaison linéaire de $\vec v_1,...,\vec v_n$
 $$\sum_{i=1}^n\lambda_i\cdot \vec v_i=\lambda_1\cdot \vec v_1+...+\lambda_n\cdot \vec v_n.$$
 
-A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?
+A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?).
 
 ---
 
@@ -366,13 +366,13 @@ Dans les cas 1 et 3, on dit que la famille de vecteurs est *libre*. En d'autres 
 
 A l'inverse 2 et 4, sont des familles liées: on peut obtenir au moins un des vecteurs de la famille par combinaison linéaire des vecteurs de la famille. Ils sont *linéairement dépendants*.
 
-En notation mathématique, si on considère un ensemble $\{\vec v_i\}_{i=1}^n\in E$ et $\{\lambda_i\}_{i=1}^n\in K$ ($E$ est un espace vectoriel sur $K$). Alors on dit que les vecteurs $\vec v_i$ sont *linéairement dépendants* si et seulement si
+En notation mathématique, si on considère un ensemble $\{\vec v_i\}_{i=1}^n\in E$ et $\{\lambda_i\}_{i=1}^n\in K$ ($E$ est un espace vectoriel sur $K$), alors on dit que les vecteurs $\vec v_i$ sont *linéairement dépendants* si et seulement si
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
 avec au moins un $\lambda_i\neq 0$. On peut réécrire cette condition comme
 $$\vec v_n=\sum_{i=1}^{n-1}\mu_i \vec v_i,$$
-où au moins un des $\mu_i\neq 0$. 
+où au moins un des $\mu_i\neq 0$.
 
-Inversement s'il n'existe pas de $\lambda_i$ non nul tel que 
+Inversement s'il n'existe pas de $\lambda_i$ non nul tel que
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
 alors les vecteurs sont indépendants.
 
@@ -386,10 +386,10 @@ Déterminer si les vecteurs des familles de l'exercice précédent sont linéair
 
 ### Base d'espace vectoriel
 
-Soit à présent un ensemble de vecteur $B=\{\vec b_i\}_{i=1}^n$ qui sont linéairement indépendants (c'est une famille libre) et l'ensemble $E$, un espace vectoriel, généré par toutes les combinaisons linéaires de $B$. Alors on dit que l'ensemble $B$ est une *base* de $E$. N'importe quel vecteur de $E$ peut être obtenu comme une combinaison linéaire des vecteurs de la base 
+Soit à présent un ensemble de vecteur $B=\{\vec b_i\}_{i=1}^n$ qui sont linéairement indépendants (c'est une famille libre) et l'ensemble $E$, un espace vectoriel, généré par toutes les combinaisons linéaires de $B$. Alors on dit que l'ensemble $B$ est une *base* de $E$. N'importe quel vecteur de $E$ peut être obtenu comme une combinaison linéaire des vecteurs de la base
 $B$.
 
-En revanche, si $V=\{\vec v_i\}_{i=1}^n$$ est une famille liée (ses vecteurs sont linéairement dépendant) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
+En revanche, si $V=\{\vec v_i\}_{i=1}^n$ est une famille liée (ses vecteurs sont linéairement dépendants) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
 
 ---
 
@@ -410,17 +410,17 @@ Une fonction, notée $f$ (quelle originalité), est une relation entre deux ense
 
 ![Une fonction est une relation entre deux ensemble, $X$ et $Y$, qui va relier un point de $X$ avec un point de $Y$.](figs/fonction.pdf){#fig:fonction width=30%}
 
-On note de façon formelle 
+On note de façon formelle
 $$f:X\rightarrow Y.$$
-Ici $X$ est le *domaine de définition* de $f$ et $Y$ est le *domaine d'arrivée*. 
+Ici $X$ est le *domaine de définition* de $f$ et $Y$ est le *domaine d'arrivée*.
 Cette notation nous donne juste le domaine de définition et le domaine d'arrivée de $f$ mais ne nous dit pas quelle est la règle d'association entre les éléments de $X$ et les éléments de $Y$.
 
-Pour un exemple concret, on peut prendre 
+Pour un exemple concret, on peut prendre
 $$f:\real\rightarrow\real$$,
 où $f$ est définie par
 $$f:x\rightarrow x^2,\quad \mbox{ou}\quad f(x)=x^2.$$
 
-On a donc ici que $\real$ est le domaine de définition et d'arrivée de $f$. En revanche tout $\real$ n'est pas "couvert" par les éléments de $f(x)$. On appelle l'image de $f$ le sous-ensemble du domaine d'arrivée qui est effectivement atteint par $f(x)$. Dans le cas ci-dessus le carré d'un nombre ne peut être négatif, donc tous les réels ne peuvent pas être associés à la fonction $x^2$ et donc l'image de $f$ est un sous-ensemble de $f$. Ici, l'image de $f$ est $\real^+$ (les nombres réels $x\in\real$ tels que $x\geq 0$). 
+On a donc ici que $\real$ est le domaine de définition et d'arrivée de $f$. En revanche tout $\real$ n'est pas "couvert" par les éléments de $f(x)$. On appelle l'image de $f$ le sous-ensemble du domaine d'arrivée qui est effectivement atteint par $f(x)$. Dans le cas ci-dessus le carré d'un nombre ne peut être négatif, donc tous les réels ne peuvent pas être associés à la fonction $x^2$ et donc l'image de $f$ est un sous-ensemble de $f$. Ici, l'image de $f$ est $\real^+$ (les nombres réels $x\in\real$ tels que $x\geq 0$).
 
 On a vu ici une fonction unidimensionnelle, mais le concept de fonction s'étend à n'importe quel ensemble. Dans ce qui va nous intéresser pour la suite, on va avoir des fonctions de $n$-uplets ou de vecteurs à $n$ dimensions. En fait de façon aussi générale que possible, on va associer un $n$-uplet à un $m$-uplet (ou un vecteur de dimension $n$ à un vecteur de dimension $m$)
 $$f:\real^n\rightarrow\real^m.$$
@@ -429,7 +429,7 @@ $$f:\real^n\rightarrow\real^m.$$
 
 Exemple (Translation) +.#
 
-Une telle fonction peut être une translation horizontale en deux dimensions 
+Une telle fonction peut être une translation horizontale en deux dimensions
 $$
 \begin{aligned}
 &f:\real^2\rightarrow \real^2,\\
@@ -441,7 +441,7 @@ $$
 
 ## Les fonctions linéaires
 
-On dit qu'une fonction, $f$, (ou application) est linéaire si pour $E$, $V$ des espaces vectoriels sur $V$ avec 
+On dit qu'une fonction, $f$, (ou application) est linéaire si pour $E$, $V$ des espaces vectoriels sur $V$ avec
 $$
 f:E\rightarrow V.
 $$
@@ -460,20 +460,20 @@ $$
 
 Exemple +.#
 
-Déterminer si la fonction 
+Déterminer si la fonction
 $$
 \begin{aligned}
 &f:\real^2\rightarrow \real^2,\\
 &f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1+x_2}{2\cdot x_1}.
 \end{aligned}
 $$
-est linéaire?
+est linéaire.
 
 Il faut vérifier les conditions 1 et 2 ci-dessus. Commençons par (1)
 $$
 f(\vec x+\vec y)=f\vectwo{x_1+y_1}{x_2+y_2}=\vectwo{x_1+y_1+x_2+y_2}{2\cdot(x_1+y_1)},
 $${#eq:tmp1}
-et 
+et
 $$
 f(\vec x)+f(\vec y)=\vectwo{x_1+x_2}{2\cdot x_1}+\vectwo{y_1+y_2}{2\cdot y_1}=\vectwo{x_1+y_1+x_2+y_2}{2\cdot(x_1+y_1)}.
 $${#eq:tmp2}
@@ -497,17 +497,17 @@ $$
 
 ### Exemple de transformation linéaire sur un triangle: la rotation
 
-En informatique, une grande partie des applications 3D sont basées sur la manipulation de triangles (pour représenter des surfaces). 
+En informatique, une grande partie des applications 3D sont basées sur la manipulation de triangles (pour représenter des surfaces).
 Définissons un triangle relie les trois points
 $$P_0=(0,0),\quad P_1=(1,0),\quad P_2=(0,1).$$
-Les positions $P_0$, $P_1$ et $P_2$ suffisent pour décrire le triangle. 
+Les positions $P_0$, $P_1$ et $P_2$ suffisent pour décrire le triangle.
 Cependant afin de les dessiner, il peut être utile de connaître également
 les équations des segments reliant les points. Cela peut se faire via les vecteurs, $\vec x_0$, $\vec x_1$ et $\vec x_2$, reliant l'origine aux points $(voir la @fig:triangle)
 $$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}.$${#eq:vec_rot}
 
 ![Les points $P_0$, $P_1$, et $P_2$. Les vecteurs $\vec x_1$ et $\vec x_2$.](figs/triangle.pdf){#fig:triangle width=30%}
 
-Les équations paramétriques des segments reliant les points peuvent s'écrire en 
+Les équations paramétriques des segments reliant les points peuvent s'écrire en
 $$\begin{aligned}
 \vec s_0&=\lambda\cdot \vec x_1,\quad &\lambda\in[0,1],\\
 \vec s_1&=\lambda\cdot \vec x_2,\quad &\lambda\in[0,1],\\
@@ -523,25 +523,25 @@ $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
 
 ---
 
-Question +.# 
+Question +.#
 
 Cette application est-elle linéaire?
 
 ---
 
-L'effet de notre notre application $R$ sur les trois vecteurs $\vec x_i$ est la suivante
+L'effet de notre application $R$ sur les trois vecteurs $\vec x_i$ est la suivante
 $$\begin{aligned}
 R(\vec x_0)&=\vec x_0'=\vectwo{0}{0},\\
 R(\vec x_1)&=\vec x_1'=\vectwo{0}{-1},\\
 R(\vec x_2)&=\vec x_2'=\vectwo{1}{0}.
 \end{aligned}$${#eq:segments}
-Comme on peut le voir sur la @fig:triangle_rot notre application linéaire $R$, effectue une rotation de $\pi/2$ dans le sens des aiguilles d'une montre. 
+Comme on peut le voir sur la @fig:triangle_rot notre application linéaire $R$, effectue une rotation de $\pi/2$ dans le sens des aiguilles d'une montre.
 
 ![Après application de la fonction linéaire $R$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_rot.pdf){#fig:triangle_rot width=30%}
 
 Les équations du triangle peuvent être obtenu de deux façons différentes. On veut calculer
 $$\triangle'=\{\vec s_0',\vec s_1',\vec s_2'\}.$$
-Soit on part des $\vec x_i'$ et on refait le même raisonnement que précédemmen§t
+Soit on part des $\vec x_i'$ et on refait le même raisonnement que précédemment
 pour relier les sommets des vecteurs et on obtient, $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ qui sont donnés par
 $$\begin{aligned}
 \vec s_0'&=\lambda\cdot \vec x_1',\quad &\lambda\in[0,1],\\
@@ -564,12 +564,12 @@ $$\begin{aligned}
 \end{aligned}$$
 où cette fois nous avons utilisé les propriétés (1) et (2) de l'application linéaire.
 
-On voit qu'on a donc deux méthodes équivalentes pour calculer les segments constituant un traingle. Soit on calcule la rotation des segments en leur appliquant 
-la rotation $R$, soit on effectue la rotation des vecteurs $\vec x_i$ et on calcule les segments à partir des $\vec x_i$ tournés. 
+On voit qu'on a donc deux méthodes équivalentes pour calculer les segments constituant un triangle. Soit on calcule la rotation des segments en leur appliquant
+la rotation $R$, soit on effectue la rotation des vecteurs $\vec x_i$ et on calcule les segments à partir des $\vec x_i$ tournés.
 
-On constate également que cette application linéaire garde intacte la structure de notre triangle: les droites restent des droites et elles restent conectées entre elles. Cette propriété est générale pour toutes les applications linéaires. Les droites restent des droites, et la structure des objet reste la même. 
+On constate également que cette application linéaire garde intacte la structure de notre triangle: les droites restent des droites et elles restent conectées entre elles. Cette propriété est générale pour toutes les applications linéaires. Les droites restent des droites, et la structure des objet reste la même.
 
-Ici nous avons considéré une rotation qui est une application linéaire spéciale. Sous rotation les longueur et les angles d'un objet restent les mêmes. 
+Ici nous avons considéré une rotation qui est une application linéaire spéciale. Sous rotation les longueurs et les angles d'un objet restent les mêmes.
 
 ### Exemple de transformation linéaire sur un triangle: la dilatation
 
@@ -589,17 +589,17 @@ $$\begin{aligned}
 \vec s_1'&=\lambda\cdot \vec x_2',\quad &\lambda\in[0,1],\\
 \vec s_2'&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2',\quad &\lambda\in[0,1].
 \end{aligned}$$
-Un première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments bien que l'effet l'application linéaire soit très différentes.
+Une première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments, bien que l'effet l'application linéaire soit très différent.
 
 ![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_dil width=30%}
 
-Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ d'un facteur deux et d'un facteur trois respectivement. En revanche, 
-la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segment de droite
+Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ d'un facteur deux et d'un facteur trois respectivement. En revanche,
+la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segments de droites
 en une autre figure géométrique: ils sont restés des segments de droites.
 
 ### Exemple de transformation non-linéaire
 
-Nous avons déjà vu (voir @exercise:translation) que la translation n'est pas une application linéaire. 
+Nous avons déjà vu (voir @exercise:translation) que la translation n'est pas une application linéaire.
 Considérons à présent une autre application non-linéaire, $g$, définie comme
 $$g:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1^2}{x_2^2}.$$
 L'effet de $g$ sur les vecteurs $\vec x_i$ est le suivant
@@ -614,7 +614,7 @@ $$\begin{aligned}
 \vec s_1'=g(\vec s_1)=\lambda^2\vec x_2,\\
 \vec s_2'=g(\vec s_2)=\lambda^2\vec x_1+(1-\lambda)^2\vec x_2.
 \end{aligned}$$
-On voit donc que comme prévu on a que 
+On voit donc que comme prévu on a que
 $$\begin{aligned}
 \vec s_0'\neq \lambda\vec x_1,\\
 \vec s_1'\neq \lambda\vec x_2,\\
@@ -644,18 +644,18 @@ Par exemple la matrice $\mat{A}$[^2] suivante est de taille $2\times 3$
 $$\mat{A}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \end{pmatrix},$${#eq:mat_23}
 elle possède deux lignes et trois colonnes.
 Une matrice, $\mat{A}$ de taille $\m\times n$, se note
-$$\mat{A}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & a_{1n} \\ 
-                          a_{21} & a_{22}  & \cdots & a_{2n} \\ 
-                          \vdots & \vdots  & \ddots & \vdots \\ 
+$$\mat{A}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & a_{1n} \\
+                          a_{21} & a_{22}  & \cdots & a_{2n} \\
+                          \vdots & \vdots  & \ddots & \vdots \\
                           a_{m1} & a_{m2}  & \cdots & a_{mn} \end{pmatrix},$$
-où les $a_{ij}$ sont les indice de la matrices $\mat{A}$, avec $i=1..m$ et $j=1..n$.
+où les $a_{ij}$ sont les indices de la matrice $\mat{A}$, avec $i=1..m$ et $j=1..n$.
 
 Si $m=1$, alors la matrice n'est rien d'autre qu'un vecteur *ligne*
 $$\mat{A}=\begin{pmatrix} a_{1} & a_{2}  & \cdots & a_{n} \end{pmatrix}.$$
 Alors que si $n=1$, alors la matrice est un vecteur *colonne*
 $$\mat{A}=\begin{pmatrix} a_{1}  \\
                           a_{2}  \\
-                          \vdots \\ 
+                          \vdots \\
                           a_m      \end{pmatrix}.$$
 
 
@@ -671,18 +671,18 @@ En python on écrirait une matrice $2\times 3$ comme ci-dessous.
 >>> np.matrix([[1, 2, 3], [2, 3, 4]]) # the matrix structure un numpy
 matrix([[1, 2, 3],
         [2, 3, 4]])
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On constate que la convention utilisée par NumPy est que nous construisons une matrice
 comme un vecteur "colonne" de taille $n$, composé de $m$ vecteurs "ligne".
 
 Afin d'accéder à l'élément $i,j$ de la matrice, on peut utiliser la notation $\{\mat{A}\}_{ij}=a_{ij}$.
-Dans le cas de la matrice de l'@eq:mat_23, l'élément $A_{12}$ est en rouge ci-dessous 
-$$\mat{A}=\begin{pmatrix} 1 & \textcolor{red}{2} & 3 \\ 2 & 3 & 4 \end{pmatrix},$$ 
+Dans le cas de la matrice de l'@eq:mat_23, l'élément $A_{12}$ est en rouge ci-dessous
+$$\mat{A}=\begin{pmatrix} 1 & \textcolor{red}{2} & 3 \\ 2 & 3 & 4 \end{pmatrix},$$
 ou encore
-$$\{\mat{A}\}_{12}=a_{12}=2.$$ 
+$$\{\mat{A}\}_{12}=a_{12}=2.$$
 
-En fait il se trouve que l'espace des matrices, de taille $m\times n$, à coefficients réels est un espace vectoriel[^3] dans $\real$, muni de la somme et de la multiplication 
+En fait il se trouve que l'espace des matrices, de taille $m\times n$, à coefficients réels est un espace vectoriel[^3] dans $\real$, muni de la somme et de la multiplication
 par un scalaire qui est "la même" que pour les vecteurs. Cette propriété a pour effet que la somme de deux matrices sera toujours une matrice et que la multiplication par un scalaire d'une matrice sera toujours une matrice. Voyons à présent comment on définit ces deux opérations.
 
 ### La somme de matrices
@@ -707,7 +707,7 @@ $$
 \mat{A}&=\begin{pmatrix}  1 & 2 & 3 \\  2 & 3 & 4 \end{pmatrix},
 \mat{B}&=\begin{pmatrix} -1 & 2 & 1 \\ -1 & 1 & -3 \end{pmatrix},
 \end{aligned}
-$$ 
+$$
 est donnée par
 $$\mat{A}+\mat{B}=\begin{pmatrix} 0 & 4 & 4 \\ 1 & 4 & 1 \end{pmatrix}.$$
 
@@ -722,7 +722,7 @@ En Python la somme peut se faire en parcourant les indices dans deux boucles ou 
 >>> for i in range(2):
 ...     for j in range(3):
 ...             C[i][j]=A[i][j]+B[i][j]
-... 
+...
 >>> C
 [[0, 4, 4], [1, 4, 1]]
 >>> import numpy as np
@@ -731,11 +731,11 @@ En Python la somme peut se faire en parcourant les indices dans deux boucles ou 
 >>> A+B
 matrix([[0, 4, 4],
         [1, 4, 1]])
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### La multiplication avec un scalaire d'une matrice
 
-Soit $\mat{A}$ une matrices à coefficients réels et $\lambda\real$. On a que l'opération "$\cdot$" avec un scalaire est simplement le produit de chaque élément de la matrice $\mat{A}$
+Soit $\mat{A}$ une matrice à coefficients réels et $\lambda\real$. On a que l'opération "$\cdot$" avec un scalaire est simplement le produit de chaque élément de la matrice $\mat{A}$
 avec $\lambda$
 $$
 \{\lambda\cdot\mat{A}\}_{ij}=\lambda\cdot a_{ij}.
@@ -750,8 +750,8 @@ $$
 \begin{aligned}
 \mat{A}&=\begin{pmatrix}  1 & 2 & 3 \\  2 & 3 & 4 \end{pmatrix},
 \end{aligned}
-$$ 
-et $\lambda=2$ est donné par 
+$$
+et $\lambda=2$ est donné par
 $$\lambda\cdot\mat{A}=\begin{pmatrix} 2 & 4 & 6 \\ 4 & 6 & 8 \end{pmatrix}.$$
 
 ---
@@ -765,7 +765,7 @@ En Python ce produit peut se faire en parcourant les indices dans deux boucles o
 >>> for i in range(2):
 ...     for j in range(3):
 ...             C[i][j]=alpha*A[i][j]
-... 
+...
 >>> C
 [[2, 4, 6], [4, 6, 8]]
 >>> import numpy as np
@@ -774,11 +774,11 @@ En Python ce produit peut se faire en parcourant les indices dans deux boucles o
 >>> alpha * A
 matrix([[2, 4, 6],
         [4, 6, 8]])
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Le produit matrice-vecteur
 
-Après avoir défini le produit d'une matrice avec un scalaire et l'addition de matrice. Il peut être très pratique de disposer d'un produit entre une matrice et un vecteur.
+Après avoir défini le produit d'une matrice avec un scalaire et l'addition de matrice, il peut être très pratique de disposer d'un produit entre une matrice et un vecteur.
 
 Soient une matrice, $\mat{A}$, de taille $m\times n$ et un vecteur, $\vec v$, de taille $n$. Le produit de la matrice et du vecteur, qui aura comme résultat un vecteur de taille $m$, et sera noté $\vec u = \mat{A}\cdot \vec v$, se définit comme
 $$
@@ -792,7 +792,7 @@ Soit la matrice $\mat{I}$, qui est une matrice $2\times 2$, qui est définie par
 $$
 \mat{I}=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
 $$
-On définit également un vecteur $\vec v\in\real^2$ 
+On définit également un vecteur $\vec v\in\real^2$
 $$\vec v=\vectwo{v_1}{v_2}.$$
 Calculer le produit $\mat{I}\cdot \vec v$.
 
@@ -810,7 +810,7 @@ $$
 \end{aligned}
 $$
 
-Grâce à cet exemple on se rend compte que la matrice identité est l'élément neutre pour le produit matrice-vecteur: elle laisse 
+Grâce à cet exemple on se rend compte que la matrice identité est l'élément neutre pour le produit matrice-vecteur: elle laisse
 le vecteur inchangé.
 
 Le produit matrice-vecteur s'écrit en Python
@@ -822,7 +822,7 @@ Le produit matrice-vecteur s'écrit en Python
 >>> for i in range(2):
 ...     for j in range(3):
 ...             b[i] += A[i][j]*x[j]
-... 
+...
 >>> b
 [-2, -3]
 >>> import numpy as np
@@ -830,7 +830,7 @@ Le produit matrice-vecteur s'écrit en Python
 >>> x=np.array(x)
 >>> A.dot(x)
 matrix([[-2, -3]])
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ---
 
@@ -840,7 +840,7 @@ Le produit d'une matrice avec un vecteur n'est pas commutatif.
 
 ---
 
-Le produit d'une matrice avec un vecteur est une application linéaire. On peut montrer que si $\mat{A}\in M_{m,n}(\real)$ est une matrice à coefficients réels de dimension $m\times n$, $\lambda\in\real$ un scalaire, et $\vec u\vec v\in \real^n$ deux vecteurs colonnes de taille $n$, alors 
+Le produit d'une matrice avec un vecteur est une application linéaire. On peut montrer que si $\mat{A}\in M_{m,n}(\real)$ est une matrice à coefficients réels de dimension $m\times n$, $\lambda\in\real$ un scalaire, et $\vec u\vec v\in \real^n$ deux vecteurs colonnes de taille $n$, alors
 $$
 \begin{aligned}
 &\mat{M}\cdot(\vec u + \vec v)= \mat{M}\cdot \vec u+\mat{M}\vec v,\\
@@ -867,10 +867,10 @@ $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$$
 On peut donc écrire
 $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\cdot \vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
 
-Nous pouvons à présent calculer la rotation des trois vecteurs 
+Nous pouvons à présent calculer la rotation des trois vecteurs
 que nous avions défini à l'@eq:vec_rot
 $$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}.\nonumber$$
-On a donc 
+On a donc
 $$\begin{aligned}
 \vec x_0'=\mat{R}\cdot\vec x_0=\vectwo{0}{0},\\
 \vec x_1'=\mat{R}\cdot\vec x_1=\vectwo{0}{-1},\\
