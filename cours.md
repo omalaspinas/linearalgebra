@@ -22,7 +22,7 @@ urlcolor: blue
 
 ## Les vecteurs
 
-Si nous nous plaçons sur une carte à un endroit donné (appelé l'origine) et que nous prenons notre notre voiture pour nous déplacer, notre destination ne peut être uniquement décrite si nous ne connaissons que la distance parcourue (voir par exemple la carte @fig:depl_vec). En d'autres termes pour notre carte, nous savons que nous irons à la campagne, mais pas si nous allons à Lausanne ou dans le Jura). Un déplacement n'est donc pas uniquement déterminé par le point d'origine et un scalaire. Il est nécessaire d'avoir une information supplémentaire. Dans le cas de la @fig:depl_vec le déplacement est décrit uniquement par la flèche, ou *vecteur*, qui a une longueur (la distance parcourue) et une direction (la direction de la flèche). 
+Si nous nous plaçons sur une carte à un endroit donné (appelé l'origine) et que nous prenons notre voiture pour nous déplacer, notre destination ne peut être uniquement décrite si nous ne connaissons que la distance parcourue (voir par exemple la carte @fig:depl_vec). En d'autres termes pour notre carte, nous savons que nous irons à la campagne, mais pas si nous allons à Lausanne ou dans le Jura). Un déplacement n'est donc pas uniquement déterminé par le point d'origine et un scalaire. Il est nécessaire d'avoir une information supplémentaire. Dans le cas de la @fig:depl_vec le déplacement est décrit uniquement par la flèche, ou *vecteur*, qui a une longueur (la distance parcourue) et une direction (la direction de la flèche).
 
 ![L'ensemble des destinations possibles si nous n'avions que le point de départ et la distance parcourue comme information (cercle noir), la position finale avec la distance et la direction de déplacement (Lausanne).](figs/deplacement_vecteur.pdf){#fig:depl_vec width=30%}
 
@@ -90,7 +90,7 @@ w_2&=u_2+v_2.
 \end{aligned}$$
 Cette définition de la somme se généralise très facilement à $n$ dimensions. On a que 
 $$
-\begin{pmatrix}w_1 \\ \vdots \\ w_n \end{pmatrix}=\begin{pmatrix}u_1 \\ \vdots <\\ u_n \end{pmatrix}+\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ \vdots \\ u_n+v_n \end{pmatrix}.$$
+\begin{pmatrix}w_1 \\ \vdots \\ w_n \end{pmatrix}=\begin{pmatrix}u_1 \\ \vdots \\ u_n \end{pmatrix}+\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ \vdots \\ u_n+v_n \end{pmatrix}.$$
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
@@ -143,7 +143,7 @@ Comme on le constate sur la @fig:multiplication il y a quatre cas de figure
 
 Avec la définition de la norme d'un vecteur $||\vec{v}||$, il est très aisé de voir que la multiplication par un scalaire revient en fait à multiplier chaque composante du vecteur $\vec{v}$ par un scalaire. En définissant $\vec{u}=\lambda\cdot \vec{v}$, cela revient à faire
 $$\vec{u}=\lambda\cdot\vec{v}=\begin{pmatrix}\lambda\cdot v_1 \\ \lambda\cdot v_2 \end{pmatrix}=\begin{pmatrix}u_1 \\ u_2 \end{pmatrix}.$$
-En d'autres termes $u_1=\lambda\cdot v_1$ et $u_2
+En d'autres termes $u_1=\lambda\cdot v_1$ et $u_2=\lambda\cdot v_2$.
 La longueur de $||\vec{u}||$ est donnée par
 $$||\vec{u}||=\sqrt{u_1^2+u_2^2}=\sqrt{(\lambda\cdot v_1)^2+(\lambda\cdot v_2)^2}=\sqrt{\lambda^2(v_1^2+v_2^2)}=|\lambda|\cdot||\vec{v}||.$$
 On voit donc que la longueur de $\vec{v}$ est modifiée d'un facteur $\lambda$: il est dilaté ou contracté. Le signe de $\lambda$ aura uniquement une influence sur l'orientation.
@@ -172,7 +172,7 @@ array([1.5, 3. , 4.5])
 
 ## Les espaces vectoriels
 
-Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et les scalaires réels, $\lambda\in\real$, dotés de la somme de la @sec:addition_vec et la multiplication @sec:multiplication_vec forme un espace qui a un certain nombre de propriétés.
+Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et les scalaires réels, $\lambda\in\real$, dotés de la somme (@sec:addition_vec) et la multiplication (@sec:multiplication_vec) forme un espace qui a un certain nombre de propriétés.
 
 ### Propriétés de la somme 
 
@@ -307,7 +307,7 @@ Avec cette définition, on voit que les $n$-uplets dotés des opérations d'addi
 
 ### Exemples d'espace vectoriel
 
-Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidiennement sans savoir que s'en est un. Nous allons en voir un certain nombre.
+Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidiennement sans savoir que c'en est un. Nous allons en voir un certain nombre.
 
 1. L'espace des réels est un espace vectoriel sur les réels.
 2. L'espace des entiers est un espace vectoriel sur les entiers.
@@ -333,13 +333,13 @@ Montrer que les points 4, 5 et 6 ci-dessus sont bien des espaces vectoriels.
 
 ### Combinaisons linéaires
 
-Une des raisons pour laquelle, nous définissons les espaces vectoriels est la possibilité d'effectuer des combinaisons linéaires dans ces espaces. 
+Une des raisons pour laquelle nous définissons les espaces vectoriels est la possibilité d'effectuer des combinaisons linéaires dans ces espaces.
 
 Soit un espace vectoriel $E$ sur $K$, muni des opérations "$+$"" et "$\cdot$". 
 Soient $\vec v_1, \vec v_2, ..., \vec v_n\in E$ et $\lambda_1,...,\lambda_n\in K$, une combinaison linéaire de $\vec v_1,...,\vec v_n$
 $$\sum_{i=1}^n\lambda_i\cdot \vec v_i=\lambda_1\cdot \vec v_1+...+\lambda_n\cdot \vec v_n.$$
 
-A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?
+A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?).
 
 ---
 
@@ -366,7 +366,7 @@ Dans les cas 1 et 3, on dit que la famille de vecteurs est *libre*. En d'autres 
 
 A l'inverse 2 et 4, sont des familles liées: on peut obtenir au moins un des vecteurs de la famille par combinaison linéaire des vecteurs de la famille. Ils sont *linéairement dépendants*.
 
-En notation mathématique, si on considère un ensemble $\{\vec v_i\}_{i=1}^n\in E$ et $\{\lambda_i\}_{i=1}^n\in K$ ($E$ est un espace vectoriel sur $K$). Alors on dit que les vecteurs $\vec v_i$ sont *linéairement dépendants* si et seulement si
+En notation mathématique, si on considère un ensemble $\{\vec v_i\}_{i=1}^n\in E$ et $\{\lambda_i\}_{i=1}^n\in K$ ($E$ est un espace vectoriel sur $K$), alors on dit que les vecteurs $\vec v_i$ sont *linéairement dépendants* si et seulement si
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
 avec au moins un $\lambda_i\neq 0$. On peut réécrire cette condition comme
 $$\vec v_n=\sum_{i=1}^{n-1}\mu_i \vec v_i,$$
@@ -374,7 +374,8 @@ où au moins un des $\mu_i\neq 0$.
 
 Inversement s'il n'existe pas de $\lambda_i$ non nul tel que 
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
-alors les vecteurs sont indépendants.
+alors les vecteurs sont indépendants (*linéairement indépendants*).
+
 
 ---
 
@@ -389,7 +390,7 @@ Déterminer si les vecteurs des familles de l'exercice précédent sont linéair
 Soit à présent un ensemble de vecteur $B=\{\vec b_i\}_{i=1}^n$ qui sont linéairement indépendants (c'est une famille libre) et l'ensemble $E$, un espace vectoriel, généré par toutes les combinaisons linéaires de $B$. Alors on dit que l'ensemble $B$ est une *base* de $E$. N'importe quel vecteur de $E$ peut être obtenu comme une combinaison linéaire des vecteurs de la base 
 $B$.
 
-En revanche, si $V=\{\vec v_i\}_{i=1}^n$$ est une famille liée (ses vecteurs sont linéairement dépendant) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
+En revanche, si $V=\{\vec v_i\}_{i=1}^n$ est une famille liée (ses vecteurs sont linéairement dépendants) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
 
 ---
 
@@ -467,7 +468,7 @@ $$
 &f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1+x_2}{2\cdot x_1}.
 \end{aligned}
 $$
-est linéaire?
+est linéaire.
 
 Il faut vérifier les conditions 1 et 2 ci-dessus. Commençons par (1)
 $$
@@ -529,7 +530,7 @@ Cette application est-elle linéaire?
 
 ---
 
-L'effet de notre notre application $R$ sur les trois vecteurs $\vec x_i$ est la suivante
+L'effet de notre application $R$ sur les trois vecteurs $\vec x_i$ est la suivante
 $$\begin{aligned}
 R(\vec x_0)&=\vec x_0'=\vectwo{0}{0},\\
 R(\vec x_1)&=\vec x_1'=\vectwo{0}{-1},\\
@@ -541,7 +542,7 @@ Comme on peut le voir sur la @fig:triangle_rot notre application linéaire $R$, 
 
 Les équations du triangle peuvent être obtenu de deux façons différentes. On veut calculer
 $$\triangle'=\{\vec s_0',\vec s_1',\vec s_2'\}.$$
-Soit on part des $\vec x_i'$ et on refait le même raisonnement que précédemmen§t
+Soit on part des $\vec x_i'$ et on refait le même raisonnement que précédemment
 pour relier les sommets des vecteurs et on obtient, $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ qui sont donnés par
 $$\begin{aligned}
 \vec s_0'&=\lambda\cdot \vec x_1',\quad &\lambda\in[0,1],\\
@@ -564,12 +565,12 @@ $$\begin{aligned}
 \end{aligned}$$
 où cette fois nous avons utilisé les propriétés (1) et (2) de l'application linéaire.
 
-On voit qu'on a donc deux méthodes équivalentes pour calculer les segments constituant un traingle. Soit on calcule la rotation des segments en leur appliquant 
+On voit qu'on a donc deux méthodes équivalentes pour calculer les segments constituant un triangle. Soit on calcule la rotation des segments en leur appliquant 
 la rotation $R$, soit on effectue la rotation des vecteurs $\vec x_i$ et on calcule les segments à partir des $\vec x_i$ tournés. 
 
 On constate également que cette application linéaire garde intacte la structure de notre triangle: les droites restent des droites et elles restent conectées entre elles. Cette propriété est générale pour toutes les applications linéaires. Les droites restent des droites, et la structure des objet reste la même. 
 
-Ici nous avons considéré une rotation qui est une application linéaire spéciale. Sous rotation les longueur et les angles d'un objet restent les mêmes. 
+Ici nous avons considéré une rotation qui est une application linéaire spéciale. Sous rotation les longueurs et les angles d'un objet restent les mêmes. 
 
 ### Exemple de transformation linéaire sur un triangle: la dilatation
 
@@ -589,12 +590,12 @@ $$\begin{aligned}
 \vec s_1'&=\lambda\cdot \vec x_2',\quad &\lambda\in[0,1],\\
 \vec s_2'&=\lambda\cdot \vec x_1'+(1-\lambda)\cdot \vec x_2',\quad &\lambda\in[0,1].
 \end{aligned}$$
-Un première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments bien que l'effet l'application linéaire soit très différentes.
+Un première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments bien que l'effet l'application linéaire soit très différente.
 
 ![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_dil width=30%}
 
-Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ d'un facteur deux et d'un facteur trois respectivement. En revanche, 
-la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segment de droite
+Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ sont d'un facteur deux et d'un facteur trois respectivement. En revanche,
+la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segments de droites
 en une autre figure géométrique: ils sont restés des segments de droites.
 
 ### Exemple de transformation non-linéaire
@@ -648,7 +649,7 @@ $$\mat{A}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & a_{1n} \\
                           a_{21} & a_{22}  & \cdots & a_{2n} \\ 
                           \vdots & \vdots  & \ddots & \vdots \\ 
                           a_{m1} & a_{m2}  & \cdots & a_{mn} \end{pmatrix},$$
-où les $a_{ij}$ sont les indice de la matrices $\mat{A}$, avec $i=1..m$ et $j=1..n$.
+où les $a_{ij}$ sont les indices de la matrice $\mat{A}$, avec $i=1..m$ et $j=1..n$.
 
 Si $m=1$, alors la matrice n'est rien d'autre qu'un vecteur *ligne*
 $$\mat{A}=\begin{pmatrix} a_{1} & a_{2}  & \cdots & a_{n} \end{pmatrix}.$$
@@ -735,7 +736,7 @@ matrix([[0, 4, 4],
 
 ### La multiplication avec un scalaire d'une matrice
 
-Soit $\mat{A}$ une matrices à coefficients réels et $\lambda\real$. On a que l'opération "$\cdot$" avec un scalaire est simplement le produit de chaque élément de la matrice $\mat{A}$
+Soit $\mat{A}$ une matrice à coefficients réels et $\lambda\real$. On a que l'opération "$\cdot$" avec un scalaire est simplement le produit de chaque élément de la matrice $\mat{A}$
 avec $\lambda$
 $$
 \{\lambda\cdot\mat{A}\}_{ij}=\lambda\cdot a_{ij}.
@@ -778,7 +779,7 @@ matrix([[2, 4, 6],
 
 ### Le produit matrice-vecteur
 
-Après avoir défini le produit d'une matrice avec un scalaire et l'addition de matrice. Il peut être très pratique de disposer d'un produit entre une matrice et un vecteur.
+Après avoir défini le produit d'une matrice avec un scalaire et l'addition de matrice, il peut être très pratique de disposer d'un produit entre une matrice et un vecteur.
 
 Soient une matrice, $\mat{A}$, de taille $m\times n$ et un vecteur, $\vec v$, de taille $n$. Le produit de la matrice et du vecteur, qui aura comme résultat un vecteur de taille $m$, et sera noté $\vec u = \mat{A}\cdot \vec v$, se définit comme
 $$
