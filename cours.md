@@ -530,7 +530,7 @@ Cette application est-elle linéaire?
 
 ---
 
-L'effet de notre notre application $R$ sur les trois vecteurs $\vec x_i$ est la suivante
+L'effet de notre application $R$ sur les trois vecteurs $\vec x_i$ est la suivante
 $$\begin{aligned}
 R(\vec x_0)&=\vec x_0'=\vectwo{0}{0},\\
 R(\vec x_1)&=\vec x_1'=\vectwo{0}{-1},\\
