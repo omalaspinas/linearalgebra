@@ -779,7 +779,7 @@ matrix([[2, 4, 6],
 
 ### Le produit matrice-vecteur
 
-Après avoir défini le produit d'une matrice avec un scalaire et l'addition de matrice. Il peut être très pratique de disposer d'un produit entre une matrice et un vecteur.
+Après avoir défini le produit d'une matrice avec un scalaire et l'addition de matrice, il peut être très pratique de disposer d'un produit entre une matrice et un vecteur.
 
 Soient une matrice, $\mat{A}$, de taille $m\times n$ et un vecteur, $\vec v$, de taille $n$. Le produit de la matrice et du vecteur, qui aura comme résultat un vecteur de taille $m$, et sera noté $\vec u = \mat{A}\cdot \vec v$, se définit comme
 $$
