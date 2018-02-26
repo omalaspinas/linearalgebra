@@ -65,7 +65,7 @@ Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en 
 
 ---
 
-Exemple +.#
+Illustration +.#
 
 Un octet (une séquence de huit bits, comme son nom l'indique) constitue un vecteur qui vit dans $\{0,1\}^8$.
 
@@ -119,7 +119,7 @@ Il est important de noter que les dimensions de $\vec{u}$ et $\vec{v}$ doivent �
 ---
 ---
 
-Exemple +.#
+Illustration +.#
 
 Pour en revenir à l'exemple des octets, il est un peu plus compliqué de définir la somme. En effet, la somme entre des bits peut avoir différentes définitions. Une possibilité est de définir la somme comme le XOR, $\oplus$.
 
@@ -427,7 +427,7 @@ $$f:\real^n\rightarrow\real^m.$$
 
 ---
 
-Exemple (Translation) +.#
+Illustration (Translation) +.#
 
 Une telle fonction peut être une translation horizontale en deux dimensions
 $$
@@ -468,6 +468,8 @@ $$
 \end{aligned}
 $$
 est linéaire.
+
+Solution +.#
 
 Il faut vérifier les conditions 1 et 2 ci-dessus. Commençons par (1)
 $$
@@ -699,7 +701,7 @@ Il faut noter que pour que cette opération soit bien définie la taille de la m
 
 ---
 
-Exemple (Somme de matrices) +.#
+Illustration (Somme de matrices) +.#
 
 La somme des matrices $\mat{A}$ et $\mat{B}$ données par
 $$
@@ -743,7 +745,7 @@ $$
 
 ---
 
-Exemple (Produit de matrice avec un scalaire) +.#
+Illustration (Produit de matrice avec un scalaire) +.#
 
 Le produit de la matrice $\mat{A}$ donnée par
 $$
@@ -786,11 +788,13 @@ $$
 $${#eq:mat_vec}
 On constate d'après cette définition qu'il est très important que le nombre de colonnes du vecteur soit le même que le nombre de lignes du vecteur, sinon ce produit est mal défini.
 
+---
+
 Exemple (Matrice identité) +.#
 
-Soit la matrice $\mat{I}$, qui est une matrice $2\times 2$, qui est définie par
+Soit la matrice $\mat{I}_2$, qui est une matrice $2\times 2$, qui est définie par
 $$
-\mat{I}=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
+\mat{I}_2=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
 $$
 On définit également un vecteur $\vec v\in\real^2$
 $$\vec v=\vectwo{v_1}{v_2}.$$
@@ -805,10 +809,12 @@ $$
 ou réécrit par composante
 $$
 \begin{aligned}
-&i=1:\quad \{\mat{I}\cdot \vec v\}_1=\sum_{i=1}^2 i_{1j}\cdot v_j=i_{11}\cdot v_1+i_{12}\cdot v_2=v_1,\\
-&i=2:\quad \{\mat{I}\cdot \vec v\}_2=\sum_{i=1}^2 i_{2j}\cdot v_j=i_{21}\cdot v_1+i_{22}\cdot v_2=v_2.
+&i=1:\quad \{\mat{I}_2\cdot \vec v\}_1=\sum_{i=1}^2 i_{1j}\cdot v_j=i_{11}\cdot v_1+i_{12}\cdot v_2=v_1,\\
+&i=2:\quad \{\mat{I}_2\cdot \vec v\}_2=\sum_{i=1}^2 i_{2j}\cdot v_j=i_{21}\cdot v_1+i_{22}\cdot v_2=v_2.
 \end{aligned}
 $$
+
+---
 
 Grâce à cet exemple on se rend compte que la matrice identité est l'élément neutre pour le produit matrice-vecteur: elle laisse
 le vecteur inchangé.
@@ -863,7 +869,7 @@ $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
 En fait cette application peut s'écrire comme un produit de matrice avec un vecteur
 $$R:\vectwo{x_1}{x_2}\rightarrow \mat{R}\cdot \vec x,$$
 où
-$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$$
+$$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}.$${#eq:mat_r}
 On peut donc écrire
 $$\mat{R}=\begin{pmatrix}  0 & 1 \\  -1 & 0 \end{pmatrix}\cdot \vectwo{x_1}{x_2}=\vectwo{x_2}{-x_1}.$$
 
@@ -877,6 +883,249 @@ $$\begin{aligned}
 \vec x_2'=\mat{R}\cdot\vec x_2=\vectwo{1}{0}.
 \end{aligned}\nonumber$$
 Qui est exactement le même résultat que ce qu'on avait obtenu dans l'@eq:segments.
+
+### Généralisation: les applications linéaires comme produit matrice-vecteur
+
+On vient de voir que la rotation de $\pi/2$ peut se voir comme un produit d'une matrice avec un vecteur. 
+En fait cette propriété peut se généraliser à n'importe quelle application linéaire. Pour 
+montrer cette propriété commençons par introduire la matrice identité dans le cas général, $\mat{I}_n\in M_{n,n}(\real)$, qui
+est une matrice carrée de taille $n\times n$, et dont tous les éléments sont nuls excepté la diagonale qui vaut un.
+$$
+\mat{I}_n=\begin{pmatrix} 1      & 0       & 0      & \cdots & 0 \\
+                        0      & 1       & 0      & \cdots & 0 \\
+                        \vdots & \vdots  & \ddots & \vdots & \vdots \\
+                        \vdots & \vdots  & 0      & 1      & 0 \\
+                        0      & 0       & \cdots & 0      & 1 \end{pmatrix}.
+$$
+Il existe plusieurs autres notations pour la matrice identité. Sous la forme d'une matrice diagonale
+$$
+\mat{I}_n=\mathrm{diag}(\underbrace{1,1,1,...,1}_{n\ \mathrm{ éléments}}),
+$$
+grâce au symbole du $\delta$ de Kronecker
+$$
+\left\{\mat{I}_n\right\}_{ij}=\delta_{ij},
+$$
+où $\delta_{ij}$ est donné par
+$$
+\delta_{ij}=\left\{\begin{matrix}
+				1 & \mbox{si }i=j \\
+				0 & \mbox{si }i\neq j
+				\end{matrix}
+				\right.
+$$
+
+---
+
+Illustration (La matrice identité en deux/trois dimensions) +.#
+
+Pour $n=3$ on a 
+$$
+\mat{I}_3=\begin{pmatrix} 1      & 0 & 0\\
+                          0      & 1 & 0\\
+                          0      & 0 & 1 \end{pmatrix}.
+$$
+
+---
+
+
+Le produit de la matrice identité $\mat{I}_n$ avec un vecteur $\vec v\in \real^n$
+nous donne
+$$
+\left\{\mat{I}_n\cdot \vec v\right\}_i=\sum_{j=1}^{n} \mat{I}_{n,ij}v_j=0\cdot v_1+0\cdot v_2+...+1\cdot v_i+0\cdot v_{i+1}+...+0\cdot v_n=v_i,
+$$
+ou en notation vectorielle uniquement
+$$
+\mat{I}_n\cdot\vec v=\vec v.
+$$
+On voit donc que la matrice unité est l'élément neutre mutliplicatif pour le produit matrice-vecteur. Une autre constatation qu'on peut faire au sujet de la matrice identité
+c'est qu'elle est en fait composée de $n$ vecteurs colonne de la base canonique 
+$$\mat{I}_n=\begin{pmatrix} 
+		f(\vec e_1) & f(\vec e_2) & \cdots & f(\vec e_n)
+\end{pmatrix},$$
+où $\vec e_i$ est donné par
+$$
+\vec e_i=\begin{pmatrix} 
+						  0      \\
+                          \vdots \\
+                          0 \\
+                          1      \\
+                          0\\
+                          \vdots \\
+                          0
+                  \end{pmatrix},
+$$
+où le seul élément valant 1 est à la $i$-ème ligne.
+
+---
+
+Illustration (Base canonique en deux dimensions) +.#
+
+En 2D la base canonique est bien connue et est 
+$$\vec e_1=\vectwo{1}{0},\quad \vec e_2=\vectwo{0}{1}.$$
+Dans ce cas-là il est trivial de vérifier que 
+$$\mat{I}_2=\begin{pmatrix} 1      & 0 \\
+                            0      & 1  \end{pmatrix}
+           =\begin{pmatrix} 
+		\vec e_1 & \vec e_2
+\end{pmatrix}.
+$$
+
+---
+
+Grâce à la définition d'une base, nous savons que n'importe quel vecteur $\vec v\in \real^n$ peut s'exprimer comme une combinaison linéaire de la base canonique
+$$
+\vec v=\begin{pmatrix} 
+		v_1      \\
+		v_2      \\
+        \vdots \\
+        v_n
+\end{pmatrix}
+=v_1\cdot \vec e_1+...+v_n\cdot \vec e_n
+=\begin{pmatrix} 
+		v_1      \\
+		0      \\
+        \vdots \\
+        0
+\end{pmatrix}+
+\begin{pmatrix} 
+		0      \\
+		v_2      \\
+        \vdots \\
+        0
+\end{pmatrix}+...+
+\begin{pmatrix} 
+		0      \\
+		0      \\
+        \vdots \\
+        v_n
+\end{pmatrix}=\mat{I}_n\cdot \vec v.
+$$
+Si à présent nous appelons une transformation linéaire 
+$$f:\real^n\rightarrow m$$ et que nous l'appliquons au vecteur $\vec v\in\real^n$,
+on a
+$$
+f(\vec v)=f(v_1\cdot \vec e_1+v_2\cdot \vec e_2+...+v_n\cdot \vec e_n)=
+	v_1\cdot f(\vec e_1)+v_2\cdot f(\vec e_2)+...+v_n\cdot f(\vec e_n),
+$$
+où dans la dernière égalité, on a utilisé le fait que l'application $f$ est linéaire.
+Cette dernière équation peut se réécrire comme le produit d'une matrice, notons la $\mat{F}$ avec le vecteur $\vec v$
+$$
+f(\vec v)=\mat{F}\cdot \vec v,
+$$
+où $\mat{F}$ peut s'écrire
+$$
+\mat{F}=
+\begin{pmatrix} 
+		f(\vec e_1) & f(\vec e_2) & \cdots & f(\vec e_n)
+\end{pmatrix}.
+$$
+On voit donc que la matrice $\mat{F}$ est composée de $n$ vecteur colonne qui sont les images des $\vec e_i$ par l'application linéaire $f$.
+
+---
+
+Exemple (La rotation revisitée) +.# 
+
+A l'aide de la méthode générale ci-dessus écrire la matrice, $\mat{R}$, de transformation linéaire pour le cas de la rotation $R$ (voir la sous-section précédente)
+$$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.\nonumber$$
+
+Solution (La rotation revisitée) +.# 
+
+La matrice $\mat{R}$ se construit en calculant les images des vecteurs de base
+$$
+\mat{R}=\begin{pmatrix} 
+		R(\vec e_1) & R(\vec e_2)
+\end{pmatrix}.
+$$ Ici, nous avons $\vec e_1$ et $\vec e_2$ qui sont donnés par
+$$\vec e_1=\vectwo{1}{0},\quad \vec e_2=\vectwo{0}{1}.\nonumber$$
+Il est donc assez simple de calculer $R(\vec e_1)$ et $R(\vec e_2)$
+$$
+R(\vec e_1)=\vectwo{0}{-1},\quad R(\vec e_2)=\vectwo{1}{0}.
+$$
+On a donc que la matrice $\mat{R}$ peut s'écrire
+$$
+\mat{R}=\begin{pmatrix} 
+		 0 & 1\\
+		-1 & 0
+\end{pmatrix}.
+$$
+On vérifie donc bien que le résultat est exactement le même 
+résultat qu'à l'@eq:mat_r (nous voilà donc rassurés).
+
+---
+
+Afin de compliquer un peu l'affaire essayons de voir un ca un peu plus compliqué, où
+la transformation linéaire fait intervenir plus de dimensions
+
+---
+
+Exemple (Une autre application linéaire) +.#
+
+Soit l'application linéaire $f$, telle que
+$$
+\begin{aligned}
+&f:\real^2\rightarrow \real^3,\\
+&f:\vectwo{x_1}{x_2}\rightarrow \begin{pmatrix} 
+		2x_1-x_2\\
+		3x_2\\
+		-4x_1+2x_2
+\end{pmatrix}.
+\end{aligned}
+$$
+
+1. Montrer que cette application est linéaire.
+2. Calculer la matrice $\mat{F}$ correspondant à cette transformation linéaire.
+
+Solution (Une autre application linéaire) +.#
+
+Il faut calculer les images des vecteur $\vec e_1$ et $\vec e_2$ via cette application linéaire. On a donc
+$$
+f(\vec e_1)=\begin{pmatrix} 
+		2\cdot 1-0\\
+		3\cdot 0\\
+		-4\cdot 1+2\cdot 0
+\end{pmatrix}=\begin{pmatrix} 
+		2\\
+		0\\
+	   -4
+\end{pmatrix},
+$$
+et
+$$
+f(\vec e_2)=\begin{pmatrix} 
+		2\cdot 0-1\\
+		3\cdot 1\\
+		-4\cdot 0+2\cdot 1
+\end{pmatrix}=\begin{pmatrix} 
+	   -1\\
+		3\\
+	    2
+\end{pmatrix}.
+$$ 
+La matrice $\mat{F}$ est donc donnée par
+$$
+\mat{F}=\begin{pmatrix} 
+	   2 & -1\\
+	   0 & 3\\
+	  -4 &  2
+\end{pmatrix}.
+$$
+On peut assez facilement calculer $\mat{F}\cdot \vec x$ avec $\vec x=\vectwo{x_1}{x_2}$
+$$
+\mat{F}\cdot \vec x=\begin{pmatrix} 
+	   2 & -1\\
+	   0 & 3\\
+	  -4 &  2
+\end{pmatrix}\cdot\vectwo{x_1}{x_2}=\begin{pmatrix} 
+	   2x_1 -x_2\\
+	   3x_2\\
+	  -4x_1 +2x_2
+\end{pmatrix},
+$$
+ce qui est bien la définition de la fonction linéaire $f$ (les blagues les plus courtes étant toujours les meilleures, je ne vais pas réécrire que nous sommes rassurés, mais le coeur y est).
+
+
+---
+
 
 # Remerciements
 
