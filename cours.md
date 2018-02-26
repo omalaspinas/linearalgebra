@@ -1072,8 +1072,7 @@ $$
 \end{aligned}
 $$
 
-1. Montrer que cette application est linéaire.
-2. Calculer la matrice $\mat{F}$ correspondant à cette transformation linéaire.
+Calculer la matrice $\mat{F}$ correspondant à cette transformation linéaire.
 
 Solution (Une autre application linéaire) +.#
 
