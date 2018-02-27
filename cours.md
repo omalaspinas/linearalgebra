@@ -389,7 +389,7 @@ Déterminer si les vecteurs des familles de l'exercice précédent sont linéair
 Soit à présent un ensemble de vecteur $B=\{\vec b_i\}_{i=1}^n$ qui sont linéairement indépendants (c'est une famille libre) et l'ensemble $E$, un espace vectoriel, généré par toutes les combinaisons linéaires de $B$. Alors on dit que l'ensemble $B$ est une *base* de $E$. N'importe quel vecteur de $E$ peut être obtenu comme une combinaison linéaire des vecteurs de la base
 $B$.
 
-En revanche, si $V=\{\vec v_i\}_{i=1}^n$ est une famille liée (ses vecteurs sont linéairement dépendant) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
+En revanche, si $V=\{\vec v_i\}_{i=1}^n$ est une famille liée (ses vecteurs sont linéairement dépendants) et même s'ils génèrent le même ensemble $E$. L'ensemble $V$ ne forme pas une base. Une base est le plus "petit" ensemble de vecteur générant $E$.
 
 ---
 
