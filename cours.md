@@ -479,7 +479,15 @@ et
 $$
 f(\vec x)+f(\vec y)=\vectwo{x_1+x_2}{2\cdot x_1}+\vectwo{y_1+y_2}{2\cdot y_1}=\vectwo{x_1+y_1+x_2+y_2}{2\cdot(x_1+y_1)}.
 $${#eq:tmp2}
-On voit que l'@eq:tmp1 et l'@eq:tmp2 sont égales et donc la fonction $f$ est linéaire.
+Maintenant vérifions (2)
+$$
+\lambda f(\vec x) = \lambda \vectwo{x_1 + x_2}{2 \cdot x_1} = \vectwo{\lambda (x_1 + x_2)}{\lambda (2 \cdot x_1)},
+$${#eq:tmp3}
+et
+$$
+f(\lambda\vec x) = f\vectwo{\lambda x_1}{\lambda x_2} = \vectwo{\lambda x_1 + \lambda x_2}{ 2 \cdot \lambda x_1} = \vectwo{\lambda (x_1 + x_2)}{\lambda (2 \cdot x_1)}.
+$${#eq:tmp4}
+On voit que l'@eq:tmp1 et l'@eq:tmp2 sont égales, que l'@eq:tmp3 et l'@eq:tmp4 le sont aussi, donc la fonction $f$ est linéaire.
 
 ---
 
