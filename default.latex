@@ -269,6 +269,7 @@ $endif$
 \newcommand{\h}{\mathrm{h}}
 \newcommand{\Pa}{\mathrm{Pa}}
 \newcommand{\vectwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+\newcommand{\vecthree}[3]{\begin{pmatrix}#1 \\ #2 \\ #3 \end{pmatrix}}
 \newcommand{\mat}[1]{{\underline{\underline{#1}}}}
 
 $if(title)$
