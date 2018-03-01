@@ -90,7 +90,7 @@ w_2&=u_2+v_2.
 \end{aligned}$$
 Cette définition de la somme se généralise très facilement à $n$ dimensions. On a que
 $$
-\begin{pmatrix}w_1 \\ \vdots \\ w_n \end{pmatrix}=\begin{pmatrix}u_1 \\ \vdots <\\ u_n \end{pmatrix}+\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ \vdots \\ u_n+v_n \end{pmatrix}.$$
+\begin{pmatrix}w_1 \\ \vdots \\ w_n \end{pmatrix}=\begin{pmatrix}u_1 \\ \vdots \\ u_n \end{pmatrix}+\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ \vdots \\ u_n+v_n \end{pmatrix}.$$
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
@@ -143,7 +143,7 @@ Comme on le constate sur la @fig:multiplication il y a quatre cas de figure
 
 Avec la définition de la norme d'un vecteur $||\vec{v}||$, il est très aisé de voir que la multiplication par un scalaire revient en fait à multiplier chaque composante du vecteur $\vec{v}$ par un scalaire. En définissant $\vec{u}=\lambda\cdot \vec{v}$, cela revient à faire
 $$\vec{u}=\lambda\cdot\vec{v}=\begin{pmatrix}\lambda\cdot v_1 \\ \lambda\cdot v_2 \end{pmatrix}=\begin{pmatrix}u_1 \\ u_2 \end{pmatrix}.$$
-En d'autres termes $u_1=\lambda\cdot v_1$ et $u_2
+En d'autres termes $u_1=\lambda\cdot v_1$ et $u_2=\lambda\cdot v_2$.
 La longueur de $||\vec{u}||$ est donnée par
 $$||\vec{u}||=\sqrt{u_1^2+u_2^2}=\sqrt{(\lambda\cdot v_1)^2+(\lambda\cdot v_2)^2}=\sqrt{\lambda^2(v_1^2+v_2^2)}=|\lambda|\cdot||\vec{v}||.$$
 On voit donc que la longueur de $\vec{v}$ est modifiée d'un facteur $\lambda$: il est dilaté ou contracté. Le signe de $\lambda$ aura uniquement une influence sur l'orientation.
@@ -172,7 +172,7 @@ array([1.5, 3. , 4.5])
 
 ## Les espaces vectoriels
 
-Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et les scalaires réels, $\lambda\in\real$, dotés de la somme de la @sec:addition_vec et la multiplication @sec:multiplication_vec forme un espace qui a un certain nombre de propriétés.
+Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et les scalaires réels, $\lambda\in\real$, dotés de la somme (@sec:addition_vec) et la multiplication (@sec:multiplication_vec) forme un espace qui a un certain nombre de propriétés.
 
 ### Propriétés de la somme
 
@@ -374,7 +374,7 @@ où au moins un des $\mu_i\neq 0$.
 
 Inversement s'il n'existe pas de $\lambda_i$ non nul tel que
 $$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
-alors les vecteurs sont indépendants.
+alors les vecteurs sont *linéairement indépendants*.
 
 ---
 
@@ -886,8 +886,8 @@ Qui est exactement le même résultat que ce qu'on avait obtenu dans l'@eq:segme
 
 ### Généralisation: les applications linéaires comme produit matrice-vecteur
 
-On vient de voir que la rotation de $\pi/2$ peut se voir comme un produit d'une matrice avec un vecteur. 
-En fait cette propriété peut se généraliser à n'importe quelle application linéaire. Pour 
+On vient de voir que la rotation de $\pi/2$ peut se voir comme un produit d'une matrice avec un vecteur.
+En fait cette propriété peut se généraliser à n'importe quelle application linéaire. Pour
 montrer cette propriété commençons par introduire la matrice identité dans le cas général, $\mat{I}_n\in M_{n,n}(\real)$, qui
 est une matrice carrée de taille $n\times n$, et dont tous les éléments sont nuls excepté la diagonale qui vaut un.
 $$
@@ -918,7 +918,7 @@ $$
 
 Illustration (La matrice identité en deux/trois dimensions) +.#
 
-Pour $n=3$ on a 
+Pour $n=3$ on a
 $$
 \mat{I}_3=\begin{pmatrix} 1      & 0 & 0\\
                           0      & 1 & 0\\
@@ -938,13 +938,13 @@ $$
 \mat{I}_n\cdot\vec v=\vec v.
 $$
 On voit donc que la matrice unité est l'élément neutre mutliplicatif pour le produit matrice-vecteur. Une autre constatation qu'on peut faire au sujet de la matrice identité
-c'est qu'elle est en fait composée de $n$ vecteurs colonne de la base canonique 
-$$\mat{I}_n=\begin{pmatrix} 
+c'est qu'elle est en fait composée de $n$ vecteurs colonne de la base canonique
+$$\mat{I}_n=\begin{pmatrix}
 		f(\vec e_1) & f(\vec e_2) & \cdots & f(\vec e_n)
 \end{pmatrix},$$
 où $\vec e_i$ est donné par
 $$
-\vec e_i=\begin{pmatrix} 
+\vec e_i=\begin{pmatrix}
 						  0      \\
                           \vdots \\
                           0 \\
@@ -960,12 +960,12 @@ où le seul élément valant 1 est à la $i$-ème ligne.
 
 Illustration (Base canonique en deux dimensions) +.#
 
-En 2D la base canonique est bien connue et est 
+En 2D la base canonique est bien connue et est
 $$\vec e_1=\vectwo{1}{0},\quad \vec e_2=\vectwo{0}{1}.$$
-Dans ce cas-là il est trivial de vérifier que 
+Dans ce cas-là il est trivial de vérifier que
 $$\mat{I}_2=\begin{pmatrix} 1      & 0 \\
                             0      & 1  \end{pmatrix}
-           =\begin{pmatrix} 
+           =\begin{pmatrix}
 		\vec e_1 & \vec e_2
 \end{pmatrix}.
 $$
@@ -974,33 +974,33 @@ $$
 
 Grâce à la définition d'une base, nous savons que n'importe quel vecteur $\vec v\in \real^n$ peut s'exprimer comme une combinaison linéaire de la base canonique
 $$
-\vec v=\begin{pmatrix} 
+\vec v=\begin{pmatrix}
 		v_1      \\
 		v_2      \\
         \vdots \\
         v_n
 \end{pmatrix}
 =v_1\cdot \vec e_1+...+v_n\cdot \vec e_n
-=\begin{pmatrix} 
+=\begin{pmatrix}
 		v_1      \\
 		0      \\
         \vdots \\
         0
 \end{pmatrix}+
-\begin{pmatrix} 
+\begin{pmatrix}
 		0      \\
 		v_2      \\
         \vdots \\
         0
 \end{pmatrix}+...+
-\begin{pmatrix} 
+\begin{pmatrix}
 		0      \\
 		0      \\
         \vdots \\
         v_n
 \end{pmatrix}=\mat{I}_n\cdot \vec v.
 $$
-Si à présent nous appelons une transformation linéaire 
+Si à présent nous appelons une transformation linéaire
 $$f:\real^n\rightarrow m$$ et que nous l'appliquons au vecteur $\vec v\in\real^n$,
 on a
 $$
@@ -1015,7 +1015,7 @@ $$
 où $\mat{F}$ peut s'écrire
 $$
 \mat{F}=
-\begin{pmatrix} 
+\begin{pmatrix}
 		f(\vec e_1) & f(\vec e_2) & \cdots & f(\vec e_n)
 \end{pmatrix}.
 $$
@@ -1023,16 +1023,16 @@ On voit donc que la matrice $\mat{F}$ est composée de $n$ vecteur colonne qui s
 
 ---
 
-Exemple (La rotation revisitée) +.# 
+Exemple (La rotation revisitée) +.#
 
 A l'aide de la méthode générale ci-dessus écrire la matrice, $\mat{R}$, de transformation linéaire pour le cas de la rotation $R$ (voir la sous-section précédente)
 $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.\nonumber$$
 
-Solution (La rotation revisitée) +.# 
+Solution (La rotation revisitée) +.#
 
 La matrice $\mat{R}$ se construit en calculant les images des vecteurs de base
 $$
-\mat{R}=\begin{pmatrix} 
+\mat{R}=\begin{pmatrix}
 		R(\vec e_1) & R(\vec e_2)
 \end{pmatrix}.
 $$ Ici, nous avons $\vec e_1$ et $\vec e_2$ qui sont donnés par
@@ -1043,12 +1043,12 @@ R(\vec e_1)=\vectwo{0}{-1},\quad R(\vec e_2)=\vectwo{1}{0}.
 $$
 On a donc que la matrice $\mat{R}$ peut s'écrire
 $$
-\mat{R}=\begin{pmatrix} 
+\mat{R}=\begin{pmatrix}
 		 0 & 1\\
 		-1 & 0
 \end{pmatrix}.
 $$
-On vérifie donc bien que le résultat est exactement le même 
+On vérifie donc bien que le résultat est exactement le même
 résultat qu'à l'@eq:mat_r (nous voilà donc rassurés).
 
 ---
@@ -1064,7 +1064,7 @@ Soit l'application linéaire $f$, telle que
 $$
 \begin{aligned}
 &f:\real^2\rightarrow \real^3,\\
-&f:\vectwo{x_1}{x_2}\rightarrow \begin{pmatrix} 
+&f:\vectwo{x_1}{x_2}\rightarrow \begin{pmatrix}
 		2x_1-x_2\\
 		3x_2\\
 		-4x_1+2x_2
@@ -1078,11 +1078,11 @@ Solution (Une autre application linéaire) +.#
 
 Il faut calculer les images des vecteur $\vec e_1$ et $\vec e_2$ via cette application linéaire. On a donc
 $$
-f(\vec e_1)=\begin{pmatrix} 
+f(\vec e_1)=\begin{pmatrix}
 		2\cdot 1-0\\
 		3\cdot 0\\
 		-4\cdot 1+2\cdot 0
-\end{pmatrix}=\begin{pmatrix} 
+\end{pmatrix}=\begin{pmatrix}
 		2\\
 		0\\
 	   -4
@@ -1090,19 +1090,19 @@ f(\vec e_1)=\begin{pmatrix}
 $$
 et
 $$
-f(\vec e_2)=\begin{pmatrix} 
+f(\vec e_2)=\begin{pmatrix}
 		2\cdot 0-1\\
 		3\cdot 1\\
 		-4\cdot 0+2\cdot 1
-\end{pmatrix}=\begin{pmatrix} 
+\end{pmatrix}=\begin{pmatrix}
 	   -1\\
 		3\\
 	    2
 \end{pmatrix}.
-$$ 
+$$
 La matrice $\mat{F}$ est donc donnée par
 $$
-\mat{F}=\begin{pmatrix} 
+\mat{F}=\begin{pmatrix}
 	   2 & -1\\
 	   0 & 3\\
 	  -4 &  2
@@ -1110,11 +1110,11 @@ $$
 $$
 On peut assez facilement calculer $\mat{F}\cdot \vec x$ avec $\vec x=\vectwo{x_1}{x_2}$
 $$
-\mat{F}\cdot \vec x=\begin{pmatrix} 
+\mat{F}\cdot \vec x=\begin{pmatrix}
 	   2 & -1\\
 	   0 & 3\\
 	  -4 &  2
-\end{pmatrix}\cdot\vectwo{x_1}{x_2}=\begin{pmatrix} 
+\end{pmatrix}\cdot\vectwo{x_1}{x_2}=\begin{pmatrix}
 	   2x_1 -x_2\\
 	   3x_2\\
 	  -4x_1 +2x_2
