@@ -287,10 +287,10 @@ Soit $\vec{u},\vec{v},\vec{w}\in V$, la somme possède les propriétés suivante
 $$(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w}).$$
 2. Elle est *commutative*
 $$\vec{u}+\vec{v}=\vec{v}+\vec{u}.$$
-3. Elle admet un *élément neutre*, noté $0$ (ou vecteur nul), tel que
-$$\vec{u}+0=\vec{u}.$$
+3. Elle admet un *élément neutre*, noté $\vec{0}$ (ou vecteur nul), tel que
+$$\vec{u}+\vec{0}=\vec{u}.$$
 4. Tout vecteur $\vec{v}$ admet un *opposé*, noté $-\vec{v}$, tel que
-$$\vec{v}+(-\vec{v})=0.$$
+$$\vec{v}+(-\vec{v})=\vec{0}.$$
 
 Soit $\lambda,\mu\in K$ et $\vec{u},\vec{v}\in V$, le produit satisfait les propriétés suivantes:
 
@@ -367,13 +367,13 @@ Dans les cas 1 et 3, on dit que la famille de vecteurs est *libre*. En d'autres 
 A l'inverse 2 et 4, sont des familles liées: on peut obtenir au moins un des vecteurs de la famille par combinaison linéaire des vecteurs de la famille. Ils sont *linéairement dépendants*.
 
 En notation mathématique, si on considère un ensemble $\{\vec v_i\}_{i=1}^n\in E$ et $\{\lambda_i\}_{i=1}^n\in K$ ($E$ est un espace vectoriel sur $K$), alors on dit que les vecteurs $\vec v_i$ sont *linéairement dépendants* si et seulement si
-$$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
+$$\sum_{i=1}^n\lambda_i \vec v_i=\vec{0},$$
 avec au moins un $\lambda_i\neq 0$. On peut réécrire cette condition comme
 $$\vec v_n=\sum_{i=1}^{n-1}\mu_i \vec v_i,$$
 où au moins un des $\mu_i\neq 0$.
 
 Inversement s'il n'existe pas de $\lambda_i$ non nul tel que
-$$\sum_{i=1}^n\lambda_i \vec v_i=0,$$
+$$\sum_{i=1}^n\lambda_i \vec v_i=\vec{0},$$
 alors les vecteurs sont *linéairement indépendants*.
 
 ---
