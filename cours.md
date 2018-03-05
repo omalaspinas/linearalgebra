@@ -1184,8 +1184,60 @@ et où la matrice de l'application linéaire est l'image de chacun des vecteurs 
 L'image de l'application linéaire sera donc l'espace engendré par l'espace engendré par la famille de vecteurs
 $\{f(\vec e_i)\}_{i=1}^n$, soit l'ensemble des vecteurs obtenus par des combinaisons linéaires obtenues à partir des vecteurs $f(\vec e_i)$.
 
-Exemple (Image de la rotation) +.#
+---
 
+Illustration (Image de la rotation) +.#
+
+L'image de la rotation 
+$$\begin{aligned}
+&R:\real^2\rightarrow\real^2,\\
+&R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1},
+\end{aligned}
+\nonumber$$
+s'écrit sous la forme d'une matrice comme 
+$$
+\mat{R}=\begin{pmatrix}
+		 0 & 1\\
+		-1 & 0
+\end{pmatrix}.\nonumber
+$$
+On a donc que la famille de vecteurs est 
+$$\left\{\vectwo{0}{-1},\vectwo{1}{0}\right\}.$$
+Cet ensemble forme une base de $\real^2$ car ils ne sont pas colinéaires.
+
+---
+
+---
+
+Exercice (Images) +.#
+
+Quelles sont les images des applications linéaires suivantes:
+
+1. 
+$$
+\begin{aligned}
+f:\real^2\rightarrow \real^2,\\
+f:\vectwo{x_1}{x_2}\rightarrow \vectwo{0}{0},\\
+\end{aligned}
+$$
+2. 
+$$
+\begin{aligned}
+f:\real^2\rightarrow \real^2,\\
+f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{0},\\
+\end{aligned}
+$$
+3. 
+$$
+\begin{aligned}
+&f:\real^2\rightarrow \real^3,\\
+&f:\vectwo{x_1}{x_2}\rightarrow \begin{pmatrix}
+		2x_1-x_2\\
+		3x_2\\
+		-4x_1+2x_2
+\end{pmatrix}.
+\end{aligned}
+$$
 
 
 # Remerciements
