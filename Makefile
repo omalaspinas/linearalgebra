@@ -1,6 +1,6 @@
 NAME=cours
 
-default:
+default: $(NAME).md default.latex
 	pandoc -s -o $(NAME).pdf $(NAME).md --highlight-style kate --filter=pandoc-numbering --number-sections --filter=$(PANDOC_CROSSREF)pandoc-crossref --template=./default.latex --pdf-engine pdflatex
 
 latex:

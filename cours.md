@@ -1134,6 +1134,60 @@ ce qui est bien la définition de la fonction linéaire $f$ (les blagues les plu
 ---
 
 
+### L'image d'une application linéaire
+
+Nous avons vu jusqu'à présent un certain nombre d'applications linéaires. De façon générale une transformation linéaire, $f$, est définie d'un espace vectoriel 
+$E$ dans un espace vectoriel $V$
+$$
+f:E\rightarrow V,\nonumber
+$$
+où $E$ et $V$ sont les domaines de définition et d'arrivée de $f$. Nous pouvons définir l'image de $E$ par $f$, notée $\mathrm{Im}(f)$, comme
+$$
+\mathrm{Im}(f)=\{\vec v\in V | \vec v = f(\vec u),\ \forall \vec u\in E\}.
+$$
+Ou en termes moins mathématiques, tous les vecteurs de $V$ qu'on peut effectivement atteindre depuis un vecteur de $E$ via l'application $f$.
+
+Une illustration de l'image de $f$ peut se voir sur la @fig:fonction_image. L'ensemble $\Im(f)$ doit être inclus dans $V$ (il peut être plus petit ou égal, mais certainement 
+pas plus grand).
+
+![La fonction $f$ applique les éléments de $E$ dans un sous-espace de $V$, noté $\mathrm{Im}(f)$.](figs/fonction_image.pdf){#fig:fonction_image width=30%}
+
+---
+
+Illustration (Le cosinus) +.#
+
+La fonction cosinus est définie de $\real$ dans $\real$
+$$
+\cos : \real \rightarrow\real,
+$$
+Néanmoins, tous les points de $\real$ ne peuvent pas être atteints par $\cos(\theta)$, $\theta\in\real$. En fait 
+l'image de $\cos$ est 
+$$
+\mathrm{Im}(\cos)=[-1, 1].
+$$
+
+---
+
+Dans le cas d'une application linéaire l'interprétation de l'image d'une application linéaire est intéressante. Nous avons vu que 
+toute application linéaire peut s'écrire comme un produit matrice-vecteur. Si $\vec v\in E$, alors on peut écrire
+$$
+f(\vec v)=\mat{F}\cdot \vec v,
+$$
+où $\mat{F}$ est donnée par
+$$
+\mat{F}=
+\begin{pmatrix}
+		f(\vec e_1) & f(\vec e_2) & \cdots & f(\vec e_n)
+\end{pmatrix},
+$$
+et où la matrice de l'application linéaire est l'image de chacun des vecteurs d'une base de $E$, notés $\{\vec e_i\}_{i=1}^n$. 
+L'image de l'application linéaire sera donc l'espace engendré par l'espace engendré par la famille de vecteurs
+$\{f(\vec e_i)\}_{i=1}^n$, soit l'ensemble des vecteurs obtenus par des combinaisons linéaires obtenues à partir des vecteurs $f(\vec e_i)$.
+
+Exemple (Image de la rotation) +.#
+
+
+
 # Remerciements
 
 Je voudrais remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, et T. Pirkl.
