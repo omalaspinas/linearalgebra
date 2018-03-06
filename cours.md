@@ -854,11 +854,11 @@ Le produit d'une matrice avec un vecteur n'est pas commutatif.
 
 ---
 
-Le produit d'une matrice avec un vecteur est une application linéaire. On peut montrer que si $\mat{A}\in M_{m,n}(\real)$ est une matrice à coefficients réels de dimension $m\times n$, $\lambda\in\real$ un scalaire, et $\vec u\vec v\in \real^n$ deux vecteurs colonnes de taille $n$, alors
+Le produit d'une matrice avec un vecteur est une application linéaire. On peut montrer que si $\mat{A}\in M_{m,n}(\real)$ est une matrice à coefficients réels de dimension $m\times n$, $\lambda\in\real$ un scalaire, et $\vec u, \vec v\in \real^n$ deux vecteurs colonnes de taille $n$, alors
 $$
 \begin{aligned}
 &\mat{M}\cdot(\vec u + \vec v)= \mat{M}\cdot \vec u+\mat{M}\vec v,\\
-\lambda\cdot \mat{M}\vec u= \mat{M}\cdot (\lambda\cdot \vec u).
+&\lambda\cdot \mat{M}\vec u= \mat{M}\cdot (\lambda\cdot \vec u).
 \end{aligned}
 $$
 
@@ -1238,6 +1238,9 @@ $$
 \end{pmatrix}.
 \end{aligned}
 $$
+
+---
+
 
 
 # Remerciements
