@@ -1128,7 +1128,7 @@ $$
 	  -4x_1 +2x_2
 \end{pmatrix},
 $$
-ce qui est bien la définition de la fonction linéaire $f$ (les blagues les plus courtes étant toujours les meilleures, je ne vais pas réécrire que nous sommes rassurés, mais le coeur y est).
+ce qui est bien la définition de la fonction linéaire $f$ (les blagues les plus courtes étant toujours les meilleures, je ne vais pas réécrire que nous sommes rassurés, mais le cœur y est).
 
 
 ---
@@ -1143,28 +1143,48 @@ f:E\rightarrow V,\nonumber
 $$
 où $E$ et $V$ sont les domaines de définition et d'arrivée de $f$. Nous pouvons définir l'image de $E$ par $f$, notée $\mathrm{Im}(f)$, comme
 $$
-\mathrm{Im}(f)=\{\vec v\in V | \vec v = f(\vec u),\ \forall \vec u\in E\}.
+\mathrm{Im}_E(f)=\{\vec v\in V | \vec v = f(\vec u),\ \forall \vec u\in E\}.
 $$
 Ou en termes moins mathématiques, tous les vecteurs de $V$ qu'on peut effectivement atteindre depuis un vecteur de $E$ via l'application $f$.
 
 Une illustration de l'image de $f$ peut se voir sur la @fig:fonction_image. L'ensemble $\Im(f)$ doit être inclus dans $V$ (il peut être plus petit ou égal, mais certainement 
 pas plus grand).
 
-![La fonction $f$ applique les éléments de $E$ dans un sous-espace de $V$, noté $\mathrm{Im}(f)$.](figs/fonction_image.pdf){#fig:fonction_image width=30%}
+![La fonction $f$ applique les éléments de $E$ dans un sous-espace de $V$, noté $\mathrm{Im}_E(f)$.](figs/fonction_image.pdf){#fig:fonction_image width=30%}
 
 ---
 
-Illustration (Le cosinus) +.#
+Illustration (L'application nulle) +.#
 
-La fonction cosinus est définie de $\real$ dans $\real$
+La fonction $f$
 $$
-\cos : \real \rightarrow\real,
+\begin{aligned}
+&f : \real \rightarrow\real,\\
+&f : x \rightarrow 0.
+\end{aligned}
 $$
-Néanmoins, tous les points de $\real$ ne peuvent pas être atteints par $\cos(\theta)$, $\theta\in\real$. En fait 
-l'image de $\cos$ est 
+Néanmoins, tous les points de $\real$ ne peuvent pas être atteints par $f(x)$. En fait 
+l'image de $f$ est 
 $$
-\mathrm{Im}(\cos)=[-1, 1].
+\mathrm{Im}_\real(f)=\{0\}.
 $$
+
+---
+
+Par ailleurs, si $f$ est linéaire, on peut montrer que l'ensemble $\mathrm{Im}_E(f)$ est un sous-espace vectoriel. C'est-à-dire que
+si $f(\vec u), f(\vec v)\in V$ et $\lambda\in K$, alors
+$$
+\begin{aligned}
+f(\vec u)+f(\vec v)\in V,\ \mathrm{et},\\
+\lambda\cdot f(\vec v)\in V.
+\end{aligned}
+$$
+
+---
+
+Exercice +.# 
+
+Montrer que ces deux propriétés sont satisfaites pour $f$ une application linéaire.
 
 ---
 
@@ -1172,17 +1192,26 @@ Dans le cas d'une application linéaire l'interprétation de l'image d'une appli
 toute application linéaire peut s'écrire comme un produit matrice-vecteur. Si $\vec v\in E$, alors on peut écrire
 $$
 f(\vec v)=\mat{F}\cdot \vec v,
-$$
+$${#eq:eq_f}
 où $\mat{F}$ est donnée par
 $$
 \mat{F}=
 \begin{pmatrix}
 		f(\vec e_1) & f(\vec e_2) & \cdots & f(\vec e_n)
+\end{pmatrix}=
+\begin{pmatrix}
+		\vec f_1 & \vec f_2 & \cdots & \vec f_n
 \end{pmatrix},
 $$
-et où la matrice de l'application linéaire est l'image de chacun des vecteurs d'une base de $E$, notés $\{\vec e_i\}_{i=1}^n$. 
+et où la matrice de l'application linéaire est l'image de chacun des vecteurs d'une base de $E$, notés $\{\vec f_i\}_{i=1}^n=\{f(\vec e_i)\}_{i=1}^n$. 
 L'image de l'application linéaire sera donc l'espace engendré par l'espace engendré par la famille de vecteurs
-$\{f(\vec e_i)\}_{i=1}^n$, soit l'ensemble des vecteurs obtenus par des combinaisons linéaires obtenues à partir des vecteurs $f(\vec e_i)$.
+$\{\vec f\}_{i=1}^n$, soit l'ensemble des vecteurs obtenus par des combinaisons linéaires obtenues à partir des vecteurs $\vec f_i$.
+
+En effet, avec cette dernière notation, on peut écrire l'@eq:eq_f comme
+$$
+\mat{F}\cdot \vec v=v_1\vec f_1+v_2\vec f_2+v_3\vec f_3+\dots+v_n\vec f_n,
+$$
+et comme $\{v_i\}_{i=1}^n$ est quelconque nous avons bien que l'équation ci-dessus décrit toutes les combinaisons linéaires de $\{\vec f\}_{i=1}^n$.
 
 ---
 
@@ -1206,6 +1235,38 @@ $$\left\{\vectwo{0}{-1},\vectwo{1}{0}\right\}.$$
 Cet ensemble forme une base de $\real^2$ car ils ne sont pas colinéaires.
 
 ---
+
+En fait, on peut généraliser le concept et étudier les images de n'importe quel sous espace vectoriel
+de $E$ par $f$. Si $A\subset E$, l'image de $A$ par $f$, sera noté $\mathrm{Im}_A(f)$.
+
+---
+
+Illustration +.#
+
+Soit la rotation $R$ définie comme 
+$$
+\vec y=\mat{R}\cdot \vec x,
+$$
+qui est définie de $\real^2$ dans $\real^2$ avec 
+$$\mat{R}=\begin{pmatrix}
+		 0 & 1\\
+		-1 & 0
+\end{pmatrix}.
+$$
+Nous avons vu que $Im_\real^2(R)=\real^2$.
+
+Considérons les sous-ensembles $A=\real\times 0$, et $B=0\times \real$. 
+Les images de ces deux sous-ensembles sont les espaces engendrés par 
+$\vectwo{1}{0}$ pour $A$ et $\vectwo{0}{1}$ pour $B$ et sont donc
+$$
+\begin{aligned}
+\mathrm{Im}_A&=0\times \real,\\
+\mathrm{Im}_B&=\real\times 0.
+\end{aligned}
+$$
+
+---
+
 
 ---
 
@@ -1241,7 +1302,44 @@ $$
 
 ---
 
+### Préimage (ou antécédent) d'une application linéaire
 
+Reprenons notre application linéaire $f$ qui est une fonction de $E$ dans $V$ ($E$ et $V$ sont des espace vectoriels sur $K$).
+Dans la section précédente, nous avons étudié le sous-ensemble de $V$ qui est l'image de $E$ par $f$.
+
+A présent, nous allons considérer un sous-ensemble du domaine d'arrivée, $Y\subseteq V$ et chercher l'ensemble, $X\subseteq E$, 
+tel que $f(\vec x)\in Y$ pour $\vec x\in X$. En d'autres termes, nous cherchons l'ensemble des pré-images, $X$, qui ont une image dans $Y$
+(voir @fig:preimage).
+
+![On cherche le sous-ensemble $X$ de $E$ tel que les images de $X$ sont dans $Y$ qui est un sous-ensemble de $V$..](figs/fonction_preimage.pdf){#fig:fonction_preimage width=30%}
+
+Dans une notation plus mathématiques nous pouvons écrire
+$$
+X=\{\vec x | f(\vec x)\in Y \}.
+$$
+
+---
+
+Remarque +.#
+
+Il se peut tout à fait possible qu'un élément de $Y$ n'ait pas de pré-image dans $E$ (et donc dans $X$). En d'autres termes qu'il n'existe 
+pas de $\vec x$ tel que $f(\vec x)=\vec y$, pour $\vec y\in Y$. Ou encore que l'image de $X$ par $f$, $\mathrm{Im}_X(f)\subseteq Y$.
+
+---
+
+L'ensemble $X$ est appelé *l'antécédent* de $Y$, ou la pré-image de $Y$ par $f$, ou encore l'image inverse de $Y$ par $f$.
+Une façon de noter cet ensemble est $X=f^{-1}(Y)$, où $f^{-1}$ est la *fonction inverse* de $f$.
+
+---
+
+Exemple (Antécédent de la rotation) +.#
+
+Reprenons notre exemple favori qu'est la rotation de $\pi/2$ dans le sens des aiguilles d'une montre.
+L'application linéaire est
+$$
+R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.
+$$
+Nous choisissons l'ensemble $Y=\left\{\vectwo{0}{0},\vectwo{0}{-1},\vectwo{1}{0}\right\}$.
 
 # Remerciements
 
