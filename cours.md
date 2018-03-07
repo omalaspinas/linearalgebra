@@ -1339,7 +1339,30 @@ L'application linéaire est
 $$
 R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.
 $$
-Nous choisissons l'ensemble $Y=\left\{\vectwo{0}{0},\vectwo{0}{-1},\vectwo{1}{0}\right\}$.
+Nous choisissons les vecteurs suivants 
+$$
+\begin{aligned}
+\vec y_0&=\vectwo{0}{0},\\
+\vec y_1&=\vectwo{0}{-1},\\
+\vec y_2&=\vectwo{1}{0}.
+\end{aligned}
+$$
+Et définissons le sous-ensemble $Y=\left\{\vec y_0,\vec y_1, \vec y_2\right\}$.
+
+En fait ce que nous cherchons à présent se sont les vecteurs $\vec x_0$, $\vec x_1$, et $\vec x_2$ de $X$ tel quel
+$$
+\begin{aligned}
+R(\vec x_0)&=\vec y_0,\\
+R(\vec x_1)&=\vec y_1,\\
+R(\vec x_2)&=\vec y_2.
+\end{aligned}
+$$
+Pour chacune de ces équations on peut écrire deux équations à deux inconnues
+$$
+\begin{aligned}
+R(\vec x_0)=\vec y_0,\\
+\end{aligned}
+$$
 
 # Remerciements
 
