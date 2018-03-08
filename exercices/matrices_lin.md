@@ -1,7 +1,7 @@
 ---
 # author:
 # - Orestis Malaspinas
-title: Exercices sur les espaces vectoriels et applications linéaires
+title: Exercices sur les matrices
 autoSectionLabels: true
 autoEqnLabels: false
 eqnPrefix: 
@@ -68,7 +68,7 @@ La transposée d'une matrice, $\mat{M}\in M_{m,n}(\real)$, est notée $\mat{M}^\
 \{\mat{M}^\mathrm{T}\}_{ij}=\{\mat{M}\}_{ji}.
 \end{equation}
 
-Dans le cas d'une matrice $2\times 2$, et $\vec v\in M_{2,1}(\real)$ (c'est la même chose qu'un vecteur dans $\real^2$) montrer
+Dans le cas d'une matrice $\mat{M}\in M_{2,2}(\real)$, et $\vec v\in M_{2,1}(\real)$ (c'est la même chose qu'un vecteur dans $\real^2$) montrer
 que 
 \begin{equation}
 \left(\mat{M}\cdot\vec v\right)^\mathrm{T}=\vec v^\mathrm{T}\cdot \mat{M}^\mathrm{T}.
