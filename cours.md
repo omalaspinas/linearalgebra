@@ -339,7 +339,7 @@ Soit un espace vectoriel $E$ sur $K$, muni des opérations "$+$"" et "$\cdot$".
 Soient $\vec v_1, \vec v_2, ..., \vec v_n\in E$ et $\lambda_1,...,\lambda_n\in K$, une combinaison linéaire de $\vec v_1,...,\vec v_n$
 $$\sum_{i=1}^n\lambda_i\cdot \vec v_i=\lambda_1\cdot \vec v_1+...+\lambda_n\cdot \vec v_n.$$
 
-A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*?).
+A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur résultant de n'importe quelle combinaison linéaire de l'ensemble $E$ sera toujours un élément de $E$. Une question intéressante à se poser à présent, c'est de savoir quel est l'ensemble qu'on peut générer en faisant des combinaisons linéaires d'un ensemble de $\{\vec v_i\}_{i=1}^n$ (cet ensemble de vecteurs s'appelle un *famille de vecteurs*).
 
 ---
 
@@ -1309,9 +1309,9 @@ Dans la section précédente, nous avons étudié le sous-ensemble de $V$ qui es
 
 A présent, nous allons considérer un sous-ensemble du domaine d'arrivée, $Y\subseteq V$ et chercher l'ensemble, $X\subseteq E$, 
 tel que $f(\vec x)\in Y$ pour $\vec x\in X$. En d'autres termes, nous cherchons l'ensemble des pré-images, $X$, qui ont une image dans $Y$
-(voir @fig:preimage).
+(voir @fig:fonction_preimage).
 
-![On cherche le sous-ensemble $X$ de $E$ tel que les images de $X$ sont dans $Y$ qui est un sous-ensemble de $V$..](figs/fonction_preimage.pdf){#fig:fonction_preimage width=30%}
+![On cherche le sous-ensemble $X$ de $E$ tel que les images de $X$ sont dans $Y$ qui est un sous-ensemble de $V$.](figs/fonction_preimage.pdf){#fig:fonction_preimage width=30%}
 
 Dans une notation plus mathématiques nous pouvons écrire
 $$
@@ -1332,7 +1332,7 @@ Une façon de noter cet ensemble est $X=f^{-1}(Y)$, où $f^{-1}$ est la *fonctio
 
 ---
 
-Exemple (Antécédent de la rotation) +.#
+Illustration (Antécédent de la rotation) +.#
 
 Reprenons notre exemple favori qu'est la rotation de $\pi/2$ dans le sens des aiguilles d'une montre.
 L'application linéaire est
@@ -1357,12 +1357,155 @@ R(\vec x_1)&=\vec y_1,\\
 R(\vec x_2)&=\vec y_2.
 \end{aligned}
 $$
-Pour chacune de ces équations on peut écrire deux équations à deux inconnues
+Pour chacune de ces équations on peut écrire deux équations à deux inconnues.
+En commençant par $\vec y_0$, on a
 $$
 \begin{aligned}
 R(\vec x_0)=\vec y_0,\\
+\vectwo{x_{0,2}}{-x_{0,1}}=\vectwo{0}{0}.
 \end{aligned}
 $$
+La solution de cette équation est très simple à trouver et on a 
+$$
+\vec x_0=\vectwo{0}{0}.
+$$
+On peut faire de même avec $\vec y_1$ et $\vec y_2$. On trouve pour chacune de ces équations
+$$
+\begin{aligned}
+R(\vec x_1)=\vec y_1,\\
+\vectwo{x_{1,2}}{-x_{1,1}}=\vectwo{0}{-1},
+\end{aligned}
+$$
+et
+$$
+\begin{aligned}
+R(\vec x_2)=\vec y_2,\\
+\vectwo{x_{2,2}}{-x_{2,1}}=\vectwo{1}{0}.
+\end{aligned}
+$$ 
+On trouve donc pour $\vec x_1$ et $\vec x_2$
+$$
+\vec x_1=\vectwo{1}{0},\quad\vec x_2=\vectwo{0}{1}.
+$$
+
+---
+
+Dans l'exemple ci-dessus, nous avons trouvé une unique préimage pour chacune des images données. Cela n'est pas toujours le cas. Il se peut qu'on ait une infinité de préimages ou aucune dépendant de l'application linéaire et des images.
+
+Soit l'application linéaire $g$, définie comme
+$$\begin{aligned}
+&g:\real\rightarrow\real,\\
+&g:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_1+x_2}{2x_1+4x_2}.
+\end{aligned}
+$$
+Si nous cherchons l'antécédent des vecteurs $\vec y_0=\vectwo{0}{0}$ et $\vec y_1=\vectwo{0}{1}$. Pour le cas de $\vec y_0$, on peut écrire le système d'équations suivant
+$$
+\begin{aligned}
+&x_1+2 x_2=0,\\
+&2x_1+4 x_2=0.
+\end{aligned}
+$$
+La solution à cette équation est 
+$$
+\vec x=\alpha\cdot\vectwo{-2}{1},\ \alpha\in\real.
+$$
+Cela représente en fait l'ensemble de tous les points de la droite qu'on peut générer à partir du vecteur $\vectwo{-2}{1}$ (voir @fig:preimage_droite). 
+
+![La droite (en trait-tillés) générée par le vecteur $\vec x=(-2,1)^\mathrm{T}$ (en trait plein).](figs/preimage_droite.pdf){#fig:preimage_droite width=50%}
+
+---
+
+Remarque +.#
+
+L'ensemble de points qui est envoyé sur le point $\vectwo{0}{0}$ est appelé le *noyau* d'une application linéaire. On le note souvent $\mathrm{Ker}(f)$ (pour kernel)
+$$
+\mathrm{Ker}(f)=\left\{\vec x\in E | f(\vec x)=\vec 0\right\}=f^{-1}(\vec 0).
+$$
+
+---
+
+A l'inverse pour $\vec y_1$ le système d'équations
+$$
+\begin{aligned}
+&x_1+2 x_2=0,\\
+&2x_1+4 x_2=1,
+\end{aligned}
+$$
+n'admet aucune solution. 
+
+On voit donc qu'on a deux comportement totalement différents pour notre deux images $\vec y_0$ et $\vec y_1$. Dans le premier cas, le point $\vec y_0=\vectwo{0}{0}$ est associé à une droite et dans le deuxième cas  $\vec y_1=\vectwo{1}{0}$ n'admet aucune préimage.
+
+
+### L'inverse d'une application linéaire
+
+Dans la section précédente, nous avons vu le concept de d'antécédent d'un espace vectoriel. Pour une fonction linéaire 
+$$
+f:E\rightarrow V,
+$$
+et $Y\subseteq V$, nous avons construit $X=f^{-1}(Y)$ l'ensemble des préimages de $Y$. Nous voulons à présent nous intéresser de plus près à la fonction inverse $f^{-1}$.
+
+La fonction $f^{-1}$, si elle existe, associe un élément de $Y$ à exactement un point de $X$ (autrement ce n'est pas une fonction). Or on a vu dans le dernier exemple de la section ci-dessus, qu'on pouvait se retrouver avec des antécédents qui associent un point avec une droite ou un point avec l'ensemble vide.
+
+Dans le premier cas, on a donc clairement que l'ensemble $f^{-1(Y)}$ ne peut pas se représenter à l'aide d'une fonction et dans le deuxième cas, on aurait que $Y$ ne serait pas le domaine de définition de $f^{-1}$. Il faut donc clarifier un peu cette notation pour être plus stricts.
+
+Soit une fonction $f$, définie de $X$ dans $Y$. Comme nous venons de le discuter, la fonction $f^{-1}$, si elle existe, est définie de $Y$ dans $X$
+$$
+\begin{aligned}
+&f:X\rightarrow Y,\\
+&f^{-1}:Y\rightarrow X.
+\end{aligned}
+$$
+
+---
+
+Remarque +.#
+
+Nous rappelons ici qu'une fonction doit associer un unique élément de son espace d'arrivée à un élément de son domaine de définition.
+
+---
+
+On dit que l'application $f$ est inversible, si et seulement si, 
+$$
+\begin{aligned}
+&(f\circ f^{-1})(\vec y)=\vec y,\\
+&(f^{-1}\circ f)(\vec x)=\vec x.
+\end{aligned}
+$$
+En fait $f\circ f^{-1}$ et $f^{-1}\circ f$ sont les fonctions *identité* de $Y$ et de $X$ respectivement, qu'on peut noter $I_X$ et $I_Y$ et qui se définissent comme
+$$
+\begin{aligned}
+&I_X:X\rightarrow X,\ &I_X:\vec x\rightarrow \vec x,\\
+&I_Y:Y\rightarrow Y,\ &I_Y:\vec y\rightarrow \vec y.
+\end{aligned}
+$$
+En fait on peut montrer que si $f$ a une inverse $f^{-1}$, alors cette fonction inverse est unique.
+
+
+<!-- Nous venons de voir comment calculer les préimages de certains vecteurs par une application linéaire. A présent, on peut également écrire cela à l'aide de la représentation matricielle. Si $\mat{F}$ est la matrice correspondant à la transformation linéaire $f$, c'est-à-dire
+$$
+f(\vec x)=\mat{F}\cdot \vec x,
+$$
+l’antécédent, $X\subseteq E$, d'un sous-ensemble de $V$, $Y\subseteq V$, peut également s'écrire
+$$
+X=\{\vec x\in W | \mat{F}\cdot \vec x=\vec Y,\ \vec y\in Y\}.
+$$
+Donc pour chacun des $\vec y\in Y$, on doit résoudre une équation du type
+$$
+\mat{F}\cdot \vec x=\vec y,
+$$
+où $\vec x$ est l'inconnue.
+
+Pour reprendre l'exemple de la rotation, où $\mat{R}$, est donnée par
+$$\mat{R}=\begin{pmatrix}
+		 0 & 1\\
+		-1 & 0
+\end{pmatrix},
+$$
+on va chercher les vecteurs $\vec x_0$, $\vec x_1$, et $\vec x_2$, tels que 
+$$\mat{R}\cdot \vec x_0=\vec y_0,\ \mat{R}\cdot \vec x_1=\vec y_1,\ \mat{R}\cdot \vec x_2=\vec y_2.
+$$ -->
+
+
 
 # Remerciements
 
