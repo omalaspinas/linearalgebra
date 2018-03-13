@@ -1464,7 +1464,7 @@ Nous rappelons ici qu'une fonction doit associer un unique élément de son espa
 
 ---
 
-On dit que l'application $f$ est inversible, si et seulement si, 
+On dit que l'application $f$ est *inversible*, si et seulement si, 
 $$
 \begin{aligned}
 &(f\circ f^{-1})(\vec y)=\vec y,\\
@@ -1478,8 +1478,57 @@ $$
 &I_Y:Y\rightarrow Y,\ &I_Y:\vec y\rightarrow \vec y.
 \end{aligned}
 $$
-En fait on peut montrer que si $f$ a une inverse $f^{-1}$, alors cette fonction inverse est unique.
+On peut réécrire la définition ci-dessus comme
+$$
+\begin{aligned}
+&(f\circ f^{-1})=I_Y,\\
+&(f^{-1}\circ f)=I_X,
+\end{aligned}
+$$
+ce qui revient à dire que composer $f$ et $f^{-1}$ nous donne l'identité.
 
+En fait on peut montrer que si $f$ possède une inverse $f^{-1}$, alors cette fonction inverse est unique.
+
+Cette démonstration se fait *par l'absurde*. On commence par supposer qu'on a deux fonctions inverses de $f$. Nous les notons $g$ et $h$. Ces deux fonctions sont définies comme
+$$
+\begin{aligned}
+&g:Y\rightarrow X,\ &g\circ f=I_X,\ f\circ g=I_Y,\\
+&h:Y\rightarrow X,\ &h\circ f=I_X,\ f\circ h=I_Y.
+\end{aligned}
+$$
+Les deux fonctions $g$ et $h$ satisfont la définition que nous avons écrite plus haut.
+
+Par définition de $I_X$, on peut réécrire $g$ comme 
+$$
+g=I_X\circ g.\nonumber
+$$
+A présent en utilisant la définition de $h$, on peut réécrire $I_X=h\circ f$ et cette équation devient
+$$
+g=I_X\circ g=(h\circ f)\circ g=h\circ (f\circ g)=h\circ I_Y=h.
+$$
+On a donc bien que $g=h$ et que donc la fonction inverse est bien unique.
+
+Si une fonction, $f$, est inversible, alors on peut encore montrer que l'équation 
+$$
+f(\vec x)=\vec y,\nonumber
+$$
+possède une unique solution. Graphiquement cela peut se représenter comme sur la @fig:unique_inv, où on voit que la situation du bas de l'image représente une solution unique à l'équation $f(\vec x)=\vec y$, alors que celle du haut nous donne deux solutions à l'équation. En fait on peut même calculer la solution de cette équation en appliquant $f^{-1}$ des deux côtés et on obtient
+$$
+\begin{aligned}
+f^{-1}(f(\vec x))=f^{-1}(\vec y),\\
+\vec x=f^{-1}(\vec y).
+\end{aligned}
+$$
+
+![Le point noir est relié à l'unique point magenta et donc on aurait une unique solution à l'équation $f(\vec x)=\vec y$. En revanche les points bleu et rouge ont tous les deux la même image. Il y aurait donc deux solutions à l'équation $f(\vec x)=\vec y$ dans ce cas là.](figs/unique_inv.pdf){#fig:unique_inv width=50%}
+
+De façon réciproque, on peut montrer, que si l'équation 
+$$
+f(\vec x)=\vec y,\nonumber
+$$
+possède une solution unique, alors $f$ possède une fonction inverse, $f^{-1}$.
+
+De ces deux propriétés, on voit que l'existence d'une fonction inverse à la fonction $f$ est équivalent à avoir une solution unique à l'équation $f(\vec x)=\vec y$.
 
 <!-- Nous venons de voir comment calculer les préimages de certains vecteurs par une application linéaire. A présent, on peut également écrire cela à l'aide de la représentation matricielle. Si $\mat{F}$ est la matrice correspondant à la transformation linéaire $f$, c'est-à-dire
 $$
