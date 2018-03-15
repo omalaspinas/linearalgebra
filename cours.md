@@ -1172,11 +1172,11 @@ $$
 ---
 
 Par ailleurs, si $f$ est linéaire, on peut montrer que l'ensemble $\mathrm{Im}_E(f)$ est un sous-espace vectoriel. C'est-à-dire que
-si $f(\vec u), f(\vec v)\in V$ et $\lambda\in K$, alors
+si $f(\vec u), f(\vec v)\in \mathrm{Im}_E(f)$ et $\lambda\in K$, alors
 $$
 \begin{aligned}
-f(\vec u)+f(\vec v)\in V,\ \mathrm{et},\\
-\lambda\cdot f(\vec v)\in V.
+&f(\vec u)+f(\vec v)\in \mathrm{Im}_E(f),\ \mathrm{et},\\
+&\lambda\cdot f(\vec v)\in \mathrm{Im}_E(f).
 \end{aligned}
 $$
 
@@ -1529,6 +1529,47 @@ $$
 possède une solution unique, alors $f$ possède une fonction inverse, $f^{-1}$.
 
 De ces deux propriétés, on voit que l'existence d'une fonction inverse à la fonction $f$ est équivalent à avoir une solution unique à l'équation $f(\vec x)=\vec y$.
+
+Nous avons vu la notion d'inverse d'une application et les conditions pour qu'une telle fonction inverse existe. Voyons à présent ce que cela signifie pour les applications linéaires.
+
+Soit $f$ une application linéaire qui possède une fonction inverse $f^{-1}$
+$$
+\begin{aligned}
+f:\real^n\rightarrow n,\\
+f^{-1}:\real^n\rightarrow \real^n,
+\end{aligned}
+$$
+avec $n\in\natural$. On peut montrer que $f^{-1}$ est également une fonction linéaire. Pour ce faire il faut satisfaire les deux conditions de la linéarité
+$$
+\begin{aligned}
+f^{-1}(\vec x+\vec y)&=f^{-1}(\vec x)+f^{-1}(\vec y),\\
+\lambda f^{-1}(\vec x)&=f^{-1}(\lambda \vec x),
+\end{aligned}
+$$
+si $\vec x,\vec y\in \real^n$ et $\lambda\in\real$.
+
+Commençons par démontrer la première propriété. D'après la définition de la fonction inverse, on peut écrire
+$$
+\begin{aligned}
+f(f^{-1}(\vec x+\vec y))&=\vec x+\vec y,\\
+&=f(f^{-1}(\vec x))+f(f^{-1}(\vec y)),\\
+&=f(f^{-1}(\vec x)+f^{-1}(\vec y)),
+\end{aligned}
+$$
+où dans la dernière ligne, nous avons utilisé que $f$ est une application linéaire.
+Si à présent nous appliquons $f^{-1}$ des deux côtés de cette équation, nous obtenons
+$$
+\begin{aligned}
+f^{-1}(f(f^{-1}(\vec x+\vec y)))&=f^{-1}(f(f^{-1}(\vec x)+f^{-1}(\vec y))),\\
+f^{-1}(\vec x+\vec y)&=f^{-1}(\vec x)+f^{-1}(\vec y),
+\end{aligned}
+$$
+où nous avons utilisé que qu'on peut appliquer les fonctions dans l'ordre que nous voulons et utilisé la définition de $f^{-1}$
+$$
+f^{-1} \circ (f \circ f^{-1})=(f^{-1} \circ f) \circ f^{-1}=I_n\circ f^{-1}=f^{-1}.
+$$
+
+
 
 <!-- Nous venons de voir comment calculer les préimages de certains vecteurs par une application linéaire. A présent, on peut également écrire cela à l'aide de la représentation matricielle. Si $\mat{F}$ est la matrice correspondant à la transformation linéaire $f$, c'est-à-dire
 $$
