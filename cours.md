@@ -18,6 +18,55 @@ cref: false
 urlcolor: blue
 ---
 
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\integer}{\mathbb{Z}}
+\renewcommand{\natural}{\mathbb{N}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\perm}{\mathrm{perm}}
+\newcommand{\card}{\mathrm{card}}
+\newcommand{\fh}{\hat{f}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\hh}{\hat{h}}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\pDeriv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pDerivTwo}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\dDeriv}[2]{\frac{\dd #1}{\dd #2}}
+\newcommand{\dDerivTwo}[2]{\frac{\dd^2 #1}{\dd #2^2}}
+\newcommand{\cm}{\mathrm{cm}}
+\newcommand{\km}{\mathrm{km}}
+\newcommand{\mm}{\mathrm{mm}}
+\newcommand{\cd}{\mathrm{cd}}
+\newcommand{\mol}{\mathrm{mol}}
+\newcommand{\m}{\mathrm{m}}
+\renewcommand{\l}{\mathrm{l}}
+\newcommand{\s}{\mathrm{s}}
+\newcommand{\kg}{\mathrm{kg}}
+\newcommand{\g}{\mathrm{g}}
+\newcommand{\K}{\mathrm{K}}
+\newcommand{\J}{\mathrm{J}}
+\renewcommand{\C}{\mathrm{C}}
+\newcommand{\oC}{^\circ\mathrm{C}}
+\newcommand{\oK}{^\circ\mathrm{K}}
+\newcommand{\A}{\mathrm{A}}
+\newcommand{\N}{\mathrm{N}}
+\newcommand{\atm}{\mathrm{atm}}
+\renewcommand{\bar}{\mathrm{bar}}
+\newcommand{\V}{\mathrm{V}}
+\newcommand{\W}{\mathrm{W}}
+\newcommand{\kW}{\mathrm{kW}}
+\newcommand{\dl}{\mathrm{dl}}
+\newcommand{\dm}{\mathrm{dm}}
+\newcommand{\kcal}{\mathrm{kcal}}
+\newcommand{\h}{\mathrm{h}}
+\newcommand{\Pa}{\mathrm{Pa}}
+\newcommand{\vectwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+\newcommand{\vecthree}[3]{\begin{pmatrix}#1 \\ #2 \\ #3 \end{pmatrix}}
+\newcommand{\mat}[1]{{\underline{\underline{#1}}}}
+
 # Rappel sur les espaces vectoriels
 
 ## Les vecteurs
@@ -91,7 +140,6 @@ w_2&=u_2+v_2.
 Cette définition de la somme se généralise très facilement à $n$ dimensions. On a que
 $$
 \begin{pmatrix}w_1 \\ \vdots \\ w_n \end{pmatrix}=\begin{pmatrix}u_1 \\ \vdots \\ u_n \end{pmatrix}+\begin{pmatrix}v_1 \\ \vdots \\ v_n \end{pmatrix}=\begin{pmatrix}u_1+v_1 \\ \vdots \\ u_n+v_n \end{pmatrix}.$$
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
 >>> u = [1.0, 2.0, 3.0]
@@ -168,7 +216,6 @@ En python, cette opération peut s'écrire à l'air d'une boucle, ou de façon b
 >>> alpha * v_np  # numpy syntax for scalar multiplication
 array([1.5, 3. , 4.5])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 ## Les espaces vectoriels
 
@@ -400,7 +447,6 @@ Quelles familles de l'exercice 2 forment un base de l'espace généré par les f
 ---
 
 De façon générale il n'existe pas une base unique d'un espace vectoriel. Dans l'espace $\real^2$, n'importe quelle paire de vecteurs linéairement indépendants forment une base. A contrario, on sait que n'importe quelle famille contenant au moins 3 vecteurs ne formeront pas une base de $\real^2$.
-
 
 # Les applications linéaires
 
@@ -638,7 +684,6 @@ Contrairement aux applications linéaires, on voit que les applications non-lin�
 
 ![L'effet de l'application non-linéaire $g$ sur le triangle constitué des points $P_0,P_1,P_2$.](figs/triangle_non_lin.pdf){#fig:triangle_non_lin width=30%}
 
-
 ## Les applications linéaires comme un produit matrice-vecteur
 
 Dans cette section, nous allons montrer qu'une application linéaire peut s'écrire sous la forme du produit entre une matrice et un vecteur.
@@ -667,7 +712,6 @@ $$\mat{A}=\begin{pmatrix} a_{1}  \\
                           a_{2}  \\
                           \vdots \\
                           a_m      \end{pmatrix}.$$
-
 
 On peut aussi voir une matrice $m\times n$ comme un vecteur "ligne" à $n$ composantes de vecteurs "colonne"
 $$\mat{A}=\begin{pmatrix} \vec a_{1} & \vec a_{2}  & \cdots & \vec a_{n} \end{pmatrix},$$
@@ -935,7 +979,6 @@ $$
 
 ---
 
-
 Le produit de la matrice identité $\mat{I}_n$ avec un vecteur $\vec v\in \real^n$
 nous donne
 $$
@@ -1130,13 +1173,11 @@ $$
 $$
 ce qui est bien la définition de la fonction linéaire $f$ (les blagues les plus courtes étant toujours les meilleures, je ne vais pas réécrire que nous sommes rassurés, mais le cœur y est).
 
-
 ---
-
 
 ### L'image d'une application linéaire
 
-Nous avons vu jusqu'à présent un certain nombre d'applications linéaires. De façon générale une transformation linéaire, $f$, est définie d'un espace vectoriel 
+Nous avons vu jusqu'à présent un certain nombre d'applications linéaires. De façon générale une transformation linéaire, $f$, est définie d'un espace vectoriel
 $E$ dans un espace vectoriel $V$
 $$
 f:E\rightarrow V,\nonumber
@@ -1147,7 +1188,7 @@ $$
 $$
 Ou en termes moins mathématiques, tous les vecteurs de $V$ qu'on peut effectivement atteindre depuis un vecteur de $E$ via l'application $f$.
 
-Une illustration de l'image de $f$ peut se voir sur la @fig:fonction_image. L'ensemble $\Im(f)$ doit être inclus dans $V$ (il peut être plus petit ou égal, mais certainement 
+Une illustration de l'image de $f$ peut se voir sur la @fig:fonction_image. L'ensemble $\Im(f)$ doit être inclus dans $V$ (il peut être plus petit ou égal, mais certainement
 pas plus grand).
 
 ![La fonction $f$ applique les éléments de $E$ dans un sous-espace de $V$, noté $\mathrm{Im}_E(f)$.](figs/fonction_image.pdf){#fig:fonction_image width=30%}
@@ -1163,8 +1204,8 @@ $$
 &f : x \rightarrow 0.
 \end{aligned}
 $$
-Néanmoins, tous les points de $\real$ ne peuvent pas être atteints par $f(x)$. En fait 
-l'image de $f$ est 
+Néanmoins, tous les points de $\real$ ne peuvent pas être atteints par $f(x)$. En fait
+l'image de $f$ est
 $$
 \mathrm{Im}_\real(f)=\{0\}.
 $$
@@ -1182,13 +1223,13 @@ $$
 
 ---
 
-Exercice +.# 
+Exercice +.#
 
 Montrer que ces deux propriétés sont satisfaites pour $f$ une application linéaire.
 
 ---
 
-Dans le cas d'une application linéaire l'interprétation de l'image d'une application linéaire est intéressante. Nous avons vu que 
+Dans le cas d'une application linéaire l'interprétation de l'image d'une application linéaire est intéressante. Nous avons vu que
 toute application linéaire peut s'écrire comme un produit matrice-vecteur. Si $\vec v\in E$, alors on peut écrire
 $$
 f(\vec v)=\mat{F}\cdot \vec v,
@@ -1203,7 +1244,7 @@ $$
 		\vec f_1 & \vec f_2 & \cdots & \vec f_n
 \end{pmatrix},
 $$
-et où la matrice de l'application linéaire est l'image de chacun des vecteurs d'une base de $E$, notés $\{\vec f_i\}_{i=1}^n=\{f(\vec e_i)\}_{i=1}^n$. 
+et où la matrice de l'application linéaire est l'image de chacun des vecteurs d'une base de $E$, notés $\{\vec f_i\}_{i=1}^n=\{f(\vec e_i)\}_{i=1}^n$.
 L'image de l'application linéaire sera donc l'espace engendré par l'espace engendré par la famille de vecteurs
 $\{\vec f\}_{i=1}^n$, soit l'ensemble des vecteurs obtenus par des combinaisons linéaires obtenues à partir des vecteurs $\vec f_i$.
 
@@ -1217,20 +1258,20 @@ et comme $\{v_i\}_{i=1}^n$ est quelconque nous avons bien que l'équation ci-des
 
 Illustration (Image de la rotation) +.#
 
-L'image de la rotation 
+L'image de la rotation
 $$\begin{aligned}
 &R:\real^2\rightarrow\real^2,\\
 &R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1},
 \end{aligned}
 \nonumber$$
-s'écrit sous la forme d'une matrice comme 
+s'écrit sous la forme d'une matrice comme
 $$
 \mat{R}=\begin{pmatrix}
 		 0 & 1\\
 		-1 & 0
 \end{pmatrix}.\nonumber
 $$
-On a donc que la famille de vecteurs est 
+On a donc que la famille de vecteurs est
 $$\left\{\vectwo{0}{-1},\vectwo{1}{0}\right\}.$$
 Cet ensemble forme une base de $\real^2$ car ils ne sont pas colinéaires.
 
@@ -1243,11 +1284,11 @@ de $E$ par $f$. Si $A\subset E$, l'image de $A$ par $f$, sera noté $\mathrm{Im}
 
 Illustration +.#
 
-Soit la rotation $R$ définie comme 
+Soit la rotation $R$ définie comme
 $$
 \vec y=\mat{R}\cdot \vec x,
 $$
-qui est définie de $\real^2$ dans $\real^2$ avec 
+qui est définie de $\real^2$ dans $\real^2$ avec
 $$\mat{R}=\begin{pmatrix}
 		 0 & 1\\
 		-1 & 0
@@ -1255,8 +1296,8 @@ $$\mat{R}=\begin{pmatrix}
 $$
 Nous avons vu que $Im_\real^2(R)=\real^2$.
 
-Considérons les sous-ensembles $A=\real\times 0$, et $B=0\times \real$. 
-Les images de ces deux sous-ensembles sont les espaces engendrés par 
+Considérons les sous-ensembles $A=\real\times 0$, et $B=0\times \real$.
+Les images de ces deux sous-ensembles sont les espaces engendrés par
 $\vectwo{1}{0}$ pour $A$ et $\vectwo{0}{1}$ pour $B$ et sont donc
 $$
 \begin{aligned}
@@ -1267,28 +1308,27 @@ $$
 
 ---
 
-
 ---
 
 Exercice (Images) +.#
 
 Quelles sont les images des applications linéaires suivantes:
 
-1. 
+1.
 $$
 \begin{aligned}
 f:\real^2\rightarrow \real^2,\\
 f:\vectwo{x_1}{x_2}\rightarrow \vectwo{0}{0},\\
 \end{aligned}
 $$
-2. 
+2.
 $$
 \begin{aligned}
 f:\real^2\rightarrow \real^2,\\
 f:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{0},\\
 \end{aligned}
 $$
-3. 
+3.
 $$
 \begin{aligned}
 &f:\real^2\rightarrow \real^3,\\
@@ -1307,7 +1347,7 @@ $$
 Reprenons notre application linéaire $f$ qui est une fonction de $E$ dans $V$ ($E$ et $V$ sont des espace vectoriels sur $K$).
 Dans la section précédente, nous avons étudié le sous-ensemble de $V$ qui est l'image de $E$ par $f$.
 
-A présent, nous allons considérer un sous-ensemble du domaine d'arrivée, $Y\subseteq V$ et chercher l'ensemble, $X\subseteq E$, 
+A présent, nous allons considérer un sous-ensemble du domaine d'arrivée, $Y\subseteq V$ et chercher l'ensemble, $X\subseteq E$,
 tel que $f(\vec x)\in Y$ pour $\vec x\in X$. En d'autres termes, nous cherchons l'ensemble des pré-images, $X$, qui ont une image dans $Y$
 (voir @fig:fonction_preimage).
 
@@ -1322,7 +1362,7 @@ $$
 
 Remarque +.#
 
-Il se peut tout à fait possible qu'un élément de $Y$ n'ait pas de pré-image dans $E$ (et donc dans $X$). En d'autres termes qu'il n'existe 
+Il se peut tout à fait possible qu'un élément de $Y$ n'ait pas de pré-image dans $E$ (et donc dans $X$). En d'autres termes qu'il n'existe
 pas de $\vec x$ tel que $f(\vec x)=\vec y$, pour $\vec y\in Y$. Ou encore que l'image de $X$ par $f$, $\mathrm{Im}_X(f)\subseteq Y$.
 
 ---
@@ -1339,7 +1379,7 @@ L'application linéaire est
 $$
 R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.
 $$
-Nous choisissons les vecteurs suivants 
+Nous choisissons les vecteurs suivants
 $$
 \begin{aligned}
 \vec y_0&=\vectwo{0}{0},\\
@@ -1365,7 +1405,7 @@ R(\vec x_0)=\vec y_0,\\
 \vectwo{x_{0,2}}{-x_{0,1}}=\vectwo{0}{0}.
 \end{aligned}
 $$
-La solution de cette équation est très simple à trouver et on a 
+La solution de cette équation est très simple à trouver et on a
 $$
 \vec x_0=\vectwo{0}{0}.
 $$
@@ -1382,7 +1422,7 @@ $$
 R(\vec x_2)=\vec y_2,\\
 \vectwo{x_{2,2}}{-x_{2,1}}=\vectwo{1}{0}.
 \end{aligned}
-$$ 
+$$
 On trouve donc pour $\vec x_1$ et $\vec x_2$
 $$
 \vec x_1=\vectwo{1}{0},\quad\vec x_2=\vectwo{0}{1}.
@@ -1405,11 +1445,11 @@ $$
 &2x_1+4 x_2=0.
 \end{aligned}
 $$
-La solution à cette équation est 
+La solution à cette équation est
 $$
 \vec x=\alpha\cdot\vectwo{-2}{1},\ \alpha\in\real.
 $$
-Cela représente en fait l'ensemble de tous les points de la droite qu'on peut générer à partir du vecteur $\vectwo{-2}{1}$ (voir @fig:preimage_droite). 
+Cela représente en fait l'ensemble de tous les points de la droite qu'on peut générer à partir du vecteur $\vectwo{-2}{1}$ (voir @fig:preimage_droite).
 
 ![La droite (en trait-tillés) générée par le vecteur $\vec x=(-2,1)^\mathrm{T}$ (en trait plein).](figs/preimage_droite.pdf){#fig:preimage_droite width=50%}
 
@@ -1431,14 +1471,13 @@ $$
 &2x_1+4 x_2=1,
 \end{aligned}
 $$
-n'admet aucune solution. 
+n'admet aucune solution.
 
 On voit donc qu'on a deux comportement totalement différents pour notre deux images $\vec y_0$ et $\vec y_1$. Dans le premier cas, le point $\vec y_0=\vectwo{0}{0}$ est associé à une droite et dans le deuxième cas  $\vec y_1=\vectwo{1}{0}$ n'admet aucune préimage.
 
-
 ### L'inverse d'une application linéaire
 
-Dans la section précédente, nous avons vu le concept de d'antécédent d'un espace vectoriel. Pour une fonction linéaire 
+Dans la section précédente, nous avons vu le concept de d'antécédent d'un espace vectoriel. Pour une fonction linéaire
 $$
 f:E\rightarrow V,
 $$
@@ -1464,7 +1503,7 @@ Nous rappelons ici qu'une fonction doit associer un unique élément de son espa
 
 ---
 
-On dit que l'application $f$ est *inversible*, si et seulement si, 
+On dit que l'application $f$ est *inversible*, si et seulement si,
 $$
 \begin{aligned}
 &(f\circ f^{-1})(\vec y)=\vec y,\\
@@ -1498,7 +1537,7 @@ $$
 $$
 Les deux fonctions $g$ et $h$ satisfont la définition que nous avons écrite plus haut.
 
-Par définition de $I_X$, on peut réécrire $g$ comme 
+Par définition de $I_X$, on peut réécrire $g$ comme
 $$
 g=I_X\circ g.\nonumber
 $$
@@ -1508,7 +1547,7 @@ g=I_X\circ g=(h\circ f)\circ g=h\circ (f\circ g)=h\circ I_Y=h.
 $$
 On a donc bien que $g=h$ et que donc la fonction inverse est bien unique.
 
-Si une fonction, $f$, est inversible, alors on peut encore montrer que l'équation 
+Si une fonction, $f$, est inversible, alors on peut encore montrer que l'équation
 $$
 f(\vec x)=\vec y,\nonumber
 $$
@@ -1522,7 +1561,7 @@ $$
 
 ![Le point noir est relié à l'unique point magenta et donc on aurait une unique solution à l'équation $f(\vec x)=\vec y$. En revanche les points bleu et rouge ont tous les deux la même image. Il y aurait donc deux solutions à l'équation $f(\vec x)=\vec y$ dans ce cas là.](figs/unique_inv.pdf){#fig:unique_inv width=50%}
 
-De façon réciproque, on peut montrer, que si l'équation 
+De façon réciproque, on peut montrer, que si l'équation
 $$
 f(\vec x)=\vec y,\nonumber
 $$
@@ -1569,8 +1608,6 @@ $$
 f^{-1} \circ (f \circ f^{-1})=(f^{-1} \circ f) \circ f^{-1}=I_n\circ f^{-1}=f^{-1}.
 $$
 
-
-
 <!-- Nous venons de voir comment calculer les préimages de certains vecteurs par une application linéaire. A présent, on peut également écrire cela à l'aide de la représentation matricielle. Si $\mat{F}$ est la matrice correspondant à la transformation linéaire $f$, c'est-à-dire
 $$
 f(\vec x)=\mat{F}\cdot \vec x,
@@ -1594,8 +1631,6 @@ $$
 on va chercher les vecteurs $\vec x_0$, $\vec x_1$, et $\vec x_2$, tels que 
 $$\mat{R}\cdot \vec x_0=\vec y_0,\ \mat{R}\cdot \vec x_1=\vec y_1,\ \mat{R}\cdot \vec x_2=\vec y_2.
 $$ -->
-
-
 
 # Remerciements
 
