@@ -16,7 +16,7 @@ install:
 - tar xzvf linux-ghc80-pandoc20.tar.gz
 - cd ..
 - export PATH=`pwd`/pandoc-crossref:$PATH
-- sudo pip install -U pip panflute pandocfilters  pandoc-numbering
+- sudo pip install -U pip pandoc-numbering
 cache:
 - pip
 script:
