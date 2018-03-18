@@ -6,8 +6,10 @@ addons:
     packages:
     - texlive-latex-recommended lmodern texlive-fonts-recommended texlive-latex-extra
       texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
-#before_install:
-#    - sudo apt-get update && sudo apt-get dist-upgrade
+before_install:
+  - sudo add-apt-repository ppa:jonathonf/python-2.7
+  - sudo apt-get update
+  - sudo apt-get install python2.7
 install:
 - wget https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb
 - sudo dpkg -i pandoc-2.0.6-1-amd64.deb
