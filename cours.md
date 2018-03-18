@@ -226,6 +226,7 @@ Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et
 Soient $\vec{u},\vec{v},\vec{w}\in\real^2$ deux vecteurs de $\real^2$.
 
 1. La somme est dite *interne*: la somme de deux vecteurs de $\real^2$ reste dans $\real^2$. Ceci se note de la façon suivante
+
 $$
 +:\real^2\times\real^2\rightarrow\real^2.
 $$
@@ -271,6 +272,7 @@ $$
 Soient $\vec{u},\vec{v}\in\real^2$ deux vecteurs de $\real^2$ et $\mu,\lambda\in\real$.
 
 1. La multiplication par un scalaire d'un vecteur est dite *externe*: le produit entre un scalaire et d'un vecteur de $\real^2$ reste un vecteur de $\real^2$.
+
 $$
 \cdot:\real\times\real^2\rightarrow\real^2.
 $$
@@ -324,6 +326,7 @@ $$
 Soit un ensemble $K$ muni d'une "addition" et d'une "multiplication"[^1] (par exemple les nombre réel, $\real$, les rationnels, $\rational$, ...). Les éléments de $K$ sont appelés *scalaires*. Un espace vectoriel sur $K$ est un ensemble $V$, dont les éléments sont appelés vecteurs, qui est muni de deux lois:
 
 1. Une somme, notée $+$, qui est dite interne. C'est-à-dire que la somme de deux vecteurs de $V$ est aussi un vecteur de $V$
+
 $$+: V\times V\rightarrow V.$$
 2. La multiplication par un scalaire *à gauche*, qui est dite *externe*. C'est-à-dire que la multiplication à gauche associe à un scalaire dans $K$ et un vecteur dans $V$ un vecteur qui se trouve toujours dans $V$
 $$\cdot: K\times V\rightarrow V.$$
@@ -331,6 +334,7 @@ $$\cdot: K\times V\rightarrow V.$$
 Soit $\vec{u},\vec{v},\vec{w}\in V$, la somme possède les propriétés suivantes:
 
 1. Elle est *associative*
+
 $$(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w}).$$
 2. Elle est *commutative*
 $$\vec{u}+\vec{v}=\vec{v}+\vec{u}.$$
@@ -342,6 +346,7 @@ $$\vec{v}+(-\vec{v})=\vec{0}.$$
 Soit $\lambda,\mu\in K$ et $\vec{u},\vec{v}\in V$, le produit satisfait les propriétés suivantes:
 
 1. Elle est *distributive à gauche* par rapport à la somme de $V$
+
 $$\lambda\cdot (\vec{u}+\vec{v}) = \lambda\vec{u}+\lambda\vec{v}.$$
 2. Elle est *distributive à droite* par rapport à la somme de $K$
 $$(\lambda+\mu)\cdot \vec{u} = \lambda\vec{u}+\mu\vec{u}.$$
@@ -361,6 +366,7 @@ Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidienne
 3. L'espace des réels est un espace vectoriel sur les réels.
 4. L'espace $\{0\}$ sur $\real$.
 5. L'espace des fonctions définies telles que si
+
 $$f:\real\rightarrow \real,\quad g:\real\rightarrow \real,$$ et $\lambda\in\real$, on a
 $$
 \begin{aligned}
@@ -393,6 +399,7 @@ A l'aide de la définition de l'espace vectoriel, nous savons que le vecteur ré
 Exercice +.#
 
 1. Considérons deux vecteurs $\vec v_1$, $\vec v_2$ donnés par
+
 $$\vec v_1=\vectwo{1}{2},\quad \vec v_2=\vectwo{2}{1}.$$
 Quel est l'espace généré par les combinaisons linéaires de ces deux vecteurs?
 2. Considérons deux $\vec v_1$, $\vec v_2$ donnés par
@@ -494,6 +501,7 @@ $$
 Et soient $\vec x, \vec y\in E$, et $\lambda\in K$, on a
 
 1. La fonction appliquées à $\vec x+\vec y$ est égal à la somme de $f$ appliqué à $\vec x$ avec  $f$ appliqué à $y$
+
 $$
 f(\vec x+\vec y)=f(\vec x)+f(\vec y).
 $$
@@ -1314,8 +1322,7 @@ Exercice (Images) +.#
 
 Quelles sont les images des applications linéaires suivantes:
 
-1.
-$$
+1.$$
 \begin{aligned}
 f:\real^2\rightarrow \real^2,\\
 f:\vectwo{x_1}{x_2}\rightarrow \vectwo{0}{0},\\
@@ -1569,12 +1576,20 @@ possède une solution unique, alors $f$ possède une fonction inverse, $f^{-1}$.
 
 De ces deux propriétés, on voit que l'existence d'une fonction inverse à la fonction $f$ est équivalent à avoir une solution unique à l'équation $f(\vec x)=\vec y$.
 
+---
+
+Question #.+
+
+Si on a que la fonction $f$ est définie de $\real^m$ dans $\real^n$ quelle doit être la relation entre $m$ et $n$ pour que $f$ puisse avoir une fonction inverse?
+
+---
+
 Nous avons vu la notion d'inverse d'une application et les conditions pour qu'une telle fonction inverse existe. Voyons à présent ce que cela signifie pour les applications linéaires.
 
 Soit $f$ une application linéaire qui possède une fonction inverse $f^{-1}$
 $$
 \begin{aligned}
-f:\real^n\rightarrow n,\\
+f:\real^n\rightarrow \real^n,\\
 f^{-1}:\real^n\rightarrow \real^n,
 \end{aligned}
 $$
@@ -1606,6 +1621,44 @@ $$
 où nous avons utilisé que qu'on peut appliquer les fonctions dans l'ordre que nous voulons et utilisé la définition de $f^{-1}$
 $$
 f^{-1} \circ (f \circ f^{-1})=(f^{-1} \circ f) \circ f^{-1}=I_n\circ f^{-1}=f^{-1}.
+$$
+D'une façon très similaire, nous pouvons démontrer que la deuxième propriété des applications linéaires.
+De la définition de la fonction inverse on peut écrire
+\begin{align}
+\lambda\vec x=f(f^{-1}(\lambda \vec x))&=\lambda f(f^{-1}(\vec x)),\nonumber\\
+&=f(\lambda f^{-1}(\vec x)),
+\end{align}
+où dans la seconde égalité nous avons utilisé que $f$ est une application linéaire.
+En appliquant $f^{-1}$ des deux côté de cette équation, il vient
+$$
+f^{-1}(\lambda \vec x)=\lambda f^{-1}(\vec x).
+$$
+Ce qui démontre la seconde propriété des applications linéaires.
+
+### La matrice inverse d'une application linéaire
+
+Nous venons de montrer que la fonction inverse d'une application linéaire est elle-même linéaire.
+Nous avons également vu plus tôt dans le cours, que toute application linéaire peut se représenter à l'aide d'une
+matrice. Nous avons noté $\mat{F}\in M_{n,n}(\real)$ la matrice de l'application linéaire $f:\real^n\rightarrow\real^n$. De façon similaire, nous noterons
+$\mat{F}^{-1}\in M_{n,n}(\real)$ la matrice de l'inverse de l'allication linéaire $f^{-1}:\real^n\rightarrow\real^n$.
+
+Du lien matrice-application linéaire nous pouvons écrire
+$$
+f(\vec x)= \mat{F}\vec x.
+$$
+De façon similaire, on peut donc également écrire
+\begin{align}
+f^{-1}f(\vec x)&= \mat{F}^{-1}\mat{F}\vec x,\nonumber\\
+\vec x&= \mat{F}^{-1}\mat{F}\vec x.
+\end{align}
+De cette dernière relation on en déduit que
+$$
+\mat{I}_n=\mat{F}\mat{F}^{-1}.
+$$
+
+La matrice inverse, $\mat{F}^{-1}$, peut se calculer à partir de l'application inverse, $f^{-1}$, comme
+$$
+\mat{F}^{-1}=\left(f^{-1}(\vec e_1)\ f^{-1}(\vec e_2)\ \cdots f^{-1}(\vec e_n)\right).
 $$
 
 <!-- Nous venons de voir comment calculer les préimages de certains vecteurs par une application linéaire. A présent, on peut également écrire cela à l'aide de la représentation matricielle. Si $\mat{F}$ est la matrice correspondant à la transformation linéaire $f$, c'est-à-dire
