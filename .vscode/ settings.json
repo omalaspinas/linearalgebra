@@ -1,0 +1,7 @@
+{
+    "editor.insertSpaces": false,
+    "editor.wrappingColumn": 0,
+    "editor.quickSuggestions": false,
+    "pandoc.htmlOptString": "-s -f markdown_github -t html5 --css=css/style.css",
+    "pandoc.pdfOptString": "-s --highlight-style kate --filter=pandoc-numbering --number-sections --filter=pandoc-crossref --template=./default.latex --pdf-engine pdflatex"
+}
