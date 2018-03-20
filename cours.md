@@ -1644,12 +1644,12 @@ $\mat{F}^{-1}\in M_{n,n}(\real)$ la matrice de l'inverse de l'allication linéai
 
 Du lien matrice-application linéaire nous pouvons écrire
 $$
-f(\vec x)= \mat{F}\vec x.
+f(\vec x)= \mat{F}\cdot\vec x.
 $$
 De façon similaire, on peut donc également écrire
 \begin{align}
-f^{-1}(f(\vec x))&= \mat{F}^{-1}\cdot\mat{F}\vec x,\nonumber\\
-\vec x&= \mat{F}^{-1}\cdot\mat{F}\vec x.
+f^{-1}(f(\vec x))&= \mat{F}^{-1}\cdot\mat{F}\cdot\vec x,\nonumber\\
+\vec x&= \mat{F}^{-1}\cdot\mat{F}\cdot\vec x.
 \end{align}
 De cette dernière relation on en déduit que
 $$
@@ -1681,20 +1681,63 @@ On peut trouver que $R^{-1}$ la rotation inverse est donnée par
 &R^{-1}:\real^2\rightarrow\real^2,\\
 &R^{-1}:\vectwo{x_1}{x_2}\rightarrow\vectwo{-x_2}{x_1}.
 \end{align*}
-On vérifie aisément que 
+On vérifie aisément que
 $$
 R^{-1}\left(R(\vec x)\right)=\vec x.
 $$
 On peut en déduire que $\mat{R}^{-1}$ est donnée par
 $$
 \mat{R}^{-1}=\begin{pmatrix}
-		 0 & 1\\
-		-1 & 0
+		 0 & -1\\
+		1 & 0
 \end{pmatrix}.
 $$
 Finalement, on peut constater également que
 $$
-\mat{R}^{-1}\cdot\mat{R}\cdot\vec x=\vec x.
+\mat{R}^{-1}\cdot(\mat{R}\cdot\vec x)=\vec x.
+$$
+
+---
+
+### Le produit matice-matrice
+
+Un peu plus haut, nous avons déduit que le produit $\mat{F}\cdot \mat{F}^{-1}$ devait être la matrice identité.
+On a pourtant pas encore définit le produit matrice-matrice formellement.
+Soient les trois matrices $\mat{A}\in M_{m,k}(\real)$, $\mat{B}\in M_{k,n}(\real)$, et $\mat{c}\in M_{m,n}(\real)$,
+le produit matrice-matrice
+$$
+\mat{C}=\mat{A}\cdot\mat{B},
+$$
+est défini comme
+$$
+\{\mat{C}\}_{ij}=\{\mat{A}\cdot\mat{B}\}_{ij}=\sum_{l=1}^kA_{il}B_{lj}.
+$$
+
+---
+
+Illustration +.#
+
+Soient les matrices de rotation $\mat{R}$ et $\mat{R}^{-1}$
+$$
+\mat{R}^{-1}=\begin{pmatrix}
+		 0 & -1\\
+		 1 &  0
+\end{pmatrix}, \quad
+\mat{R}^{-1}=\begin{pmatrix}
+		 0 & 1\\
+		-1 & 0
+\end{pmatrix}.
+$$
+Le produit $\mat{R}^{-1}\cdot \mat{R}$ est donné par
+$$
+\mat{R}^{-1}\cdot\mat{R}=\begin{pmatrix}
+		 R_{11}R^{-1}_{11}+R_{12}R^{-1}_{21} & R_{11}R^{-1}_{12}+R_{12}R^{-1}_{22} \\
+		 R_{21}R^{-1}_{11}+R_{22}R^{-1}_{21} & R_{21}R^{-1}_{12}+R_{22}R^{-1}_{22}
+\end{pmatrix}
+=\begin{pmatrix}
+		 1 & 0 \\
+		 0 & 1
+\end{pmatrix}=\mat{I}_2.
 $$
 
 ---
