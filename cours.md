@@ -1578,7 +1578,7 @@ De ces deux propriétés, on voit que l'existence d'une fonction inverse à la f
 
 ---
 
-Question #.+
+Question +.#
 
 Si on a que la fonction $f$ est définie de $\real^m$ dans $\real^n$ quelle doit être la relation entre $m$ et $n$ pour que $f$ puisse avoir une fonction inverse?
 
@@ -1648,12 +1648,12 @@ f(\vec x)= \mat{F}\vec x.
 $$
 De façon similaire, on peut donc également écrire
 \begin{align}
-f^{-1}f(\vec x)&= \mat{F}^{-1}\mat{F}\vec x,\nonumber\\
-\vec x&= \mat{F}^{-1}\mat{F}\vec x.
+f^{-1}(f(\vec x))&= \mat{F}^{-1}\cdot\mat{F}\vec x,\nonumber\\
+\vec x&= \mat{F}^{-1}\cdot\mat{F}\vec x.
 \end{align}
 De cette dernière relation on en déduit que
 $$
-\mat{I}_n=\mat{F}\mat{F}^{-1}.
+\mat{I}_n=\mat{F}\cdot\mat{F}^{-1}.
 $$
 
 La matrice inverse, $\mat{F}^{-1}$, peut se calculer à partir de l'application inverse, $f^{-1}$, comme
@@ -1661,19 +1661,9 @@ $$
 \mat{F}^{-1}=\left(f^{-1}(\vec e_1)\ f^{-1}(\vec e_2)\ \cdots f^{-1}(\vec e_n)\right).
 $$
 
-<!-- Nous venons de voir comment calculer les préimages de certains vecteurs par une application linéaire. A présent, on peut également écrire cela à l'aide de la représentation matricielle. Si $\mat{F}$ est la matrice correspondant à la transformation linéaire $f$, c'est-à-dire
-$$
-f(\vec x)=\mat{F}\cdot \vec x,
-$$
-l’antécédent, $X\subseteq E$, d'un sous-ensemble de $V$, $Y\subseteq V$, peut également s'écrire
-$$
-X=\{\vec x\in W | \mat{F}\cdot \vec x=\vec Y,\ \vec y\in Y\}.
-$$
-Donc pour chacun des $\vec y\in Y$, on doit résoudre une équation du type
-$$
-\mat{F}\cdot \vec x=\vec y,
-$$
-où $\vec x$ est l'inconnue.
+---
+
+Illustration +.#
 
 Pour reprendre l'exemple de la rotation, où $\mat{R}$, est donnée par
 $$\mat{R}=\begin{pmatrix}
@@ -1681,9 +1671,33 @@ $$\mat{R}=\begin{pmatrix}
 		-1 & 0
 \end{pmatrix},
 $$
-on va chercher les vecteurs $\vec x_0$, $\vec x_1$, et $\vec x_2$, tels que 
-$$\mat{R}\cdot \vec x_0=\vec y_0,\ \mat{R}\cdot \vec x_1=\vec y_1,\ \mat{R}\cdot \vec x_2=\vec y_2.
-$$ -->
+et la fonction linéaire est donnée par
+\begin{align*}
+&R:\real^2\rightarrow\real^2,\\
+&R:\vectwo{x_1}{x_2}\rightarrow\vectwo{x_2}{-x_1}.
+\end{align*}
+On peut trouver que $R^{-1}$ la rotation inverse est donnée par
+\begin{align*}
+&R^{-1}:\real^2\rightarrow\real^2,\\
+&R^{-1}:\vectwo{x_1}{x_2}\rightarrow\vectwo{-x_2}{x_1}.
+\end{align*}
+On vérifie aisément que 
+$$
+R^{-1}\left(R(\vec x)\right)=\vec x.
+$$
+On peut en déduire que $\mat{R}^{-1}$ est donnée par
+$$
+\mat{R}^{-1}=\begin{pmatrix}
+		 0 & 1\\
+		-1 & 0
+\end{pmatrix}.
+$$
+Finalement, on peut constater également que
+$$
+\mat{R}^{-1}\cdot\mat{R}\cdot\vec x=\vec x.
+$$
+
+---
 
 # Remerciements
 
