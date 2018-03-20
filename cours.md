@@ -1681,7 +1681,7 @@ On peut trouver que $R^{-1}$ la rotation inverse est donnée par
 &R^{-1}:\real^2\rightarrow\real^2,\\
 &R^{-1}:\vectwo{x_1}{x_2}\rightarrow\vectwo{-x_2}{x_1}.
 \end{align*}
-On vérifie aisément que 
+On vérifie aisément que
 $$
 R^{-1}\left(R(\vec x)\right)=\vec x.
 $$
