@@ -2059,7 +2059,94 @@ a_{22} & a_{12} \\
 a_{21} & a_{11}
 \end{pmatrix}.
 $$
-On constate que la matrice $\mat{A}$ est inversible, à moins que son déterminant soit nul. On a donc un moyen très simple de déterminer si oui ou non on peut calculer la matrice inverse d'une application linéaire, sans avoir besoin de vriament faire tout le calcul.
+On constate que la matrice $\mat{A}$ est inversible, à moins que son déterminant soit nul. On a donc un moyen très simple de déterminer si oui ou non on peut calculer la matrice inverse d'une application linéaire, sans avoir besoin de vraiment faire tout le calcul.
+
+---
+
+Exercice (Matrice inverse d'une matrice $2\times2$) +.#
+
+Calculer la matrice inverse, $\mat{A}^{-1}$, de
+$$
+\mat{A}=
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}.
+$$
+Puis calculer le déterminant de $\mat{A}^{-1}$.
+
+---
+
+### Le déterminant d'une matrice $n\times n$
+
+La formule que nous venons de dériver pour une matrice $2\times2$ ne se généralise pas facilement pour une matrice $n\times n$. Afin de voir comment cela se passe dans le cas général, commençons par le calcul du déterminant d'une matrice $\mat{A}\in M_{3,3}(\real)$
+$$
+\mat{A}=\begin{pmatrix}
+\textcolor{red}{a_{11}} & \textcolor{green}{a_{12}} & \textcolor{blue}{a_{13}} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{pmatrix}.
+$$
+Le calcul du déterminant se calcul de façon récursive. On choisit les 3 éléments de la première ligne (en rouge, vert et bleu ci-dessus). Puis le déterminant se calcul comme suit
+$$
+\det(\mat{A})=
+\textcolor{red}{a_{11}}
+\underbrace{\left|\begin{array}{cc}
+a_{22} & a_{23}\\
+a_{32} & a_{33}
+\end{array}\right|}_{\mat{A}_1}+
+\textcolor{green}{a_{12}}
+\underbrace{\left|\begin{array}{cc}
+a_{21} & a_{23}\\
+a_{31} & a_{33}
+\end{array}\right|}_{\mat{A}_2}+
+\textcolor{blue}{a_{12}}
+\underbrace{\left|\begin{array}{cc}
+a_{21} & a_{22}\\
+a_{31} & a_{32}
+\end{array}\right|}_{\mat{A}_3},
+$$
+où on multiplie chacun des termes de la première ligne de $\mat{A}$, par le déterminant de la sous-matrice de $\mat{A}$ où on a enlevé la ligne et la colonne respective du premier élément de chaque colonne.
+Dans ce cas-là nous savons calculer les déterminants de sous-matrices, car ce sont des matrices $2\times 2$ (voir sous-section précédente).
+
+Afin d'expliquer un peu plus en détail comment déterminer les sous-matrices à utiliser, on trouve ci-dessous pour chacune des sous.matrices, la colonne et la ligne à enlever de la matrice $\mat{A}$ selon la couleur du premier élément de la colonne
+$$
+\mat{A}_1=\begin{pmatrix}
+\textcolor{red}{a_{11}} & \textcolor{red}{a_{12}} & \textcolor{red}{a_{13}} \\
+\textcolor{red}{a_{21}} & a_{22} & a_{23} \\
+\textcolor{red}{a_{31}} & a_{32} & a_{33}
+\end{pmatrix},\ 
+\mat{A}_2=\begin{pmatrix}
+\textcolor{green}{a_{11}} & \textcolor{green}{a_{12}} & \textcolor{green}{a_{13}} \\
+a_{21} & \textcolor{green}{a_{22}} & a_{23} \\
+a_{31} & \textcolor{green}{a_{32}} & a_{33}
+\end{pmatrix},\ 
+\mat{A}_3=\begin{pmatrix}
+\textcolor{blue}{a_{11}} & \textcolor{blue}{a_{12}} & \textcolor{blue}{a_{13}} \\
+\textcolor{blue}{a_{21}} & a_{22} & a_{23} \\
+\textcolor{blue}{a_{31}} & a_{32} & a_{33}
+\end{pmatrix}.
+$$
+
+---
+
+Exercice (Déterminant $3\times 3$) +.#
+
+Calculer le déterminant de la matrice
+$$
+\mat{A}=
+\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+\end{pmatrix},
+$$
+et de la matrice
+$$
+\mat{B}=
+\begin{pmatrix} 1 & -1 & 1 \\ 2 & -2 & 2 \\ 1 & 1 & -2
+\end{pmatrix}.
+$$
+Ces matrices sont-elles inversibles?
+
+---
 
 # Remerciements
 
