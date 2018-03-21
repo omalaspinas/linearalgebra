@@ -1950,7 +1950,116 @@ effectuer le produit $\mat{F_1}\cdot\mat{A}$. Si nous
 effectuions le même produit sur la matrice $\mat{I}_3$, nous
 obtientrions $\mat{F_1}\cdot\mat{A}$. De même si nous
 faisions ensuite le produit avec $\mat{F_2}$ puis $\mat{F_3}$,
-nous aurions $\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}\mat{A}=\mat{I}_3$. De même sur l'identité, nous aurions $\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}\mat{I}_3=\mat{A}^{1-}$. On constate donc qu'en effctuant les mêmes transformations linéaires que nous avons effectuées sur $\mat{A}$, mais sur $\mat{I}_3$, nous calculons directement l'inverse $\mat{A}^{-1}$.
+nous aurions $\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}\cdot\mat{A}=\mat{I}_3$. De même sur l'identité, nous aurions $\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}\cdot\mat{I}_3=\mat{A}^{-1}$. On constate donc qu'en effctuant les mêmes transformations linéaires que nous avons effectuées sur $\mat{A}$, mais sur $\mat{I}_3$, nous calculons directement l'inverse $\mat{A}^{-1}$.
+
+Afin de se simplifier un peu la vie, il est possible d'utiliser une notation très pratique pour appliquer la méthode que nous venons de voir. Il suffit d'écrire notre matrice $\mat{A}$ à coté de la matrice identité, telle que
+$$
+\left[\mat{A}|\mat{I}_3\right]=
+\left[
+	\begin{array}{ccc|ccc}
+ 		1 & -1 &  1 & 1 & 0 & 0 \cr
+	   -1 &  2 & -2 & 0 & 1 & 0 \cr
+ 		1 &  1 & -2 & 0 & 0 & 1
+	\end{array}
+\right],
+$$
+et d'appliquer les transformations linéaires que nous avons écrites plus haut sur chacunes des colonnes de la matrice. Cela fera apparître la matrice identité, $\mat{I}_3$ dans la partie de gauche de la structure ci-dessus et $\mat{A}^{-1}$ dans la partie droite
+$$
+\left[\mat{I}|\mat{A}^{-1}\right]=
+\left[
+	\begin{array}{ccc|ccc}
+ 		1 & 0 & 0 & 2 & 1 &  0  \cr
+	    0 & 1 & 0 & 4 & 3 & -1 \cr
+ 		0 & 0 & 1 & 3 & 2 & -1
+	\end{array}
+\right].
+$$
+Il est important de noter qu'il n'est pas toujours possible de mettre notre matrice "augmentée" dans la forme que nous venons de décrire: l'identité à droite et l'inverse à gauche. Cela se produit lorsque la matrice $\mat{A}$ *n'est pas* inversible.
+
+---
+
+Exercice +.#
+
+Avec la méthode ci-dessus, calculer l'inverse de la matrice $\mat{A}$
+$$
+\mat{A}=
+\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+\end{pmatrix}.
+$$
+
+---
+
+### L'inverse d'une matrice $2\times2$ et son déterminant
+
+Le but de cette sous-section est de déterminer une formule complètement générale pour déterminer l'inverse d'une matrice $2\times2$. Pour ce faire, nous allons prendre une matrice $\mat{A}$
+de taille $2\times2$ complètement générale et la mettre sous la forme de la matrice augmentée de la sous-section précédente. Puis nous allons appliquer notre algorithme pour calculer son inverse
+$$
+\mat{M}=\left[
+	\begin{array}{cc|cc}
+ 		a_{11} & a_{12} & 1 & 0  \cr
+	    a_{21} & a_{22} & 0 & 1
+	\end{array}
+\right].
+$$
+Il est bon de rappeler ici que nous voulons mettre la partie gauche de cettematrice sous la forme de la matrice identité: nous voudrions qu'il y ait un "$0$" à la place de $a_{12}$ et $a_{21}$, et un "$1$" à la place de $a_{11}$ et $a_{22}$. Commençons donc nore procédure.
+
+Appliquons d'abord la fonction linéaire $f_1$
+$$
+f_1:\vectwo{x_1}{x_2}\rightarrow\vectwo{x_1}{a_{11}x_2-a_{21}x_1},
+$$
+à toutes les colonnes de notre matrice augmentée, $\mat{M}$, et on obtient
+$$
+\mat{M}_1=\left[
+	\begin{array}{cc|cc}
+ 		a_{11} & a_{12}                    & 1       & 0  \cr
+	    0      & a_{11}a_{22}-a_{21}a_{12} & -a_{21} & a_{11}
+	\end{array}
+\right].
+$$
+A présent, nous allons garder la deuxième ligne intacte et appliquer la fonction $f_2$ suivante dont le but est de mettre un "$0$" à la place du $a_{12}$
+$$
+f_2:\vectwo{x_1}{x_2}\rightarrow\vectwo{(a_{11}a_{22}-a_{21}a_{12})x_1-a_{12}x_2}{x_2}.
+$$
+Il vient pour la matrice augmentée
+$$
+\mat{M}_2=\left[
+	\begin{array}{cc|cc}
+ 		(a_{11}a_{22}-a_{21}a_{12})a_{11} & 0                         & a_{11}a_{22}       & -a_{11}a_{12}  \cr
+	    0                         & a_{11}a_{22}-a_{21}a_{12} & -a_{21} & a_{11}
+	\end{array}
+\right].
+$$
+A présent, nous voulons mettre des $"1"$ dans la diagonale de la matrice $\mat{M}_2$. Cela se fait au travers de l'application $f_3$
+$$
+f_3:\vectwo{x_1}{x_2}\rightarrow\vectwo{\frac{x_1}{(a_{11}a_{22}-a_{21}a_{12})a_{11}}}{\frac{x_2}{a_{11}a_{22}-a_{21}a_{12}}}.
+$$
+On obtient finalement
+$$
+\mat{M}_3=\left[
+	\begin{array}{cc|cc}
+ 		1 & 0 & \frac{a_{22}}{a_{11}a_{22}-a_{21}a_{12}} & -\frac{a_{12}}{a_{11}a_{22}-a_{21}a_{12}}  \cr
+	    0 & 1 & -\frac{a_{21}}{a_{11}a_{22}-a_{21}a_{12}} & \frac{a_{11}}{a_{11}a_{22}-a_{21}a_{12}}
+	\end{array}
+\right].
+$$
+Sur la droite de $\mat{M}_3$, nous avons la matrice inverse $\mat{A}^{-1}$. Nous pouvons réécrire cette matrice sous une forme un peu plus agréable. En définissant, le *déterminant* de $\mat{A}$, $\det(\mat{A})$, comme
+$$
+\det(\mat{A})=\left|\mat{A}\right|=
+\begin{vmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{vmatrix}
+=a_{11}a_{22}-a_{21}a_{12},
+$$
+on a
+$$
+\mat{A}^{-1}=\frac{1}{\det(\mat{A})}
+\begin{pmatrix}
+a_{22} & a_{12} \\
+a_{21} & a_{11}
+\end{pmatrix}.
+$$
+On constate que la matrice $\mat{A}$ est inversible, à moins que son déterminant soit nul. On a donc un moyen très simple de déterminer si oui ou non on peut calculer la matrice inverse d'une application linéaire, sans avoir besoin de vriament faire tout le calcul.
 
 # Remerciements
 
