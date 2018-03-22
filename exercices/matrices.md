@@ -62,8 +62,3 @@ Déterminer $\vec x=\vectwo{x_1}{x_2}$ en fonction de $\vec y$.
 5. Ecrire l'application linéaire $g$ correspondante.
 6. Déterminer la matrice de l'application linéaire $\mat{G}$.
 7. Que donne le produit $\mat{G}\cdot\mat{F}$?
-
-
-
-
-
