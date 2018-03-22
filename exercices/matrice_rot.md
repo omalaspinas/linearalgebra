@@ -31,8 +31,8 @@ Exercice (Rotation 2D) #
 
 ![Rotation des vecteurs $\vec e_1$ et $\vec e_2$ d'un angle $\theta$.](../figs/rot_ex.pdf){#fig:rot width=40%}
 
-1. Déterminer la transformation linéaire, $R_\theta$, qui tourne le vecteur $\vec e_1$ d'un angle $\theta$ dans le sens inverse des aiguilles d'une montre (voir la @fig:rot).
-2. Déterminer la transformation linéaire, $R_\theta$, qui tourne le vecteur $\vec e_2$ d'un angle $\theta$ dans le sens inverse des aiguilles d'une montre (voir la @fig:rot).
+1. Déterminer l'image de $\vec e_1$ par l'application, $R_\theta$, qui tourne le vecteur $\vec e_1$ d'un angle $\theta$ dans le sens inverse des aiguilles d'une montre (voir la @fig:rot).
+2. Déterminer l'image de $\vec e_2$ par l'application, $R_\theta$, qui tourne le vecteur $\vec e_1$ d'un angle $\theta$ dans le sens inverse des aiguilles d'une montre (voir la @fig:rot).
 3. Quelle est la matrice de l'application linéaire $R_\theta$?
 
 Exercice (Rotation 3D) #
