@@ -66,6 +66,10 @@ urlcolor: blue
 \newcommand{\vectwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
 \newcommand{\vecthree}[3]{\begin{pmatrix}#1 \\ #2 \\ #3 \end{pmatrix}}
 \newcommand{\mat}[1]{{\underline{\underline{#1}}}}
+\newcommand{\mattwo}[4]{\begin{pmatrix}
+								#1 & #2 \\
+								#3 & #4
+						\end{pmatrix}}
 
 # Rappel sur les espaces vectoriels
 
@@ -1707,7 +1711,7 @@ $$
 
 Un peu plus haut, nous avons déduit que le produit $\mat{F}\cdot \mat{F}^{-1}$ devait être la matrice identité.
 On a pourtant pas encore définit le produit matrice-matrice formellement.
-Soient les trois matrices $\mat{A}\in M_{m,k}(\real)$, $\mat{B}\in M_{k,n}(\real)$, et $\mat{c}\in M_{m,n}(\real)$,
+Soient les trois matrices $\mat{A}\in M_{m,k}(\real)$, $\mat{B}\in M_{k,n}(\real)$, et $\mat{C}\in M_{m,n}(\real)$,
 le produit matrice-matrice
 $$
 \mat{C}=\mat{A}\cdot\mat{B},
@@ -1723,7 +1727,7 @@ Illustration +.#
 
 Soient les matrices de rotation $\mat{R}$ et $\mat{R}^{-1}$
 $$
-\mat{R}^{-1}=\begin{pmatrix}
+\mat{R}=\begin{pmatrix}
 		 0 & -1\\
 		 1 &  0
 \end{pmatrix}, \quad
@@ -1743,6 +1747,408 @@ $$
 		 0 & 1
 \end{pmatrix}=\mat{I}_2.
 $$
+
+---
+
+On constate donc que le produit matrice-vecteur n'est rien d'autre qu'un cas particulier du produit matrice-matrice. En reprenant les notations ci-dessus, cela reviendrait à avoir $n=1$: $\mat{B}$ deviendrait un vecteur colonne et $\mat{C}$ également.
+
+Comme pour le produit matrice-vecteur, le produit matrice-matrice n'est pas commutatif en général
+\begin{equation}
+\mat{A}\cdot\mat{B}\neq\mat{B}\cdot\mat{A}.
+\end{equation}
+D'une part il se peut que les dimensions des matrices ne soient pas compatibles.
+En effet, comme $\mat{A}\in M_{m,k}(\real)$ et $\mat{B}\in M_{k,n}(\real)$, pour que les dimensions soient compatibles pour le
+produit $\mat{B}\cdot\mat{A}$, il est nécessaire que $m$ et $n$ ce qui n'est pas garanti dans ce cas.
+
+De plus, même si les dimensions sont compatibles, ce qui revient à dire que $\mat{A}$ et $\mat{B}$ sont des matrices carrées ($m=n$),
+le produit de $\mat{A}$ avec $\mat{B}$ n'est pas commutatif en général. En effet, le produit $\mat{D}=\mat{B}\cdot\mat{A}$ s'écrit
+\begin{equation}
+D_{ij}=\sum_{l=1}^kB_{il}\cdot A_{lj}.
+\end{equation}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> A=[[1,2,3],[4,5,6],[7,8,9]]
+>>> B=[[1,-2,3],[-4,5,6],[-7,-8,9]]
+>>> C=[[0,0,0],[0,0,0],[0,0,0]]
+>>>  for i in range(3): # loop syntax for matrix-matrix mult multiplication
+...  	for j in range(3):
+...  		for k in range(3):
+...     		C[i][j] += A[i][k]*B[k][j]
+...
+>>> C
+[[-28, -16, 42], [-58, -31, 96], [-88, -46, 150]]
+>>> import numpy as np
+>>> A=np.matrix([[1,2,3],[4,5,6],[7,8,9]])
+>>> B=np.matrix([[1,-2,3],[-4,5,6],[-7,-8,9]])
+>>> A.dot(B)
+matrix([[-28, -16,  42],
+        [-58, -31,  96],
+        [-88, -46, 150]])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Faisons un exemple, avec deux matrices $2\times 2$
+\begin{equation}
+\mat{A}=\mattwo{a_{11}}{a_{12}}{a_{21}}{a_{22}},\quad
+\mat{B}=\mattwo{b_{11}}{b_{12}}{b_{21}}{b_{22}},
+\end{equation}
+dont le produit sera donné par
+\begin{equation}
+\mat{A}\cdot\mat{B}=\mattwo{a_{11}b_{11}+a_{12}b_{21}}{a_{11}b_{12}+a_{12}b_{22}}{a_{21}b_{11}+a_{22}b_{21}}{a_{21}b_{12}+a_{22}b_{22}},
+\end{equation}
+et à l'inverse
+\begin{equation}
+\mat{B}\cdot\mat{A}=\mattwo{b_{11}a_{11}+b_{12}a_{21}}{b_{11}a_{12}+b_{12}a_{22}}{b_{21}a_{11}+b_{22}a_{21}}{b_{21}a_{12}+b_{22}a_{22}}.
+\end{equation}
+Pour que les deux résultats soient égaux, on devrait avoir
+\begin{align}
+a_{11}b_{11}+a_{12}b_{21}&=b_{11}a_{11}+b_{12}a_{21},\\
+a_{11}b_{12}+a_{12}b_{22}&=b_{11}a_{12}+b_{12}a_{22},\\
+a_{21}b_{11}+a_{22}b_{21}&=b_{21}a_{11}+b_{22}a_{21},\\
+a_{21}b_{12}+a_{22}b_{22}&=b_{21}a_{12}+b_{22}a_{22}.
+\end{align}
+
+---
+
+Exercice (Produit des transposées) +.#
+
+Soit $\mat{A}^\mathrm{T}$ la matrice transposée de la matrice $\mat{A}$, telle que
+\begin{equation}
+\{\mat{A}^\mathrm{T}\}_{ij}=A_{ji},
+\end{equation}
+et $\mat{B}^\mathrm{T}$ la matrice transposée de la matrice $\mat{B}$. Montrer que si $\mat{C}=\mat{A}\cdot\mat{B}$, alors
+\begin{equation}
+\mat{C}^\mathrm{T}=\mat{B}^\mathrm{T}\cdot\mat{A}^\mathrm{T}.
+\end{equation}
+En déduire une propriété que doivent avoir les matrice pour que leur produit soit commutatif.
+
+---
+
+### Une méthode pour déterminer l'inverse d'une matrice
+
+L'idée ici est de décrire une méthode (un algorithme) pour
+calculer l'inverse d'une matrice. Pour décrire cette
+procédure il est plus simple de choisir un exemple. Prenons
+donc une matrice $\mat{A}\in M_{3,3}(\real)$, telle que
+$$
+\mat{A}=
+	\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+	\end{pmatrix}
+$$
+Nous allons à présent effectuer des combinaions linéaires entre les lignes de cette matrice. Dans un premier lieu, nous allon garder la première ligne la même et remplacer la deuxième ligne par la somme entre la première et la deuxième ligne de cette matrice
+$$
+\mat{A}=\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+	\end{pmatrix}\rightarrow
+\begin{pmatrix} 1 & -1 & 1 \\ 0 & 1 & -1 \\ 0 & -2 & 3
+	\end{pmatrix}=\mat{B}.
+$$
+De cette façon, nous obtenons une nouvelle matrice, $\mat{B}$, dont la première colonne est donnée par le vecteur $(1,0,0)^\mathrm{T}$. La modification de cette matrice est une application linéaire. En fait, nous avons pris les colonnes de la matrice $\mat{A}$, respectivement $\vec a_1$, $\vec a_2$, et $\vec a_3$ et leur avons appliqué la transformation $f_1:\real^3\rightarrow\real^3$
+$$
+f_1:\vecthree{x_1}{x_2}{x_3}\rightarrow \vecthree{x_1}{x_1+x_2}{x_1-x_3}.
+$$
+On en déduit que
+$$
+\mat{B}=\left(f_1(\vec a_1)\ f_1(\vec a_2)\ f_1(\vec a_3)\right)
+$$
+Cette application linéaire peut également s'écrire sous la forme d'une matrice $\mat{F_1}$ qui se calcule comme
+$$
+\mat{F_1}=\left(f_1(\vec e_1)\ f_1(\vec e_2)\ f_1(\vec e_3)\right)=\begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 0 & -1
+	\end{pmatrix}.
+$$
+La matrice $\mat{B}$ peut également se réécrire à l'aide de la matrice $\mat{F_1}$
+$$
+\mat{B}=\mat{F_1}\cdot\mat{A}.
+$$
+Nous allons à présent transformer la matrice $\mat{B}$. Nous allons garder la deuxième ligne inchangée. La première ligne sera la somme de la première et de la deuxième ligne. La troisième deviendra la troisième ligne multipliée par deux ajoutée à la deuxième. Il vient
+$$
+\mat{B}=\begin{pmatrix} 1 & -1 & 1 \\ 0 & 1 & -1 \\ 0 & -2 & 3
+	\end{pmatrix}\rightarrow
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1
+	\end{pmatrix}=\mat{C}.
+$$
+En répétant les mêmes arguments que précédemment, on a que la matrice $\mat{C}$ est obtenue en appliquant la fonction $f_2$
+aux colonnes de $\mat{B}$, avec $f_2$ définie comme
+$$
+f_2:\vecthree{x_1}{x_2}{x_3}\rightarrow \vecthree{x_1+x_2}{x_2}{2x_2+x_3}.
+$$
+Cette application linéaire se représente sous la forme de la matrice $\mat{F_2}$ comme
+$$
+\mat{F_2}=\left(f_2(\vec e_1)\ f_2(\vec e_2)\ f_2(\vec e_3\right)=
+\begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 2 & 1
+\end{pmatrix}.
+$$
+On peut donc écrire $\mat{C}$ comme
+$$
+\mat{C}=\mat{F_2}\cdot\mat{B}=\mat{F_2}\cdot\mat{F_1}\cdot\mat{A},
+$$
+ou encore
+$$
+\mat{C}=\mat{G}\cdot\mat{A}\mbox{, où }\mat{G}=\mat{F_2}\cdot\mat{F_1}=
+\begin{pmatrix} 2 &  1 &  0\\
+				1 &  1 &  0\\
+				3 &  2 & -1
+\end{pmatrix}
+$$
+Finalement, on peut effectuer une dernière transformation sur la matrice $\mat{C}$ où on garde constante la troisième ligne. Ensuite, on remplace la deuxième ligne par la somme entre la deuxième et la troisième ligne et on garde la première ligne constante.
+$$
+\mat{C}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1
+	\end{pmatrix}\rightarrow
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+\end{pmatrix}=\mat{D}=\mat{I}_3.
+$$
+On voit que suite à cette dernière transformation, nous avons obtenu la matrice identité $\mat{I}_3$.
+La dernière transformation linéaire $f_3$ est
+$$
+f_3:\vecthree{x_1}{x_2}{x_3}\rightarrow \vecthree{x_1}{x_2+x_3}{x_3}.
+$$
+Puis ont a également la matrice de la transformation linéaire $\mat{F_3}$ qui est donnée par
+$$
+\mat{F_3}=\left(f_3(\vec e_1)\ f_3(\vec e_2)\ f_3(\vec e_3\right)=
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1
+\end{pmatrix}.
+$$
+On a finalement écrit la matrice identité $\mat{I}_3$ comme le produit de matrices suivant
+$$
+\mat{I}_3=\mat{F_3}\cdot\mat{C}=\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}\cdot\mat{A}.
+$$
+En renommant ce produit de trois matrices comme $\mat{H}$
+$$
+\mat{H}\equiv\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}=
+\begin{pmatrix}
+2 & 1 &  0\\
+4 & 3 & -1\\
+3 & 2 & -1
+\end{pmatrix}
+$$
+on a que
+$$
+\mat{I}_3=\mat{H}\cdot\mat{A}.
+$$
+La matrice $\mat{H}$ qui a cette proptiété n'est autre que la matrice inverse, $\mat{A}^{-1}$. On voit donc que la matrice inverse n'est autre que
+$$
+\mat{A}^{-1}=\mat{H}=
+\begin{pmatrix}
+2 & 1 &  0\\
+4 & 3 & -1\\
+3 & 2 & -1
+\end{pmatrix}.
+$$
+On vérifie aisément que
+$$
+\begin{pmatrix}
+2 & 1 &  0\\
+4 & 3 & -1\\
+3 & 2 & -1
+\end{pmatrix}\cdot
+\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+\end{pmatrix}
+=
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+\end{pmatrix}
+$$
+
+Nous avons dérivé une façon de calculer l'inverse d'une matrice. Néanmoins cette méthode est encore un peu compliquée à mettre en oeuvre. En effet, nous devons effectuer des combinaisons linéaires sur des lignes de notre matrice, puis déterminer les applications linéaires auquelles elles correspondent, pour finalement déterminer quelles sont les matrices correspondantes. Il y a un moyen de généraliser la procédure en utilisant une méthode plus simple. Cette méthode se base sur les propriétés suivantes.
+
+Lorsque nous avons appliqué la première transformation de
+lignes sur la matrice $\mat{A}$, cela a correspondu à
+effectuer le produit $\mat{F_1}\cdot\mat{A}$. Si nous
+effectuions le même produit sur la matrice $\mat{I}_3$, nous
+obtientrions $\mat{F_1}\cdot\mat{A}$. De même si nous
+faisions ensuite le produit avec $\mat{F_2}$ puis $\mat{F_3}$,
+nous aurions $\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}\cdot\mat{A}=\mat{I}_3$. De même sur l'identité, nous aurions $\mat{F_3}\cdot\mat{F_2}\cdot\mat{F_1}\cdot\mat{I}_3=\mat{A}^{-1}$. On constate donc qu'en effctuant les mêmes transformations linéaires que nous avons effectuées sur $\mat{A}$, mais sur $\mat{I}_3$, nous calculons directement l'inverse $\mat{A}^{-1}$.
+
+Afin de se simplifier un peu la vie, il est possible d'utiliser une notation très pratique pour appliquer la méthode que nous venons de voir. Il suffit d'écrire notre matrice $\mat{A}$ à coté de la matrice identité, telle que
+$$
+\left[\mat{A}|\mat{I}_3\right]=
+\left[
+	\begin{array}{ccc|ccc}
+ 		1 & -1 &  1 & 1 & 0 & 0 \cr
+	   -1 &  2 & -2 & 0 & 1 & 0 \cr
+ 		1 &  1 & -2 & 0 & 0 & 1
+	\end{array}
+\right],
+$$
+et d'appliquer les transformations linéaires que nous avons écrites plus haut sur chacunes des colonnes de la matrice. Cela fera apparître la matrice identité, $\mat{I}_3$ dans la partie de gauche de la structure ci-dessus et $\mat{A}^{-1}$ dans la partie droite
+$$
+\left[\mat{I}|\mat{A}^{-1}\right]=
+\left[
+	\begin{array}{ccc|ccc}
+ 		1 & 0 & 0 & 2 & 1 &  0  \cr
+	    0 & 1 & 0 & 4 & 3 & -1 \cr
+ 		0 & 0 & 1 & 3 & 2 & -1
+	\end{array}
+\right].
+$$
+Il est important de noter qu'il n'est pas toujours possible de mettre notre matrice "augmentée" dans la forme que nous venons de décrire: l'identité à droite et l'inverse à gauche. Cela se produit lorsque la matrice $\mat{A}$ *n'est pas* inversible.
+
+---
+
+Exercice +.#
+
+Avec la méthode ci-dessus, calculer l'inverse de la matrice $\mat{A}$
+$$
+\mat{A}=
+\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+\end{pmatrix}.
+$$
+
+---
+
+### L'inverse d'une matrice $2\times2$ et son déterminant
+
+Le but de cette sous-section est de déterminer une formule complètement générale pour déterminer l'inverse d'une matrice $2\times2$. Pour ce faire, nous allons prendre une matrice $\mat{A}$
+de taille $2\times2$ complètement générale et la mettre sous la forme de la matrice augmentée de la sous-section précédente. Puis nous allons appliquer notre algorithme pour calculer son inverse
+$$
+\mat{M}=\left[
+	\begin{array}{cc|cc}
+ 		a_{11} & a_{12} & 1 & 0  \cr
+	    a_{21} & a_{22} & 0 & 1
+	\end{array}
+\right].
+$$
+Il est bon de rappeler ici que nous voulons mettre la partie gauche de cettematrice sous la forme de la matrice identité: nous voudrions qu'il y ait un "$0$" à la place de $a_{12}$ et $a_{21}$, et un "$1$" à la place de $a_{11}$ et $a_{22}$. Commençons donc nore procédure.
+
+Appliquons d'abord la fonction linéaire $f_1$
+$$
+f_1:\vectwo{x_1}{x_2}\rightarrow\vectwo{x_1}{a_{11}x_2-a_{21}x_1},
+$$
+à toutes les colonnes de notre matrice augmentée, $\mat{M}$, et on obtient
+$$
+\mat{M}_1=\left[
+	\begin{array}{cc|cc}
+ 		a_{11} & a_{12}                    & 1       & 0  \cr
+	    0      & a_{11}a_{22}-a_{21}a_{12} & -a_{21} & a_{11}
+	\end{array}
+\right].
+$$
+A présent, nous allons garder la deuxième ligne intacte et appliquer la fonction $f_2$ suivante dont le but est de mettre un "$0$" à la place du $a_{12}$
+$$
+f_2:\vectwo{x_1}{x_2}\rightarrow\vectwo{(a_{11}a_{22}-a_{21}a_{12})x_1-a_{12}x_2}{x_2}.
+$$
+Il vient pour la matrice augmentée
+$$
+\mat{M}_2=\left[
+	\begin{array}{cc|cc}
+ 		(a_{11}a_{22}-a_{21}a_{12})a_{11} & 0                         & a_{11}a_{22}       & -a_{11}a_{12}  \cr
+	    0                         & a_{11}a_{22}-a_{21}a_{12} & -a_{21} & a_{11}
+	\end{array}
+\right].
+$$
+A présent, nous voulons mettre des $"1"$ dans la diagonale de la matrice $\mat{M}_2$. Cela se fait au travers de l'application $f_3$
+$$
+f_3:\vectwo{x_1}{x_2}\rightarrow\vectwo{\frac{x_1}{(a_{11}a_{22}-a_{21}a_{12})a_{11}}}{\frac{x_2}{a_{11}a_{22}-a_{21}a_{12}}}.
+$$
+On obtient finalement
+$$
+\mat{M}_3=\left[
+	\begin{array}{cc|cc}
+ 		1 & 0 & \frac{a_{22}}{a_{11}a_{22}-a_{21}a_{12}} & -\frac{a_{12}}{a_{11}a_{22}-a_{21}a_{12}}  \cr
+	    0 & 1 & -\frac{a_{21}}{a_{11}a_{22}-a_{21}a_{12}} & \frac{a_{11}}{a_{11}a_{22}-a_{21}a_{12}}
+	\end{array}
+\right].
+$$
+Sur la droite de $\mat{M}_3$, nous avons la matrice inverse $\mat{A}^{-1}$. Nous pouvons réécrire cette matrice sous une forme un peu plus agréable. En définissant, le *déterminant* de $\mat{A}$, $\det(\mat{A})$, comme
+$$
+\det(\mat{A})=\left|\mat{A}\right|=
+\begin{vmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{vmatrix}
+=a_{11}a_{22}-a_{21}a_{12},
+$$
+on a
+$$
+\mat{A}^{-1}=\frac{1}{\det(\mat{A})}
+\begin{pmatrix}
+a_{22} & a_{12} \\
+a_{21} & a_{11}
+\end{pmatrix}.
+$$
+On constate que la matrice $\mat{A}$ est inversible, à moins que son déterminant soit nul. On a donc un moyen très simple de déterminer si oui ou non on peut calculer la matrice inverse d'une application linéaire, sans avoir besoin de vraiment faire tout le calcul.
+
+---
+
+Exercice (Matrice inverse d'une matrice $2\times2$) +.#
+
+Calculer la matrice inverse, $\mat{A}^{-1}$, de
+$$
+\mat{A}=
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}.
+$$
+Puis calculer le déterminant de $\mat{A}^{-1}$.
+
+---
+
+### Le déterminant d'une matrice $n\times n$
+
+La formule que nous venons de dériver pour une matrice $2\times2$ ne se généralise pas facilement pour une matrice $n\times n$. Afin de voir comment cela se passe dans le cas général, commençons par le calcul du déterminant d'une matrice $\mat{A}\in M_{3,3}(\real)$
+$$
+\mat{A}=\begin{pmatrix}
+\textcolor{red}{a_{11}} & \textcolor{green}{a_{12}} & \textcolor{blue}{a_{13}} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{pmatrix}.
+$$
+Le calcul du déterminant se calcul de façon récursive. On choisit les 3 éléments de la première ligne (en rouge, vert et bleu ci-dessus). Puis le déterminant se calcul comme suit
+$$
+\det(\mat{A})=
+\textcolor{red}{a_{11}}
+\underbrace{\left|\begin{array}{cc}
+a_{22} & a_{23}\\
+a_{32} & a_{33}
+\end{array}\right|}_{\mat{A}_1}+
+\textcolor{green}{a_{12}}
+\underbrace{\left|\begin{array}{cc}
+a_{21} & a_{23}\\
+a_{31} & a_{33}
+\end{array}\right|}_{\mat{A}_2}+
+\textcolor{blue}{a_{12}}
+\underbrace{\left|\begin{array}{cc}
+a_{21} & a_{22}\\
+a_{31} & a_{32}
+\end{array}\right|}_{\mat{A}_3},
+$$
+où on multiplie chacun des termes de la première ligne de $\mat{A}$, par le déterminant de la sous-matrice de $\mat{A}$ où on a enlevé la ligne et la colonne respective du premier élément de chaque colonne.
+Dans ce cas-là nous savons calculer les déterminants de sous-matrices, car ce sont des matrices $2\times 2$ (voir sous-section précédente).
+
+Afin d'expliquer un peu plus en détail comment déterminer les sous-matrices à utiliser, on trouve ci-dessous pour chacune des sous.matrices, la colonne et la ligne à enlever de la matrice $\mat{A}$ selon la couleur du premier élément de la colonne
+$$
+\mat{A}_1=\begin{pmatrix}
+\textcolor{red}{a_{11}} & \textcolor{red}{a_{12}} & \textcolor{red}{a_{13}} \\
+\textcolor{red}{a_{21}} & a_{22} & a_{23} \\
+\textcolor{red}{a_{31}} & a_{32} & a_{33}
+\end{pmatrix},\ 
+\mat{A}_2=\begin{pmatrix}
+\textcolor{green}{a_{11}} & \textcolor{green}{a_{12}} & \textcolor{green}{a_{13}} \\
+a_{21} & \textcolor{green}{a_{22}} & a_{23} \\
+a_{31} & \textcolor{green}{a_{32}} & a_{33}
+\end{pmatrix},\ 
+\mat{A}_3=\begin{pmatrix}
+\textcolor{blue}{a_{11}} & \textcolor{blue}{a_{12}} & \textcolor{blue}{a_{13}} \\
+\textcolor{blue}{a_{21}} & a_{22} & a_{23} \\
+\textcolor{blue}{a_{31}} & a_{32} & a_{33}
+\end{pmatrix}.
+$$
+
+---
+
+Exercice (Déterminant $3\times 3$) +.#
+
+Calculer le déterminant de la matrice
+$$
+\mat{A}=
+\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+\end{pmatrix},
+$$
+et de la matrice
+$$
+\mat{B}=
+\begin{pmatrix} 1 & -1 & 1 \\ 2 & -2 & 2 \\ 1 & 1 & -2
+\end{pmatrix}.
+$$
+Ces matrices sont-elles inversibles?
 
 ---
 
