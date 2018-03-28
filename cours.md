@@ -66,6 +66,7 @@ urlcolor: blue
 \newcommand{\vectwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
 \newcommand{\vecthree}[3]{\begin{pmatrix}#1 \\ #2 \\ #3 \end{pmatrix}}
 \newcommand{\mat}[1]{{\underline{\underline{#1}}}}
+\newcommand{\com}[1]{\mat{\mathrm{com}#1}}
 \newcommand{\mattwo}[4]{\begin{pmatrix}
 								#1 & #2 \\
 								#3 & #4
@@ -2094,35 +2095,35 @@ $$
 \underbrace{\left|\begin{array}{cc}
 a_{22} & a_{23}\\
 a_{32} & a_{33}
-\end{array}\right|}_{\mat{A}_1}-
+\end{array}\right|}_{\mat{A}_{11}}-
 \textcolor{green}{a_{12}}
 \underbrace{\left|\begin{array}{cc}
 a_{21} & a_{23}\\
 a_{31} & a_{33}
-\end{array}\right|}_{\mat{A}_2}+
+\end{array}\right|}_{\mat{A}_{12}}+
 \textcolor{blue}{a_{13}}
 \underbrace{\left|\begin{array}{cc}
 a_{21} & a_{22}\\
 a_{31} & a_{32}
-\end{array}\right|}_{\mat{A}_3},
+\end{array}\right|}_{\mat{A}_{13}},
 $${#eq:det33}
 où on multiplie chacun des termes de la première ligne de $\mat{A}$, par le déterminant de la sous-matrice de $\mat{A}$ où on a enlevé la ligne et la colonne respective du premier élément de chaque colonne.
 Dans ce cas-là nous savons calculer les déterminants de sous-matrices, car ce sont des matrices $2\times 2$ (voir la sous-section précédente).
 
 Afin d'expliquer un peu plus en détail comment déterminer les sous-matrices à utiliser, on trouve ci-dessous pour chacune des sous.matrices, la colonne et la ligne à enlever de la matrice $\mat{A}$ selon la couleur du premier élément de la colonne
 $$
-\mat{A}_1=\begin{pmatrix}
+\mat{A}_{11}=\begin{pmatrix}
 \textcolor{red}{a_{11}} & \textcolor{red}{a_{12}} & \textcolor{red}{a_{13}} \\
 \textcolor{red}{a_{21}} & a_{22} & a_{23} \\
 \textcolor{red}{a_{31}} & a_{32} & a_{33}
 \end{pmatrix},\ 
-\mat{A}_2=\begin{pmatrix}
+\mat{A}_{12}=\begin{pmatrix}
 \textcolor{green}{a_{11}} & \textcolor{green}{a_{12}} & \textcolor{green}{a_{13}} \\
 a_{21} & \textcolor{green}{a_{22}} & a_{23} \\
 a_{31} & \textcolor{green}{a_{32}} & a_{33}
 \end{pmatrix},\ 
-\mat{A}_3=\begin{pmatrix}
-a_{11} & \textcolor{blue}{a_{12}} & \textcolor{blue}{a_{13}} \\
+\mat{A}_{13}=\begin{pmatrix}
+\textcolor{blue}{a_{11}} & \textcolor{blue}{a_{12}} & \textcolor{blue}{a_{13}} \\
 a_{21} & a_{22} & \textcolor{blue}{a_{23}} \\
 a_{31} & a_{32} & \textcolor{blue}{a_{33}}
 \end{pmatrix}.
@@ -2190,9 +2191,9 @@ a_{n1} & a_{n2} & \dots & a_{nn}
 \end{array}\right|.
 \end{equation}
 Avant de généraliser la formule de l'@eq:det33, il nous faut définir la sous matrice 
-$\mat{A}^{(n-1)}_{ij}$ qui est la sous-matrice de dimensions $n-1\times n-1$ de $\mat{A}$ à laquelle nous avons enlevé la $i$-ème ligne et la $j$-ème colonne. On aurait donc
+$\mat{A}_{ij}$ qui est la sous-matrice de dimensions $n-1\times n-1$ de $\mat{A}$ à laquelle nous avons enlevé la $i$-ème ligne et la $j$-ème colonne. On aurait donc
 \begin{equation}
-\mat{A}_{ij}^{(n-1)}=
+\mat{A}_{ij}=
 \begin{pmatrix} 
 a_{11} & \dots & a_{1,j-1} & a_{1,j+1} & \dots & a_{1n}\\
 \vdots & \ddots & a_{2,j-1} & a_{2,j+1} & \dots & a_{2n}\\
@@ -2205,19 +2206,99 @@ a_{n,1} & \dots & a_{n,j-1} & a_{n,j+1} & \dots & a_{nn}\\
 En utilisant cette notation, nous pouvons réécrire le déterminant d'une matrice $3\times 3$ (voir l'@eq:det33) comme
 \begin{equation}
 \det(\mat{A})=
-a_{11}\cdot \det(\mat{A}^{(2)}_{11})
--a_{12}\cdot \det(\mat{A}^{(2)}_{12})
-+a_{13}\cdot \det(\mat{A}^{(2)}_{13}).
+a_{11}\cdot \det\left(\mat{A}^{(2)}_{11}\right)
+-a_{12}\cdot \det\left(\mat{A}^{(2)}_{12}\right)
++a_{13}\cdot \det\left(\mat{A}^{(2)}_{13}\right).
 \end{equation}
 Avec cette façon d'écrire le déterminant, nous pouvons immédiatement généraliser à une matrice de taille $n\times n$. On a
+\begin{align}
+\det(\mat{A})&=
+a_{11}\cdot \det\left(\mat{A}_{11}\right)
+-a_{12}\cdot \det\left(\mat{A}_{12}\right)
++a_{13}\cdot \det\left(\mat{A}_{13}\right)\nonumber\\
+&\quad+\cdots
++(-1)^{(n+1)}a_{1n}\cdot \det\left(\mat{A}_{1n}\right).
+\end{align}
+Il suffit donc ensuite de calculer les déterminants des matrices 
+$\mat{A}_{1j}$ de façon récursive jusqu'à ce qu'on ait des matrices $2\times 2$
+dont nous connaissons le déterminant.
+
+Ici, nous avons considéré uniquement la première ligne comme référence pour calculer 
+le déterminant. En fait la même opération peut se faire selon n'importe quelle ligne ou colonne. On peut écrire le calcul du déterminant selon la $i$-ème ligne comme
 \begin{equation}
-\det(\mat{A})=
-a_{11}\cdot \det(\mat{A}^{(n-1)}_{11})
--a_{12}\cdot \det(\mat{A}^{(n-1)}_{12})
-+a_{13}\cdot \det(\mat{A}^{(n-1)}_{13})
-+\cdots
-+(-1)^(n-1)a_{1n}\cdot \det(\mat{A}^{(n-1)}_{1n}).
+\det(\mat{A})=\sum_{j=1}^n(-1)^{i+j}a_{ij}\cdot \det\left(\mat{A}_{ij}\right),
 \end{equation}
+où il faut faire attention au signe de chaque terme donné par $(-1)^{i+j}$ qui est en fait une structure en échiquier dans la matrice. Pour une matrice $4\times 4$ cela donnerait 
+\begin{equation}
+(-1)^{i+j}=\left(\begin{array}{cccc}
++ & - & + & -\\
+- & + & - & +\\
++ & - & + & -\\
+- & + & - & +
+\end{array}\right).
+\end{equation}
+
+En python avec la librairie NumPy et Scipy, on peut calculer un déterminant de la 
+façon suivante
+
+~~~{.python .numberLines}
+
+>>> import numpy as np
+>>> a = np.array([[1, 2], [3, 4]])
+>>> np.linalg.det(a)
+-2.0000000000000004
+>>> a = np.array([[1, 2, 3], [3, 4, 6], [7, 8, 9]])
+>>> np.linalg.det(a)
+6.0
+>>> a = np.array([[1, 2, 3, -1], [3, 4, 6, 0], [7, 8, 9, -1], [2, 3, 1, -2]])
+>>> np.linalg.det(a)
+12.000000000000005
+
+~~~
+
+### La co-matrice d'une application linéaire
+
+Dans la sous-section (2.3.12), nous avons vu une méthode pour calculer l'inverse d'une matrice. Cette méthode est équivalente à une généralisation mathématique qui permet d'écrire les choses de façon plus succincte. Pour ce faire, il nous faut définir la *comatrice* d'une application linéaire. La comatrice d'une matrice $\mat{A}$ d'une matrice  est notée $\com{A}$ et est définie à l'aide des déterminants des sous-matrices de $\mat{A}$
+\begin{equation}
+\{\com{A}\}_{ij}=(-1)^{i+j}\cdot \det\left(\mat{A}_{ij}\right).
+\end{equation}
+Avec cette définition, on peut écrire que l'inverse d'une matrice carrée $\mat{A}$ est donnée par
+\begin{equation}
+\mat{A}^{-1}=\frac{1}{\det\left(\mat{A}\right)}\cdot \com{A}^\mathrm{T},
+\end{equation}
+où $\com{A}^\mathrm{T}$ est la comatrice de $\mat{A}$ transposée.
+
+Pour une matrice $3\times 3$ générale, la comatrice d'une matrice $\mat{A}$ générale 
+\begin{equation}
+\mat{A}=\begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{pmatrix},
+\end{equation}
+s'écrit
+\begin{equation*}
+\com{A}=\begin{pmatrix}
+a_{22}a_{33}-a_{32}a_{23} & -(a_{21}a_{33}-a_{31}a_{23}) & a_{21}a_{32}-a_{31}a_{22} \\
+-(a_{12}a_{33}-a_{32}a_{13}) & a_{11}a_{33}-a_{31}a_{13} & -(a_{11}a_{32}-a_{31}a_{12}) \\
+a_{12}a_{23}-a_{22}a_{13} & -(a_{11}a_{23}-a_{21}a_{13}) & a_{11}a_{22}-a_{21}a_{12} \\
+\end{pmatrix}.
+\end{equation*}
+
+---
+
+Exercice (Inverse d'une matrice $3\times 3$ avec la méthode de la comatrice) +.#
+
+Calculer l'inverse de la matrice 
+\begin{equation}
+\mat{A}=
+	\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
+	\end{pmatrix},
+\end{equation}
+avec la méthode de la comatrice.
+
+---
+
 
 # Remerciements
 
