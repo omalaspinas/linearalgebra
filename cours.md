@@ -2094,20 +2094,20 @@ $$
 \underbrace{\left|\begin{array}{cc}
 a_{22} & a_{23}\\
 a_{32} & a_{33}
-\end{array}\right|}_{\mat{A}_1}+
+\end{array}\right|}_{\mat{A}_1}-
 \textcolor{green}{a_{12}}
 \underbrace{\left|\begin{array}{cc}
 a_{21} & a_{23}\\
 a_{31} & a_{33}
 \end{array}\right|}_{\mat{A}_2}+
-\textcolor{blue}{a_{12}}
+\textcolor{blue}{a_{13}}
 \underbrace{\left|\begin{array}{cc}
 a_{21} & a_{22}\\
 a_{31} & a_{32}
 \end{array}\right|}_{\mat{A}_3},
-$$
+$${#eq:det33}
 où on multiplie chacun des termes de la première ligne de $\mat{A}$, par le déterminant de la sous-matrice de $\mat{A}$ où on a enlevé la ligne et la colonne respective du premier élément de chaque colonne.
-Dans ce cas-là nous savons calculer les déterminants de sous-matrices, car ce sont des matrices $2\times 2$ (voir sous-section précédente).
+Dans ce cas-là nous savons calculer les déterminants de sous-matrices, car ce sont des matrices $2\times 2$ (voir la sous-section précédente).
 
 Afin d'expliquer un peu plus en détail comment déterminer les sous-matrices à utiliser, on trouve ci-dessous pour chacune des sous.matrices, la colonne et la ligne à enlever de la matrice $\mat{A}$ selon la couleur du premier élément de la colonne
 $$
@@ -2122,15 +2122,46 @@ a_{21} & \textcolor{green}{a_{22}} & a_{23} \\
 a_{31} & \textcolor{green}{a_{32}} & a_{33}
 \end{pmatrix},\ 
 \mat{A}_3=\begin{pmatrix}
-\textcolor{blue}{a_{11}} & \textcolor{blue}{a_{12}} & \textcolor{blue}{a_{13}} \\
-\textcolor{blue}{a_{21}} & a_{22} & a_{23} \\
-\textcolor{blue}{a_{31}} & a_{32} & a_{33}
+a_{11} & \textcolor{blue}{a_{12}} & \textcolor{blue}{a_{13}} \\
+a_{21} & a_{22} & \textcolor{blue}{a_{23}} \\
+a_{31} & a_{32} & \textcolor{blue}{a_{33}}
 \end{pmatrix}.
 $$
 
 ---
 
-Exercice (Déterminant $3\times 3$) +.#
+Exemple (Déterminant d'une matrice $3\times 3$) +.#
+
+Afin d'appliquer cette formule faisons le calcul du déterminant de la matrice
+\begin{equation}
+\mat{A}=
+\begin{pmatrix} 1 & 0 & 1 \\ -1 & 1 & 0 \\ 0 & 0 & 1
+\end{pmatrix}.
+\end{equation}
+En reprenant notre la formule de l'@eq:det33, on obtient
+\begin{align}
+\det(\mat{A})&=
+1\cdot\left|\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right|
+-0\cdot\left|\begin{array}{cc}
+-1 & 0\\
+0 & 1
+\end{array}\right|
++1\left|\begin{array}{cc}
+-1 & 1\\
+0 & 0
+\end{array}\right|,\nonumber\\
+&=1\cdot 1-0\cdot -1 + 1\cdot 0=1.
+\end{align}
+On as donc que $\det(\mat{A})\neq 0$ et donc que la matrice est inversible.
+
+---
+
+---
+
+Exercice (Déterminant de matrices $3\times 3$) +.#
 
 Calculer le déterminant de la matrice
 $$
@@ -2147,6 +2178,46 @@ $$
 Ces matrices sont-elles inversibles?
 
 ---
+
+Généralisons à présent ce calcul à des matrices de tailles arbitraires, $n\times n$.
+Nous voulons donc calculer
+\begin{equation}
+\det(\mat{A})=\left|\begin{array}{cccc}
+a_{11} & a_{12} & \dots & a_{1n}\\
+a_{21} & a_{22} & \dots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n1} & a_{n2} & \dots & a_{nn}
+\end{array}\right|.
+\end{equation}
+Avant de généraliser la formule de l'@eq:det33, il nous faut définir la sous matrice 
+$\mat{A}^{(n-1)}_{ij}$ qui est la sous-matrice de dimensions $n-1\times n-1$ de $\mat{A}$ à laquelle nous avons enlevé la $i$-ème ligne et la $j$-ème colonne. On aurait donc
+\begin{equation}
+\mat{A}_{ij}^{(n-1)}=
+\begin{pmatrix} 
+a_{11} & \dots & a_{1,j-1} & a_{1,j+1} & \dots & a_{1n}\\
+\vdots & \ddots & a_{2,j-1} & a_{2,j+1} & \dots & a_{2n}\\
+a_{i-1,1} & \dots & a_{i-1,j-1} & a_{i-1,j+1} & \dots & a_{i-1,n}\\
+a_{i+1,1} & \dots & a_{i+1,j-1} & a_{i+1,j+1} & \dots & a_{i+1,n}\\
+\vdots & \vdots & \vdots & \ddots & \ddots & \vdots\\
+a_{n,1} & \dots & a_{n,j-1} & a_{n,j+1} & \dots & a_{nn}\\
+\end{pmatrix}.
+\end{equation}
+En utilisant cette notation, nous pouvons réécrire le déterminant d'une matrice $3\times 3$ (voir l'@eq:det33) comme
+\begin{equation}
+\det(\mat{A})=
+a_{11}\cdot \det(\mat{A}^{(2)}_{11})
+-a_{12}\cdot \det(\mat{A}^{(2)}_{12})
++a_{13}\cdot \det(\mat{A}^{(2)}_{13}).
+\end{equation}
+Avec cette façon d'écrire le déterminant, nous pouvons immédiatement généraliser à une matrice de taille $n\times n$. On a
+\begin{equation}
+\det(\mat{A})=
+a_{11}\cdot \det(\mat{A}^{(n-1)}_{11})
+-a_{12}\cdot \det(\mat{A}^{(n-1)}_{12})
++a_{13}\cdot \det(\mat{A}^{(n-1)}_{13})
++\cdots
++(-1)^(n-1)a_{1n}\cdot \det(\mat{A}^{(n-1)}_{1n}).
+\end{equation}
 
 # Remerciements
 
