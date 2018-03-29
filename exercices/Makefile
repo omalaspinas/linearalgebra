@@ -1,4 +1,4 @@
-FILTERS = --filter=pandoc-numbering --filter=$(PANDOC_CROSSREF)pandoc-crossref
+FILTERS = --filter=pandoc-numbering --filter=pandoc-crossref
 TEMPLATE = --template=../default.latex
 PDFENGINE = --pdf-engine pdflatex
 
