@@ -19,6 +19,8 @@ pandoc-numbering:
   - category: exercice
 urlcolor: blue
 ---
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\vectwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
 
 Série d'exercices {#vecteur .unnumbered}
 =================
