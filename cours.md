@@ -88,7 +88,7 @@ avec $v_1,v_2\in\real$. Il représente la *flèche* allant de l'origine (le poin
 
 Grâce au théorème de Pythagore (ce Grec mort depuis longtemps) nous pouvons aisément calculer la longueur du vecteur $\vec{v}$, notée $||\vec{v}||$ et également appelée norme
 $$||\vec{v}||=\sqrt{v_1^2+v_2^2}.$$
-Et donc on peut également définir le vecteur unitaire, $\hat{v}$, qui est un vecteur qui a la direction de $\vec{c}$, mais qui est de longueur 1
+Et donc on peut également définir le vecteur unitaire, $\hat{v}$, qui est un vecteur qui a la direction de $\vec{v}$, mais qui est de longueur 1
 $$\hat{v}=\frac{\vec{v}}{||\vec{v}||}.$$
 
 Les composantes du vecteur $\vec{v}$ dépendent du système de coordonnées dans lequel il est représenté. De façon plus générale il dépend de la *base* dans laquelle il est exprimé. Dans la @fig:composantes nous utilisons les coordonnées cartésiennes, mais cela n'est pas du tout le seul moyen de représenter un vecteur (voir la @fig:base)
@@ -151,7 +151,7 @@ $$
 >>> v = [2.0, 3.0, 4.0]
 >>> w = [0.0, 0.0, 0.0]
 >>> for i in range(3): # loop based syntax for vector addition
-...     w[i]=a[i] + b[i]
+...     w[i]=u[i] + v[i]
 ...
 >>> w
 [3.0, 5.0, 7.0]
@@ -228,7 +228,7 @@ Les vecteurs en deux dimensions à composantes réelles, $\vec{v}\in\real^2$, et
 
 ### Propriétés de la somme
 
-Soient $\vec{u},\vec{v},\vec{w}\in\real^2$ deux vecteurs de $\real^2$.
+Soient $\vec{u},\vec{v},\vec{w}\in\real^2$ trois vecteurs de $\real^2$.
 
 1. La somme est dite *interne*: la somme de deux vecteurs de $\real^2$ reste dans $\real^2$. Ceci se note de la façon suivante
 
@@ -276,7 +276,7 @@ $$
 
 Soient $\vec{u},\vec{v}\in\real^2$ deux vecteurs de $\real^2$ et $\mu,\lambda\in\real$.
 
-1. La multiplication par un scalaire d'un vecteur est dite *externe*: le produit entre un scalaire et d'un vecteur de $\real^2$ reste un vecteur de $\real^2$.
+1. La multiplication par un scalaire d'un vecteur est dite *externe*: le produit entre un scalaire et un vecteur de $\real^2$ reste un vecteur de $\real^2$.
 
 $$
 \cdot:\real\times\real^2\rightarrow\real^2.
@@ -368,7 +368,7 @@ Il existe un très grand nombre d'espace vectoriel que vous utilisez quotidienne
 
 1. L'espace des réels est un espace vectoriel sur les réels.
 2. L'espace des entiers est un espace vectoriel sur les entiers.
-3. L'espace des réels est un espace vectoriel sur les réels.
+3. L'espace des réels est un espace vectoriel sur les entiers.
 4. L'espace $\{0\}$ sur $\real$.
 5. L'espace des fonctions définies telles que si
 
@@ -379,6 +379,7 @@ $$
 &(\alpha\cdot f)(x)=\alpha\cdot f(x),\quad\forall x\in \real.
 \end{aligned}
 $$
+
 6. L'espace des polynômes sur les réels.
 
 ---
@@ -407,12 +408,15 @@ Exercice +.#
 
 $$\vec v_1=\vectwo{1}{2},\quad \vec v_2=\vectwo{2}{1}.$$
 Quel est l'espace généré par les combinaisons linéaires de ces deux vecteurs?
+
 2. Considérons deux $\vec v_1$, $\vec v_2$ donnés par
 $$\vec v_1=\vectwo{1}{2},\quad \vec v_2=\vectwo{-1}{-2}.$$
 Quel est l'espace généré par les combinaisons linéaires de ces deux vecteurs?
+
 3. Considérons le vecteur $\vec v$ donnés par
 $$\vec v=\vectwo{0}{0}.$$
 Quel est l'espace généré par les combinaisons linéaires de $\vec v$?
+
 4. Considérons trois vecteurs $\vec v_1$, $\vec v_2$, et $\vec v_3$ donnés par
 $$\vec v_1=\vectwo{1}{2},\quad \vec v_2=\vectwo{2}{1},\quad \vec v_3=\vectwo{3}{4}.$$
 Quel est l'espace généré par les combinaisons linéaires de ces trois vecteurs?
@@ -454,7 +458,7 @@ En revanche, si $V=\{\vec v_i\}_{i=1}^n$ est une famille liée (ses vecteurs son
 
 Exercice +.#
 
-Quelles familles de l'exercice 2 forment un base de l'espace généré par les familles?
+Quelles familles de l'exercice 2 forment une base de l'espace généré par les familles?
 
 ---
 
@@ -567,7 +571,7 @@ $$
 ### Exemple de transformation linéaire sur un triangle: la rotation
 
 En informatique, une grande partie des applications 3D sont basées sur la manipulation de triangles (pour représenter des surfaces).
-Définissons un triangle relie les trois points
+Définissons un triangle avec les trois points
 $$P_0=(0,0),\quad P_1=(1,0),\quad P_2=(0,1).$$
 Les positions $P_0$, $P_1$ et $P_2$ suffisent pour décrire le triangle.
 Cependant afin de les dessiner, il peut être utile de connaître également
