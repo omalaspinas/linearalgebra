@@ -2302,7 +2302,7 @@ avec la méthode de la comatrice.
 
 # Remerciements
 
-Je voudrais remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, et T. Pirkl.
+Je voudrais remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, T. Pirkl, et J. von der Weid.
 
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\bm{A}$.
