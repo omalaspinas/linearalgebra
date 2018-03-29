@@ -1979,13 +1979,45 @@ $$
 	\end{array}
 \right].
 $$
+Cette méthode qui consiste à réduire une matrice matrice diagonale, est connue sous le nom *d'élimination de Gauss(-Jordan)*.
+
 Il est important de noter qu'il n'est pas toujours possible de mettre notre matrice "augmentée" dans la forme que nous venons de décrire: l'identité à droite et l'inverse à gauche. Cela se produit lorsque la matrice $\mat{A}$ *n'est pas* inversible.
+
+---
+
+Illustration +.#
+
+Si nous appliquons l'élimination de Gauss à la matrice 
+\begin{equation}
+\mat{A}=\mattwo{-1}{-2}{2}{4},
+\end{equation} 
+on obtient
+\begin{equation}
+\left[\mat{A}|\mat{I}_2\right]=
+\left[
+	\begin{array}{cc|cc}
+ 		-1 & -2 & 1 & 0 \cr
+	     2 &  4 & 0 & 1 \cr
+	\end{array}
+\right]\rightarrow
+\left[
+	\begin{array}{cc|cc}
+ 		-1 & -2 & 1 & 0 \cr
+	     0 &  0 & 2 & 1 \cr
+	\end{array}
+\right].
+\end{equation}
+On constate qu'on ne peut pas mettre la partie de gauche de la matrice augmentée sous la forme de l'identité.
+La matrice $\mat{A}$ n'est donc pas inversible. En fait, cela est dû au fait que la deuxième ligne de la matrice est 
+obtenue en multipliant la première ligne par $-2$ (les deux lignes ne sont pas linéairement indépendantes).
+
+---
 
 ---
 
 Exercice +.#
 
-Avec la méthode ci-dessus, calculer l'inverse de la matrice $\mat{A}$
+Utiliser la méthode de Gauss-Jordan pour calculer l'inverse de la matrice $\mat{A}$
 $$
 \mat{A}=
 \begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
