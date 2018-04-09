@@ -37,7 +37,7 @@ Calculer les matrices inverses des matrices suivantes (si possible) :
 
 1. 
 \begin{equation}
-\mattwo{1}{2}{-2}{3}.
+\mat{A}=\mattwo{1}{2}{-2}{3}.
 \end{equation}
 
 2. 
