@@ -2335,6 +2335,186 @@ avec la méthode de la comatrice.
 
 ---
 
+## Composition d'applications linéaires
+
+Revenons un tout petit peu en arrière à présent et discutons de la composition d'applications linéaires.
+
+Si nous avons deux applications linéaires, $f$ et $g$,
+\begin{align}
+&f:\real^m\rightarrow\real^n,\\
+&g:\real^p\rightarrow\real^m,
+\end{align}
+Soit $h$, la composition de $f$ avec $g$ s'écrit
+\begin{align}
+&h:\real^p\rightarrow\real^n,\\
+&h(x)=(f\circ g)(\vec x),
+\end{align}
+ou une autre notation possible serait 
+\begin{equation}
+h(\vec x)=f(g(\vec x)).
+\end{equation}
+Il se trouve que la fonction $h$ est elle-même une application linéaire.
+
+---
+
+Exercice (composition d'application linéaire) +.#
+
+Démontrer que la composition de deux applications linéaires est une application linéaire.
+
+---
+
+De ce que nous avons vu dans les sections précédentes, nous savons que n'importe quelle application linéaire 
+peut s'écrire comme un produit matrice-vecteur. Dans ce cas, nous aurons que, $f$ peut se représenter avec la matrice $\mat{F}$
+\begin{align}
+\mat{F}&=\left(f(\vec e_1)\ f(\vec e_2)\ \cdots\ f(\vec e_m)\right),\\
+&=\left(\vec f_1\ \vec f_2\ \cdots\ \vec f_m\right),
+\end{align}
+où $\mat{F}\in M_{m,n}(\real)$. De même $g$ peut se représenter avec la matrice $\mat{G}\in M_{n,p}(\real)$
+\begin{align}
+\mat{G}&=\left(g(\vec e_1)\ g(\vec e_2)\ \cdots\ g(\vec e_p)\right),\\
+&=\left(\vec g_1\ \vec g_2\ \cdots\ \vec g_p\right).
+\end{align}
+Finalement, nous pouvons également écrire la matrice $\mat{H}$ qui est la représentation matricielle  de la fonction $h$
+\begin{equation}
+\mat{H}=\left(h(\vec e_1)\ h(\vec e_2)\ \cdots\ h(\vec e_p)\right).
+\end{equation}
+Mais $h$ peut se représenter comme la composition de $f$ et $g$. On doit donc certainement pourvoir représenter $\mat{H}$ en fonction de $\mat{F}$ et $\mat{G}$.
+
+Si nous définissons 
+\begin{equation}
+\vec y=\mat{G}\cdot\vec x=g(\vec x),
+\end{equation}
+avec $\vec x\in\real^p$ et $\vec y\in\real^m$, nous pouvons également calculer \begin{equation}
+\mat{F}\cdot \vec y=\mat{F}\cdot(\mat{G}\cdot\vec x)=f(g(\vec x))=h(\vec(x)=\mat{H}\cdot \vec x.
+\end{equation}
+Comme le produit matriciel est associatif, 
+on en déduit donc que la matrice $\mat{H}$ est obtenue 
+par
+\begin{equation}
+\mat{H}=\mat{F}\cdot\mat{G}.
+\end{equation}
+On voit donc que le produit de deux matrices n'est rien d'autre que la composition
+de deux applications linéaires. Il s'agit donc d'appliquer à la suite deux transformations linéaires sur un vecteur. Ainsi, lorsqu'on calcule le produit d'une matrice avec son inverse $\mat{A^{-1}}\cdot\mat{A}$ ($\mat{A}$ et $\mat{A}^{-1}$ sont les matrices correspondant aux applications linéaires $a$ et $a^{-1}$), on effectue d'abord 
+la transformation $a$, puis la transformation inverse $a^{-1}$, défaisant avec $a^{-1}$ l'effet de $a$ (tel Pénélope avec sa toile).
+
+## Quelques applications du calcul matriciel
+
+Les matrices sont présentes un peu partout en informatique. Des fois parce qu'elles représentent des applications linéaires, d'autres
+uniquement parce qu'elles sont une représentation pratique d'objets. 
+Elles sont à la base de tout le traitement du signal (audio, images, ...) numérique. 
+Nous allons voir ici deux exemples que nous implanterons aux travaux pratiques.
+
+### L'interpolation bilinéaire
+
+Il est très commun de vouloir rééchantillonner une image (pour effectuer un zoom, une rotation, etc). Prenons donc l'exemple du zoom. Lorsque vous avez une image avec une certaine résolution, vous avez en fait un ensemble de pixels qui ont une certaine couleur. Lorsque vous souhaitez effectuer un agrandissement de l'image, vous allez déplacer les pixels dans certaines directions avec un certain facteur d'agrandissement. Hors les pixels ainsi déplacés laisseront des "trous" dans l'image que vous souhaiteriez reconstituer. La technique la plus simple pour "boucher les trous" après simplement copier la couleur du pixel le plus proche et l'interpolation bilinéaire.
+
+Une image peut se représenter mathématiquement comme une fonction $f$, 
+telle que
+\begin{equation}
+f:\real^2\rightarrow\real,
+\end{equation}
+on prend un couple de points (un pixel) et on lui associe une couleur[^4] connue.
+
+Lors d'un zoom on effectue une dilatation des vecteurs position des pixels. 
+On va donc avoir que sur les points représentant la position des pixels nous n'aurons plus une valeur de couleur associée, mais nous la connaîtrons à la position des vecteurs dilatés (voir la @fig:dilatation). Dans le cas de la @fig:dilatation, avant dilatation nous connaissons les valeur de $f$ sur les positions $(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$. Après dilatation, ces valeurs sont connues sur les points $(x_1',y_1')$, $(x_2',y_1')$, $(x_1',y_2')$, et $(x_2',y_2')$. Elles sont en revanche inconnues sur les positions des pixels (qui sont entourés en vert). Il faut donc rééchantillonner l'image. 
+
+![Quatre pixels dont la valeur est connue avant dilatation aux positions 
+$(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$ (carrés noirs) puis après dilatation aux positions $(x_1',y_1')$, $(x_2',y_1')$, $(x_1',y_2')$, et $(x_2',y_2')$ (carrés rouges). Après dilatation la valeur des pixels aux position 
+$(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$ est inconnue.](figs/dilatation.pdf){#fig:dilatation width=40%}
+
+Le problème peut se généraliser de la façon suivante (voir @fig:interp). 
+Soit la valeur de la fonction $f$ est connue en 4 points, $(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$, on cherche à connaître la valeur de $f$ en un point 
+$(x,y)$ avec $x_1\leq x\leq x_2$ et $y_1\leq y\leq y_2$.
+
+![On cherche à connaître la valeur du pixel au point au point $(x,y)$ (carré bleu) quand les valeurs $f(x_1,y_1)$, $f(x_2,y_1)$, $f(x_1,y_2)$, et $f(x_2,y_2)$ sont connues.](figs/interp.pdf){#fig:interp width=40%}
+
+Pour ce faire on utilise ici *l'interpolation bilinéaire*. Cette interpolation se construit en faisant d'abord passer une droite par les points $(x_1,y_1),(x_2,y_1)$, puis par les points $(x_1,y_2),(x_2,y_2)$. On a donc que la fonction $f$ peut s'approximer comme
+\begin{align}
+f(x,y_1)&\cong\frac{x_2-x}{x_2-x_1}f(x_1,y_1)+\frac{x-x_1}{x_2-x_1}f(x_2,y_1),\\
+f(x,y_2)&\cong\frac{x_2-x}{x_2-x_1}f(x_1,y_2)+\frac{x-x_1}{x_2-x_1}f(x_2,y_2).
+\end{align}
+Puis il nous reste à approximer par une droite tous les points qui passent entre les points $(x,y_1)$ et $(x,y_2)$. On obtient donc
+\begin{equation}
+f(x,y)\cong\frac{y_2-y}{y_2-y_1}f(x,y_1)+\frac{y-y_1}{y_2-y_1}f(x,y_2).
+\end{equation}
+En remplaçant les deux équations ci-dessus dans cette dernière équation et en effectuant beaucoup de calculs, on peut se rendre compte que cette équation se réécrit sous forme matricielle comme
+\begin{align}
+f(x,y)&\cong\frac{1}{(x_2-x_1)(y_2-y_1)}\cdot\nonumber\\
+&\quad\quad\begin{pmatrix}x_2-x & x-x_1 \end{pmatrix}\cdot \mattwo{f(x_1,y_1)}{f(x_1,y_2)}{f(x_2,y_1)}{f(x_2,y_2)}\cdot \vectwo{y_2-y}{y-y_1}.
+\end{align}
+Avec cette formule, nous pouvons à présent déterminer n'importe quel point se trouvant dans l'intervalle $[x_1;x_2]\times[y_1;y_2]$.
+
+### Les matrices de convolution
+
+Les matrices de convolutions sont particulièrement utiles dans le traitement d'images. On les appelle également noyau ou masque. L'image traitée est obtenue 
+en faisant la *convolution* entre la matrice et l'image. Ce genre d'opération
+est effectuée tout le temps dans vos téléphones portables pour appliquer des filtres sur vos photos (floutage, vieillissement, ...).
+
+Il existe une grande quantité de noyaux (vous pouvez en trouver des exemple sur la page <https://en.wikipedia.org/wiki/Kernel_(image_processing)>), mais l'opération pour effectuer le traitement de l'image reste toujours la même. 
+Une image peut se représenter sous la forme d'une matrice $m\times n$
+\begin{equation}
+\mat{A}=
+\begin{pmatrix} 
+a_{11}    & \dots  & a_{1,j-1}   & a_{1,j}   & a_{1,j+1}   & \dots  & a_{1n}\\
+\vdots    & \ddots & \vdots      & \ddots    & \vdots      & \ddots & \vdots \\
+a_{i-1,1} & \dots  & a_{i-1,j-1} & a_{i-1,j} & a_{i-1,j+1} & \dots  & a_{i-1,n}\\
+a_{i,  1} & \dots  & a_{i,j-1}   & a_{i,j}   & a_{i,j+1}   & \dots  & a_{i-1,n}\\
+a_{i+1,1} & \dots  & a_{i+1,j-1} & a_{i+1,j} & a_{i+1,j+1} & \dots  & a_{i+1,n}\\
+\vdots    & \ddots & \vdots      & \ddots    & \ddots      & \ddots & \vdots \\
+a_{m,1}   & \dots  & a_{m,j-1}   & a_{m,j+1} & \dots       & \dots  & a_{mn}\\
+\end{pmatrix}.
+\end{equation}
+Si nous choisissons une matrice de convolution, $\mat{C}$, $3\times 3$ (cela se généralise pour toutes les tailles), de la forme 
+\begin{equation}
+\mat{C}=\begin{pmatrix}
+c_{11} & c_{12} & c_{13} \\
+c_{21} & c_{22} & c_{23} \\
+c_{31} & c_{32} & c_{33}
+\end{pmatrix},
+\end{equation}
+nous pouvons écrire calculer la transformation de tous les éléments $a_{i,j}$ de la matrice $\mat{A}$, que nous noterons $b_{i,j}$, comme
+\begin{align}
+b_{i,j}&=\left[\begin{pmatrix}
+c_{11} & c_{12} & c_{13} \\
+c_{21} & c_{22} & c_{23} \\
+c_{31} & c_{32} & c_{33}
+\end{pmatrix}\ast
+\begin{pmatrix} 
+& a_{i-1,j-1} & a_{i-1,j} & a_{i-1,j+1}\\
+& a_{i,j-1}   & a_{i,j}   & a_{i,j+1}  \\
+& a_{i+1,j-1} & a_{i+1,j} & a_{i+1,j+1}\\
+\end{pmatrix}\right]\nonumber\\
+&=c_{11}a_{i-1,j-1}+c_{12}a_{i-1,j}+c_{13}a_{i-1,j+1}\nonumber\\
+&\quad\quad+c_{21}a_{i,j-1}+c_{22}a_{i,j}+c_{23}a_{i,j+1}\nonumber\\
+&\quad\quad+c_{31}a_{i+1,j-1}+c_{32}a_{i+1,j}+c_{33}a_{i+1,j+1}.
+\end{align}
+On voit donc que la convolution est une combinaison linéaire de tous les éléments d'une sous matrice de $\mat{A}$ dont les poids sont donnés
+par la matrice de convolution. La somme des éléments de la matrice de convolution est en général de $1$ (on dit qu'elle est normalisée à 1) 
+pour éviter de modifier la luminosité des pixels.
+
+---
+
+Illustration (Floutage) +.#
+
+Si la matrice de convolution est donnée par
+\begin{equation}
+\mat{C}=\frac{1}{9}\begin{pmatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{pmatrix},
+\end{equation}
+on voit que son effet est de moyenner la valeur de chaque pixel avec tous ces voisins
+\begin{align}
+b_{ij}&=\frac{1}{9}(a_{i-1,j-1}+a_{i-1,j}+a_{i-1,j+1}+a_{i,j-1}+a_{i,j}\nonumber\\
+	  &\quad\quad+a_{i,j+1}+a_{i+1,j-1}+a_{i+1,j}+a_{i+1,j+1}).
+\end{align}
+
+---
+
+
+
+
 
 # Remerciements
 
@@ -2343,3 +2523,4 @@ Je voudrais remercier par ordre alphabétique les étudiants du cours qui a cont
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\bm{A}$.
 [^3]: On peut remplacer $\real$ par un autre ensemble, comme $\natural$, $\rational$, ou encore $\complex$.
+[^4]: En pratique ce sont des nombre naturels (ou des tuples de nombres naturels) mais pour simplifier considérons que tous les nombres sont réels.
