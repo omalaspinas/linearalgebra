@@ -2,7 +2,10 @@ FILTERS = --filter=pandoc-numbering --filter=pandoc-crossref
 TEMPLATE = --template=../default.latex
 PDFENGINE = --pdf-engine pdflatex
 
-all: matrix_inverse matrice_rot matrices fun_lin vecteurs
+all: determinants matrix_inverse matrice_rot matrices fun_lin vecteurs
+
+determinants: determinants.md
+	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
 matrix_inverse: matrix_inverse.md
 	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
