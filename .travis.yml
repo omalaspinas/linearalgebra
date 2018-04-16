@@ -26,6 +26,7 @@ cache:
 script:
 - make
 - make -C exercices
+- make -C tp
 deploy:
   provider: releases
   api_key:
