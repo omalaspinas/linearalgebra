@@ -2512,8 +2512,12 @@ b_{ij}&=\frac{1}{9}(a_{i-1,j-1}+a_{i-1,j}+a_{i-1,j+1}+a_{i,j-1}+a_{i,j}\nonumber
 
 ---
 
+On peut aisément constater que ces opérations sont mal définies pour les pixels se trouvant sur les bords de l'image (aux endroits où les pixels n'ont pas suffisamment de voisins
+pour effectuer l'opération de convolution). Il existe différentes solutions possibles:
 
-
+1. Diminuer la taille de l'image traitée. L'image sera plus petite que l'image de départ de $n$ pixels, où $n\times n$ est la taille de la matrice de convolution.
+2. La taille de l'image est étendue en copiant le dernier pixel sur tous les pixels manquants dans une direction donnée.
+3. On effectue une réflexion miroir de limage dans toutes les directions.
 
 
 # Remerciements
