@@ -2406,7 +2406,7 @@ Nous allons voir ici deux exemples que nous implanterons aux travaux pratiques.
 
 ### L'interpolation bilinéaire
 
-Il est très commun de vouloir rééchantillonner une image (pour effectuer un zoom, une rotation, etc). Prenons donc l'exemple du zoom. Lorsque vous avez une image avec une certaine résolution, vous avez en fait un ensemble de pixels qui ont une certaine couleur. Lorsque vous souhaitez effectuer un agrandissement de l'image, vous allez déplacer les pixels dans certaines directions avec un certain facteur d'agrandissement. Hors les pixels ainsi déplacés laisseront des "trous" dans l'image que vous souhaiteriez reconstituer. La technique la plus simple pour "boucher les trous" après simplement copier la couleur du pixel le plus proche et l'interpolation bilinéaire.
+Il est très commun de vouloir rééchantillonner une image (pour effectuer un zoom, une rotation, etc). Prenons donc l'exemple du zoom. Lorsque vous avez une image avec une certaine résolution, vous avez en fait un ensemble de pixels qui ont une certaine couleur. Lorsque vous souhaitez effectuer un agrandissement de l'image, vous allez déplacer les pixels dans certaines directions avec un certain facteur d'agrandissement. Hors les pixels ainsi déplacés laisseront des "trous" dans l'image que vous souhaiteriez reconstituer. La technique la plus simple pour "boucher les trous" est de simplement copier la couleur du pixel le plus proche. Une méthode un peu plus avancée, et aussi beaucoup plus élégante est l'interpolation bilinéaire.
 
 Une image peut se représenter mathématiquement comme une fonction $f$, 
 telle que
