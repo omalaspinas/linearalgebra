@@ -2519,6 +2519,82 @@ pour effectuer l'opération de convolution). Il existe différentes solutions po
 2. La taille de l'image est étendue en copiant le dernier pixel sur tous les pixels manquants dans une direction donnée.
 3. On effectue une réflexion miroir de limage dans toutes les directions.
 
+# Systèmes d'équations linéaires
+
+Vous avez déjà vu les systèmes d'équations à 2 ou 3 inconnues et comment les résoudre. Ici nous allons généraliser 
+le problèmes à $n$ inconnues et voir comment ce genre de choses peut se traiter à l'aide de ce que nous connaissons sur les 
+applications linéaires et les matrices.
+
+## Rappel sur les équations à deux inconnues
+
+Un système de deux équations à deux inconnues est un couple d'équations contenant deux inconnues.
+Par exemple le système suivant
+\begin{align}
+2x+3y&=-1,\\
+-x+y&=3.
+\end{align}
+Vous connaissez deux méthodes pour résoudre ce type d'équations: par substitution et par addition.
+En additionnant la première équation avec la deuxième qu'on aura multipliée par $2$, on obtient
+\begin{equation}
+5y=5,\quad \Leftrightarrow y=1.
+\end{equation}
+En utilisant ce résultat et en le remplaçant dans la deuxième équation du système ci-dessus, on obtient
+\begin{equation}
+-x+1=3,\quad \Leftrightarrow x=-2.
+\end{equation}
+On a donc que la solution est donné par $x=-2$ et $y=1$.
+
+De façon générale un système d'équations peut avoir un solution unique, aucune solution, ou une infinité de solutions.
+
+---
+
+Illustration (Systèmes d'équations) +.#
+
+Le système d'équation suivant ne possède aucune solution
+\begin{align}
+x+y&=1,\\
+x+y&=-1.
+\end{align}
+En effet, si nous soustrayons ces deux équations, nous obtenons
+\begin{equation}
+0=2,
+\end{equation}
+ce qui est impossible. On ne peut donc pas trouver un $x$ et un $y$ qui satisfont en même temps ces deux équations.
+
+En revanche, le système d'équations suivant possède une infinité de solutions
+\begin{align}
+x+y&=1,\\
+2x+2y&=2.
+\end{align}
+En effet, ces deux équations sont en fait identiques à un facteur multiplicatif près. 
+Si nous divisons la deuxième équation par deux et soustrayons ces équations nous obtenons
+\begin{equation}
+0=0.
+\end{equation}
+En fait la solution de ce système d'équations est donné par la droite $y=1-x$. Pour chaque valeur possible de $x$, nous pouvons trouver une valeur de $y$
+et ce couple sera solution du système d'équations.
+
+---
+
+## Les équations à $n$ inconnues
+
+A présent, nous allons généraliser les systèmes d'équations linéaires à un nombre arbitraire d'inconnues.
+
+### Les équations linéaires
+
+Une équation linéaire à $n$ peut s'écrire sous la forme
+\begin{equation}
+a_1 x_1+a_2 x_2+...+a_{n-1} x_{n-1}+a_n x_n=b,
+\end{equation}
+où $\{x_i\}_{i=1}^{n}\in\real$ sont les inconnues et $\{a_i\}_{i=1}^n,b\in \real$ sont des coefficients connus.
+En effet, si nous sommons deux équations de ce type, nous obtiendrons une équation linéaire.
+\begin{align}
+a_1 x_1+a_2 x_2+...+a_{n-1} x_{n-1}+a_n x_n&=b,\\
+c_1 x_1+c_2 x_2+...+c_{n-1} x_{n-1}+c_n x_n&=d.
+\end{align}
+
+De même en multipliant un équation linéaire par un scalaire
+
 
 # Remerciements
 
