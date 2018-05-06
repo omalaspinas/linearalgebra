@@ -45,7 +45,7 @@ La note sera une combinaison entre le code rendu et le rapport (moitié/moitié)
 ## Calcul du déterminant
 
 1. Écrire une fonction qui calcule le déterminant d'une matrice $n\times n$. Validez vos résultats sur des résultats connus et sur le résultat obtenu avec une librairie (par exemple la fonction de numpy `numpy.linalg.det`).
-2. Mesurez la complexité de votre calcul (mesurez le temps d'exécution) pour différentes tailles de matrices et vérifiez si vous avec la complexité théorique.
+2. Mesurez la complexité de votre calcul (mesurez le temps d'exécution) pour différentes tailles de matrices et vérifiez si vous obtenez un résultat cohérent avec la complexité théorique.
 3. Comparez les performances de votre code avec celui de la librairie NumPy.
 
 ## Interpolation bilinéaire

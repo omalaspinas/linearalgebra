@@ -2542,7 +2542,10 @@ En utilisant ce résultat et en le remplaçant dans la deuxième équation du sy
 \begin{equation}
 -x+1=3,\quad \Leftrightarrow x=-2.
 \end{equation}
-On a donc que la solution est donné par $x=-2$ et $y=1$.
+On a donc que la solution est donné par 
+$$
+x=-2,\quad y=1.
+$${#eq:sol_syst}
 
 De façon générale un système d'équations peut avoir un solution unique, aucune solution, ou une infinité de solutions.
 
@@ -2576,6 +2579,85 @@ et ce couple sera solution du système d'équations.
 
 ---
 
+---
+
+Remarque +.#
+
+Il n'est pas nécessaire que le nombre d'équations soit égal au nombre d'inconnues dans un système d'équations. Dans le cas, ou le nombre d'équations est inférieur, il est certain que le système n'aura pas de solution unique: il ne peut avoir qu'une infinité de solutions, car nous n'aurons qu'une équation à deux inconnues de la forme
+$$
+ax+by=c.
+$$
+Dans ce cas, on dit que le système est *sous-déterminé*.
+A l'inverse, le système d'équations peut contenir plus de deux équations.
+Dans ce cas, si toutes les équations sont indépendantes (une équation n'est pas une combinaison linéaire d'autres) alors le système ne possède pas de solution. On dit que le système est *sur-déterminé*.
+
+---
+
+## Les équations à deux inconnues sous forme matricielle
+
+Le système d'équations à deux inconnues suivant
+\begin{align}
+2x+3y&=-1,\\
+-x+y&=3,
+\end{align}
+peut en fait s'écrire sous la forme d'un produit matrice-vecteur
+$$
+\mat{A}\cdot \vec x=\vec b,
+$$
+où 
+$$
+\mat{A}=\mattwo{2}{3}{-1}{1}, \quad \vec x=\vectwo{x}{y},\quad \vec b=\vectwo{-1}{3}.
+$$
+Nous pouvons donc utiliser tout ce que nous avons vu concernant les matrices. En particulier, si nous supposons que $\mat{A}$ possède une matrice inverse, $\mat{A}^{-1}$, nous pouvons multiplier cette équation
+par $\mat{A}^{-1}$ des deux côtés et nous obtenons
+\begin{align}
+\mat{A}^{-1}\cdot \mat{A}\cdot \vec x&=\mat{A}^{-1}\cdot\vec b,\nonumber\\
+\vec x&=\mat{A}^{-1}\cdot\vec b.
+\end{align}
+Dans le cas présent, $\mat{A}^{-1}$ est donnée par
+$$
+\mat{A}^{-1}=\frac{1}{5}\mattwo{1}{-3}{1}{2}.
+$$
+On peut donc calculer la solution 
+\begin{equation}
+\vec x=\frac{1}{5}\mattwo{1}{-3}{1}{2}\cdot\vectwo{-1}{3}=\vectwo{-2}{1}.
+\end{equation}
+Nous somme rassurés, car cette solution est exactement la même que celle que nous avions trouvé à l'@eq:sol_syst.
+
+---
+
+Exercice +.#
+
+Calculer la solution au système d'équations 
+\begin{align}
+-4x+1y&=0,\\
+-x+7y&=3,
+\end{align}
+en utilisant la méthode d'inversion de matrice.
+
+---
+
+Nous venons de constater que pour trouver une solution unique 
+à un système de deux inconnues, écrit sous la forme $\mat{A}\cdot \vec x=\vec b$, nous devions calculer l'inverse de la matrice $\mat{A}$. Cette méthode implique que la matrice $\mat{A}$ soit inversible et donc qu'elle soit d'une part carrée (autant d'équations que d'inconnues) et que son déterminant soit non-nul.
+
+En effet, si nous considérons le système d'équations
+\begin{align*}
+x+y&=1,\\
+x+y&=-1.
+\end{align*}
+Nous pouvons le réécrire sous la forme 
+$$
+\mat{C}\cdot \vec x=\vec d,
+$$
+où
+$$
+\mat{C}=\mattwo{1}{1}{1}{1},\quad \vec d=\vectwo{1}{-1}.
+$$ 
+Il est immédiat de calculer $\det{(\mat{C})}=1-1=0$ et que donc l'inverse de la matrice n'existe donc pas, et donc le système ne possède pas de solution.
+
+
+
+
 ## Les équations à $n$ inconnues
 
 A présent, nous allons généraliser les systèmes d'équations linéaires à un nombre arbitraire d'inconnues.
@@ -2584,16 +2666,12 @@ A présent, nous allons généraliser les systèmes d'équations linéaires à u
 
 Une équation linéaire à $n$ peut s'écrire sous la forme
 \begin{equation}
-a_1 x_1+a_2 x_2+...+a_{n-1} x_{n-1}+a_n x_n=b,
+a_{11} x_1+a_{12} x_2+...+a_{1n-1} x_{n-1}+a_{1n} x_n=b_1,
 \end{equation}
-où $\{x_i\}_{i=1}^{n}\in\real$ sont les inconnues et $\{a_i\}_{i=1}^n,b\in \real$ sont des coefficients connus.
-En effet, si nous sommons deux équations de ce type, nous obtiendrons une équation linéaire.
-\begin{align}
-a_1 x_1+a_2 x_2+...+a_{n-1} x_{n-1}+a_n x_n&=b,\\
-c_1 x_1+c_2 x_2+...+c_{n-1} x_{n-1}+c_n x_n&=d.
-\end{align}
+où $\{x_i\}_{i=1}^{n}\in\real$ sont les inconnues et $\{a_{1i}\}_{i=1}^n,\{b_i\}_{i=1}^n\in \real$ sont des coefficients connus.
 
-De même en multipliant un équation linéaire par un scalaire
+Un système de $n$ équations linéaires à $n$ inconnues peut s'écrire sous la forme
+
 
 
 # Remerciements
