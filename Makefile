@@ -1,14 +1,14 @@
-NAME=cours
+all: cours.pdf cours.html
 
-default: $(NAME).md default.latex
-	pandoc -s -o $(NAME).pdf $(NAME).md --toc --highlight-style kate --filter=pandoc-numbering --number-sections --filter=pandoc-crossref --template=./default.latex --pdf-engine pdflatex
+cours.pdf: cours.md default.latex
+	pandoc -s -o  $@ $< --toc --highlight-style kate --filter=pandoc-numbering --number-sections --filter=pandoc-crossref --template=./default.latex --pdf-engine pdflatex
 
-latex:
-	pandoc -s -smart -o $(NAME).tex $(NAME).md --filter=pandoc-numbering --filter=$(PANDOC_CROSSREF)pandoc-crossref  --template=./default.latex
+# cours.epub: cours.md default.latex
+# 	pandoc -s -o  $@ $< --toc --highlight-style kate --filter=pandoc-numbering --number-sections --filter=pandoc-crossref --template=./default.latex  --pdf-engine pdflatex -t epub3
 
-epub:
-	pandoc -s -smart -o $(NAME).epub $(NAME).md --filter=pandoc-numbering  --filter=$(PANDOC_CROSSREF)pandoc-crossref  --template=./default.latex -t epub3
+cours.html: cours.md Makefile
+	pandoc -s -o $@ $< --filter=pandoc-numbering --filter=pandoc-crossref --pdf-engine pdflatex --mathjax -t html5 -c css/styling.css
 
-html:
-	pandoc -s -o $(NAME).html $(NAME).md --filter=pandoc-numbering --filter=$(PANDOC_CROSSREF)pandoc-crossref --pdf-engine pdflatex --mathml
+clean:
+	rm -rf cours.pdf cours.html cours.epub
 

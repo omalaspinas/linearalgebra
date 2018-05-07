@@ -21,7 +21,7 @@ urlcolor: blue
 ---
 \newcommand{\real}{\mathbb{R}}
 \newcommand{\vectwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
-\newcommand{\mat}[1]{{\underline{\underline{#1}}}}
+\newcommand{\mat}[1]{\underline{\underline{#1}}}
 
 Série d'exercices {#matrices .unnumbered}
 =================

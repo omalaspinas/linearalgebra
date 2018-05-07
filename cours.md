@@ -17,7 +17,6 @@ papersize: A4
 cref: false
 urlcolor: blue
 ---
-
 \newcommand{\real}{\mathbb{R}}
 \newcommand{\rational}{\mathbb{Q}}
 \newcommand{\integer}{\mathbb{Z}}
@@ -65,12 +64,12 @@ urlcolor: blue
 \newcommand{\Pa}{\mathrm{Pa}}
 \newcommand{\vectwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
 \newcommand{\vecthree}[3]{\begin{pmatrix}#1 \\ #2 \\ #3 \end{pmatrix}}
-\newcommand{\mat}[1]{{\underline{\underline{#1}}}}
+\newcommand{\mat}[1]{\underline{\underline{#1}}}
 \newcommand{\com}[1]{\mat{\mathrm{com}#1}}
 \newcommand{\mattwo}[4]{\begin{pmatrix}
-								#1 & #2 \\
-								#3 & #4
-						\end{pmatrix}}
+                #1 & #2 \\
+                #3 & #4
+            \end{pmatrix}}
 
 # Rappel sur les espaces vectoriels
 
@@ -78,13 +77,13 @@ urlcolor: blue
 
 Si nous nous plaçons sur une carte à un endroit donné (appelé l'origine) et que nous prenons notre voiture pour nous déplacer, notre destination ne peut être uniquement décrite si nous ne connaissons que la distance parcourue (voir par exemple la carte @fig:depl_vec). En d'autres termes pour notre carte, nous savons que nous irons à la campagne, mais pas si nous allons à Lausanne ou dans le Jura). Un déplacement n'est donc pas uniquement déterminé par le point d'origine et un scalaire. Il est nécessaire d'avoir une information supplémentaire. Dans le cas de la @fig:depl_vec le déplacement est décrit uniquement par la flèche, ou *vecteur*, qui a une longueur (la distance parcourue) et une direction (la direction de la flèche).
 
-![L'ensemble des destinations possibles si nous n'avions que le point de départ et la distance parcourue comme information (cercle noir), la position finale avec la distance et la direction de déplacement (Lausanne).](figs/deplacement_vecteur.pdf){#fig:depl_vec width=30%}
+![L'ensemble des destinations possibles si nous n'avions que le point de départ et la distance parcourue comme information (cercle noir), la position finale avec la distance et la direction de déplacement (Lausanne).](figs/deplacement_vecteur.png){#fig:depl_vec width=30%}
 
 D'un point de vue mathématique un vecteur en deux dimensions, $\vec{v}$, est noté comme un couple de nombres
 $$\vec{v}=\begin{pmatrix}v_1 \\ v_2 \end{pmatrix},$$
 avec $v_1,v_2\in\real$. Il représente la *flèche* allant de l'origine (le point $(0,0)$) au point $(v_1,v_2)$ (voir @fig:composantes).
 
-![Le vecteur $\vec{v}$ relie le point $(0,0)$ au point $(v_1,v_2)$.](figs/composantes.pdf){#fig:composantes width=30%}
+![Le vecteur $\vec{v}$ relie le point $(0,0)$ au point $(v_1,v_2)$.](figs/composantes.png){#fig:composantes width=30%}
 
 Grâce au théorème de Pythagore (ce Grec mort depuis longtemps) nous pouvons aisément calculer la longueur du vecteur $\vec{v}$, notée $||\vec{v}||$ et également appelée norme
 $$||\vec{v}||=\sqrt{v_1^2+v_2^2}.$$
@@ -93,7 +92,7 @@ $$\hat{v}=\frac{\vec{v}}{||\vec{v}||}.$$
 
 Les composantes du vecteur $\vec{v}$ dépendent du système de coordonnées dans lequel il est représenté. De façon plus générale il dépend de la *base* dans laquelle il est exprimé. Dans la @fig:composantes nous utilisons les coordonnées cartésiennes, mais cela n'est pas du tout le seul moyen de représenter un vecteur (voir la @fig:base)
 
-![Le vecteur $\vec{v}$ représente toujours la même flèche. Dans le cas des coordonnées cartésiennes (en noir) ses composantes sont $v_1$ et $v_2$. Par contre ses composantes sont $v_1'$ et $v_2'$ dans les coordonnées "vertes".](figs/composantes_bases.pdf){#fig:base width=30%}
+![Le vecteur $\vec{v}$ représente toujours la même flèche. Dans le cas des coordonnées cartésiennes (en noir) ses composantes sont $v_1$ et $v_2$. Par contre ses composantes sont $v_1'$ et $v_2'$ dans les coordonnées "vertes".](figs/composantes_bases.png){#fig:base width=30%}
 
 Peu importe la base que nous utilisons, un vecteur dans le plan à deux dimensions se représentera par deux nombres. On notera que $\vec{v}\in\real\times\real=\real^2$, soit "un $\real$ par dimension".
 
@@ -129,7 +128,7 @@ Un octet (une séquence de huit bits, comme son nom l'indique) constitue un vect
 
 Comme pour les scalaires, nous voulons pouvoir additionner les vecteurs. Revenons donc aux vecteurs à deux dimensions. Une façon raisonnable de définir l'addition de deux vecteurs est de les mettre "bout à bout" (voir la @fig:addition).
 
-![La somme de deux vecteurs $\vec{u}$ et $\vec{v}$ donne le vecteur $\vec{w}$. Elle est obtenue en mettant bout à bout le vecteur $\vec{u}$ et $\vec{v}$.](figs/somme_composantes.pdf){#fig:addition width=30%}
+![La somme de deux vecteurs $\vec{u}$ et $\vec{v}$ donne le vecteur $\vec{w}$. Elle est obtenue en mettant bout à bout le vecteur $\vec{u}$ et $\vec{v}$.](figs/somme_composantes.png){#fig:addition width=30%}
 
 Cette façon de faire est en fait assez intuitive pour construire la somme de deux vecteurs. Nous pouvons écrire que si le vecteur $\vec{w}\in\real^2$ est la somme de $\vec{u}\in\real^2$ et $\vec{v}\in\real^2$, on peut écrire
 $$\begin{aligned}
@@ -185,7 +184,7 @@ $$\vec{u}\oplus\vec{v}=\begin{pmatrix}u_1\oplus v_1 \\ \vdots \\ u_8\oplus v_8 \
 
 Soit un scalaire $\lambda\in\real$, nous voulons à présent définir l'opération "multiplier par un scalaire" sur un vecteur. L'interprétation que nous voulons faire de cette opération est une "dilatation": le vecteur multiplié verra sa longueur changer mais pas sa direction générale (voir la @fig:multiplication).
 
-![Le produit entre un scalaire $\lambda$ et un vecteur $\vec{v}$ est une dilatation du vecteur $\vec{v}$. Le cas où $\lambda$ est négatif change également l'orientation du vecteur.](figs/produit_vecteur.pdf){#fig:multiplication width=30%}
+![Le produit entre un scalaire $\lambda$ et un vecteur $\vec{v}$ est une dilatation du vecteur $\vec{v}$. Le cas où $\lambda$ est négatif change également l'orientation du vecteur.](figs/produit_vecteur.png){#fig:multiplication width=30%}
 
 Comme on le constate sur la @fig:multiplication il y a quatre cas de figure
 
@@ -470,7 +469,7 @@ De façon générale il n'existe pas une base unique d'un espace vectoriel. Dans
 
 Une fonction, notée $f$ (quelle originalité), est une relation entre deux ensembles. Soient deux ensembles $X$ et $Y$, cette fonction va associer tous les éléments de $X$ à un élément de $Y$ (voir la @fig:fonction)
 
-![Une fonction est une relation entre deux ensemble, $X$ et $Y$, qui va relier un point de $X$ avec un point de $Y$.](figs/fonction.pdf){#fig:fonction width=30%}
+![Une fonction est une relation entre deux ensemble, $X$ et $Y$, qui va relier un point de $X$ avec un point de $Y$.](figs/fonction.png){#fig:fonction width=30%}
 
 On note de façon formelle
 $$f:X\rightarrow Y.$$
@@ -578,7 +577,7 @@ Cependant afin de les dessiner, il peut être utile de connaître également
 les équations des segments reliant les points. Cela peut se faire via les vecteurs, $\vec x_0$, $\vec x_1$ et $\vec x_2$, reliant l'origine aux points $(voir la @fig:triangle)
 $$\vec x_0=\vectwo{0}{0},\quad \vec x_1=\vectwo{1}{0},\quad \vec x_2=\vectwo{0}{1}.$${#eq:vec_rot}
 
-![Les points $P_0$, $P_1$, et $P_2$. Les vecteurs $\vec x_1$ et $\vec x_2$.](figs/triangle.pdf){#fig:triangle width=30%}
+![Les points $P_0$, $P_1$, et $P_2$. Les vecteurs $\vec x_1$ et $\vec x_2$.](figs/triangle.png){#fig:triangle width=30%}
 
 Les équations paramétriques des segments reliant les points peuvent s'écrire en
 $$\begin{aligned}
@@ -589,7 +588,7 @@ $$\begin{aligned}
 Ces trois vecteurs sont des *combinaisons linéaires* des vecteurs $\vec x_1$ et $\vec x_2$. Finalement, le triangle peut donc s'écrire comme l'ensemble des trois segments
 $$\triangle=\{\vec s_0, \vec s_1, \vec s_2\}.$$
 
-![Les segments $\vec s_0$, $\vec s_1$, et $\vec s_2$ relient les sommets des triangles. On peut exprimer leur équations paramétriques à l'aide des vecteurs $\vec x_1$, $\vec x_2$.](figs/triangle_seg.pdf){#fig:triangle_seg width=30%}
+![Les segments $\vec s_0$, $\vec s_1$, et $\vec s_2$ relient les sommets des triangles. On peut exprimer leur équations paramétriques à l'aide des vecteurs $\vec x_1$, $\vec x_2$.](figs/triangle_seg.png){#fig:triangle_seg width=30%}
 
 Définissons à présent l'application suivante
 $$R:\vectwo{x_1}{x_2}\rightarrow \vectwo{x_2}{-x_1}.$$
@@ -610,7 +609,7 @@ R(\vec x_2)&=\vec x_2'=\vectwo{1}{0}.
 \end{aligned}$${#eq:segments}
 Comme on peut le voir sur la @fig:triangle_rot notre application linéaire $R$, effectue une rotation de $\pi/2$ dans le sens des aiguilles d'une montre.
 
-![Après application de la fonction linéaire $R$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_rot.pdf){#fig:triangle_rot width=30%}
+![Après application de la fonction linéaire $R$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_rot.png){#fig:triangle_rot width=30%}
 
 Les équations du triangle peuvent être obtenu de deux façons différentes. On veut calculer
 $$\triangle'=\{\vec s_0',\vec s_1',\vec s_2'\}.$$
@@ -664,7 +663,7 @@ $$\begin{aligned}
 \end{aligned}$$
 Une première chose à réaliser est que ces équations ont la même structure que les équations @eq:segments, bien que l'effet l'application linéaire soit très différent.
 
-![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.pdf){#fig:triangle_dil width=30%}
+![Après application de la fonction linéaire $D$, les segments $\vec s_0'$, $\vec s_1'$, et $\vec s_2'$ relient les sommets des triangles qui peuvent être représents par les vecteurs $\vec x_0'$, $\vec x_1'$ et $\vec x_2'$](figs/triangle_dil.png){#fig:triangle_dil width=30%}
 
 Sur la @fig:triangle_dil, nous constatons que les vecteurs $\vec x_1$ et $\vec x_2$ d'un facteur deux et d'un facteur trois respectivement. En revanche,
 la figure géométrique transformée reste toujours un triangle. Comme pour la rotation, l'application de cette fonction linéaire n'a pas transformé les segments de droites
@@ -699,7 +698,7 @@ L'effet de cette application non-linéaire peut se voir sur la @fig:triangle_non
 alignés avec les axes principaux restent des droites. En revanche l'hypoténuse du triangle n'est plus une droite mais un bout de parabole.
 Contrairement aux applications linéaires, on voit que les applications non-linéaires peuvent transformer les droites en d'autres figures géométriques.
 
-![L'effet de l'application non-linéaire $g$ sur le triangle constitué des points $P_0,P_1,P_2$.](figs/triangle_non_lin.pdf){#fig:triangle_non_lin width=30%}
+![L'effet de l'application non-linéaire $g$ sur le triangle constitué des points $P_0,P_1,P_2$.](figs/triangle_non_lin.png){#fig:triangle_non_lin width=30%}
 
 ## Les applications linéaires comme un produit matrice-vecteur
 
@@ -1208,7 +1207,7 @@ Ou en termes moins mathématiques, tous les vecteurs de $V$ qu'on peut effective
 Une illustration de l'image de $f$ peut se voir sur la @fig:fonction_image. L'ensemble $\Im(f)$ doit être inclus dans $V$ (il peut être plus petit ou égal, mais certainement
 pas plus grand).
 
-![La fonction $f$ applique les éléments de $E$ dans un sous-espace de $V$, noté $\mathrm{Im}_E(f)$.](figs/fonction_image.pdf){#fig:fonction_image width=30%}
+![La fonction $f$ applique les éléments de $E$ dans un sous-espace de $V$, noté $\mathrm{Im}_E(f)$.](figs/fonction_image.png){#fig:fonction_image width=30%}
 
 ---
 
@@ -1367,7 +1366,7 @@ A présent, nous allons considérer un sous-ensemble du domaine d'arrivée, $Y\s
 tel que $f(\vec x)\in Y$ pour $\vec x\in X$. En d'autres termes, nous cherchons l'ensemble des pré-images, $X$, qui ont une image dans $Y$
 (voir @fig:fonction_preimage).
 
-![On cherche le sous-ensemble $X$ de $E$ tel que les images de $X$ sont dans $Y$ qui est un sous-ensemble de $V$.](figs/fonction_preimage.pdf){#fig:fonction_preimage width=30%}
+![On cherche le sous-ensemble $X$ de $E$ tel que les images de $X$ sont dans $Y$ qui est un sous-ensemble de $V$.](figs/fonction_preimage.png){#fig:fonction_preimage width=30%}
 
 Dans une notation plus mathématiques nous pouvons écrire
 $$
@@ -1467,7 +1466,7 @@ $$
 $$
 Cela représente en fait l'ensemble de tous les points de la droite qu'on peut générer à partir du vecteur $\vectwo{-2}{1}$ (voir @fig:preimage_droite).
 
-![La droite (en trait-tillés) générée par le vecteur $\vec x=(-2,1)^\mathrm{T}$ (en trait plein).](figs/preimage_droite.pdf){#fig:preimage_droite width=50%}
+![La droite (en trait-tillés) générée par le vecteur $\vec x=(-2,1)^\mathrm{T}$ (en trait plein).](figs/preimage_droite.png){#fig:preimage_droite width=50%}
 
 ---
 
@@ -1575,7 +1574,7 @@ f^{-1}(f(\vec x))=f^{-1}(\vec y),\\
 \end{aligned}
 $$
 
-![Le point noir est relié à l'unique point magenta et donc on aurait une unique solution à l'équation $f(\vec x)=\vec y$. En revanche les points bleu et rouge ont tous les deux la même image. Il y aurait donc deux solutions à l'équation $f(\vec x)=\vec y$ dans ce cas là.](figs/unique_inv.pdf){#fig:unique_inv width=50%}
+![Le point noir est relié à l'unique point magenta et donc on aurait une unique solution à l'équation $f(\vec x)=\vec y$. En revanche les points bleu et rouge ont tous les deux la même image. Il y aurait donc deux solutions à l'équation $f(\vec x)=\vec y$ dans ce cas là.](figs/unique_inv.png){#fig:unique_inv width=50%}
 
 De façon réciproque, on peut montrer, que si l'équation
 $$
@@ -2420,13 +2419,13 @@ On va donc avoir que sur les points représentant la position des pixels nous n'
 
 ![Quatre pixels dont la valeur est connue avant dilatation aux positions 
 $(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$ (carrés noirs) puis après dilatation aux positions $(x_1',y_1')$, $(x_2',y_1')$, $(x_1',y_2')$, et $(x_2',y_2')$ (carrés rouges). Après dilatation la valeur des pixels aux position 
-$(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$ est inconnue.](figs/dilatation.pdf){#fig:dilatation width=40%}
+$(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$ est inconnue.](figs/dilatation.png){#fig:dilatation width=40%}
 
 Le problème peut se généraliser de la façon suivante (voir @fig:interp). 
 Soit la valeur de la fonction $f$ est connue en 4 points, $(x_1,y_1)$, $(x_2,y_1)$, $(x_1,y_2)$, et $(x_2,y_2)$, on cherche à connaître la valeur de $f$ en un point 
 $(x,y)$ avec $x_1\leq x\leq x_2$ et $y_1\leq y\leq y_2$.
 
-![On cherche à connaître la valeur du pixel au point au point $(x,y)$ (carré bleu) quand les valeurs $f(x_1,y_1)$, $f(x_2,y_1)$, $f(x_1,y_2)$, et $f(x_2,y_2)$ sont connues.](figs/interp.pdf){#fig:interp width=40%}
+![On cherche à connaître la valeur du pixel au point au point $(x,y)$ (carré bleu) quand les valeurs $f(x_1,y_1)$, $f(x_2,y_1)$, $f(x_1,y_2)$, et $f(x_2,y_2)$ sont connues.](figs/interp.png){#fig:interp width=40%}
 
 Pour ce faire on utilise ici *l'interpolation bilinéaire*. Cette interpolation se construit en faisant d'abord passer une droite par les points $(x_1,y_1),(x_2,y_1)$, puis par les points $(x_1,y_2),(x_2,y_2)$. On a donc que la fonction $f$ peut s'approximer comme
 \begin{align}

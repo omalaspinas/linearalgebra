@@ -2,23 +2,26 @@ FILTERS = --filter=pandoc-numbering --filter=pandoc-crossref
 TEMPLATE = --template=../default.latex
 PDFENGINE = --pdf-engine pdflatex
 
-all: determinants matrix_inverse matrice_rot matrices fun_lin vecteurs
+all: systeme_eq.pdf determinants.pdf matrix_inverse.pdf matrice_rot.pdf matrices.pdf fun_lin.pdf vecteurs.pdf
 
-determinants: determinants.md
-	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
+systeme_eq.pdf: systeme_eq.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
-matrix_inverse: matrix_inverse.md
-	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
+determinants.pdf: determinants.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
-matrice_rot: matrice_rot.md
-	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
+matrix_inverse.pdf: matrix_inverse.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
-matrices: matrices.md
-	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
+matrice_rot.pdf: matrice_rot.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
-fun_lin: fun_lin.md
-	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
+matrices.pdf: matrices.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
-vecteurs: vecteurs.md
-	pandoc -s -o $@.pdf $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
+fun_lin.pdf: fun_lin.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
+
+vecteurs.pdf: vecteurs.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
