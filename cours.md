@@ -2654,8 +2654,35 @@ $$
 $$ 
 Il est immédiat de calculer $\det{(\mat{C})}=1-1=0$ et que donc l'inverse de la matrice n'existe donc pas, et donc le système ne possède pas de solution.
 
+En python, il est assez aisé de résoudre un système 
+de deux équations  deux inconnues. On peut écrire cela à l'aide de la librairie numpy.
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> import numpy as np
+>>> A=np.matrix([[2, 3],[-1, 1]])
+>>> b=np.array([-1,3])
+>>> np.linalg.inv(A).dot(b) # A^{-1}*b
+matrix([[-2.,  1.]])
+>>> np.linalg.solve(A,b) # resolution directe
+array([-2.,  1.])
+>>> A=np.matrix([[1, 1],[1, 1]]) # det(A)=0
+>>> np.linalg.solve(A,b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python3.6/site-packages/numpy/linalg/linalg.py",
+  line 390, in solve
+    r = gufunc(a, b, signature=signature, extobj=extobj)
+  File "/usr/lib/python3.6/site-packages/numpy/linalg/linalg.py",
+  line 89, in _raise_linalgerror_singular
+    raise LinAlgError("Singular matrix")
+numpy.linalg.linalg.LinAlgError: Singular matrix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Dans le premier cas ci-dessus, nous avons d'abord calculé l'inverse de la matrice $\mat{A}$ puis multiplié le résultat avec le vercteur $\vec b$. L'autre 
+solution est de résoudre directement le système linéaire.
+
+Dans un deuxième temps, nous avons choisi une matrice $\mat{A}$ qui ne peut
+être inversée (et donc la résolution du système d'équations est impossible).
 
 ## Les équations à $n$ inconnues
 
