@@ -2726,7 +2726,7 @@ nous pouvons écrire cette équation sous la forme d'un produit matrice vecteur
 \begin{equation}
 \mat{A}\cdot \vec x=\vec b,
 \end{equation}
-où 
+où $\mat{A}$ est une matrice $n\times n$ et $\vec b\in\real^n$.
 
 
 
