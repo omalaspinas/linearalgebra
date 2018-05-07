@@ -25,6 +25,9 @@ install:
 cache:
 - pip
 script:
+- cd figs
+- ./convert.sh
+- cd ..
 - make
 - make -C exercices
 - make -C tp
