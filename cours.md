@@ -2679,10 +2679,32 @@ numpy.linalg.linalg.LinAlgError: Singular matrix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Dans le premier cas ci-dessus, nous avons d'abord calculé l'inverse de la matrice $\mat{A}$ puis multiplié le résultat avec le vercteur $\vec b$. L'autre 
-solution est de résoudre directement le système linéaire.
-
-Dans un deuxième temps, nous avons choisi une matrice $\mat{A}$ qui ne peut
+solution est de résoudre directement le système linéaire. Dans un deuxième temps, nous avons choisi une matrice $\mat{A}$ qui ne peut
 être inversée (et donc la résolution du système d'équations est impossible).
+
+### Sur la structure du système d'équations 
+
+Si nous reprenons la structure générale d'un système de deux équations à deux inconnues,
+nous pouvons l'écrire tel que
+\begin{equation*}
+\mat{A}\cdot \vec x=\vec b,
+\end{equation*}
+où $\mat{A}$ est une matrice $2\times 2$ et $\vec x,\vec b\in \real^2$.
+
+Une autre façon de l'écrire serait 
+\begin{equation}
+\vec a_1 x_1+\vec a_2 x_2=\vec b,
+\end{equation}
+où $\vec a_1$ et $\vec a_2$ sont les deux colonnes de la matrice $\mat{A}$. 
+On a donc une interprétation géométrique assez intéressante. Nous recherchons en fait les coefficients
+$x_1$, $x_2$ tels que la combinaison linéaire de $\vec a_1$ et $\vec a_2$ donne $\vec b$.
+Nous avons donc différents cas de figure (voir la @fig:syst_eq).
+
+1. Si $\vec a_1$ et $\vec a_2$ sont linéairement indépendants, nous pouvons engendrer n'importe quel vecteur $\vec b$ de façon unique et donc le système a une solution.
+2. Si $\vec a_1$ et $\vec a_2$ sont linéairement dépendants (colinéaires), il n'est possible de générer qu'un vecteur colinéaire avec $\vec a_1$ et $\vec a_2$. Si $\vec b$ n'est pas colinéaire il n'y a pas de solution au système d'équation. Si au contraire $\vec b$ est colinéaire avec $\vec a_1$ et $\vec a_2$ il existe une infinité de solutions. 
+
+![Illustration d'un système de deux équations à deux inconnues. A gauche $\vec a_1$ et $\vec a_2$ sont linéairement indépendants, au milieu ils sont linéairement dépendants avec le vecteur $\vec b$, et à droite ils sont linéairement dépendants entre eux, mais pas avec le vecteur $\vec b$.](figs/syst_eq.png){#fig:syst_eq width=100%}
+
 
 ## Les équations à $n$ inconnues
 
@@ -2690,13 +2712,21 @@ A présent, nous allons généraliser les systèmes d'équations linéaires à u
 
 ### Les équations linéaires
 
-Une équation linéaire à $n$ peut s'écrire sous la forme
-\begin{equation}
-a_{11} x_1+a_{12} x_2+...+a_{1n-1} x_{n-1}+a_{1n} x_n=b_1,
-\end{equation}
+Un système de $n$ équations linéaires à $n$ inconnues peut s'écrire sous la forme
+\begin{align}
+&a_{11} x_1+a_{12} x_2+...+a_{1n-1} x_{n-1}+a_{1n} x_n=b_1,\\
+&a_{21} x_1+a_{22} x_2+...+a_{2n-1} x_{n-1}+a_{2n} x_n=b_2,\\
+&\quad\quad\quad\quad\quad\quad\quad\quad\quad\vdots \nonumber\\
+&a_{n1} x_1+a_{n2} x_2+...+a_{nn-1} x_{n-1}+a_{nn} x_n=b_n.
+\end{align}
 où $\{x_i\}_{i=1}^{n}\in\real$ sont les inconnues et $\{a_{1i}\}_{i=1}^n,\{b_i\}_{i=1}^n\in \real$ sont des coefficients connus.
 
-Un système de $n$ équations linéaires à $n$ inconnues peut s'écrire sous la forme
+De façon similaire à ce que nous avons constaté pour les équations à deux inconnues,
+nous pouvons écrire cette équation sous la forme d'un produit matrice vecteur
+\begin{equation}
+\mat{A}\cdot \vec x=\vec b,
+\end{equation}
+où 
 
 
 
