@@ -32,21 +32,19 @@ script:
   - make -C exercices
   - make -C tp
 after_success: |
-  if [ -n "$GITHUB_API_KEY" ]; then
-    cd "$TRAVIS_BUILD_DIR"
-    # This generates a `web` directory containing the website.
-    mkdir web
-    cd web
-    cp ../cours.html ./index.html
-    git init
-    git checkout -b gh-pages
-    git add .
-    git -c user.name='travis' -c user.email='travis' commit -m init
-    # Make sure to make the output quiet, or else the API token will leak!
-    # This works because the API key can replace your password.
-    git push -f -q https://$GITHUB_API_KEY@github.com/mathintro/linearalgebra-gh-pages gh-pages &2>/dev/null
-    cd "$TRAVIS_BUILD_DIR"
-  fi
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis CI"
+  cd "$TRAVIS_BUILD_DIR"
+  # This generates a `web` directory containing the website.
+  cp cours.html index.html
+  git checkout -b gh-pages
+  git add index.html
+  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  # Make sure to make the output quiet, or else the API token will leak!
+  # This works because the API key can replace your password.
+  git remote add origin-pages https://${GH_TOKEN}@github.com/mathintro/linearalgebra-gh-pages gh-pages &2>/dev/null
+  git push --quiet --set-upstream origin-pages gh-pages 
+
 deploy:
   provider: releases
   api_key:
@@ -60,4 +58,4 @@ deploy:
     tags: true
 env:
   global:
-    secure: zjnMXpRXbt2qa01SN6uSoWFGiERnT2bByPiWBNFVY/b7V3yvbIlyPgXj3CrVFjiAu68NgzcuRxtsLU2dmXGSLJ1EphSg5U4l+BbYwmH2g2sZUGsape/RxVZU+gwmM6e07DMhl2SjfZ6/B8XDF81LBRgxNuBO1Zb8T+bwN69U1c8QQRd+59wx6zsrsOk2AqZEt0zHbRJyG/JkhLf5VvcfMVz0fc9IZhe+u52+eNf0XigJBrZrSJ3tnMZmUAL33Ne68lS5B3jjW2lxLSV6H7tYlLUYJEVFR1TVfgm2eKwogHnlREl3kgjB+HelhhOiMi7/W/STkDGj26kcCttkzjneLlKXjMFcNnR27rinjoRsYEPuuS7Ixirdu6BcCr1od9CBRLxdOOI6loaqb3SyR943E3XWyaeC8XGr/BS9kQ9rGQQBgCkxwNVpzKqA+DDFKTF9byHyaQzsJ9Q5RvKP2cndPr9FcP16vDh+K5FDCgl5aJqVdh2bNAIyklDXNYe3b+H+8+YLDsiZm1/kVqz6Sf7WqRkez+CvkkLag+gjOXdUNVz67ra149LiZ7qE4f4jNhtrfAnMPBd8WEGpXfFdadgEg8S/iraxmtTJF4H3d4WuM0Ni3t3gf6O6nN+v1nt5LR+n6bSLGp6ykgfh7iHI2O/4IH7KbaQ+yddF5AJ4yTdxBtA=
+    secure: jYv4XUgC9UqXdK0kdAoRy5dt6FBHb/627kAGITO0e/4brOHXc+Tfb1zf6NZlcIATM1HXhXo9/l+LSq4Lo0p5lVel6HNjCcCFqmhMe599akamZSUgXbbaFjtzVIMYNSi1C8t4oAD3i6IOqFYd0NQeIKmC2Phhl/nIYvEZzK+wpYeHG5R1BtmuN6ZD8eHLHc/55YfRtG5ANav6HM3YsejifFgUNbqN1zbL3N3zDxcYIVkGZMK3s52pgAmFycGr7JrE4IirqrxfTu34xZpaPEL9gwqY68n+atUZfmIs9H+7n1DpsH+qxgP0cyboFktkGaddoKwSlZzrcGX8FQRUOWNWip3QdCUdmSUR7KZ12ZbQu+fAJut25HuKgKGRmW1Q8r2Eu0vD2ZQJ8EAcWv25XW37+DSyNekP1RYZ9edtju8hoxoOUrc+Ne6QSnBHQHzRJOo3cbAH2wcwLrzU4DRBf69fvHbtZIvMmmUkHbrB5HLt1yjeqgO/gGUDprBfRDkduWBASpHUVTN4jE9usxK43lnwjELN9A/DsDvo52lGoQBcX0qPByNktz9plqoquel4Yp/4+nayQxHtHBgw2hHQCdwCvRJfsd+8axGpA/s0W6yGyqF+2i9bvBRJv3D4IidLsjNWmsrlrQS/9zsst9ZC8MeAfsumYaZs+v4Lh4fizv6rI+w=
