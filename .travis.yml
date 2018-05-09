@@ -43,7 +43,7 @@ after_success: |
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
   # Make sure to make the output quiet, or else the API token will leak!
   # This works because the API key can replace your password.
-  git push --quiet
+  git push --quiet https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
 deploy:
   provider: releases
   api_key:
