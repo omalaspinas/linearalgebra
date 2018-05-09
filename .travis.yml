@@ -31,19 +31,19 @@ script:
   - make
   - make -C exercices
   - make -C tp
-# after_success: |
-#   git config --global user.email "travis@travis-ci.org"
-#   git config --global user.name "Travis CI"
-#   cd "$TRAVIS_BUILD_DIR"
-#   # This generates a `web` directory containing the website.
-#   cp cours.html index.html
-#   git checkout -b gh-pages
-#   git add index.html
-#   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-#   # Make sure to make the output quiet, or else the API token will leak!
-#   # This works because the API key can replace your password.
-#   git remote add origin-pages https://${GH_TOKEN}@github.com/mathintro/linearalgebra-gh-pages gh-pages &2>/dev/null
-#   git push --quiet --set-upstream origin-pages gh-pages 
+after_success: |
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis CI"
+  cd "$TRAVIS_BUILD_DIR"
+  # This generates a `web` directory containing the website.
+  cp cours.html index.html
+  git checkout -b gh-pages
+  git add index.html
+  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  # Make sure to make the output quiet, or else the API token will leak!
+  # This works because the API key can replace your password.
+  git remote add origin-pages https://${GH_TOKEN}@github.com/mathintro/linearalgebra-gh-pages gh-pages &2>/dev/null
+  git push --quiet --set-upstream origin-pages gh-pages 
 deploy:
   provider: releases
   api_key:
@@ -55,6 +55,6 @@ deploy:
   on:
     repo: mathintro/linearalgebra
     tags: true
-# env:
-#   global:
-#     secure: jYv4XUgC9UqXdK0kdAoRy5dt6FBHb/627kAGITO0e/4brOHXc+Tfb1zf6NZlcIATM1HXhXo9/l+LSq4Lo0p5lVel6HNjCcCFqmhMe599akamZSUgXbbaFjtzVIMYNSi1C8t4oAD3i6IOqFYd0NQeIKmC2Phhl/nIYvEZzK+wpYeHG5R1BtmuN6ZD8eHLHc/55YfRtG5ANav6HM3YsejifFgUNbqN1zbL3N3zDxcYIVkGZMK3s52pgAmFycGr7JrE4IirqrxfTu34xZpaPEL9gwqY68n+atUZfmIs9H+7n1DpsH+qxgP0cyboFktkGaddoKwSlZzrcGX8FQRUOWNWip3QdCUdmSUR7KZ12ZbQu+fAJut25HuKgKGRmW1Q8r2Eu0vD2ZQJ8EAcWv25XW37+DSyNekP1RYZ9edtju8hoxoOUrc+Ne6QSnBHQHzRJOo3cbAH2wcwLrzU4DRBf69fvHbtZIvMmmUkHbrB5HLt1yjeqgO/gGUDprBfRDkduWBASpHUVTN4jE9usxK43lnwjELN9A/DsDvo52lGoQBcX0qPByNktz9plqoquel4Yp/4+nayQxHtHBgw2hHQCdwCvRJfsd+8axGpA/s0W6yGyqF+2i9bvBRJv3D4IidLsjNWmsrlrQS/9zsst9ZC8MeAfsumYaZs+v4Lh4fizv6rI+w=
+env:
+  global:
+    secure: jYv4XUgC9UqXdK0kdAoRy5dt6FBHb/627kAGITO0e/4brOHXc+Tfb1zf6NZlcIATM1HXhXo9/l+LSq4Lo0p5lVel6HNjCcCFqmhMe599akamZSUgXbbaFjtzVIMYNSi1C8t4oAD3i6IOqFYd0NQeIKmC2Phhl/nIYvEZzK+wpYeHG5R1BtmuN6ZD8eHLHc/55YfRtG5ANav6HM3YsejifFgUNbqN1zbL3N3zDxcYIVkGZMK3s52pgAmFycGr7JrE4IirqrxfTu34xZpaPEL9gwqY68n+atUZfmIs9H+7n1DpsH+qxgP0cyboFktkGaddoKwSlZzrcGX8FQRUOWNWip3QdCUdmSUR7KZ12ZbQu+fAJut25HuKgKGRmW1Q8r2Eu0vD2ZQJ8EAcWv25XW37+DSyNekP1RYZ9edtju8hoxoOUrc+Ne6QSnBHQHzRJOo3cbAH2wcwLrzU4DRBf69fvHbtZIvMmmUkHbrB5HLt1yjeqgO/gGUDprBfRDkduWBASpHUVTN4jE9usxK43lnwjELN9A/DsDvo52lGoQBcX0qPByNktz9plqoquel4Yp/4+nayQxHtHBgw2hHQCdwCvRJfsd+8axGpA/s0W6yGyqF+2i9bvBRJv3D4IidLsjNWmsrlrQS/9zsst9ZC8MeAfsumYaZs+v4Lh4fizv6rI+w=
