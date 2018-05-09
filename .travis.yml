@@ -37,6 +37,7 @@ after_success: |
     # This generates a `web` directory containing the website.
     mkdir web
     cd web
+    cp ../cours.html ./index.html
     git init
     git checkout -b gh-pages
     git add .
