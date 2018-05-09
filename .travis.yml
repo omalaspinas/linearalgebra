@@ -35,15 +35,15 @@ after_success: |
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
   cd "$TRAVIS_BUILD_DIR"
+  git clone https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
+  cd mathintro.github.io
   # This generates a `web` directory containing the website.
-  cp cours.html index.html
-  git checkout -b gh-pages
+  cp ../cours.html index.html
   git add index.html
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
   # Make sure to make the output quiet, or else the API token will leak!
   # This works because the API key can replace your password.
-  git remote add origin-pages https://${GH_TOKEN}@github.com/mathintro/linearalgebra.git gh-pages &2>/dev/null
-  git push --quiet --set-upstream origin-pages gh-pages 
+  git push --quiet
 deploy:
   provider: releases
   api_key:
