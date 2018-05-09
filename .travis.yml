@@ -42,7 +42,7 @@ after_success: |
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
   # Make sure to make the output quiet, or else the API token will leak!
   # This works because the API key can replace your password.
-  git remote add origin-pages https://${GH_TOKEN}@github.com/mathintro/linearalgebra-gh-pages gh-pages &2>/dev/null
+  git remote add origin-pages https://${GH_TOKEN}@github.com/mathintro/linearalgebra.git gh-pages &2>/dev/null
   git push --quiet --set-upstream origin-pages gh-pages 
 deploy:
   provider: releases
