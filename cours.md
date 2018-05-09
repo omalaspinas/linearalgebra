@@ -748,7 +748,7 @@ comme un vecteur "colonne" de taille $n$, composé de $m$ vecteurs "ligne".
 
 Afin d'accéder à l'élément $i,j$ de la matrice, on peut utiliser la notation $\{\mat{A}\}_{ij}=a_{ij}$.
 Dans le cas de la matrice de l'@eq:mat_23, l'élément $A_{12}$ est en rouge ci-dessous
-$$\mat{A}=\begin{pmatrix} 1 & \textcolor{red}{2} & 3 \\ 2 & 3 & 4 \end{pmatrix},$$
+$$\mat{A}=\begin{pmatrix} 1 & \color{red}{2} & 3 \\ 2 & 3 & 4 \end{pmatrix},$$
 ou encore
 $$\{\mat{A}\}_{12}=a_{12}=2.$$
 
@@ -2118,25 +2118,25 @@ Puis calculer le déterminant de $\mat{A}^{-1}$.
 La formule que nous venons de dériver pour une matrice $2\times2$ ne se généralise pas facilement pour une matrice $n\times n$. Afin de voir comment cela se passe dans le cas général, commençons par le calcul du déterminant d'une matrice $\mat{A}\in M_{3,3}(\real)$
 $$
 \mat{A}=\begin{pmatrix}
-\textcolor{red}{a_{11}} & \textcolor{green}{a_{12}} & \textcolor{blue}{a_{13}} \\
+\color{red}{a_{11}} & \color{green}{a_{12}} & \color{blue}{a_{13}} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33}
 \end{pmatrix}.
 $$
-Le calcul du déterminant se calcul de façon récursive. On choisit les 3 éléments de la première ligne (en rouge, vert et bleu ci-dessus). Puis le déterminant se calcul comme suit
+Le calcul du déterminant se calcul de façon récursive. On choisit les 3 éléments de la première ligne (en rouge, vert et bleu ci-dessus). Puis le déterminant se calcule comme suit
 $$
 \det(\mat{A})=
-\textcolor{red}{a_{11}}
+{\color{red}{a_{11}}}
 \underbrace{\left|\begin{array}{cc}
 a_{22} & a_{23}\\
 a_{32} & a_{33}
 \end{array}\right|}_{\mat{A}_{11}}-
-\textcolor{green}{a_{12}}
+{\color{green}{a_{12}}}
 \underbrace{\left|\begin{array}{cc}
 a_{21} & a_{23}\\
 a_{31} & a_{33}
 \end{array}\right|}_{\mat{A}_{12}}+
-\textcolor{blue}{a_{13}}
+{\color{blue}{a_{13}}}
 \underbrace{\left|\begin{array}{cc}
 a_{21} & a_{22}\\
 a_{31} & a_{32}
@@ -2148,19 +2148,19 @@ Dans ce cas-là nous savons calculer les déterminants de sous-matrices, car ce 
 Afin d'expliquer un peu plus en détail comment déterminer les sous-matrices à utiliser, on trouve ci-dessous pour chacune des sous.matrices, la colonne et la ligne à enlever de la matrice $\mat{A}$ selon la couleur du premier élément de la colonne
 $$
 \mat{A}_{11}=\begin{pmatrix}
-\textcolor{red}{a_{11}} & \textcolor{red}{a_{12}} & \textcolor{red}{a_{13}} \\
-\textcolor{red}{a_{21}} & a_{22} & a_{23} \\
-\textcolor{red}{a_{31}} & a_{32} & a_{33}
+\color{red}{a_{11}} & \color{red}{a_{12}} & \color{red}{a_{13}} \\
+\color{red}{a_{21}} & a_{22} & a_{23} \\
+\color{red}{a_{31}} & a_{32} & a_{33}
 \end{pmatrix},\ 
 \mat{A}_{12}=\begin{pmatrix}
-\textcolor{green}{a_{11}} & \textcolor{green}{a_{12}} & \textcolor{green}{a_{13}} \\
-a_{21} & \textcolor{green}{a_{22}} & a_{23} \\
-a_{31} & \textcolor{green}{a_{32}} & a_{33}
+\color{green}{a_{11}} & \color{green}{a_{12}} & \color{green}{a_{13}} \\
+a_{21} & \color{green}{a_{22}} & a_{23} \\
+a_{31} & \color{green}{a_{32}} & a_{33}
 \end{pmatrix},\ 
 \mat{A}_{13}=\begin{pmatrix}
-\textcolor{blue}{a_{11}} & \textcolor{blue}{a_{12}} & \textcolor{blue}{a_{13}} \\
-a_{21} & a_{22} & \textcolor{blue}{a_{23}} \\
-a_{31} & a_{32} & \textcolor{blue}{a_{33}}
+\color{blue}{a_{11}} & \color{blue}{a_{12}} & \color{blue}{a_{13}} \\
+a_{21} & a_{22} & \color{blue}{a_{23}} \\
+a_{31} & a_{32} & \color{blue}{a_{33}}
 \end{pmatrix}.
 $$
 
@@ -2735,6 +2735,6 @@ où $\mat{A}$ est une matrice $n\times n$ et $\vec b\in\real^n$.
 Je voudrais remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, T. Pirkl, et J. von der Weid.
 
 [^1]: On dit que $K$ est un corps commutatif.
-[^2]: Une autre notation est $\bm{A}$.
+[^2]: Une autre notation est $\mathbf{A}$.
 [^3]: On peut remplacer $\real$ par un autre ensemble, comme $\natural$, $\rational$, ou encore $\complex$.
 [^4]: En pratique ce sont des nombre naturels (ou des tuples de nombres naturels) mais pour simplifier considérons que tous les nombres sont réels.
