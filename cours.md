@@ -467,7 +467,7 @@ De façon générale il n'existe pas une base unique d'un espace vectoriel. Dans
 
 ## Rappel sur les fonctions
 
-Une fonction, notée $f$ (quelle originalité), est une relation entre deux ensembles. Soient deux ensembles $X$ et $Y$, cette fonction va associer tous les éléments de $X$ à un élément de $Y$ (voir la @fig:fonction)
+Une fonction, notée $f$ (quelle originalité), est une relation entre deux ensembles. Soient deux ensembles $X$ et $Y$, cette fonction va associer à chaque élément de $X$ à un élément de $Y$ (voir la @fig:fonction)
 
 ![Une fonction est une relation entre deux ensemble, $X$ et $Y$, qui va relier un point de $X$ avec un point de $Y$.](figs/fonction.png){#fig:fonction width=30%}
 
