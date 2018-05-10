@@ -110,14 +110,6 @@ Ici un vecteur se représente comme une liste de taille finie de nombres et la d
 
 ---
 
-Remarque +.#
-
-Ici nous n'avons considéré que des vecteurs vivant dans $\real^n$. On peut en fait considérer n'importe quel ensemble $D\subseteq \real$ et construire des vecteurs de dimension $n$ vivant dans $D^n$.
-
----
-
----
-
 Illustration +.#
 
 Un octet (une séquence de huit bits, comme son nom l'indique) constitue un vecteur qui vit dans $\{0,1\}^8$.
