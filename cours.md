@@ -2949,6 +2949,101 @@ $$
 n\in \natural \rightarrow u_n\in \real.
 $$
 
+## Récurrence 
+
+Une application intéressante des suites est le principe de récurrence. 
+Elle suit de la propriété suivante. Soit $E\subseteq \natural$ un sous-ensemble d'entiers, alors si
+
+1. Si $0\in E$, et
+2. $\forall n\in \natural$, $n\in E\Rightarrow n+1\in E$,
+
+alors $E=\natural$.
+
+Ce principe est utile dans un grand nombre de démonstrations mathématiques.
+Soit une propriété 
+$$P(n), \quad n\in \natural,$$
+que nous souhaitons démontrer $\forall n\in\natural$.
+La procédure de démonstration va comme suit
+
+1. Démontrer $P(0)$ est vrai.
+2. En supposant que $P(n)$ est vraie, alors montrer que $P(n+1)$ est vraie.
+
+---
+
+Exemple (La somme des $n$ premiers entiers) +.#
+
+Démontrer que la somme des $n$ premiers entiers est donnée par
+$$
+0+1+2+3+...+n-1+n=\sum_{i=0}^n i=\frac{n(n+1)}{2}.
+$$
+
+Solution (La somme des $n$ premiers entiers) +.#
+
+Dans un premier temps il faut démontrer la relation ci-dessus pour $n=0$. Cela se fait trivialement, car si $n=0$, nous avons
+$$
+0=0\cdot(0+1)/2=0.
+$$
+À présent, en supposant que la propriété est vrai pour $n$, il faut démontrer qu'elle reste vraie pour $n+1$. Il faut donc montrer que 
+$$
+\sum_{i=0}^{n+1}i=\sum_{i=0}^{n}i+(n+1)=\frac{(n+1)(n+2)}{2}.
+$${#eq:hyp_n}
+Le terme de droite de cette équation peut s'écrire
+$$
+\frac{(n+1)n}{2}+\frac{2(n+1)}{2}=\sum_{i=0}^n+(n+1).
+$$
+Ce qui est bien égal à l'@eq:hyp_n.
+
+---
+
+---
+
+Exercice (Récurrence) +.#
+
+1. Montrer par récurrence que 
+$$
+\sum_{i=0}^ni^2=\frac{n(n+1)(2n+1)}{6}.
+$$
+2. Soit $u_n$ avec $u_0=0$ et $u_{n+1}=\frac{1+2u_n}{2+u_n}$, alors $\forall n\in\natural^\ast$, $0<\leq 1$.
+
+---
+
+## Convergence et divergence des suites
+
+L'évolution des suites peut se révéler particulièrement intéressante. Cela se fait toujours lors de l'étude de la complexité algorithmique, et en particulier lors de la comparaison de la complexité de deux algorithmes. 
+Dans ce cas, nous étudions l'évolution de suites d'entiers pour un $n\in\natural$ "grand" ou "tendant vers l'infini". 
+
+### Convergence
+
+Si une suite $u_n$ *tend* vers une valeur fixe à l'infini on dit qu'elle est *convergente*. En termes plus mathématiques, on dit qu'une suite est convergente vers un réel $\mathcal{l}\in\real$ si
+$$\forall \varepsilon > 0,\ \exists n_0\in\natural,\ t.q.\ \forall n\geq n_0,\ |u_n-\mathcal{l}|<\varepsilon.$$
+Si elle existe, on dit que $\mathcal{l}$ est la limite de la suite $u_n$ et elle est unique.
+
+
+Il existe différents types de suites convergentes (pathologiques?) particulières:
+
+1. La suite *constante* qui est telle que pour
+$$
+\forall n\in\natural,\quad u_n=u_0.
+$$
+2. La suite *stationnaire*, qui se définit par
+$$
+\exists n_0\in\natural, t.q.\ u_n=u_0,\ \forall n\geq n_0.
+$$
+
+### Divergence 
+
+A l'inverse d'une suite convergente, nous avons la suite *divergente*, qui tend "vers l'infini" lorsque $n\rightarrow \infty$. De façon plus mathématique on dit qu'une suite $u_n$ est divergente si
+$$
+\forall M\in\real,\ \exists n_0\in\natural,\ t.q.\ \forall n\geq n_0,\ |u_n|>M.
+$$
+
+Il existe des suites qui ne sont ni convergentes, ni divergentes. Un cas particulier est la suite *périodique* qui est définie comme
+$$
+\exists N\in\natural^\ast,\ t.q.\ u_n=u_{n+N},
+$$
+et $N$ est la période de la suite.
+
+
 
 
 # Remerciements
