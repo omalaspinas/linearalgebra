@@ -7,43 +7,30 @@ addons:
     - texlive-latex-recommended lmodern texlive-fonts-recommended texlive-latex-extra
       texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
 before_install:
-  - sudo add-apt-repository -y ppa:jonathonf/python-2.7
-  - sudo apt-get update
-  - sudo apt-get install python2.7
+- sudo add-apt-repository -y ppa:jonathonf/python-2.7
+- sudo apt-get update
+- sudo apt-get install python2.7
 install:
-  - wget https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb
-  - sudo dpkg -i pandoc-2.0.6-1-amd64.deb
-  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.1/linux-ghc80-pandoc20.tar.gz
-  - mkdir pandoc-crossref
-  - cd pandoc-crossref
-  - mv ../linux-ghc80-pandoc20.tar.gz .
-  - tar xzvf linux-ghc80-pandoc20.tar.gz
-  - cd ..
-  - export PATH=`pwd`/pandoc-crossref:$PATH
-  - sudo -H pip install --upgrade pip
-  - sudo -H pip install -U pandoc-numbering
+- wget https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb
+- sudo dpkg -i pandoc-2.0.6-1-amd64.deb
+- wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.1/linux-ghc80-pandoc20.tar.gz
+- mkdir pandoc-crossref
+- cd pandoc-crossref
+- mv ../linux-ghc80-pandoc20.tar.gz .
+- tar xzvf linux-ghc80-pandoc20.tar.gz
+- cd ..
+- export PATH=`pwd`/pandoc-crossref:$PATH
+- sudo -H pip install --upgrade pip
+- sudo -H pip install -U pandoc-numbering
 cache:
-  - pip
+- pip
 script:
-  - cd figs
-  - "./convert.sh"
-  - cd ..
-  - make
-  - make -C exercices
-  - make -C tp
-# after_success: |
-#   git config --global user.email "travis@travis-ci.org"
-#   git config --global user.name "Travis CI"
-#   cd "$TRAVIS_BUILD_DIR"
-#   # This generates a `web` directory containing the website.
-#   cp cours.html index.html
-#   git checkout -b gh-pages
-#   git add index.html
-#   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-#   # Make sure to make the output quiet, or else the API token will leak!
-#   # This works because the API key can replace your password.
-#   git remote add origin-pages https://${GH_TOKEN}@github.com/mathintro/linearalgebra-gh-pages gh-pages &2>/dev/null
-#   git push --quiet --set-upstream origin-pages gh-pages 
+- cd figs
+- "./convert.sh"
+- cd ..
+- make
+- make -C exercices
+- make -C tp
 deploy:
   provider: releases
   api_key:
@@ -55,6 +42,6 @@ deploy:
   on:
     repo: mathintro/linearalgebra
     tags: true
-# env:
-#   global:
-#     secure: jYv4XUgC9UqXdK0kdAoRy5dt6FBHb/627kAGITO0e/4brOHXc+Tfb1zf6NZlcIATM1HXhXo9/l+LSq4Lo0p5lVel6HNjCcCFqmhMe599akamZSUgXbbaFjtzVIMYNSi1C8t4oAD3i6IOqFYd0NQeIKmC2Phhl/nIYvEZzK+wpYeHG5R1BtmuN6ZD8eHLHc/55YfRtG5ANav6HM3YsejifFgUNbqN1zbL3N3zDxcYIVkGZMK3s52pgAmFycGr7JrE4IirqrxfTu34xZpaPEL9gwqY68n+atUZfmIs9H+7n1DpsH+qxgP0cyboFktkGaddoKwSlZzrcGX8FQRUOWNWip3QdCUdmSUR7KZ12ZbQu+fAJut25HuKgKGRmW1Q8r2Eu0vD2ZQJ8EAcWv25XW37+DSyNekP1RYZ9edtju8hoxoOUrc+Ne6QSnBHQHzRJOo3cbAH2wcwLrzU4DRBf69fvHbtZIvMmmUkHbrB5HLt1yjeqgO/gGUDprBfRDkduWBASpHUVTN4jE9usxK43lnwjELN9A/DsDvo52lGoQBcX0qPByNktz9plqoquel4Yp/4+nayQxHtHBgw2hHQCdwCvRJfsd+8axGpA/s0W6yGyqF+2i9bvBRJv3D4IidLsjNWmsrlrQS/9zsst9ZC8MeAfsumYaZs+v4Lh4fizv6rI+w=
+env:
+  global:
+    secure: GfkAVe4+GYpKFpp90+K5MXqra2Tmhd9XnxG7r9WDWy6lrV+MiN3K2K4CqOFDqskRqqy5yMPJzBi2e1CWf2BvsuGSq/1kRH6V4Gbu3H7fyLRF76cQh7NnOoFO/Nz23ldp9JlckR3+79eVT4GNJ14R8DROFHsVmnBaDrdzP+fQyHiJMDcTy1jOc+fNg9ZOPM0PIFcm1gtJMo6PohERmTwH12R2NPsf1HQlzOZ/48+Lm+1xePNEqrz6xETT4Fh/h/i8Jc7JyQ1Py/KiWzCQfbq9IaMZOd+MQRREHLM7zFe0B06IvybQjkNk4cDWGbC8ZvTq7LBOmERrkGXEKGLMJg+hcsCRGy6PcdkszHIdzTtdUoyXkYMzExPRylE+p+EYK1XwY6iz+d6BJjc8T4ueeXULM7J4plvQ9Htrk2TeP1jl/e+2+bdaNhDz0JSZIBnDIXlMbVEZIokR+3gALp18ZvjryhxqiR7I3TxPQ0dTeFEbaQL1uY3nRIpnCHZTRoPEGitqxS0VMCDCqiIEzNZA2FOD2aEg4IetHKnWXP21P4zXF7ChjfPtjsZ5awucV2z7GGMHAcec+FdFyAZjq5TWGHMmosiLb3pDMpCvW10ohd8TGUIIvG6MJtmLOdVFviWbmQN2W7uby/r2z9Euv5F4xIiMXRsa6f2hIm0joaK1m6UBIxk=
