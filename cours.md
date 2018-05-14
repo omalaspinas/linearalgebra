@@ -2718,7 +2718,154 @@ nous pouvons écrire cette équation sous la forme d'un produit matrice vecteur
 \begin{equation}
 \mat{A}\cdot \vec x=\vec b,
 \end{equation}
-où $\mat{A}$ est une matrice $n\times n$ et $\vec b\in\real^n$.
+où $\mat{A}$ est une matrice $n\times n$ et $\vec b\in\real^n$
+$$\mat{A}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & a_{1n} \\
+                          a_{21} & a_{22}  & \cdots & a_{2n} \\
+                          \vdots & \vdots  & \ddots & \vdots \\
+                          a_{n1} & a_{n2}  & \cdots & a_{nn} \end{pmatrix},\quad 
+\vec b=\begin{pmatrix} b_{1} \\
+                       b_{2}\\
+                       \vdots\\
+                       b_{n} \end{pmatrix}.
+$$
+
+Si la matrice $\mat{A}$ est inversible et a une matrice inverse $\mat{A}^{-1}$, ce système peut se résoudre en multipliant par $\mat{A}^{-1}$ des deux côtés de l'équation
+\begin{align}
+\mat{A}\cdot \vec x&=\vec b,\nonumber\\
+\mat{A}^{-1}\cdot\mat{A}\cdot \vec x&=\mat{A}^{-1}\cdot\vec b,\nonumber\\
+\vec x&=\mat{A}^{-1}\cdot\vec b.
+\end{align}
+Cette solution peut se calculer de cette façon uniquement si $\mat{A}^{-1}$ est inversible et donc si $\det{\mat{A}}\neq 0$. 
+
+### La décomposition $LU$
+
+Comme nous l'avons vu précédemment le calcul de l'inverse d'une matrice est quelquechose qui n'est pas simple. Dans la définition générale, cela implique le calcul récursif de déterminants (ce qui est très coûteux). Une méthode plus efficace de résolution de système linéaire peut se faire sans calcul explicite de l'inverse. Pour discuter une des méthodes porssibles, nous allons d'abord tenter de résoudre un cas particulier de système linéaire. Soit le système linéaire suivant
+\begin{align}
+&a_{11} x_1+a_{12} x_2+...+a_{1n-1} x_{n-1}+a_{1n} x_n=b_1,\\
+&a_{22} x_2+...+a_{2n-1} x_{n-1}+a_{2n} x_n=b_2,\\
+&\quad\quad\quad\quad\quad\quad\quad\quad\quad\vdots \nonumber\\
+&a_{n-1,n-1} x_{n-1}+a_{n-1,n} x_n=b_{n-1},\nonumber\\
+&a_{nn} x_n=b_n.
+\end{align}
+Ce genre d'équations peut se résoudre de façon récursive.
+On commence par résoudre la $n$-ème équation,
+$$
+x_n=\frac{b_n}{a_{nn}}.
+$$
+Puis en utilisant ce résultat pour résoudre l'équation $n-1$
+\begin{align}
+a_{n-1,n-1} x_{n-1}+a_{n-1,n} x_n&=b_{n-1},\nonumber\\
+a_{n-1,n-1} x_{n-1}+a_{n-1,n} \frac{b_n}{a_{nn}}&=b_{n-1},\nonumber\\
+x_{n-1}&=\frac{b_{n-1}-a_{n-1,n} \frac{b_n}{a_{nn}}}{a_{n-1,n-1}}.
+\end{align}
+Et ainsi de suite pour l'équation $n-2$, ... On arrive ainsi itérativement à la première équation.
+
+Ce type d'équation se résout donc de façon triviale.
+
+Le système d'équations ci-dessus peut s'écrire sous la forme d'un produit matrice vecteur
+\begin{equation}
+\mat{U}\cdot \vec x=\vec b,
+\end{equation}
+où $\mat{U}$ est une matrice *diagonale supérieure* (les coefficients dans la matrice sont nuls sous la diagonale de la matrice) et $\vec b\in\real^n$
+$$\mat{U}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & \cdots & a_{1n} \\
+                          0 & a_{22}  & \cdots & \cdots & a_{2n} \\
+                          0 & 0 & a_{33}  & \cdots & a_{3n} \\
+                          \vdots & \vdots  & \ddots & \ddots & \vdots \\
+                          0 & 0  & \cdots & 0 & a_{nn} \end{pmatrix},\quad 
+\vec b=\begin{pmatrix} b_{1} \\
+                       b_{2}\\
+                       b_{3}\\
+                       \vdots\\
+                       b_{n} \end{pmatrix}.
+$$
+
+Un autre type de système d'équations pouvant se résoudre de façon simple est le celui composé du produit d'une matrice $\mat{L}$ qui est *diagonale inférieure*
+(les coefficients dans la matrice sont nuls au-dessus la diagonale de la matrice).
+
+Si nous revenons à présent à la résolution du système d'équations
+$$
+\mat{A}\cdot \vec x=\vec b,
+$$
+où $\mat{A}$ est une matrice quelconque $n\times n$. Si nous pouvons mettre $\mat{A}$ sous la forme
+$$
+\mat{A}=\mat{L}\cdot \mat{U},
+$$
+alors nous pouvons résoudre n'importe quel système de façon triviale.
+En effet, si $\mat{A}=\mat{L}\cdot \mat{U}$, le système ci-dessus s'écrit
+\begin{equation}
+\mat{L}\cdot \mat{U}\cdot \vec x=\vec b.
+\end{equation}
+En renommant $\mat{U}\cdot\vec x=\vec y$, on peut écrire
+\begin{equation}
+\mat{L}\cdot \vec y=\vec b.
+\end{equation}
+On peut donc commencer par résoudre ce système pour $\vec y$ (ce qui est aisé car $\mat{L}$ est une matrice triangulaire), puis il ne nous reste qu'à résoudre le système 
+$$
+\mat{U}\cdot\vec x=\vec y,
+$$
+où $\vec y$ et $\mat{U}$ sont connus. Nous obtenons donc $\vec x$ en deux étapes.
+
+Il se trouve que si $\mat{A}$ est inversible, on peut toujours la décomposer sous la forme $\mat{A}=\mat{L}\cdot\mat{U}$. Cela s'appelle la *décomposition LU*. On ne va pas démontrer cette propriété ici, mais plutôt décrire l'algorithme. Il se base sur la méthode de l'élimination de Gauss. Prenons ici une matrice $3\times 3$ donnée par
+\begin{equation}
+\mat{A}=\begin{pmatrix} 
+1 & 1 & -1 \\
+1 & -2 & -2 \\
+-3 & 2 & 2
+\end{pmatrix}.
+\end{equation}
+En effectuant l'équivalent de l'élimination de Gauss sur cette matrice, nous allons construire la matrice diagonale supérieure, $\mat{U}$, ainsi que la matrice diagonale inférieure, $\mat{L}$, en réutilisant les coefficients de l'élimination de Gauss. La matrice $\mat{L}$ aura la forme suivante
+\begin{equation}
+\mat{L}=\begin{pmatrix} 
+1 & 0 & 0\\
+l_{21} & 1 & 0 \\
+l_{31} & l_{32} & 1
+\end{pmatrix}.
+\end{equation}
+
+Notons $r_1$, $r_2$ et $r_3$ les trois lignes (rows en bon français) de la matrice $\mat{A}$. Nous souhaitons d'abord éliminer l'élément $a_{21}$. Pour cela la deuxième ligne nous devons écrire la deuxième ligne de la matrice comme 
+$$
+r_2'=-1\cdot r_1+r_2.
+$$
+La matrice $\mat{A}$ deviendra donc
+\begin{equation}
+\mat{A}'=\begin{pmatrix} 
+1 & 1 & -1 \\
+0 & -3 & -1 \\
+-3 & 2 & 2
+\end{pmatrix}.
+\end{equation}
+Dans le même temps, nous pouvons commencer à remplir la matrice $\mat{L}$. L'élément $l_{21}$ est l'opposé du coefficent $-1$ utilisé dans l'élimination de Gauss. Il vaudra donc $l_{21}=1$. La matrice $\mat{L}$ vaudra donc
+\mat{L}=\begin{pmatrix} 
+1 & 0 & 0\\
+1 & 1 & 0 \\
+l_{31} & l_{32} & 1
+\end{pmatrix}.
+\end{equation}
+Nous souhaitons maintenant mettre à zéro l'élément $a_{31}$ de la matrice $\mat{A}'$. On doit donc transformer $r_3$ en
+$$
+r_3'=3\cdot r_1+r_3.
+$$
+La matrice $\mat{A}$ devient donc
+\begin{equation}
+\mat{A}''=\begin{pmatrix} 
+1 & 1 & -1 \\
+0 & -3 & -1 \\
+0 & 5 & 1
+\end{pmatrix},
+\end{equation}
+et $\mat{L}$ vaut 
+\begin{equation}
+\mat{L}=\begin{pmatrix} 
+1 & 0 & 0\\
+1 & 1 & 0 \\
+-3 & l_{32} & 1
+\end{pmatrix}.
+\end{equation}
+Finalement il faut annuler l'élément $a_{32}$, cela se fait en transformant $r_3'$ par
+$$
+r_3''=
+$$
+
 
 
 
