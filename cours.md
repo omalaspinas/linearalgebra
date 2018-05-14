@@ -2811,8 +2811,17 @@ Il se trouve que si $\mat{A}$ est inversible, on peut toujours la décomposer so
 1 & 1 & -1 \\
 1 & -2 & -2 \\
 -3 & 2 & 2
-\end{pmatrix}.
+\end{pmatrix},
 \end{equation}
+et $\vec b$ donné par
+\begin{equation}
+\vec b=\begin{pmatrix} 
+1 \\
+1 \\
+1
+\end{pmatrix},
+\end{equation}
+
 En effectuant l'équivalent de l'élimination de Gauss sur cette matrice, nous allons construire la matrice diagonale supérieure, $\mat{U}$, ainsi que la matrice diagonale inférieure, $\mat{L}$, en réutilisant les coefficients de l'élimination de Gauss. La matrice $\mat{L}$ aura la forme suivante
 \begin{equation}
 \mat{L}=\begin{pmatrix} 
@@ -2834,7 +2843,8 @@ La matrice $\mat{A}$ deviendra donc
 -3 & 2 & 2
 \end{pmatrix}.
 \end{equation}
-Dans le même temps, nous pouvons commencer à remplir la matrice $\mat{L}$. L'élément $l_{21}$ est l'opposé du coefficent $-1$ utilisé dans l'élimination de Gauss. Il vaudra donc $l_{21}=1$. La matrice $\mat{L}$ vaudra donc
+Dans le même temps, nous pouvons commencer à remplir la matrice $\mat{L}$. L'élément $l_{21}$ est l'opposé du coefficient $-1$ utilisé dans l'élimination de Gauss. Il vaudra donc $l_{21}=1$. La matrice $\mat{L}$ vaudra donc
+\begin{equation}
 \mat{L}=\begin{pmatrix} 
 1 & 0 & 0\\
 1 & 1 & 0 \\
@@ -2850,7 +2860,7 @@ La matrice $\mat{A}$ devient donc
 \mat{A}''=\begin{pmatrix} 
 1 & 1 & -1 \\
 0 & -3 & -1 \\
-0 & 5 & 1
+0 & 5 & -1
 \end{pmatrix},
 \end{equation}
 et $\mat{L}$ vaut 
@@ -2863,15 +2873,87 @@ et $\mat{L}$ vaut
 \end{equation}
 Finalement il faut annuler l'élément $a_{32}$, cela se fait en transformant $r_3'$ par
 $$
-r_3''=
+r_3''=\frac{5}{3}r_2'+r_3.
 $$
+On obtient donc $\mat{A}'''=\mat{U}$
+\begin{equation}
+\mat{U}=\begin{pmatrix} 
+1 & 1 & -1 \\
+0 & -3 & -1 \\
+0 & 0 & -\frac{8}{3}
+\end{pmatrix},
+\end{equation}
+et $\mat{L}$ devient
+\begin{equation}
+\mat{L}=\begin{pmatrix} 
+1 & 0 & 0\\
+1 & 1 & 0 \\
+-3 & -\frac{5}{3} & 1
+\end{pmatrix}.
+\end{equation}
+On peut aisément que $\mat{L}\cdot \mat{U}=\mat{A}$.
 
+On peut à présent résoudre ce système en deux étapes.
+
+1. Résoudre le système 
+$$\mat{L}\vec y=\vec b,$$
+qui nous donne le système
+\begin{align}
+y_1&=1,\\
+y_1+y_2&=1,\\
+-3y_1-\frac{5}{3}y_2+y_3&=1,
+\end{align}
+qui se résout itérativement par
+\begin{align}
+y_2&=1,\\
+y_3&=4.
+\end{align}
+2. Résoudre 
+$$\mat{U}\vec x=\vec y.$$
+Qui se résout itérativement 
+\begin{align}
+x_1+x_2-x_3&=1,\\
+-3x_2-x_3&=0,\\
+-\frac{8}{3}x_3&=4.
+\end{align}
+Il vient
+\begin{align}
+x_1&=1,\\
+x_2&=\frac{1}{2},\\
+x_3&=-\frac{3}{2}.
+\end{align}
+
+Cette méthode n'est de loin pas la seule (ni la plus efficace) des méthodes de résolution de systèmes linéaires. En fait l'inversion de systèmes d'équations linéaires est un art très complexe. Il intervient notamment lors de la résolution numériques de systèmes d'équations différentielles aux dérivées partielles.
+
+---
+
+Exercice (Décomposition $LU$) +.#
+
+Résoudre le système suivant à l'aide de la décomposition $LU$
+\begin{align}
+&x_1+x_2+x_3=1,\\
+&x_1-x_2-x_3=-2,\\
+&x_1+x_2+x_3=3.
+\end{align}
+
+---
+
+# Suites et séries
+
+Une suite est une fonction, $f$, un peu particulière qui fait correspondre un entier à un réel
+\begin{equation}
+f:\natural\rightarrow \real.
+\end{equation}
+On la représente souvent les suites comme
+$$
+n\in \natural \rightarrow u_n\in \real.
+$$
 
 
 
 # Remerciements
 
-Je voudrais remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, T. Pirkl, et J. von der Weid.
+Nous voudrions remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, T. Pirkl, et J. von der Weid.
 
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\mathbf{A}$.
