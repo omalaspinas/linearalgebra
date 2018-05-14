@@ -7,30 +7,43 @@ addons:
     - texlive-latex-recommended lmodern texlive-fonts-recommended texlive-latex-extra
       texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-french
 before_install:
-- sudo add-apt-repository -y ppa:jonathonf/python-2.7
-- sudo apt-get update
-- sudo apt-get install python2.7
+  - sudo add-apt-repository -y ppa:jonathonf/python-2.7
+  - sudo apt-get update
+  - sudo apt-get install python2.7
 install:
-- wget https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb
-- sudo dpkg -i pandoc-2.0.6-1-amd64.deb
-- wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.1/linux-ghc80-pandoc20.tar.gz
-- mkdir pandoc-crossref
-- cd pandoc-crossref
-- mv ../linux-ghc80-pandoc20.tar.gz .
-- tar xzvf linux-ghc80-pandoc20.tar.gz
-- cd ..
-- export PATH=`pwd`/pandoc-crossref:$PATH
-- sudo -H pip install --upgrade pip
-- sudo -H pip install -U pandoc-numbering
+  - wget https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb
+  - sudo dpkg -i pandoc-2.0.6-1-amd64.deb
+  - wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.1/linux-ghc80-pandoc20.tar.gz
+  - mkdir pandoc-crossref
+  - cd pandoc-crossref
+  - mv ../linux-ghc80-pandoc20.tar.gz .
+  - tar xzvf linux-ghc80-pandoc20.tar.gz
+  - cd ..
+  - export PATH=`pwd`/pandoc-crossref:$PATH
+  - sudo -H pip install --upgrade pip
+  - sudo -H pip install -U pandoc-numbering
 cache:
-- pip
+  - pip
 script:
-- cd figs
-- "./convert.sh"
-- cd ..
-- make
-- make -C exercices
-- make -C tp
+  - cd figs
+  - "./convert.sh"
+  - cd ..
+  - make
+  - make -C exercices
+  - make -C tp
+after_success: |
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis CI"
+  cd "$TRAVIS_BUILD_DIR"
+  git clone https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
+  cd mathintro.github.io
+  # This generates a `web` directory containing the website.
+  cp ../cours.html index.html
+  git add index.html
+  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  # Make sure to make the output quiet, or else the API token will leak!
+  # This works because the API key can replace your password.
+  git push --quiet https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
 deploy:
   provider: releases
   api_key:
