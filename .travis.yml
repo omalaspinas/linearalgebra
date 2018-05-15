@@ -46,6 +46,8 @@ after_success: |
   git push --quiet https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
 deploy:
   provider: releases
+  api_key:
+    secure: jYv4XUgC9UqXdK0kdAoRy5dt6FBHb/627kAGITO0e/4brOHXc+Tfb1zf6NZlcIATM1HXhXo9/l+LSq4Lo0p5lVel6HNjCcCFqmhMe599akamZSUgXbbaFjtzVIMYNSi1C8t4oAD3i6IOqFYd0NQeIKmC2Phhl/nIYvEZzK+wpYeHG5R1BtmuN6ZD8eHLHc/55YfRtG5ANav6HM3YsejifFgUNbqN1zbL3N3zDxcYIVkGZMK3s52pgAmFycGr7JrE4IirqrxfTu34xZpaPEL9gwqY68n+atUZfmIs9H+7n1DpsH+qxgP0cyboFktkGaddoKwSlZzrcGX8FQRUOWNWip3QdCUdmSUR7KZ12ZbQu+fAJut25HuKgKGRmW1Q8r2Eu0vD2ZQJ8EAcWv25XW37+DSyNekP1RYZ9edtju8hoxoOUrc+Ne6QSnBHQHzRJOo3cbAH2wcwLrzU4DRBf69fvHbtZIvMmmUkHbrB5HLt1yjeqgO/gGUDprBfRDkduWBASpHUVTN4jE9usxK43lnwjELN9A/DsDvo52lGoQBcX0qPByNktz9plqoquel4Yp/4+nayQxHtHBgw2hHQCdwCvRJfsd+8axGpA/s0W6yGyqF+2i9bvBRJv3D4IidLsjNWmsrlrQS/9zsst9ZC8MeAfsumYaZs+v4Lh4fizv6rI+w=
   file:
   - cours.pdf
   - cours.html
