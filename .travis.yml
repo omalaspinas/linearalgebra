@@ -42,19 +42,19 @@ deploy:
   on:
     repo: mathintro/linearalgebra
     tags: true
-after_success: |
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis CI"
-  cd "$TRAVIS_BUILD_DIR"
-  git clone https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
-  cd mathintro.github.io
-  # This generates a `web` directory containing the website.
-  cp ../cours.html index.html
-  git add index.html
-  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-  # Make sure to make the output quiet, or else the API token will leak!
-  # This works because the API key can replace your password.
-  git push --quiet https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
+# after_success: |
+#   git config --global user.email "travis@travis-ci.org"
+#   git config --global user.name "Travis CI"
+#   cd "$TRAVIS_BUILD_DIR"
+#   git clone https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
+#   cd mathintro.github.io
+#   # This generates a `web` directory containing the website.
+#   cp ../cours.html index.html
+#   git add index.html
+#   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+#   # Make sure to make the output quiet, or else the API token will leak!
+#   # This works because the API key can replace your password.
+#   git push --quiet https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
 env:
   global:
     secure: GfkAVe4+GYpKFpp90+K5MXqra2Tmhd9XnxG7r9WDWy6lrV+MiN3K2K4CqOFDqskRqqy5yMPJzBi2e1CWf2BvsuGSq/1kRH6V4Gbu3H7fyLRF76cQh7NnOoFO/Nz23ldp9JlckR3+79eVT4GNJ14R8DROFHsVmnBaDrdzP+fQyHiJMDcTy1jOc+fNg9ZOPM0PIFcm1gtJMo6PohERmTwH12R2NPsf1HQlzOZ/48+Lm+1xePNEqrz6xETT4Fh/h/i8Jc7JyQ1Py/KiWzCQfbq9IaMZOd+MQRREHLM7zFe0B06IvybQjkNk4cDWGbC8ZvTq7LBOmERrkGXEKGLMJg+hcsCRGy6PcdkszHIdzTtdUoyXkYMzExPRylE+p+EYK1XwY6iz+d6BJjc8T4ueeXULM7J4plvQ9Htrk2TeP1jl/e+2+bdaNhDz0JSZIBnDIXlMbVEZIokR+3gALp18ZvjryhxqiR7I3TxPQ0dTeFEbaQL1uY3nRIpnCHZTRoPEGitqxS0VMCDCqiIEzNZA2FOD2aEg4IetHKnWXP21P4zXF7ChjfPtjsZ5awucV2z7GGMHAcec+FdFyAZjq5TWGHMmosiLb3pDMpCvW10ohd8TGUIIvG6MJtmLOdVFviWbmQN2W7uby/r2z9Euv5F4xIiMXRsa6f2hIm0joaK1m6UBIxk=
