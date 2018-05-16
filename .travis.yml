@@ -49,8 +49,8 @@ after_deploy: |
   git clone https://${GH_TOKEN}@github.com/mathintro/mathintro.github.io.git
   cd mathintro.github.io
   # This generates a `web` directory containing the website.
-  cp ../cours.html index.html
-  git add index.html
+  cp ../cours.html linearalgebra/index.html
+  git add linearalgebra/index.html
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
   # Make sure to make the output quiet, or else the API token will leak!
   # This works because the API key can replace your password.
