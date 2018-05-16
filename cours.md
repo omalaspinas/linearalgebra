@@ -2938,16 +2938,61 @@ Résoudre le système suivant à l'aide de la décomposition $LU$
 
 ---
 
-# Suites et séries
+# Suites
 
 Une suite est une fonction, $f$, un peu particulière qui fait correspondre un entier à un réel
 \begin{equation}
-f:\natural\rightarrow \real.
+u:\natural\rightarrow \real.
 \end{equation}
 On la représente souvent les suites comme
 $$
-n\in \natural \rightarrow u_n\in \real.
+n\in \natural \rightarrow u_n\in \real,
 $$
+où $u_n$ est le terme d'indice $n$ de la suite.
+
+--- 
+
+Remarque +.#
+
+On pourrait également noter les suites comme une fonction 
+$$
+n\rightarrow u(n),
+$$
+mais ce n'est presque jamais le cas, pour des raisons historiques.
+
+---
+
+---
+
+Illustration (Suites) +.#
+
+Il existe différentes façon d'exprimer des suites. On en liste quelques une ici.
+
+1. Les termes de la suite sont donnée par une formule quelconque. Par exemple, 
+$\forall n\in \natural$
+\begin{align}
+u_n&=\frac{1}{n},\\
+u_n&=\frac{2^n}{n!},\\
+u_n&=\left(1+\frac{1}{n}\right)^n.
+\end{align}
+2. Les termes sont donnés via une relation de récurrence à un pas
+\begin{align}
+u_{n+1}=u_n+(n+1),\ u_0=0,
+\end{align}
+ou même avec une récurrence à plus de pas (deux ici)
+\begin{align}
+u_{n+1}=u_n+u_{n-1},\ u_0=0,\ u_1=1.
+\end{align}
+3. On le verra l'année prochaine, mais un autre exemple typique de suite peut être obtenu lors de la résolution numérique d'équation différentielles. Par exemple
+$$
+u_{n+1}=u_n + \Delta t \cdot u_n,\ u_0=1.
+$$
+est une façon d'approximer la solution de l'équation différentielle 
+$$
+u'(t)=u(t),\ u(t=0)=1.
+$$
+
+---
 
 ## Récurrence 
 
@@ -3030,6 +3075,17 @@ $$
 \exists n_0\in\natural, t.q.\ u_n=u_0,\ \forall n\geq n_0.
 $$
 
+---
+
+Illustration (Convergence) +.# 
+
+1. La suite $u_n=1/n$, converge vers $0$.
+2. La suite $u_n=\left(1+\frac{1}{n}\right)^n$ converge vers $e$.
+3. La suite $u_n=\frac{x^n}{n!}$ converge vers $0$, pour tout $x$.
+4. La suite $u_n=\frac{2n^2+4}{n^2-2}$, converge vers $2$.
+
+--- 
+
 ### Divergence 
 
 A l'inverse d'une suite convergente, nous avons la suite *divergente*, qui tend "vers l'infini" lorsque $n\rightarrow \infty$. De façon plus mathématique on dit qu'une suite $u_n$ est divergente si
@@ -3043,7 +3099,75 @@ $$
 $$
 et $N$ est la période de la suite.
 
+---
 
+Illustration (Divergence) +.# 
+
+1. La suite $u_n=n$ diverge.
+2. La suite $u_n=e^n$ diverge.
+3. La suite $u_n=\frac{3n^3-4}{2n^2+3n}$ diverge.
+
+--- 
+
+## Des suites importantes
+
+### La suite arithmétique
+
+Une suite arithmétique est une suite définie comme
+$$
+u_n=a\cdot n + b,\ n\in\natural,
+$$
+où $a,b\in\real$ et $a$ est appelé la *raison* de la suite géométrique et $b$ le terme initial. Pour $b=0$ et $a=1$, nous avons la suite des entiers naturel, $u_n=n$.
+Si nous connaissons les termes de notre suites, nous pouvons calculer la raison comme
+$$
+a=u_n-u_{n-1}.
+$$
+
+### La suite géométrique
+
+Une suite *géométrique* est une suite définie comme
+$$
+u_n=a\cdot r^n,\ n\in\natural,
+$$
+où $a,r\in\real$ et $r$ est appelé la *raison* de la suite géométrique et $a$ le terme initial.
+Si nous connaissons les termes de notre suites, nous pouvons calculer la raison comme
+$$
+r=\frac{u_n}{u_{n-1}}.
+$$
+
+---
+
+Illustration (Suite géométrique I) +.#
+
+1. La suite de nombres 
+$$
+\{u_n\}_{n=0}^\infty=\{2,4,8,16,32,64,...\}
+$$
+est une suite géométrique de raison $r=2$ et de premier terme $a=2$.
+2. La suite de nombres 
+$$
+\{u_n\}_{n=0}^\infty=\left\{\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{16},\frac{1}{32},\frac{1}{64},...\right\}
+$$
+est une suite géométrique de raison $r=\frac{1}{2}$ et de premier terme $a=\frac{1}{2}$.
+
+---
+
+Une suite géométrique peut également se définir par récurrence
+$$
+u_{n+1}=r\cdot u_{n}.
+$$
+
+La convergence (ou divergence) d'une suite géométrique ne dépend que de la raison de la suite. En effet, nous avons plusieurs cas de figure:
+1. Si $r\in ]-1,1]$ la suite converge.
+2. Si $r\in ]-\infty,-1[\cup ]1,\infty[$ la suite diverge.
+3. Si $r=-1$ la suite est périodique.
+
+
+### La suite de puissance
+
+### Comparaison des suites géométriques et de puissances
+
+# Séries
 
 
 # Remerciements
