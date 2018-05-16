@@ -3122,6 +3122,10 @@ Si nous connaissons les termes de notre suites, nous pouvons calculer la raison 
 $$
 a=u_n-u_{n-1}.
 $$
+La suite arithmétique diverge toujours, à moins que $a=0$. En effet, nous pouvons l'écrire de façon récursive comme
+$$
+u_n=u_n+a.
+$$
 
 ### La suite géométrique
 
