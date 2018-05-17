@@ -3126,6 +3126,7 @@ La suite arithmétique diverge toujours, à moins que $a=0$. En effet, nous pouv
 $$
 u_n=u_n+a.
 $$
+Elle croira donc forcément à l'infini (ou à moins l'infini) pour $n\rightarrow \infty$.
 
 ### La suite géométrique
 
@@ -3167,12 +3168,79 @@ La convergence (ou divergence) d'une suite géométrique ne dépend que de la ra
 3. Si $r=-1$ la suite est périodique.
 
 
-### La suite de puissance
+### La suite de puissances
 
-### Comparaison des suites géométriques et de puissances
+On définit la suite de puissances comme
+$$
+u_n=n^m,\ m\in \integer.
+$$
+Cette suite a trois comportement possibles lorsque $n$ tend vers l'infini
+
+1. Si $p>0$, $u_n\rightarrow \infty$ pour $n\rightarrow\infty$.
+2. Si $p<0$, $u_n\rightarrow 0$ pour $n\rightarrow\infty$.
+3. Si $p=0$, $u_n=1$ pour tout $n\in\integer$.
 
 # Séries
 
+## La somme limitée d'une série
+
+Nous nous intéressons à présent au calcul de la somme d'un certain nombre de termes d'une suite, $u_n$. Si nous sommons les $k$ premiers termes de la suite
+$u_n$, nous pouvons écrire cette somme comme
+$$
+u_1+u_2+u_3+...+u_k.
+$$
+Il est beaucoup plus court et aisé de noter cette somme comme
+$$
+\sum_{i=1}^nu_i=u_1+u_2+u_3+...+u_k.
+$$
+De façon générale on note une somme entre les indice $a$ et $b$ comme
+$$
+\sum_{i=a}^bu_i=u_a+u_{a+1}+u_{a+2}+...+u_{b-2}+u_{b-1}+u_b.
+$$
+Une somme est très simplement implémentée en informatique à l'aide d'une boucle `for`
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
+>>> somme = 0
+>>> for i in range(1,11):
+...     somme += 4*i*i
+... 
+>>> somme
+1540
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- 
+
+Illustrations (Sommes limitées) +.#
+
+1. La somme des $10$ premiers entiers
+$$
+\sum_{i=1}^10 i=1+2+3+...+9+10=55.
+$$
+2. La somme du carré des multiplié par 4 des 10 premiers entiers
+$$
+\sum_{i=1}^10 4\cdot i^2=4\cdot 1+4\cdot 4+4\cdot 9+...+4\cdot 100=1540.
+$$
+3. La somme *alternée* des 10 premiers entier
+$$
+\sum_{i=1}^10 (-1)^i\cdot i=-1+2-3+...-9+10=5.
+$$
+4. La somme des $n$ premiers entiers
+$$
+\sum_{i=1}^n i=\frac{n(n+1)}{2}.
+$$
+
+---
+
+La somme de $k$ termes d'une suite est *linéaire* (ben oui c'est rien d'autre qu'une somme). En effet, nous pouvons vérifier les propriétés suivantes pour $u_n$, et $v_n$ des suites réelles et $\alpha\in\real$. Si $k\in\real$ nous avons que
+
+1. La somme de l'addition de deux suites est égale à l'addition de la somme de chacun des suites
+$$
+\sum_{i=1}^k\left(u_i+v_i\right)=\sum_{i=1}^k u_i+\sum_{i=1}^kv_i.
+$$
+2. La somme du produit de $\alpha$ avec une suite est le produit de $\alpha$ avec la somme de la suite
+$$
+\sum_{i=1}^k(\alpha\cdot u_i)=\alpha\sum_{i=1}^ku_i.
+$$
 
 # Remerciements
 
