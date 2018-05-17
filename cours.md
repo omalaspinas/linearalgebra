@@ -3180,19 +3180,77 @@ Cette suite a trois comportement possibles lorsque $n$ tend vers l'infini
 2. Si $p<0$, $u_n\rightarrow 0$ pour $n\rightarrow\infty$.
 3. Si $p=0$, $u_n=1$ pour tout $n\in\integer$.
 
+## Exemple de suite récursive: la méthode de Newton
+
+Les suites récursives sont présentes dans un grand nombre d'applications. 
+La méthode que nous allons étudier ici est la méthode de Newton pour déterminer les zéros d'une fonction.
+
+Soit une fonction $f$, 
+$$
+f:\real\rightarrow \real,
+$$
+dérivable partout (sa dérivée existe partout). Nous souhaitons déterminer les zéros de la fonction (les points où elle coupe l'axe des $x$)
+$$
+f(x)=0.
+$$
+
+---
+
+Illustration (Polynôme de degré 2) +.#
+
+Si $f(x)=a\cdot x^2+b\cdot x + c$, alors ces zéros sont les $x$ tels que
+$$
+f(x)=a\cdot x^2+b\cdot x + c=0.
+$$
+La solution de cette équation est de la forme
+$$
+x_\pm=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+$$
+Si $x_\pm\in\real$ nous pouvons avoir différents cas de figure
+
+1. Si $b^2-4ac>0$ nous avons deux solutions.
+2. Si $b^2-4ac=0$ nous avons une solution.
+3. Si $b^2-4ac<0$ nous n'avons pas de solution.
+
+---
+
+Dans certains cas, il est très difficile de déterminer les zéros d'une fonction analytiquement (voire cela est impossible) il faut donc recourir à des méthodes numériques, qui sont des méthodes itératives. Une des plus populaires est la méthode de Newton (ou Newton--Raphson). 
+
+Avant de nous plonger dans le détail de la méthode de Newton, nous avons devons voir comment construire l'équation de la tangente d'une fonction (si celle-ci est dérivable) en un point $x_0$. Comme vous le savez, la pente de la tangente d'une fonction en un point $x_0$ est donnée par sa dérivée, $f'(x_0)$. Nous cherchons donc l'équation de la droite de pente $f'(x_0)$ passant par $f(x_0)$ en $x_0$. Nous pouvons réécrire cette équation sous la forme
+$$
+f(x_0)=f'(x_0)\cdot x_0+b,
+$$
+où $b$ est l'inconnue à déterminer. On inverse facilement cette équation pour obtenir
+$$
+b=f(x_0)-f'(x_0)\cdot x_0.
+$$
+L'équation de la tangente, $t(x)$, s'écrit alors
+$$
+t(x)=f'(x_0)\cdot (x-x_0)+f(x_0).
+$$
+
+Avec ce résultat, nous pouvons à présent décrire la méthode de Newton.
+
+Nous cherchons donc la valeur $x$ telle que $f(x)=0$. Pour ce faire, nous commençons à une valeur $x_0\in\real$ et allons itérativement, nous rapprocher d'un des zéros de la fonction à l'aide d'une suite $x_n$ de points. Depuis le point $x_0$, nous allons calculer la tangente de fonction $f$, $t(x)$, et nous allons calculer le point suivant dans la suite, $x_1$, comme étant l'intersection de $t(x)$ et l'axe horizontal. Soit $x_1$ tel que
+\begin{align}
+t(x_1)=f'(x_0)\cdot (x_1-x_0)+f(x_0)&=0,\nonumber\\
+x_1&=x_0-\frac{f(x_0)}{f'(x_0)}.
+\end{align}
+
+
 # Séries
 
-## La somme limitée d'une série
+## La somme limitée d'une suite
 
-Nous nous intéressons à présent au calcul de la somme d'un certain nombre de termes d'une suite, $u_n$. Si nous sommons les $k$ premiers termes de la suite
-$u_n$, nous pouvons écrire cette somme comme
+Nous nous intéressons à présent au calcul de la somme d'un certain nombre de termes d'une suite, $(u_n)_{n=0}^\infty$. Si nous sommons les $k$ premiers termes de la suite, nous pouvons écrire cette somme comme
 $$
-u_1+u_2+u_3+...+u_k.
+u_0+u_2+u_3+...+u_k.
 $$
 Il est beaucoup plus court et aisé de noter cette somme comme
 $$
-\sum_{i=1}^nu_i=u_1+u_2+u_3+...+u_k.
+S_k(u)=\sum_{i=0}^ku_i=u_0+u_1+u_2+u_3+...+u_k,
 $$
+où $k$ est le nombre de terme que nous voulons sommer, et $u$ le terme général (la suite correspondant à la somme).
 De façon générale on note une somme entre les indice $a$ et $b$ comme
 $$
 \sum_{i=a}^bu_i=u_a+u_{a+1}+u_{a+2}+...+u_{b-2}+u_{b-1}+u_b.
@@ -3201,7 +3259,7 @@ Une somme est très simplement implémentée en informatique à l'aide d'une bou
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.python .numberLines}
 >>> somme = 0
->>> for i in range(1,11):
+>>> for i in range(0,11):
 ...     somme += 4*i*i
 ... 
 >>> somme
@@ -3214,33 +3272,74 @@ Illustrations (Sommes limitées) +.#
 
 1. La somme des $10$ premiers entiers
 $$
-\sum_{i=1}^10 i=1+2+3+...+9+10=55.
+S_{10}(i)=\sum_{i=0}^10 i=0+1+2+3+...+9+10=55.
 $$
 2. La somme du carré des multiplié par 4 des 10 premiers entiers
 $$
-\sum_{i=1}^10 4\cdot i^2=4\cdot 1+4\cdot 4+4\cdot 9+...+4\cdot 100=1540.
+S_{10}(4i^2)=\sum_{i=0}^10 4\cdot i^2=4\cdot 0+4\cdot 1+4\cdot 4+4\cdot 9+...+4\cdot 100=1540.
 $$
 3. La somme *alternée* des 10 premiers entier
 $$
-\sum_{i=1}^10 (-1)^i\cdot i=-1+2-3+...-9+10=5.
+S_{10}((-1)^i\cdot i)=\sum_{i=0}^10 (-1)^i\cdot i=-1+2-3+...-9+10=5.
 $$
 4. La somme des $n$ premiers entiers
 $$
-\sum_{i=1}^n i=\frac{n(n+1)}{2}.
+S_{n}((-1)^i\cdot i)\sum_{i=0}^n i=\frac{n(n+1)}{2}.
 $$
 
 ---
 
-La somme de $k$ termes d'une suite est *linéaire* (ben oui c'est rien d'autre qu'une somme). En effet, nous pouvons vérifier les propriétés suivantes pour $u_n$, et $v_n$ des suites réelles et $\alpha\in\real$. Si $k\in\real$ nous avons que
+La somme de $k$ termes d'une suite est *linéaire* (ben oui c'est rien d'autre qu'une somme). En effet, nous pouvons vérifier les propriétés suivantes pour $(u_n)_{n=0}^\infty$, et $(v_n)_{n=0}^\infty$ des suites réelles et $\alpha\in\real$. Si $k\in\natural$ nous avons que
 
 1. La somme de l'addition de deux suites est égale à l'addition de la somme de chacun des suites
 $$
-\sum_{i=1}^k\left(u_i+v_i\right)=\sum_{i=1}^k u_i+\sum_{i=1}^kv_i.
+S_k(u+v)=\sum_{i=0}^k\left(u_i+v_i\right)=\sum_{i=0}^k u_i+\sum_{i=0}^kv_i=S_k(u)+S_k(v).
 $$
 2. La somme du produit de $\alpha$ avec une suite est le produit de $\alpha$ avec la somme de la suite
 $$
-\sum_{i=1}^k(\alpha\cdot u_i)=\alpha\sum_{i=1}^ku_i.
+S_k(\alpha u)=\sum_{i=0}^k(\alpha\cdot u_i)=\alpha\sum_{i=0}^ku_i=alpha\cdot S_k(u).
 $$
+
+--- 
+
+Exercice (Somme des $n$ premiers termes de la suite arithmétique) +.#
+
+Calculer la somme des $n$ premiers termes de la suite arithmétique
+$$
+S_n(a+ri)=\sum_{i=0}^n (a+i\cdot r),
+$$
+où $a,r\in\natural$.
+
+---
+
+## Les séries
+
+Comme pour les suites, nous nous intéressons ici au comportement d'une somme  lorsque le nombre de termes tend vers l'infini. 
+Si nous considérons la somme 
+des $k$ premiers termes de la suite $u_n$, $S_k(u)=\sum_{i=0}^ku_i$, et que nous faisons tendre
+$k\rightarrow\infty$ on peut écrire
+$$
+\lim_{k\rightarrow \infty}S_k=\lim_{k\rightarrow \infty}\sum_{i=0}^ku_i=\sum_{i=0}^\infty u_i.
+$$
+Une telle somme est appelée une *série*. On dit que la série *converge* si la limite ci-dessus existe. On appelle $(u_n)$ (les termes de la suite) le terme général de la série. Nous constatons donc qu'une série de terme général $u_n$, n'est rien d'autre que la somme de "tous" les termes (au sens de la limite) de la suite $u_n$.
+
+---
+
+Illustration (La série arithmétique) +.#
+
+Soit la suite arithmétique $u_i=a+r\cdot i$. On peut construire la somme limitée des $n$ premier termes de la suite arithmétique comme
+$$
+S_n(a+r\cdot i)=\sum_{i=0}^n (a+r\cdot i)=n\cdot a+r\cdot \frac{n(n+1)}{2}.
+$$
+La série arithmétique correspondante 
+$$
+\lim_{n\rightarrow \infty}S_n(a+r\cdot i)=\lim_{n\rightarrow}\left(n\cdot a+r\cdot \frac{n(n+1)}{2}\right)= +\infty.
+$$
+
+---
+
+On constate avec . Avant de tenter 
+
 
 # Remerciements
 
