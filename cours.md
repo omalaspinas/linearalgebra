@@ -3298,19 +3298,19 @@ Illustrations (Sommes limitées) +.#
 
 1. La somme des $10$ premiers entiers
 $$
-S_{10}(i)=\sum_{i=0}^10 i=0+1+2+3+...+9+10=55.
+S_{10}(i)=\sum_{i=0}^{10} i=0+1+2+3+...+9+10=55.
 $$
 2. La somme du carré des multiplié par 4 des 10 premiers entiers
 $$
-S_{10}(4i^2)=\sum_{i=0}^10 4\cdot i^2=4\cdot 0+4\cdot 1+4\cdot 4+4\cdot 9+...+4\cdot 100=1540.
+S_{10}(4i^2)=\sum_{i=0}^{10} 4\cdot i^2=4\cdot 0+4\cdot 1+4\cdot 4+4\cdot 9+...+4\cdot 100=1540.
 $$
 3. La somme *alternée* des 10 premiers entier
 $$
-S_{10}((-1)^i\cdot i)=\sum_{i=0}^10 (-1)^i\cdot i=-1+2-3+...-9+10=5.
+S_{10}((-1)^i\cdot i)=\sum_{i=0}^{10} (-1)^i\cdot i=-1+2-3+...-9+10=5.
 $$
 4. La somme des $n$ premiers entiers
 $$
-S_{n}((-1)^i\cdot i)\sum_{i=0}^n i=\frac{n(n+1)}{2}.
+S_{n}(i)\sum_{i=0}^n i=\frac{n(n+1)}{2}.
 $$
 
 ---
@@ -3323,7 +3323,7 @@ S_k(u+v)=\sum_{i=0}^k\left(u_i+v_i\right)=\sum_{i=0}^k u_i+\sum_{i=0}^kv_i=S_k(u
 $$
 2. La somme du produit de $\alpha$ avec une suite est le produit de $\alpha$ avec la somme de la suite
 $$
-S_k(\alpha u)=\sum_{i=0}^k(\alpha\cdot u_i)=\alpha\sum_{i=0}^ku_i=alpha\cdot S_k(u).
+S_k(\alpha u)=\sum_{i=0}^k(\alpha\cdot u_i)=\alpha\sum_{i=0}^ku_i=\alpha\cdot S_k(u).
 $$
 
 --- 
@@ -3364,8 +3364,23 @@ $$
 
 ---
 
-On constate avec . Avant de tenter 
+Nous avons un façon simple de savoir si une série diverge. Il est certain que si le terme général de la série $u_n$ ne tend pas vers zéro pour $n\rightarrow \infty$ alors la série diverge. Nous pouvons également affirmer que si une série converge, alors son terme général, $u_n$, tend vers $0$ pour $n\rightarrow\infty$. Nous pouvons aisément démontrer cette propriété. 
+Supposons que la série $S_n=\sum_{i=0}^n u_n$ converge pour $n\rightarrow\infty$ vers $S$. On a donc que 
+$$
+S=\lim_{n\rightarrow \infty}S_n.
+$$
+De plus on peut écrire $u_n$ comme $u_n=S_{n}-S_{n-1}$. On peut en déduire en prenant la limite lorsque $n\rightarrow \infty$ que
+$$
+\lim_{n\rightarrow \infty} u_n=\lim_{n\rightarrow \infty}S_n-\lim_{n\rightarrow \infty}S_{n-1}=S-S=0.
+$$
 
+---
+
+Remarque +.#
+
+La réciproque est fausse. Si $u_n$ tend vers zéro pour pour $n\rightarrow\infty$ cela n'implique **pas** que la série de terme général $u_n$ converge.
+
+---
 
 # Remerciements
 
