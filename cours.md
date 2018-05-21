@@ -3236,6 +3236,32 @@ Nous cherchons donc la valeur $x$ telle que $f(x)=0$. Pour ce faire, nous commen
 t(x_1)=f'(x_0)\cdot (x_1-x_0)+f(x_0)&=0,\nonumber\\
 x_1&=x_0-\frac{f(x_0)}{f'(x_0)}.
 \end{align}
+Ce processus est répété et pour un $n$ arbitraire on a
+$$
+x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}.
+$$
+On s'arrête lorsque le zéro est déterminé avec une précision suffisante, ou que la variation entre deux itérations successives est assez petite. Ce qui revient à choisir un $\varepsilon>0$, tel que
+$$
+|f(x_n)| < \varepsilon,\quad |x_n-x_{n-1}| < \varepsilon.
+$$
+
+--- 
+
+Remarques (non-convergence ou convergence lente) +.#
+
+Il y a un certain nombre de cas où la méthode de Newton ne converge pas.
+
+1. S'il existe un $n$ tel que $f'(x_n)=0$ alors la suite diverge.
+2. La suite peut entrer dans un cycle.
+3. La dérivée est mal définie proche du zéro (ou sur le zéro).
+4. Elle peut converger très lentement si la dérivée de la fonction est nulle sur le zéro.
+5. A chaque point de départ ne correspond qu'un zéro. Si la fonction possède plusieurs zéros, il n'y a pas moyen de le savoir avec un seul point de départ. Il faut alors en essayer plusieurs.
+
+---
+
+La méthode de Newton peut être très utile en optimisation. Elle permettrait alors de déterminer les extrémas locaux d'une fonction (min/max). Elle peut également se généraliser à plusieurs variables et peut s'utiliser dans différents algorithmes. Un exemple typique en apprentissage automatique est la détermination des paramètres d'une régression logistique. 
+
+
 
 
 # Séries
