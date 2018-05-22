@@ -3048,7 +3048,7 @@ Exercice (Récurrence) +.#
 $$
 \sum_{i=0}^ni^2=\frac{n(n+1)(2n+1)}{6}.
 $$
-2. Soit $u_n$ avec $u_0=0$ et $u_{n+1}=\frac{1+2u_n}{2+u_n}$, alors $\forall n\in\natural^\ast$, $0<\leq 1$.
+2. Soit $u_n$ avec $u_0=0$ et $u_{n+1}=\frac{1+2u_n}{2+u_n}$, alors $\forall n\in\natural^\ast$, $u_n\leq 1$.
 
 ---
 
@@ -3059,9 +3059,9 @@ Dans ce cas, nous étudions l'évolution de suites d'entiers pour un $n\in\natur
 
 ### Convergence
 
-Si une suite $u_n$ *tend* vers une valeur fixe à l'infini on dit qu'elle est *convergente*. En termes plus mathématiques, on dit qu'une suite est convergente vers un réel $\mathcal{l}\in\real$ si
-$$\forall \varepsilon > 0,\ \exists n_0\in\natural,\ t.q.\ \forall n\geq n_0,\ |u_n-\mathcal{l}|<\varepsilon.$$
-Si elle existe, on dit que $\mathcal{l}$ est la limite de la suite $u_n$ et elle est unique.
+Si une suite $u_n$ *tend* vers une valeur fixe à l'infini on dit qu'elle est *convergente*. En termes plus mathématiques, on dit qu'une suite est convergente vers un réel $l\in\real$ si
+$$\forall \varepsilon > 0,\ \exists n_0\in\natural,\ t.q.\ \forall n\geq n_0,\ |u_n-l|<\varepsilon.$$
+Si elle existe, on dit que $l$ est la limite de la suite $u_n$ et elle est unique.
 
 
 Il existe différents types de suites convergentes (pathologiques?) particulières:
@@ -3381,6 +3381,73 @@ Remarque +.#
 La réciproque est fausse. Si $u_n$ tend vers zéro pour pour $n\rightarrow\infty$ cela n'implique **pas** que la série de terme général $u_n$ converge.
 
 ---
+
+Avant d'étudier de façon plus précise la convergence/divergence d'une série, nous allons voir un exemple très utile des séries qui est utilisé un peu partout (résolution d'équations différentielles, interpolation, traitement du signal, ...).
+
+### La série de Taylor
+
+Notre but ici est d'approximer une fonction inconnue en un point $x$
+par une fonction polynomiale. Pour résumer, nous avons une fonction, $f(x)$,
+$$
+f:\real\rightarrow \real,
+$$
+dont nous ne connaissons pas les valeurs en tout $x$, et nous voulons l'approximer à l'aide d'un polynôme
+\begin{align}
+&p:\real\rightarrow\real,\\
+&x:\rightarrow a_0+a_1\cdot x+a_2\cdot x^2+...
+\end{align}
+Pour ce faire, nous allons supposer que nous connaissons $f$ et toutes ses dérivées en $x=0$. La condition minimale que $p(x)$ doit satisfaire c'est que 
+sa valeur en $x=0$, soit égale à celle de $f$ en $x=0$, c'est-à-dire
+$$
+p(0)=f(0).
+$$
+La première approximation (de très mauvaise qualité et général) que nous pouvons faire est que $p$ est donné uniquement par $f(0)$
+$$
+p(x)=f(0).
+$$
+Afin d'affiner notre approximation, nous pouvons vouloir que la dérivée du polynôme en $x=0$ soit la même que $f'(0)$,
+$$
+p'(0)=f'(0).
+$$
+Avec cette condition, nous pouvons écrire l'approximation à l'ordre $1$ comme
+$$
+p(x)=f(0)+x\cdot f'(0).
+$$
+En continuant ainsi, nous pouvons également vouloir que $p''(0)=f''(0)$. Pour ce faire, nous devons construire $p(x)$ comme
+$$
+p(x)=f(0)+x\cdot f'(0)+\frac{1}{2}\cdot x^2\cdot f''(0).
+$$
+
+---
+
+Exercice (Le fameux $1/2$) +.#
+
+Vérifier que $p''(0)=f''(0)$.
+
+---
+
+On peut continuer ainsi et à un ordre $n$, on veut que $p^{(n)}(0)=f^{(n)}(0)$. Notre polynôme s'écrira donc comme
+$$
+p(x)=f(0)+xf'(0)+\frac{1}{2}x^2f''(0)+\frac{1}{6}x^3f'''(0)+...+\frac{1}{n!}x^nf^{(n)}(0).
+$$
+Cette somme s'appelle la série de *Maclaurin* de $f(x)$. En utilisant la notation des séries on peut écrire
+$$
+p(x)=\sum_{i=0}^N\frac{1}{n!}x^n f^{(n)}(0).
+$$
+On peut généraliser la série de Maclaurin pour approximer une fonction autour d'un point arbitraire $x_0$. Avec un raisonnement similaire à ce que nous avons fait plus haut, nous voulons construire une fonction polynomiale $p(x)$, telle que
+\begin{align}
+p(x_0)&=f(x_0),\\
+p'(x_0)&=f'(x_0),\\
+p''(x_0)&=f''(x_0),\ \mbox{etc.}
+\end{align}
+Avec ces conditions, nous pouvons construire la série de *Taylor* de degré $N$ de la fonction $f$ autour de $x_0$ comme
+$$
+p(x)=\sum_{i=0}^N\frac{1}{n!}(x-x_0)^n f^{(n)}(x_0).
+$$
+
+
+
+
 
 # Remerciements
 
