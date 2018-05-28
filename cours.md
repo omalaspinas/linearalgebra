@@ -3277,6 +3277,7 @@ $$
 S_k(u)=\sum_{i=0}^ku_i=u_0+u_1+u_2+u_3+...+u_k,
 $$
 où $k$ est le nombre de terme que nous voulons sommer, et $u$ le terme général (la suite correspondant à la somme).
+La somme $S_k$ s'appelle également *somme partielle*.
 De façon générale on note une somme entre les indice $a$ et $b$ comme
 $$
 \sum_{i=a}^bu_i=u_a+u_{a+1}+u_{a+2}+...+u_{b-2}+u_{b-1}+u_b.
@@ -3365,7 +3366,7 @@ $$
 ---
 
 Nous avons un façon simple de savoir si une série diverge. Il est certain que si le terme général de la série $u_n$ ne tend pas vers zéro pour $n\rightarrow \infty$ alors la série diverge. Nous pouvons également affirmer que si une série converge, alors son terme général, $u_n$, tend vers $0$ pour $n\rightarrow\infty$. Nous pouvons aisément démontrer cette propriété. 
-Supposons que la série $S_n=\sum_{i=0}^n u_n$ converge pour $n\rightarrow\infty$ vers $S$. On a donc que 
+Supposons que la série $S_n=\sum_{i=0}^n u_i$ converge pour $n\rightarrow\infty$ vers $S$. On a donc que 
 $$
 S=\lim_{n\rightarrow \infty}S_n.
 $$
@@ -3434,6 +3435,21 @@ Cette somme s'appelle la série de *Maclaurin* de $f(x)$. En utilisant la notati
 $$
 p(x)=\sum_{i=0}^N\frac{1}{n!}x^n f^{(n)}(0).
 $$
+
+---
+
+Exercice (Série de Maclaurin) +.#
+
+Calculer la série de Maclaurin des fonctions suivantes
+
+1. $f(x)=e^x$.
+2. $f(x)=\frac{1}{1+x}$.
+3. $f(x)=\sqrt{x}$.
+4. $f(x)=1+\frac{1}{3}x^3+4 x^4.$
+
+---
+
+
 On peut généraliser la série de Maclaurin pour approximer une fonction autour d'un point arbitraire $x_0$. Avec un raisonnement similaire à ce que nous avons fait plus haut, nous voulons construire une fonction polynomiale $p(x)$, telle que
 \begin{align}
 p(x_0)&=f(x_0),\\
