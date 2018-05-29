@@ -3454,16 +3454,70 @@ On peut généraliser la série de Maclaurin pour approximer une fonction autour
 \begin{align}
 p(x_0)&=f(x_0),\\
 p'(x_0)&=f'(x_0),\\
-p''(x_0)&=f''(x_0),\ \mbox{etc.}
+p''(x_0)&=f''(x_0).\ \mbox{etc.}
 \end{align}
-Avec ces conditions, nous pouvons construire la série de *Taylor* de degré $N$ de la fonction $f$ autour de $x_0$ comme
+Si nous faisions, comme pour la série de Maclaurin, nous construirions 
+$p(x)$ comme
+$$
+p(x)=f(x_0)+xf'(x_0)+\frac{1}{2}x^2f''(x_0)+...\nonumber.
+$$
+Hors il est certain que cette approximation ne serait pas correcte. En effet, 
+$p(x_0)=f(x_0)+x_0f'(x_0)+...\neq f(x_0)$ (et de même pour $p'(x_0)$). Afin, 
+que toutes les conditions ci-dessus soient satisfaites, nous devons écrire notre approximation comme
+$$
+p(x)=f(x_0)+(x-x_0)f'(x_0)+\frac{1}{2}(x-x_0)^2f''(x_0)+...+\frac{1}{n!}(x-x_0)^Nf^{(N)}(x_0).
+$$
+Cette somme est la série de *Taylor* de degré $N$ de la fonction $f$ autour de $x_0$. Nous pouvons la noter de façon plus courte comme
 $$
 p(x)=\sum_{i=0}^N\frac{1}{n!}(x-x_0)^n f^{(n)}(x_0).
 $$
 
+Il existe divers questions intéressantes que nous pouvons nous poser. La première est la question de l'erreur que nous allons commettre lors de notre développement en série de Taylor. En particulier que vaudra
+$$
+E(x)=f(x)-p(x).
+$$
+Nous avons de façon triviale que $E(x_0)=f(x_0)-p(x_0)=0$ (c'est une des conditions que nous avons posée pour construire $p(x)$ un peu plus haut).
+Mais en fait par construction on va également avoir que toutes les dérivées 
+jusqu'à un degré $N$ de $E(x)$ évaluées en $x_0$ vont également s'annuler. En effet, comme la $n$-ème dérivée de 
+$E(x)$ peut s'écrire
+$$
+E^{(n)}(x)=f^{(n)}(x)-p^{(n)}(x).
+$$
+On a alors que
+\begin{align}
+E'(x_0)&=f'(x_0)-p'(x_0)=0,\\
+E''(x_0)&=f''(x_0)-p''(x_0)=0,\\
+&\cdots,\nonumber\\
+E^{(N)}(x_0)&=f^{(N)}(x_0)-p^{(N)}(x_0)=0.
+\end{align}
+Considérons à présent la dérivée $N+1$-ème de l'erreur 
+$$
+E^{(N+1)}(x)=f^{(N+1)}(x)-\underbrace{p^{(N+1)}(x)}_{=0}=f^{(N+1)}(x).
+$$
+Nous supposons également que $x\in[x_0,x_1]$ est dans un intervalle $x_0$, $x_1$. Nous souhaiterions pouvoir écrire à présent que $|E(x_1)|\leq M$ (que l'erreur est bornée), $M\in\real$. Pour ce faire nous allons supposer que la $N+1$ dérivée de $f$ est bornée dans l'intervalle $[x_0,x_1]$, soit
+$$
+|f^{(N+1)}(x)|\leq K,\ x\in[x_0,x_1],\ K\in\real.
+$$
+On peut donc en déduire que 
+$$
+|E^{(N+1)}(x)|\leq K,
+$$
+étant donné que $|E^{(N+1)}(x)|=|f^{(N+1)}(x)|$.
 
-
-
+On va à présent chercher $E^{(N)}$, en fonction de $K$. On cherche la fonction, qui dérivée donne $K$. On a donc que 
+$$
+E^{(N)}(x)\leq K\cdot x+C,\ C\in\real.
+$$
+Mais on sait que $E^{(N)}(x_0)=0$. On peut donc écrire que dans le meilleur des cas, $C=-Kx_0$, et il vient
+$$
+E^{(N)}(x)\leq K\cdot (x-x_0).
+$$
+Et en continuant ainsi on a en fait
+\begin{align}
+E^{(N-1)}(x)&=K\frac{\cdot (x-x_0)^2}{2},\\
+&\cdots
+E(x)&=K\frac{\cdot (x-x_0)^{N+1}}{(N+1)!}.
+\end{align}
 
 # Remerciements
 
