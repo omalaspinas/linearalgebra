@@ -3497,14 +3497,14 @@ $$
 Nous supposons également que $x\in[x_0,x_1]$ est dans un intervalle $x_0$, $x_1$. Nous souhaiterions pouvoir écrire à présent que $|E(x_1)|\leq M$ (que l'erreur est bornée), $M\in\real$. Pour ce faire nous allons supposer que la $N+1$ dérivée de $f$ est bornée dans l'intervalle $[x_0,x_1]$, soit
 $$
 |f^{(N+1)}(x)|\leq K,\ x\in[x_0,x_1],\ K\in\real.
-$$
+$${#eq:d_finie}
 On peut donc en déduire que 
 $$
 |E^{(N+1)}(x)|\leq K,
 $$
 étant donné que $|E^{(N+1)}(x)|=|f^{(N+1)}(x)|$.
 
-On va à présent chercher $E^{(N)}$, en fonction de $K$. On cherche la fonction, qui dérivée donne $K$. On a donc que 
+On va à présent chercher $E^{(N)}$[^5], en fonction de $K$. On cherche la fonction, qui dérivée donne $K$. On a donc que 
 $$
 E^{(N)}(x)\leq K\cdot x+C,\ C\in\real.
 $$
@@ -3514,10 +3514,42 @@ E^{(N)}(x)\leq K\cdot (x-x_0).
 $$
 Et en continuant ainsi on a en fait
 \begin{align}
-E^{(N-1)}(x)&=K\frac{\cdot (x-x_0)^2}{2},\\
-&\cdots
-E(x)&=K\frac{\cdot (x-x_0)^{N+1}}{(N+1)!}.
+E^{(N-1)}(x)&\leq K\cdot \frac{(x-x_0)^2}{2},\\
+&\cdots,\nonumber\\
+E(x)&\leq K\cdot\frac{(x-x_0)^{N+1}}{(N+1)!}.
 \end{align}
+On constate donc que la erreur croît avec $x-x_0$ (mais elle est toujours bornée). Donc plus on sera éloigné du point autour duquel nous effectuons le développement de Taylor, plus l'erreur sera importante. 
+
+Une autre remarque importante est que l'erreur devient de plus en plus petite au fur et à mesure que $N$ devient grand pour un $x$ fixé. On a même que $E(x)$ tend vers $0$ pour $N\rightarrow \infty$. 
+
+---
+
+Remarque (Dérivée finie) +.#
+
+Tous ces résultats ne son possibles que si $f$ et toutes ses dérivées sont finies dans l'intervalle $[x,x_0]$. C'est l'hypothèse que nous avons faite à 
+l'@eq:d_finie.
+
+---
+
+## Convergence des séries
+
+Une question que nous pouvons nous poser avec les séries de Taylor est celle de leur convergence si $N\rightarrow\infty$. En effet, la série de Taylor jusqu'à un degré $N$ d'une fonction $f$ étant donnée par
+\begin{align}
+p_N(x)=\sum_{n=0}^N\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n,
+\end{align}
+nous pouvons nous poser la question de la condition pour laquelle cette somme infinie sera finie. En fait, si $f^{(n)}(x_1)$ (pour tout $n$) est finie pour $x_1\in[x_0,x]$, on peut montrer que cette somme infinie convergera toujours vers $f(x)$. Mais nous n'allons pas le faire ici. Nous pouvons assez aisément montrer que la suite générale de la série, elle, converge, ce qui est un premier pas comme nous l'avons vu.
+
+### La somme partielle comme suite
+
+Nous allons d'abord essayer de comprendre comment déterminer si une série converge. Pour cela on va essayer de réutiliser ce qu'on sait des suites. En effet, une somme partielle n'est rien d'autre qu'une suite. Soit $S_n$ la somme partielle de terme général $u_i$
+$$
+S_n=\sum_{i=0}^nu_i.
+$$
+On peut dire que $(S_n)_{n=0}^\infty$ est une suite étant donné qu'elle ne dépend que de l'indice $n$. On va pouvoir utiliser les propriétés des suites pour déterminer la convergence des séries.
+
+En particulier, pour déterminer la convergence, ou non, d'une série, on ne s'intéressera qu'à ce qui se passe pour $n$ "grand" (les premiers termes nous laissent indifférents).
+
+
 
 # Remerciements
 
@@ -3527,3 +3559,4 @@ Nous voudrions remercier par ordre alphabétique les étudiants du cours qui a c
 [^2]: Une autre notation est $\mathbf{A}$.
 [^3]: On peut remplacer $\real$ par un autre ensemble, comme $\natural$, $\rational$, ou encore $\complex$.
 [^4]: En pratique ce sont des nombre naturels (ou des tuples de nombres naturels) mais pour simplifier considérons que tous les nombres sont réels.
+[^5]: On fait une grosse simplification ici. On suppose que $E(x)$ est positif, hors cela n'eat pas nécessairement le cas. Néanmoins, les résultats ci-dessous sont vrais également pour $E(x)$ quelconque.
