@@ -3539,6 +3539,30 @@ p_N(x)=\sum_{n=0}^N\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n,
 \end{align}
 nous pouvons nous poser la question de la condition pour laquelle cette somme infinie sera finie. En fait, si $f^{(n)}(x_1)$ (pour tout $n$) est finie pour $x_1\in[x_0,x]$, on peut montrer que cette somme infinie convergera toujours vers $f(x)$. Mais nous n'allons pas le faire ici. Nous pouvons assez aisément montrer que la suite générale de la série, elle, converge, ce qui est un premier pas comme nous l'avons vu.
 
+Ce qui va nous intéresser dans ce chapitre est la convergence de séries et quels critères nous pouvons appliquer pour déterminer la convergence ou non d'une série. En effet, la convergence ou non d'une série peut être assez contre-intuitif et est quelque chose de pas trivial à déterminer. 
+
+---
+
+Illustration (Convergence ou non) +.#
+
+La série harmonique de terme général $u_n=\frac{1}{n+1}$ 
+$$
+S_N=\sum_{i=0}^n\frac{1}{n+1}=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{N+1},
+$$
+diverge pour $N\rightarrow\infty$. On peut le démontrer par l'absurde. Si la série converge, cela signifie que[^6]
+$$
+\lim_{N\rightarrow\infty}\left(S_{2N-1}-S_{N-1}\right)=0.
+$$
+Mais si on calcule $S_{2N-1}-S_{N-1}$ on a
+$$
+S_{2N-1}-S_{N-1}=\sum_{n=N}^{2N-1}\frac{1}{1+n}=\underbrace{\frac{1}{1+N}}_{\leq 1/(2N)}+\underbrace{\frac{1}{2+N}}_{\leq 1/(2N)}+\cdots+\frac{1}{2N}\leq \frac{N}{2N}=\frac{1}{2}.
+$$
+On voit qu'en fait l'hypothèse est absurde et donc que la série ne converge pas.
+
+Cette constatation est surprenante, car le terme $1/(1+n)\rightarrow 0$, $n\rightarrow\infty$. On voit néanmoins que la somme diverge. Le critère à appliquer est donc un peu plus compliqué que cela.
+
+---
+
 ### La somme partielle comme suite
 
 Nous allons d'abord essayer de comprendre comment déterminer si une série converge. Pour cela on va essayer de réutiliser ce qu'on sait des suites. En effet, une somme partielle n'est rien d'autre qu'une suite. Soit $S_n$ la somme partielle de terme général $u_i$
@@ -3549,6 +3573,80 @@ On peut dire que $(S_n)_{n=0}^\infty$ est une suite étant donné qu'elle ne dé
 
 En particulier, pour déterminer la convergence, ou non, d'une série, on ne s'intéressera qu'à ce qui se passe pour $n$ "grand" (les premiers termes nous laissent indifférents).
 
+---
+
+Illustration (Séries particulières) +.#
+
+La série $S_N=\sum_{n=0}^N r^n$ converge pour $r<1$. Pour le démontrer on doit d'abord calculer $S_N$. En écrivant $S_N$ et $rS_N$, on a
+\begin{align}
+S_N=1+r+r^2+...+r^N,\\
+rS_N=r+r^2+r^3+...+r^{N+1}.
+\end{align}
+En soustrayant ces deux équations on obtient
+$$
+(1-r)S_N=1-r^{N+1}.
+$$
+A présent si $r\neq 1$, il vient
+$$
+S_N=\frac{1-r^{N+1}}{1-r}.
+$$
+Si en revanche $r=1$, il est trivial de voir que $S_N=N+1$.
+
+On voit aisément à présent que la suite $S_N$ converge si $r<1$
+$$
+\lim_{N\rightarrow \infty}S_N=\frac{1}{1-r}-\lim_{N\rightarrow \infty}\frac{r^{N+1}}{1-r}=\frac{1}{1-r}.
+$$
+En revanche si $r\geq 1$, il est également aisé de voir que la suite diverge.
+
+---
+
+### Séries à termes positifs
+
+Pour déterminer ou non la convergence d'une série, nous allons nous intéresser à la convergence de la suite des sommes partielles en réalité. Ici nous considérons des séries définies à partir de termes généraux positifs, soit
+$$
+S_N=\sum_{n=0}^N u_n,\ u_n>0,\ \forall n.
+$$
+Dans ce cas, la séries converge si et seulement si la suite $S_N$ est majorée. C'est-à-dire qu'il existe un $M\in\real$, tel que
+$$
+S_N\leq M,\ \forall N.
+$$
+A l'inverse, si la suite des sommes partielles n'est pas majorée, la somme croîtra à l'infini et divergera donc.
+
+Pour ce genre de séries, on a un autre critère qui peut sembler trivial, mais qui est très pratique en réalité. Si on a deux suites réelles, $u_n$, $v_n$, qui sont à termes positifs et que $0\leq u_n\leq v_n$, alors
+
+1. Si la série de terme général $v_n$ converge, alors la série de terme général $u_n$ converge.
+2. Si la série de terme général $u_n$ diverge, alors la série de terme général $v_n$ diverge.
+
+---
+
+Illustration (Convergences diverses) +.#
+
+Nous avons vu que la série $\sum_{n=0}^\infty\frac{1}{n+1}$ diverge. Qu'en est-il pour la série $\sum_{n=1}\frac{1}{n^2}$?
+
+Pour décider si cette série converge, nous réalisons d'abord que cela revient à montrer que $\sum_{i=2}^N\frac{1}{n^2}$ converge. En fait, on peut majorer cette série par
+$$
+\sum_{n=2}^N\frac{1}{n^2}\leq \sum_{n=2}^N\frac{1}{n^2-n}.
+$$
+On a donc que si $\sum_{i=2}^N\frac{1}{n^2-n}$ converge on aurait que 
+$\sum_{i=2}^N\frac{1}{n^2}$ converge, selon ce qu'on vient de voir plus haut.
+
+Il nous reste à voir $\sum_{n=2}^N\frac{1}{n^2-n}$ converge. Pour ce faire 
+on va écrir 
+$$
+\sum_{i=2}^N\frac{1}{n^2-n}=\sum_{n=2}^N\left(\frac{1}{n-1}+\frac{1}{n}\right).
+$$
+On peut maintenant assez aisément évaluer la somme
+$$
+\sum_{i=2}^N\left(\frac{1}{n-1}-\frac{1}{n}\right)=
+\left(1-\frac{1}{2}\right)+\left(\frac{1}{2}-\frac{1}{3}\right)+\cdots+\left(\frac{1}{N-1}-\frac{1}{N}\right)=1-\frac{1}{N}.
+$$
+On voit que 
+$$
+\lim_{N\rightarrow\infty}\sum_{n=2}^N\frac{1}{n^2-n}=1.
+$$
+On peut finalement en déduire que $\sum_{n=1}^\infty \frac{1}{n^2}$ converge.
+
+---
 
 
 # Remerciements
@@ -3560,3 +3658,7 @@ Nous voudrions remercier par ordre alphabétique les étudiants du cours qui a c
 [^3]: On peut remplacer $\real$ par un autre ensemble, comme $\natural$, $\rational$, ou encore $\complex$.
 [^4]: En pratique ce sont des nombre naturels (ou des tuples de nombres naturels) mais pour simplifier considérons que tous les nombres sont réels.
 [^5]: On fait une grosse simplification ici. On suppose que $E(x)$ est positif, hors cela n'eat pas nécessairement le cas. Néanmoins, les résultats ci-dessous sont vrais également pour $E(x)$ quelconque.
+[^6]: Comme la suite est supposée convergente, on a 
+$$
+\lim_{N\rightarrow\infty}S_{2N-1}=\lim_{N\rightarrow\infty}S_{N-1}=S.
+$$
