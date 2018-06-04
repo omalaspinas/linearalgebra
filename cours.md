@@ -3577,7 +3577,7 @@ En particulier, pour déterminer la convergence, ou non, d'une série, on ne s'i
 
 Illustration (Séries particulières) +.#
 
-La série $S_N=\sum_{n=0}^N r^n$ converge pour $r<1$. Pour le démontrer on doit d'abord calculer $S_N$. En écrivant $S_N$ et $rS_N$, on a
+La série $S_N=\sum_{n=0}^N r^n$ converge pour $|r|<1$. Pour le démontrer on doit d'abord calculer $S_N$. En écrivant $S_N$ et $rS_N$, on a
 \begin{align}
 S_N=1+r+r^2+...+r^N,\\
 rS_N=r+r^2+r^3+...+r^{N+1}.
@@ -3592,7 +3592,7 @@ S_N=\frac{1-r^{N+1}}{1-r}.
 $$
 Si en revanche $r=1$, il est trivial de voir que $S_N=N+1$.
 
-On voit aisément à présent que la suite $S_N$ converge si $r<1$
+On voit aisément à présent que la suite $S_N$ converge si $|r|<1$
 $$
 \lim_{N\rightarrow \infty}S_N=\frac{1}{1-r}-\lim_{N\rightarrow \infty}\frac{r^{N+1}}{1-r}=\frac{1}{1-r}.
 $$
@@ -3648,6 +3648,92 @@ On peut finalement en déduire que $\sum_{n=1}^\infty \frac{1}{n^2}$ converge.
 
 ---
 
+---
+
+Illustration (Nombres réels) +.#
+
+Soit $(u_n)_{n=0}^\infty\in[0,9]\in\natural$ use suite d'entiers. Nous pouvons construire une série telle que
+$$
+\sum_{n=0}^\infty u_n\cdot 10^{-n}.
+$$
+Cette série est convergente et est par définition le nombre dont l'écriture décimale est
+$$
+u_0u_1u_2...u_n...
+$$
+
+---
+
+### Critères de Cauchy et de d'Alembert
+
+Les séries géométriques sont particulièrement pratiques pour déterminer certains critères de convergence. Ces deux critères sont les critères de Cauchy et de d'Alembert. Ils s'énonent comme:
+
+**Critère de Cauchy **
+
+Soit $(u_n)_{n=0}^\infty$ une suite réelle à termes positifs. Si 
+$$
+\lim_{n\rightarrow\infty} \left(u_n\right)^{1/n}=l,\ l\in\real^+,
+$$
+alors 
+1. Si $l<1$, alors la séries converge.
+2. Si $l>1$, alors la série diverge.
+
+**Critère de d'Alembert**
+
+Soit $(u_n)_{n=0}^\infty$ une suite réelle à termes positifs. Si 
+$$
+\lim_{n\rightarrow\infty} \left(\frac{u_{n+1}}{u_n}\right))=l,\ l\in\real^+,
+$$
+alors 
+1. Si $l<1$, alors la séries converge.
+2. Si $l>1$, alors la série diverge.
+
+**Démonstration**
+
+Pour montrer (1), nous voulons essayer de borner la série $u_n$. Pour ce faire supposons que $l<1$. Nous pouvons alors définir un réel $m$, tel que $l<m<1$ (il en existe toujours un, mais pour être plus précis disons $m=(l+1)/2$ par exemple). Comme $u_n>0$, à partir d'un certain $n_0$, nous aurons que 
+$$
+\frac{u_{n+1}}{u_n}\leq m,\ \forall n\geq n_0.
+$$
+Nous pouvons réécrire cette relation comme
+$$
+u_{n+1}\leq u_n m.
+$$
+Par conséquent, on a
+$$
+u_{n+1}\leq u_n m \Rightarrow  u_{n+1}\leq u_{n_0} m^{n-n_0}=m^n\left(\frac{u_{n_0}}{m}\right)^{n_0}.
+$$
+Et comme nous savons que la série de terme général $m^n$ converge pour $0\leq m<1$, la série $u_n$ converge également.
+
+---
+
+Remarque (Si $l=$) +.#
+
+Dans les deux cas, si $l=$, nous ne pouvons rien conclure. Par exemple:
+
+	- Si $u_n=\frac{1}{n+1}$, nous avons 
+	$$
+	\lim_{n\rightarrow \infty}\frac{u_{n+1}}{u_n}=\lim_{n\rightarrow \infty}{n+2}{n+1}=1.
+	$$
+	Or nous savons que cette série diverge.
+	- Si $u_n=\frac{1}{(n+1)^2}$, nous avons 
+	$$
+	\lim_{n\rightarrow \infty}\frac{u_{n+1}}{u_n}=\lim_{n\rightarrow \infty}{(n+1)^2}{(n+1)^2}=1.
+	$$
+	Or nous savons que cette série converge.
+
+---
+
+---
+
+Exercice (Critères) +.#
+
+Les séries de terme général suivant convergent-elles?
+
+1. $u_n=\frac{2^n}{n+1}$.
+2. $u_n=\frac{1}{2^n}$.
+3. $u_n=\frac{n}{(1+n)^n}$.
+4. $u_n=\frac{n^{n+1}}{(1+n)^n}$.
+
+---
 
 # Remerciements
 
