@@ -3705,18 +3705,18 @@ Et comme nous savons que la série de terme général $m^n$ converge pour $0\leq
 
 ---
 
-Remarque (Si $l=$) +.#
+Remarque (Si $l=1$) +.#
 
 Dans les deux cas, si $l=$, nous ne pouvons rien conclure. Par exemple:
 
-	- Si $u_n=\frac{1}{n+1}$, nous avons 
+- Si $u_n=\frac{1}{n+1}$, nous avons 
 	$$
-	\lim_{n\rightarrow \infty}\frac{u_{n+1}}{u_n}=\lim_{n\rightarrow \infty}{n+2}{n+1}=1.
+	\lim_{n\rightarrow \infty}\frac{u_{n+1}}{u_n}=\lim_{n\rightarrow \infty}\frac{n+1}{n+2}=1.
 	$$
 	Or nous savons que cette série diverge.
-	- Si $u_n=\frac{1}{(n+1)^2}$, nous avons 
+- Si $u_n=\frac{1}{(n+1)^2}$, nous avons 
 	$$
-	\lim_{n\rightarrow \infty}\frac{u_{n+1}}{u_n}=\lim_{n\rightarrow \infty}{(n+1)^2}{(n+1)^2}=1.
+	\lim_{n\rightarrow \infty}\frac{u_{n+1}}{u_n}=\lim_{n\rightarrow \infty}\frac{(n+1)^2}{(n+2)^2}=1.
 	$$
 	Or nous savons que cette série converge.
 
