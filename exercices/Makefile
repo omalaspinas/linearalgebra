@@ -2,7 +2,10 @@ FILTERS = --filter=pandoc-numbering --filter=pandoc-crossref
 TEMPLATE = --template=../default.latex
 PDFENGINE = --pdf-engine pdflatex
 
-all: interp_bilineaire.pdf systeme_eq.pdf determinants.pdf matrix_inverse.pdf matrice_rot.pdf matrices.pdf fun_lin.pdf vecteurs.pdf taylor.pdf
+all: series.pdf interp_bilineaire.pdf systeme_eq.pdf determinants.pdf matrix_inverse.pdf matrice_rot.pdf matrices.pdf fun_lin.pdf vecteurs.pdf taylor.pdf
+
+series.pdf: series.md
+	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
 
 taylor.pdf: taylor.md
 	pandoc -s -o $@ $< $(FILTERS) $(TEMPLATE) $(PDFENGINE)
