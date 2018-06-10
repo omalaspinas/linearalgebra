@@ -846,7 +846,7 @@ Soient une matrice, $\mat{A}$, de taille $m\times n$ et un vecteur, $\vec v$, de
 $$
 \{\mat{A}\cdot \vec v\}_i=u_i=\sum_{k=1}^n a_ij\cdot v_j=a_{i1}\cdot a_1+\dots+a_{in}\cdot a_n,\mbox{ avec } i=1,...,m.
 $${#eq:mat_vec}
-On constate d'après cette définition qu'il est très important que le nombre de colonnes du vecteur soit le même que le nombre de lignes du vecteur, sinon ce produit est mal défini.
+On constate d'après cette définition qu'il est très important que le nombre de colonnes de la matrice soit le même que le nombre de lignes du vecteur, sinon ce produit est mal défini.
 
 ---
 
