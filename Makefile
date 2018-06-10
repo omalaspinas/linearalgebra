@@ -7,6 +7,7 @@ STYLES := css/tufte-css/tufte.css \
 all: cours.pdf cours.html
 
 cours.pdf: cours.md default.latex
+	cd figs; ./convert.sh
 	pandoc -s -o  $@ $< --toc --highlight-style kate --filter=pandoc-numbering --number-sections --filter=pandoc-crossref --template=./default.latex --pdf-engine pdflatex
 
 # cours.epub: cours.md default.latex
