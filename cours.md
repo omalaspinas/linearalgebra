@@ -2739,7 +2739,7 @@ Cette solution peut se calculer de cette façon uniquement si $\mat{A}^{-1}$ est
 
 ### La décomposition $LU$
 
-Comme nous l'avons vu précédemment le calcul de l'inverse d'une matrice est quelquechose qui n'est pas simple. Dans la définition générale, cela implique le calcul récursif de déterminants (ce qui est très coûteux). Une méthode plus efficace de résolution de système linéaire peut se faire sans calcul explicite de l'inverse. Pour discuter une des méthodes porssibles, nous allons d'abord tenter de résoudre un cas particulier de système linéaire. Soit le système linéaire suivant
+Comme nous l'avons vu précédemment le calcul de l'inverse d'une matrice est quelquechose qui n'est pas simple. Dans la définition générale, cela implique le calcul récursif de déterminants (ce qui est très coûteux). Une méthode plus efficace de résolution de système linéaire peut se faire sans calcul explicite de l'inverse. Pour discuter une des méthodes possibles, nous allons d'abord tenter de résoudre un cas particulier de système linéaire. Soit le système linéaire suivant
 \begin{align}
 &a_{11} x_1+a_{12} x_2+...+a_{1n-1} x_{n-1}+a_{1n} x_n=b_1,\\
 &a_{22} x_2+...+a_{2n-1} x_{n-1}+a_{2n} x_n=b_2,\\
@@ -2831,7 +2831,7 @@ l_{31} & l_{32} & 1
 \end{pmatrix}.
 \end{equation}
 
-Notons $r_1$, $r_2$ et $r_3$ les trois lignes (rows en bon français) de la matrice $\mat{A}$. Nous souhaitons d'abord éliminer l'élément $a_{21}$. Pour cela la deuxième ligne nous devons écrire la deuxième ligne de la matrice comme 
+Notons $r_1$, $r_2$ et $r_3$ les trois lignes (rows en bon français) de la matrice $\mat{A}$. Nous souhaitons d'abord éliminer l'élément $a_{21}$. Pour cela nous devons écrire la deuxième ligne de la matrice comme 
 $$
 r_2'=-1\cdot r_1+r_2.
 $$
@@ -2891,7 +2891,7 @@ et $\mat{L}$ devient
 -3 & -\frac{5}{3} & 1
 \end{pmatrix}.
 \end{equation}
-On peut aisément que $\mat{L}\cdot \mat{U}=\mat{A}$.
+On peut aisément voir que $\mat{L}\cdot \mat{U}=\mat{A}$.
 
 On peut à présent résoudre ce système en deux étapes.
 
