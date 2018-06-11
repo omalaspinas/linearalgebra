@@ -846,7 +846,7 @@ Soient une matrice, $\mat{A}$, de taille $m\times n$ et un vecteur, $\vec v$, de
 $$
 \{\mat{A}\cdot \vec v\}_i=u_i=\sum_{k=1}^n a_ij\cdot v_j=a_{i1}\cdot a_1+\dots+a_{in}\cdot a_n,\mbox{ avec } i=1,...,m.
 $${#eq:mat_vec}
-On constate d'après cette définition qu'il est très important que le nombre de colonnes du vecteur soit le même que le nombre de lignes du vecteur, sinon ce produit est mal défini.
+On constate d'après cette définition qu'il est très important que le nombre de colonnes de la matrice soit le même que le nombre de lignes du vecteur, sinon ce produit est mal défini.
 
 ---
 
@@ -866,7 +866,7 @@ En utilisant la définition de l'@eq:mat_vec, on a que
 $$
 \{\mat{I}\cdot \vec v\}_i=\sum_{i=1}^2 i_{ij}\cdot v_j,
 $$
-ou réécrit par composante
+ou réécrit par composantes
 $$
 \begin{aligned}
 &i=1:\quad \{\mat{I}_2\cdot \vec v\}_1=\sum_{i=1}^2 i_{1j}\cdot v_j=i_{11}\cdot v_1+i_{12}\cdot v_2=v_1,\\
@@ -1112,7 +1112,7 @@ résultat qu'à l'@eq:mat_r (nous voilà donc rassurés).
 
 ---
 
-Afin de compliquer un peu l'affaire essayons de voir un ca un peu plus compliqué, où
+Afin de compliquer un peu l'affaire essayons de voir un cas un peu plus compliqué, où
 la transformation linéaire fait intervenir plus de dimensions
 
 ---
