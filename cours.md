@@ -3674,6 +3674,7 @@ $$
 \lim_{n\rightarrow\infty} \left(u_n\right)^{1/n}=l,\ l\in\real^+,
 $$
 alors 
+
 1. Si $l<1$, alors la séries converge.
 2. Si $l>1$, alors la série diverge.
 
@@ -3684,6 +3685,7 @@ $$
 \lim_{n\rightarrow\infty} \left(\frac{u_{n+1}}{u_n}\right))=l,\ l\in\real^+,
 $$
 alors 
+
 1. Si $l<1$, alors la séries converge.
 2. Si $l>1$, alors la série diverge.
 
