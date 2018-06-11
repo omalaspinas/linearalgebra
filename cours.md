@@ -1640,7 +1640,7 @@ Ce qui démontre la seconde propriété des applications linéaires.
 Nous venons de montrer que la fonction inverse d'une application linéaire est elle-même linéaire.
 Nous avons également vu plus tôt dans le cours, que toute application linéaire peut se représenter à l'aide d'une
 matrice. Nous avons noté $\mat{F}\in M_{n,n}(\real)$ la matrice de l'application linéaire $f:\real^n\rightarrow\real^n$. De façon similaire, nous noterons
-$\mat{F}^{-1}\in M_{n,n}(\real)$ la matrice de l'inverse de l'allication linéaire $f^{-1}:\real^n\rightarrow\real^n$.
+$\mat{F}^{-1}\in M_{n,n}(\real)$ la matrice de l'inverse de l'application linéaire $f^{-1}:\real^n\rightarrow\real^n$.
 
 Du lien matrice-application linéaire nous pouvons écrire
 $$
@@ -1750,7 +1750,7 @@ Comme pour le produit matrice-vecteur, le produit matrice-matrice n'est pas comm
 \end{equation}
 D'une part il se peut que les dimensions des matrices ne soient pas compatibles.
 En effet, comme $\mat{A}\in M_{m,k}(\real)$ et $\mat{B}\in M_{k,n}(\real)$, pour que les dimensions soient compatibles pour le
-produit $\mat{B}\cdot\mat{A}$, il est nécessaire que $m$ et $n$ ce qui n'est pas garanti dans ce cas.
+produit $\mat{B}\cdot\mat{A}$, il est nécessaire que $m$ et $n$ soient égaux ce qui n'est pas garanti dans ce cas.
 
 De plus, même si les dimensions sont compatibles, ce qui revient à dire que $\mat{A}$ et $\mat{B}$ sont des matrices carrées ($m=n$),
 le produit de $\mat{A}$ avec $\mat{B}$ n'est pas commutatif en général. En effet, le produit $\mat{D}=\mat{B}\cdot\mat{A}$ s'écrit
@@ -1826,7 +1826,7 @@ $$
 	\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
 	\end{pmatrix}
 $$
-Nous allons à présent effectuer des combinaions linéaires entre les lignes de cette matrice. Dans un premier lieu, nous allon garder la première ligne la même et remplacer la deuxième ligne par la somme entre la première et la deuxième ligne de cette matrice
+Nous allons à présent effectuer des combinaisons linéaires entre les lignes de cette matrice. Dans un premier lieu, nous allons garder la première ligne la même et remplacer la deuxième ligne par la somme entre la première et la deuxième ligne de cette matrice
 $$
 \mat{A}=\begin{pmatrix} 1 & -1 & 1 \\ -1 & 2 & -2 \\ 1 & 1 & -2
 	\end{pmatrix}\rightarrow
@@ -2739,7 +2739,7 @@ Cette solution peut se calculer de cette façon uniquement si $\mat{A}^{-1}$ est
 
 ### La décomposition $LU$
 
-Comme nous l'avons vu précédemment le calcul de l'inverse d'une matrice est quelquechose qui n'est pas simple. Dans la définition générale, cela implique le calcul récursif de déterminants (ce qui est très coûteux). Une méthode plus efficace de résolution de système linéaire peut se faire sans calcul explicite de l'inverse. Pour discuter une des méthodes porssibles, nous allons d'abord tenter de résoudre un cas particulier de système linéaire. Soit le système linéaire suivant
+Comme nous l'avons vu précédemment le calcul de l'inverse d'une matrice est quelquechose qui n'est pas simple. Dans la définition générale, cela implique le calcul récursif de déterminants (ce qui est très coûteux). Une méthode plus efficace de résolution de système linéaire peut se faire sans calcul explicite de l'inverse. Pour discuter une des méthodes possibles, nous allons d'abord tenter de résoudre un cas particulier de système linéaire. Soit le système linéaire suivant
 \begin{align}
 &a_{11} x_1+a_{12} x_2+...+a_{1n-1} x_{n-1}+a_{1n} x_n=b_1,\\
 &a_{22} x_2+...+a_{2n-1} x_{n-1}+a_{2n} x_n=b_2,\\
@@ -2831,7 +2831,7 @@ l_{31} & l_{32} & 1
 \end{pmatrix}.
 \end{equation}
 
-Notons $r_1$, $r_2$ et $r_3$ les trois lignes (rows en bon français) de la matrice $\mat{A}$. Nous souhaitons d'abord éliminer l'élément $a_{21}$. Pour cela la deuxième ligne nous devons écrire la deuxième ligne de la matrice comme 
+Notons $r_1$, $r_2$ et $r_3$ les trois lignes (rows en bon français) de la matrice $\mat{A}$. Nous souhaitons d'abord éliminer l'élément $a_{21}$. Pour cela nous devons écrire la deuxième ligne de la matrice comme 
 $$
 r_2'=-1\cdot r_1+r_2.
 $$
@@ -2891,7 +2891,7 @@ et $\mat{L}$ devient
 -3 & -\frac{5}{3} & 1
 \end{pmatrix}.
 \end{equation}
-On peut aisément que $\mat{L}\cdot \mat{U}=\mat{A}$.
+On peut aisément voir que $\mat{L}\cdot \mat{U}=\mat{A}$.
 
 On peut à présent résoudre ce système en deux étapes.
 
