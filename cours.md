@@ -3216,7 +3216,7 @@ Si $x_\pm\in\real$ nous pouvons avoir différents cas de figure
 
 Dans certains cas, il est très difficile de déterminer les zéros d'une fonction analytiquement (voire cela est impossible) il faut donc recourir à des méthodes numériques, qui sont des méthodes itératives. Une des plus populaires est la méthode de Newton (ou Newton--Raphson). 
 
-Avant de nous plonger dans le détail de la méthode de Newton, nous avons devons voir comment construire l'équation de la tangente d'une fonction (si celle-ci est dérivable) en un point $x_0$. Comme vous le savez, la pente de la tangente d'une fonction en un point $x_0$ est donnée par sa dérivée, $f'(x_0)$. Nous cherchons donc l'équation de la droite de pente $f'(x_0)$ passant par $f(x_0)$ en $x_0$. Nous pouvons réécrire cette équation sous la forme
+Avant de nous plonger dans le détail de la méthode de Newton, nous devons voir comment construire l'équation de la tangente d'une fonction (si celle-ci est dérivable) en un point $x_0$. Comme vous le savez, la pente de la tangente d'une fonction en un point $x_0$ est donnée par sa dérivée, $f'(x_0)$. Nous cherchons donc l'équation de la droite de pente $f'(x_0)$ passant par $f(x_0)$ en $x_0$. Nous pouvons réécrire cette équation sous la forme
 $$
 f(x_0)=f'(x_0)\cdot x_0+b,
 $$
@@ -3301,7 +3301,7 @@ Illustrations (Sommes limitées) +.#
 $$
 S_{10}(i)=\sum_{i=0}^{10} i=0+1+2+3+...+9+10=55.
 $$
-2. La somme du carré des multiplié par 4 des 10 premiers entiers
+2. La somme des carrés multiplié par 4 des 10 premiers entiers
 $$
 S_{10}(4i^2)=\sum_{i=0}^{10} 4\cdot i^2=4\cdot 0+4\cdot 1+4\cdot 4+4\cdot 9+...+4\cdot 100=1540.
 $$
