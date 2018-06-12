@@ -3739,7 +3739,7 @@ Les séries de terme général suivant convergent-elles?
 
 # Remerciements
 
-Nous voudrions remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, T. Pirkl, et J. von der Weid.
+Nous voudrions remercier par ordre alphabétique les étudiants du cours qui a contribué à améliorer ce polycopié. Merci à R. Bach, J. Chételat, M. El Kharroubi,  T. Pirkl, et J. von der Weid.
 
 [^1]: On dit que $K$ est un corps commutatif.
 [^2]: Une autre notation est $\mathbf{A}$.
