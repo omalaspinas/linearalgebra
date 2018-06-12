@@ -3216,7 +3216,7 @@ Si $x_\pm\in\real$ nous pouvons avoir différents cas de figure
 
 Dans certains cas, il est très difficile de déterminer les zéros d'une fonction analytiquement (voire cela est impossible) il faut donc recourir à des méthodes numériques, qui sont des méthodes itératives. Une des plus populaires est la méthode de Newton (ou Newton--Raphson). 
 
-Avant de nous plonger dans le détail de la méthode de Newton, nous avons devons voir comment construire l'équation de la tangente d'une fonction (si celle-ci est dérivable) en un point $x_0$. Comme vous le savez, la pente de la tangente d'une fonction en un point $x_0$ est donnée par sa dérivée, $f'(x_0)$. Nous cherchons donc l'équation de la droite de pente $f'(x_0)$ passant par $f(x_0)$ en $x_0$. Nous pouvons réécrire cette équation sous la forme
+Avant de nous plonger dans le détail de la méthode de Newton, nous devons voir comment construire l'équation de la tangente d'une fonction (si celle-ci est dérivable) en un point $x_0$. Comme vous le savez, la pente de la tangente d'une fonction en un point $x_0$ est donnée par sa dérivée, $f'(x_0)$. Nous cherchons donc l'équation de la droite de pente $f'(x_0)$ passant par $f(x_0)$ en $x_0$. Nous pouvons réécrire cette équation sous la forme
 $$
 f(x_0)=f'(x_0)\cdot x_0+b,
 $$
@@ -3301,7 +3301,7 @@ Illustrations (Sommes limitées) +.#
 $$
 S_{10}(i)=\sum_{i=0}^{10} i=0+1+2+3+...+9+10=55.
 $$
-2. La somme du carré des multiplié par 4 des 10 premiers entiers
+2. La somme des carrés multiplié par 4 des 10 premiers entiers
 $$
 S_{10}(4i^2)=\sum_{i=0}^{10} 4\cdot i^2=4\cdot 0+4\cdot 1+4\cdot 4+4\cdot 9+...+4\cdot 100=1540.
 $$
@@ -3316,7 +3316,7 @@ $$
 
 ---
 
-La somme de $k$ termes d'une suite est *linéaire* (ben oui c'est rien d'autre qu'une somme). En effet, nous pouvons vérifier les propriétés suivantes pour $(u_n)_{n=0}^\infty$, et $(v_n)_{n=0}^\infty$ des suites réelles et $\alpha\in\real$. Si $k\in\natural$ nous avons que
+La somme des $k$ termes d'une suite est *linéaire* (ben oui c'est rien d'autre qu'une somme). En effet, nous pouvons vérifier les propriétés suivantes pour $(u_n)_{n=0}^\infty$, et $(v_n)_{n=0}^\infty$ des suites réelles et $\alpha\in\real$. Si $k\in\natural$ nous avons que
 
 1. La somme de l'addition de deux suites est égale à l'addition de la somme de chacun des suites
 $$
@@ -3539,7 +3539,7 @@ p_N(x)=\sum_{n=0}^N\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n,
 \end{align}
 nous pouvons nous poser la question de la condition pour laquelle cette somme infinie sera finie. En fait, si $f^{(n)}(x_1)$ (pour tout $n$) est finie pour $x_1\in[x_0,x]$, on peut montrer que cette somme infinie convergera toujours vers $f(x)$. Mais nous n'allons pas le faire ici. Nous pouvons assez aisément montrer que la suite générale de la série, elle, converge, ce qui est un premier pas comme nous l'avons vu.
 
-Ce qui va nous intéresser dans ce chapitre est la convergence de séries et quels critères nous pouvons appliquer pour déterminer la convergence ou non d'une série. En effet, la convergence ou non d'une série peut être assez contre-intuitif et est quelque chose de pas trivial à déterminer. 
+Ce qui va nous intéresser dans ce chapitre c'est la convergence de séries et quels critères nous pouvons appliquer pour déterminer la convergence ou non d'une série. En effet, la convergence ou non d'une série peut être assez contre-intuitif et est quelque chose de pas trivial à déterminer. 
 
 ---
 
