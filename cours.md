@@ -3316,7 +3316,7 @@ $$
 
 ---
 
-La somme de $k$ termes d'une suite est *linéaire* (ben oui c'est rien d'autre qu'une somme). En effet, nous pouvons vérifier les propriétés suivantes pour $(u_n)_{n=0}^\infty$, et $(v_n)_{n=0}^\infty$ des suites réelles et $\alpha\in\real$. Si $k\in\natural$ nous avons que
+La somme des $k$ termes d'une suite est *linéaire* (ben oui c'est rien d'autre qu'une somme). En effet, nous pouvons vérifier les propriétés suivantes pour $(u_n)_{n=0}^\infty$, et $(v_n)_{n=0}^\infty$ des suites réelles et $\alpha\in\real$. Si $k\in\natural$ nous avons que
 
 1. La somme de l'addition de deux suites est égale à l'addition de la somme de chacun des suites
 $$
@@ -3539,7 +3539,7 @@ p_N(x)=\sum_{n=0}^N\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n,
 \end{align}
 nous pouvons nous poser la question de la condition pour laquelle cette somme infinie sera finie. En fait, si $f^{(n)}(x_1)$ (pour tout $n$) est finie pour $x_1\in[x_0,x]$, on peut montrer que cette somme infinie convergera toujours vers $f(x)$. Mais nous n'allons pas le faire ici. Nous pouvons assez aisément montrer que la suite générale de la série, elle, converge, ce qui est un premier pas comme nous l'avons vu.
 
-Ce qui va nous intéresser dans ce chapitre est la convergence de séries et quels critères nous pouvons appliquer pour déterminer la convergence ou non d'une série. En effet, la convergence ou non d'une série peut être assez contre-intuitif et est quelque chose de pas trivial à déterminer. 
+Ce qui va nous intéresser dans ce chapitre c'est la convergence de séries et quels critères nous pouvons appliquer pour déterminer la convergence ou non d'une série. En effet, la convergence ou non d'une série peut être assez contre-intuitif et est quelque chose de pas trivial à déterminer. 
 
 ---
 
