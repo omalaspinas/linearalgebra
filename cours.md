@@ -2779,7 +2779,7 @@ $$\mat{U}=\begin{pmatrix} a_{11} & a_{12}  & \cdots & \cdots & a_{1n} \\
                        b_{n} \end{pmatrix}.
 $$
 
-Un autre type de système d'équations pouvant se résoudre de façon simple est le celui composé du produit d'une matrice $\mat{L}$ qui est *diagonale inférieure*
+Un autre type de système d'équations pouvant se résoudre de façon simple est celui composé du produit d'une matrice $\mat{L}$ qui est *diagonale inférieure*
 (les coefficients dans la matrice sont nuls au-dessus la diagonale de la matrice).
 
 Si nous revenons à présent à la résolution du système d'équations
@@ -2896,7 +2896,7 @@ On peut aisément voir que $\mat{L}\cdot \mat{U}=\mat{A}$.
 On peut à présent résoudre ce système en deux étapes.
 
 1. Résoudre le système 
-$$\mat{L}\vec y=\vec b,$$
+$$\mat{L} \cdot \vec y=\vec b,$$
 qui nous donne le système
 \begin{align}
 y_1&=1,\\
@@ -2905,11 +2905,11 @@ y_1+y_2&=1,\\
 \end{align}
 qui se résout itérativement par
 \begin{align}
-y_2&=1,\\
+y_2&=0,\\
 y_3&=4.
 \end{align}
 2. Résoudre 
-$$\mat{U}\vec x=\vec y.$$
+$$\mat{U} \cdot \vec x=\vec y.$$
 Qui se résout itérativement 
 \begin{align}
 x_1+x_2-x_3&=1,\\
